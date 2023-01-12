@@ -113,6 +113,7 @@ undraw (0-t,width-2ft)--(0-t,width-2ft-8ft); % 2ft from the top, 8ft wide
 Add living room
 
 #+begin_src metapost
+path p[];
 ft = 1cm;
 wall_depth = 0.5ft;
 
@@ -133,14 +134,26 @@ draw (0,0)--(garage_width,0)--(garage_width,garage_depth)--(0,garage_depth)--cyc
 
 pickup pensquare scaled 0.5ft; % Draw in the thickness of the walls
 t = wall_depth / 2;
-draw (0-t,0-t)--(garage_width+t,0-t)--(garage_width+t,garage_depth+t)--(0-t,garage_depth+t)--cycle withcolor .8 white;
+p0 = (0,0)--(garage_width,0)
+          --(garage_width,garage_depth)
+          --(0,garage_depth)
+          --cycle;
 
-undraw (garage_width+t,0.5ft)--(garage_width+t,0.5ft+3ft);
-undraw (0-t,5ft)             --(0-t,5ft+8ft);              % 5ft from bottom, 8ft wide
-undraw (0-t,garage_width-2ft)--(0-t,garage_width-2ft-8ft); % 2ft from the top, 8ft wide
+pickup pensquare scaled (2wall_depth);
+draw p0 withcolor .8 white;
+unfill p0;
+undraw (0,garage_depth-2ft)--(0,garage_depth-2ft-8ft); % Top garage door
+undraw (0,5ft)--(0,5ft+8ft); % Bottom garage door
+pickup pensquare scaled 1bp;
+draw p0;
+
+
+%undraw (0-t,5ft)             --(0-t,5ft+8ft);              % 5ft from bottom, 8ft wide
+%undraw (0-t,garage_width-2ft)--(0-t,garage_width-2ft-8ft); % 2ft from the top, 8ft wide
+%undraw (garage_width,0.5ft)--(garage_width+wall_depth,0.5ft+3ft);
+
 
 % L I V I N G   R O O M
-path p[];
 p1 = (0,0)--(living_width,0)--(living_width,living_depth)--(0,living_depth)--cycle;
 
 pickup pensquare scaled (2wall_depth);
@@ -161,6 +174,7 @@ draw p2 shifted (garage_width+wall_depth, 0) withcolor .8 white;
 unfill p2 shifted (garage_width+wall_depth, 0);
 pickup pensquare scaled 1bp;
 draw p2 shifted (garage_width+wall_depth, 0);
+
 
 
 
