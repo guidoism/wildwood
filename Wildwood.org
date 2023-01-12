@@ -1,0 +1,193 @@
+
+Orient up to 90°
+
+wall height = 8'
+6" walls
+
+living = rectangle 38' x 14'6" with:
+  opening on bottom wall 4' wide, 5'9" from left ("living-family")
+  opening on right wall 6' wide, 4'6" from top
+  window on top wall 5'11" wide, 5'3" from left, XX" from floor, XX" from ceiling
+  6 windows on top wall XX' wide, 5'6" from right, XX" from floor, XX" from ceiling, XX" between windows
+
+garage = rectangle 26' x 27'6" with:
+  door on right wall 3' wide, 6" from bottom ("garage-family")
+  door on bottom wall 3' wide, 2" from right
+  window on top, XX" wide, XX" from left, XX" from floor, XX" from ceiling
+  window on top, XX" wide, XX" from right, XX" from floor, XX" from ceiling
+  garagedoor on left, XX" wide, XX" from bottom
+  garagedoor on left, XX" wide, XX" from top
+
+ family = path heading right go 8'6", turn right, go 12', turn left, go 35',
+              turn left, go 16', turn left, go 43'6", turn left, go 4'
+  door on left, 3' wide, 6" from top ("garage-family")
+  opening on top, 4' wide, 4' from left ("living-family")
+  door on bottom, XX" wide, XX" from right, XX" from floor, XX" from ceiling
+  opening on top, XX" wide, 6" from right
+  patiodoor on bottom, XX" wide, 10'3" from right
+  window on bottom, XX" wide, XX" from right, XX" from floor, XX" from ceiling
+  window on bottom, XX" wide, XX" from right, XX" from floor, XX" from ceiling
+  window on bottom, XX" wide, XX" from right, XX" from floor, XX" from ceiling
+
+** Floor plan slices, extrude up until the slice is different
+
+We will start with the floor pretending that the doors don't exist so
+there will be openings there. Then we extrude up until we hit the
+lowest window, then the slice changes and we extrude up again until
+we get to a new slice, and on and on.
+
+We should be able to use anything to generate the slices, not just
+OpenSCAD.
+
+*** Just do it in OpenSCAD
+
+#+begin_src scad
+include <BOSL/constants.scad>
+use <BOSL/transforms.scad>
+
+x = 38;
+y = 14.5;
+t = .5;
+
+difference {
+  square([x, y], center=true);
+  square([x+(2*t), y+(2*t)], center=true);
+}
+#+end_src
+
+*** Try out MetaPost
+
+#+begin_src metapost
+ft = 1cm;
+pickup pensquare scaled 1bp;
+draw (0,0)--(26ft,0)--(26ft,27.5ft)--(0,27.5ft)--cycle;
+pickup pensquare scaled 0.5ft;
+draw (-.25ft,-.25ft)--(26.25ft,-.25ft)--(26.25ft,27.75ft)--(-0.25ft,27.75ft)--cycle withcolor .8 white;
+undraw (26.25ft,0.5ft)--(26.25ft,0.5ft+3ft);
+undraw (-.25ft,3ft)--(-.25ft,10ft);
+undraw (-.25ft,13ft)--(-.25ft,20ft);
+#+end_src
+
+Clean up a bit and use math
+
+#+begin_src metapost
+ft = 1cm;
+wall_depth = 0.5ft;
+
+% Draw the measured room outline
+pickup pensquare scaled 1bp;
+draw (0,0)--(26ft,0)--(26ft,27.5ft)--(0,27.5ft)--cycle;
+
+% Draw in the thickness of the walls
+pickup pensquare scaled 0.5ft;
+t = wall_depth / 2;
+draw (0-t,0-t)--(26ft+t,0-t)--(26ft+t,27.5ft+t)--(0-t,27.5ft+t)--cycle withcolor .8 white;
+
+undraw (26ft+t,0.5ft)--(26ft+t,0.5ft+3ft);
+undraw (0-t,5ft)     --(0-t,5ft+8ft);      % 5ft from bottom, 8ft wide
+undraw (0-t,26ft-2ft)--(0-t,26ft-2ft-8ft); % 2ft from the top, 8ft wide
+#+end_src
+
+Move out numbers into variables
+
+#+begin_src metapost
+ft = 1cm;
+width = 26ft;
+depth = 27.5ft;
+wall_depth = 0.5ft;
+
+% Draw the measured room outline
+pickup pensquare scaled 1bp;
+draw (0,0)--(width,0)--(width,depth)--(0,depth)--cycle;
+
+% Draw in the thickness of the walls
+pickup pensquare scaled 0.5ft;
+t = wall_depth / 2;
+draw (0-t,0-t)--(width+t,0-t)--(width+t,depth+t)--(0-t,depth+t)--cycle withcolor .8 white;
+
+undraw (width+t,0.5ft)--(width+t,0.5ft+3ft);
+undraw (0-t,5ft)       --(0-t,5ft+8ft);      % 5ft from bottom, 8ft wide
+undraw (0-t,width-2ft)--(0-t,width-2ft-8ft); % 2ft from the top, 8ft wide
+#+end_src
+
+Add living room
+
+#+begin_src metapost
+ft = 1cm;
+wall_depth = 0.5ft;
+
+garage_width = 26ft;
+garage_depth = 27.5ft;
+living_width = 38ft;
+living_depth = 14.5ft;
+mud_hall_depth = 4ft;
+
+% G A R A G E
+pickup pensquare scaled 1bp; % Draw the measured room outline
+draw (0,0)--(garage_width,0)--(garage_width,garage_depth)--(0,garage_depth)--cycle;
+
+pickup pensquare scaled 0.5ft; % Draw in the thickness of the walls
+t = wall_depth / 2;
+draw (0-t,0-t)--(garage_width+t,0-t)--(garage_width+t,garage_depth+t)--(0-t,garage_depth+t)--cycle withcolor .8 white;
+
+undraw (garage_width+t,0.5ft)--(garage_width+t,0.5ft+3ft);
+undraw (0-t,5ft)             --(0-t,5ft+8ft);              % 5ft from bottom, 8ft wide
+undraw (0-t,garage_width-2ft)--(0-t,garage_width-2ft-8ft); % 2ft from the top, 8ft wide
+
+% L I V I N G   R O O M
+path p;
+p = (0,0)--(living_width,0)--(living_width,living_depth)--(0,living_depth)--cycle;
+
+pickup pensquare scaled (2wall_depth);
+draw p shifted (garage_width+wall_depth, mud_hall_depth+wall_depth) withcolor .8 white;
+unfill p shifted (garage_width+wall_depth, mud_hall_depth+wall_depth);
+pickup pensquare scaled 1bp;
+draw p shifted (garage_width+wall_depth, mud_hall_depth+wall_depth);
+#+end_src
+
+#+begin_src elisp
+(fset 'org-babel-copy-current-src
+   (kmacro-lambda-form [?\C-r ?# ?+ ?b ?e ?g ?i ?n ?_ ?s ?r ?c ?\C-a down ?\C-  ?\C-s ?# ?+ ?e ?n ?d ?_ ?s ?r ?c ?\C-a ?\M-w] 0 "%d"))
+(global-set-key (kbd "<f5>") 'org-babel-copy-current-src)
+#+end_src
+
+
+*** Try out templating to Metapost directly from Python
+
+#+begin_src python :results output
+def draw(*args):
+    path = '--'.join([f'({x}ft,{y}ft)' for x, y in args])
+    print(f'draw {path}--cycle;')
+
+print('ft = 1cm; pickup pensquare scaled 1bp;')
+draw((0,0), (26,0), (26,27.5), (0,27.5))
+print('pickup pensquare scaled 0.5ft;')
+
+#+end_src
+
+#+RESULTS:
+: ft = 1cm; pickup pensquare scaled 1bp;
+: draw (0ft,0ft)--(26ft,0ft)--(26ft,27.5ft)--(0ft,27.5ft)--cycle;
+: pickup pensquare scaled 0.5ft;
+
+*** Try out templating to Metapost using Jinja templates
+  
+  
+
+
+** Build a wall at a time
+
+#+begin_src scad
+include <BOSL/constants.scad>
+use <BOSL/transforms.scad>
+
+// Living east wall
+difference() {
+  cube([38, 0.5, 8]);
+  right(5) cube([4, 0.5, 7]);
+}
+
+// Living north wall
+cube([14.5])
+#+end_src
+
