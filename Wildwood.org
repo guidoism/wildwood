@@ -135,14 +135,20 @@ undraw (0-t,5ft)             --(0-t,5ft+8ft);              % 5ft from bottom, 8f
 undraw (0-t,garage_width-2ft)--(0-t,garage_width-2ft-8ft); % 2ft from the top, 8ft wide
 
 % L I V I N G   R O O M
-path p;
-p = (0,0)--(living_width,0)--(living_width,living_depth)--(0,living_depth)--cycle;
+path p[];
+p1 = (0,0)--(living_width,0)--(living_width,living_depth)--(0,living_depth)--cycle;
 
 pickup pensquare scaled (2wall_depth);
-draw p shifted (garage_width+wall_depth, mud_hall_depth+wall_depth) withcolor .8 white;
-unfill p shifted (garage_width+wall_depth, mud_hall_depth+wall_depth);
+draw p1 shifted (garage_width+wall_depth, mud_hall_depth+wall_depth) withcolor .8 white;
+unfill p1 shifted (garage_width+wall_depth, mud_hall_depth+wall_depth);
 pickup pensquare scaled 1bp;
-draw p shifted (garage_width+wall_depth, mud_hall_depth+wall_depth);
+draw p1 shifted (garage_width+wall_depth, mud_hall_depth+wall_depth);
+
+% F A M I L Y  R O O M
+
+
+
+
 #+end_src
 
 #+begin_src elisp
