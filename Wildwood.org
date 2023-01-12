@@ -121,6 +121,11 @@ garage_depth = 27.5ft;
 living_width = 38ft;
 living_depth = 14.5ft;
 mud_hall_depth = 4ft;
+mud_hall_width = 8ft;
+family_room_hall_width = 43ft;
+kitchen_depth = 12ft;
+family_room_width = 35ft;
+family_room_depth = 16ft;
 
 % G A R A G E
 pickup pensquare scaled 1bp; % Draw the measured room outline
@@ -145,6 +150,17 @@ pickup pensquare scaled 1bp;
 draw p1 shifted (garage_width+wall_depth, mud_hall_depth+wall_depth);
 
 % F A M I L Y  R O O M
+p2 = (0,0)--(mud_hall_width,0)--(mud_hall_width,-kitchen_depth)
+          --(family_room_hall_width,-kitchen_depth)
+          --(family_room_hall_width,mud_hall_depth)
+          --(0,mud_hall_depth)
+          --cycle;
+
+pickup pensquare scaled (2wall_depth);
+draw p2 shifted (garage_width+wall_depth, 0) withcolor .8 white;
+unfill p2 shifted (garage_width+wall_depth, 0);
+pickup pensquare scaled 1bp;
+draw p2 shifted (garage_width+wall_depth, 0);
 
 
 
