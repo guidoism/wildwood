@@ -185,18 +185,6 @@ for i=0 upto 80:
 endfor;
 #+end_src
 
-
-garage_width 26           312
-garage_depth 27.5         330
-living_width 38           456
-living_depth 14.5         174
-mud_hall_depth 4           48
-mud_hall_width 8           96
-family_room_hall_width 43 516
-kitchen_depth 12          144
-family_room_width 35      420
-family_room_depth 16      192
-
 #+name: run-metapost
 #+begin_src sh :results output
 cd output
@@ -212,7 +200,6 @@ endfig;
 end.
 #+end_src
 
-
 We can draw a single point from a path like this:
 
   draw point 2 of garage withpen pencircle scaled 4bp;
@@ -220,15 +207,44 @@ We can draw a single point from a path like this:
 #+name: wildwood
 #+begin_src metapost
 def drawwall (expr p, thickness) =
-  pickup pensquare scaled (thickness);
+  pickup pensquare scaled (thickness*2);
   draw p withcolor .8 white;
   unfill p;
 enddef;
 
-path garage;
+def drawinterior (expr p) =
+  pickup pensquare scaled 1bp;
+  draw p;
+enddef;
+
+path garage, livingroom, kitchen;
 garage = (0,0)--(312,0)--(312,330)--(0,330)--cycle;
-drawwall(garage, 6);
+livingroom = (0,0)--(456,0)--(456,174)--(456-66,174)..(456-66-84,174+24)..(456-66-84-84,174)--(0,174)--cycle;
+kitchen = (0,0)--(96,0)--(96,-144)--(516,-144)--(516,96)--(0,96)--cycle;
+
+drawwall(garage , 6);
+%drawwall(livingroom shifted (312+6, 48+6), 6);
+drawwall(livingroom shifted (lrcorner garage + (6, 48+6)), 6);
+
+drawinterior(garage);
+drawinterior(livingroom shifted (lrcorner garage + (6, 48+6)));
+%drawwall(kitchen, 6);
 #+end_src
+
+(family_room_hall_width,-kitchen_depth)
+(family_room_hall_width,mud_hall_depth)
+(0,mud_hall_depth)
+
+garage_width 26           312
+garage_depth 27.5         330
+living_width 38           456
+living_depth 14.5         174
+mud_hall_depth 4           48
+mud_hall_width 8           96
+family_room_hall_width 43 516
+kitchen_depth 12          144
+family_room_width 35      420
+family_room_depth 16      192
 
 
 
