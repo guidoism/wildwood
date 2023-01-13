@@ -18,7 +18,7 @@ garage = rectangle 26' x 27'6" with:
   garagedoor on left, XX" wide, XX" from bottom
   garagedoor on left, XX" wide, XX" from top
 
- family = path heading right go 8'6", turn right, go 12', turn left, go 35',
+family = path heading right go 8'6", turn right, go 12', turn left, go 35',
               turn left, go 16', turn left, go 43'6", turn left, go 4'
   door on left, 3' wide, 6" from top ("garage-family")
   opening on top, 4' wide, 4' from left ("living-family")
@@ -142,16 +142,6 @@ p0 = (0,0)--(garage_width,0)
 pickup pensquare scaled (2wall_depth);
 draw p0 withcolor .8 white;
 unfill p0;
-undraw (0,garage_depth-2ft)--(0,garage_depth-2ft-8ft); % Top garage door
-undraw (0,5ft)--(0,5ft+8ft); % Bottom garage door
-pickup pensquare scaled 1bp;
-draw p0;
-
-
-%undraw (0-t,5ft)             --(0-t,5ft+8ft);              % 5ft from bottom, 8ft wide
-%undraw (0-t,garage_width-2ft)--(0-t,garage_width-2ft-8ft); % 2ft from the top, 8ft wide
-%undraw (garage_width,0.5ft)--(garage_width+wall_depth,0.5ft+3ft);
-
 
 % L I V I N G   R O O M
 p1 = (0,0)--(living_width,0)--(living_width,living_depth)--(0,living_depth)--cycle;
@@ -159,8 +149,6 @@ p1 = (0,0)--(living_width,0)--(living_width,living_depth)--(0,living_depth)--cyc
 pickup pensquare scaled (2wall_depth);
 draw p1 shifted (garage_width+wall_depth, mud_hall_depth+wall_depth) withcolor .8 white;
 unfill p1 shifted (garage_width+wall_depth, mud_hall_depth+wall_depth);
-pickup pensquare scaled 1bp;
-draw p1 shifted (garage_width+wall_depth, mud_hall_depth+wall_depth);
 
 % F A M I L Y  R O O M
 p2 = (0,0)--(mud_hall_width,0)--(mud_hall_width,-kitchen_depth)
@@ -172,11 +160,24 @@ p2 = (0,0)--(mud_hall_width,0)--(mud_hall_width,-kitchen_depth)
 pickup pensquare scaled (2wall_depth);
 draw p2 shifted (garage_width+wall_depth, 0) withcolor .8 white;
 unfill p2 shifted (garage_width+wall_depth, 0);
+
+% D O O R S
+undraw (0,garage_depth-2ft)--(0,garage_depth-2ft-8ft); % Top garage door (2ft from top, 8ft wide)
+undraw (0,5ft)--(0,5ft+8ft);                           % Bottom garage door (5ft from bottom, 8ft wide)
+undraw (garage_width,1ft)--(garage_width,1ft+2ft);     % Door from garage to mudroom hallway
+undraw ((4.5ft,mud_hall_depth)--(4.5ft+4ft,mud_hall_depth)) shifted (garage_width+wall_depth, 0); % Opening from mud room hallway to living room
+
+% R O O M  L I N E S
 pickup pensquare scaled 1bp;
+draw p0;
+draw p1 shifted (garage_width+wall_depth, mud_hall_depth+wall_depth);
 draw p2 shifted (garage_width+wall_depth, 0);
 
-
-
+%for i=0 upto 80:
+%  for j=0 upto 40:
+%    draw (i*ft,j*ft) shifted (0, -16ft);
+%  endfor;
+%endfor;
 
 
 #+end_src
