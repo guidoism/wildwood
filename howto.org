@@ -23,3 +23,34 @@ relation to the other rooms. The paths between points can be lines
 Bézier curves can be drawn in a pretty sophisticated way using
 Metapost's /Direction/, /Tension/, and /Curl/ operators.
 
+I am grouping each of the contiguous areas in the house (with no walls
+in between) as single rooms even if they are conventionally thought of
+as seperate rooms. For example, in my house the hallway from the
+garage, the kitchen, and the family room are all open to each other so
+I'm calling this space "the kitchen" for the sake of the definition.
+
+#+name: paths
+#+begin_src metapost
+path garage, livingroom, kitchen;
+garage = (0,0)--(312,0)--(312,330)--(0,330)--cycle;
+livingroom = (0,0)--(456,0)--(456,174)--(456-66,174)..(456-66-84,174+24)..(456-66-84-84,174)--(0,174)--cycle;
+kitchen = (0,0)--(96,0)--(96,-144)--(516,-144)--(516,48)--(0,48)--cycle;
+#+end_src
+
+TODO: Draw each of the paths with points using Metafun's "drawpath p; drawpoints p;"
+TODO: Maybe add labels to the points for their index in the sequence and their coordinates
+
+** Positive each of them relative to the others
+
+We can position each room relative to one or more other rooms using
+points on the path (e.g., =point 2 of garage=) or its bounding box
+(e.g., =lrcorner garage=).
+
+
+
+** Add openings and doors
+
+We can 
+
+
+

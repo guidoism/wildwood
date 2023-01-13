@@ -218,17 +218,20 @@ def drawinterior (expr p) =
 enddef;
 
 path garage, livingroom, kitchen;
-garage = (0,0)--(312,0)--(312,330)--(0,330)--cycle;
-livingroom = (0,0)--(456,0)--(456,174)--(456-66,174)..(456-66-84,174+24)..(456-66-84-84,174)--(0,174)--cycle;
-kitchen = (0,0)--(96,0)--(96,-144)--(516,-144)--(516,48)--(0,48)--cycle;
+garage := (0,0)--(312,0)--(312,330)--(0,330)--cycle;
+livingroom := (0,0)--(456,0)--(456,174)--(456-66,174)..(456-66-84,174+24)..(456-66-84-84,174)--(0,174)--cycle;
+kitchen := (0,0)--(96,0)--(96,-144)--(516,-144)--(516,48)--(0,48)--cycle;
+
+livingroom := livingroom shifted (lrcorner garage + (6, 48+6));
+kitchen := kitchen shifted (lrcorner garage + (6, 0));
 
 drawwall(garage , 6);
-drawwall(livingroom shifted (lrcorner garage + (6, 48+6)), 6);
-drawwall(kitchen shifted (lrcorner garage + (6, 0)), 6);
+drawwall(livingroom, 6);
+drawwall(kitchen, 6);
 
 drawinterior(garage);
-drawinterior(livingroom shifted (lrcorner garage + (6, 48+6)));
-drawinterior(kitchen shifted (lrcorner garage + (6, 0)));
+drawinterior(livingroom);
+drawinterior(kitchen);
 
 #+end_src
 
