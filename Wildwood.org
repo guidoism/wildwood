@@ -223,7 +223,6 @@ livingroom = (0,0)--(456,0)--(456,174)--(456-66,174)..(456-66-84,174+24)..(456-6
 kitchen = (0,0)--(96,0)--(96,-144)--(516,-144)--(516,96)--(0,96)--cycle;
 
 drawwall(garage , 6);
-%drawwall(livingroom shifted (312+6, 48+6), 6);
 drawwall(livingroom shifted (lrcorner garage + (6, 48+6)), 6);
 
 drawinterior(garage);
