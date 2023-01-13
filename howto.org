@@ -1,0 +1,25 @@
+** How to model a house
+
+After several years of frustratingly trying to model my house's
+floorplan with existing tools I have decided to figure out a better
+way use lower-level tools. This is the process that I have come up
+with.
+
+We will use Metapost to mathematically define the outline of the rooms
+using interior measurements and relataionships between the parts. The
+features will be defined using layers, starting with walls and then
+removing openings, doors, and windows. At this point we can produce a
+pretty floor plan, but with a little more effort we can extrude these
+drawings up into the 3rd dimension using OpenSCAD to produce a 3d
+model.
+
+** Break up the rooms
+
+We are going to define each of the rooms as a path starting at the
+lower left and following the interior walls counter-clockwise. Each
+room is going to start at (0,0) as we will re-position them later in
+relation to the other rooms. The paths between points can be lines
+(using the =--= operator) or Bézier curves (using the =..= operator).
+Bézier curves can be drawn in a pretty sophisticated way using
+Metapost's /Direction/, /Tension/, and /Curl/ operators.
+
