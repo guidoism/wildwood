@@ -173,14 +173,65 @@ draw p0;
 draw p1 shifted (garage_width+wall_depth, mud_hall_depth+wall_depth);
 draw p2 shifted (garage_width+wall_depth, 0);
 
-%for i=0 upto 80:
-%  for j=0 upto 40:
-%    draw (i*ft,j*ft) shifted (0, -16ft);
-%  endfor;
-%endfor;
+% A R R O W S
+drawdblarrow (4ft,garage_depth)--(4ft,0);
 
 
+% G R I D
+for i=0 upto 80:
+  for j=0 upto 50:
+    draw (i*ft,j*ft) shifted (0, -16ft);
+  endfor;
+endfor;
 #+end_src
+
+
+garage_width 26           312
+garage_depth 27.5         330
+living_width 38           456
+living_depth 14.5         174
+mud_hall_depth 4           48
+mud_hall_width 8           96
+family_room_hall_width 43 516
+kitchen_depth 12          144
+family_room_width 35      420
+family_room_depth 16      192
+
+#+name: run-metapost
+#+begin_src sh :results output
+cd output
+mpost --mem=metafun drawing.mp 
+#+end_src
+
+#+begin_src metapost :tangle output/drawing.mp :noweb yes
+outputtemplate := "%j.%o";
+outputformat := "svg";
+beginfig(0);
+  <<wildwood>>
+endfig;
+end.
+#+end_src
+
+
+We can draw a single point from a path like this:
+
+  draw point 2 of garage withpen pencircle scaled 4bp;
+
+#+name: wildwood
+#+begin_src metapost
+def drawwall (expr p, thickness) =
+  pickup pensquare scaled (thickness);
+  draw p withcolor .8 white;
+  unfill p;
+enddef;
+
+path garage;
+garage = (0,0)--(312,0)--(312,330)--(0,330)--cycle;
+drawwall(garage, 6);
+#+end_src
+
+
+
 
 #+begin_src elisp
 (fset 'org-babel-copy-current-src
