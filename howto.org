@@ -32,9 +32,9 @@ I'm calling this space "the kitchen" for the sake of the definition.
 #+name: paths
 #+begin_src metapost
 path garage, livingroom, kitchen;
-garage = (0,0)--(312,0)--(312,330)--(0,330)--cycle;
-livingroom = (0,0)--(456,0)--(456,174)--(456-66,174)..(456-66-84,174+24)..(456-66-84-84,174)--(0,174)--cycle;
-kitchen = (0,0)--(96,0)--(96,-144)--(516,-144)--(516,48)--(0,48)--cycle;
+garage := (0,0)--(312,0)--(312,330)--(0,330)--cycle;
+livingroom := (0,0)--(456,0)--(456,174)--(456-66,174)..(456-66-84,174+24)..(456-66-84-84,174)--(0,174)--cycle;
+kitchen := (0,0)--(96,0)--(96,-144)--(516,-144)--(516,48)--(0,48)--cycle;
 #+end_src
 
 TODO: Draw each of the paths with points using Metafun's "drawpath p; drawpoints p;"
@@ -46,11 +46,15 @@ We can position each room relative to one or more other rooms using
 points on the path (e.g., =point 2 of garage=) or its bounding box
 (e.g., =lrcorner garage=).
 
-
+#+begin_src metapost
+livingroom := livingroom shifted (lrcorner garage + (6, 48+6));
+#+end_src
 
 ** Add openings and doors
 
-We can 
+Openings, doors, and windows are going to be subpaths on each of the
+room paths. This will allow us to be able to do things like windows on
+a curved wall.
 
 
 
