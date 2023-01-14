@@ -217,8 +217,17 @@ def drawinterior (expr p) =
   draw p;
 enddef;
 
-% This is from MetaFun
-primarydef pct along pat = 
+def drawdoorup (expr p, offset, length) =
+  pickup pensquare scaled 12bp;
+  undraw (p+(0,offset-6))--(p+(0,offset+length-12));
+enddef;
+
+def drawdoorright (expr p, offset, length) =
+  pickup pensquare scaled 12bp;
+  undraw (p+(offset-6,0))--(p+(offset+length-12,0));
+enddef;
+
+primarydef pct along pat = % This was taken from from MetaFun's macros
   (arctime (pct * (arclength pat)) of pat) of pat
 enddef;
 
@@ -234,20 +243,24 @@ drawwall(garage , 6);
 drawwall(livingroom, 6);
 drawwall(kitchen, 6);
 
+drawdoorup(point 1 of livingroom, 49, 72);
+drawdoorright(point 0 of livingroom, 49, 48);
+drawdoorup(point 1 of garage, 12, 36);
+
 drawinterior(garage);
 drawinterior(livingroom);
 drawinterior(kitchen);
 
-pickup pensquare scaled (6);
 %draw livingroom cutbefore point 1 of livingroom cutafter point 2 of livingroom withcolor red;
 %draw cutbefore point 2.5bp along livingroom of livingroom withcolor red;
 %draw point 3 of livingroom withpen pencircle scaled 10bp;
 
-draw point 3.2bp along livingroom withpen pencircle scaled 10bp;
+%draw point 3.2bp along livingroom withpen pencircle scaled 10bp;
 %draw livingroom cutbefore (point 3.5 along livingroom) cutafter point 2 of livingroom withcolor red;
 %draw livingroom cutbefore (point 3.5 along livingroom) withcolor red;
 %draw livingroom cutbefore point 1 of livingroom withcolor red;
 %draw livingroom cutbefore (point 4.9bp along livingroom) withcolor red;
+
 
 
 #+end_src
