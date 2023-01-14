@@ -217,14 +217,14 @@ def drawinterior (expr p) =
   draw p;
 enddef;
 
-def drawdoorup (expr p, offset, length) =
-  pickup pensquare scaled 12bp;
-  undraw (p+(0,offset-6))--(p+(0,offset+length-12));
+def drawdoorup (expr p, offset, length, thickness) =
+  pickup pensquare scaled thickness;
+  undraw (p+(0,offset-(thickness/2)))--(p+(0,offset+length-thickness));
 enddef;
 
-def drawdoorright (expr p, offset, length) =
-  pickup pensquare scaled 12bp;
-  undraw (p+(offset-6,0))--(p+(offset+length-12,0));
+def drawdoorright (expr p, offset, length, thickness) =
+  pickup pensquare scaled thickness;
+  undraw (p+(offset-(thickness/2),0))--(p+(offset+length-thickness,0));
 enddef;
 
 primarydef pct along pat = % This was taken from from MetaFun's macros
@@ -243,9 +243,9 @@ drawwall(garage , 6);
 drawwall(livingroom, 6);
 drawwall(kitchen, 6);
 
-drawdoorup(point 1 of livingroom, 49, 72);
-drawdoorright(point 0 of livingroom, 49, 48);
-drawdoorup(point 1 of garage, 12, 36);
+drawdoorup(point 1 of livingroom, 49, 72, 12);
+drawdoorright(point 0 of livingroom, 49, 48, 12);
+drawdoorup(point 1 of garage, 16, 36, 12);
 
 drawinterior(garage);
 drawinterior(livingroom);
