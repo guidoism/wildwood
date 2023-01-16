@@ -277,6 +277,14 @@ drawinterior(kitchen);
 drawinterior(blueroom);
 drawinterior(master);
 
+path dim;
+dim := (point 0 of garage shifted (20,0))..(point 3 of garage shifted (20,0));
+drawdblarrow dim withcolor blue;
+picture p[];
+p1 = thelabel("55", point 1/2 of dim); unfill bbox p1; draw p1 withcolor blue;
+
+
+
 #+end_src
 
 
