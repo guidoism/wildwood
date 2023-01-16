@@ -244,20 +244,23 @@ primarydef pct along pat = % This was taken from from MetaFun's macros
   (arctime (pct * (arclength pat)) of pat) of pat
 enddef;
 
-path garage, livingroom, kitchen, blueroom;
+path garage, livingroom, kitchen, blueroom, master, masterbath, hallbath, southbed, smallbed, laundry;
 garage := (0,0)--(312,0)--(312,330)--(0,330)--cycle;
 livingroom := (0,0)--(456,0)--(456,174)--(456-66,174)..(456-66-84,174+24)..(456-66-84-84,174)--(0,174)--cycle;
 kitchen := (0,0)--(96,0)--(96,-144)--(516,-144)--(516,48)--(0,48)--cycle;
 blueroom := (0,0)--(132,0)--(132,192)--(0,192)--cycle;
+master := (0,0)--(240,0)--(240,156)--(240-144,156)--(240-144,156+36)--(0,156+36)--cycle;
 
 livingroom := livingroom shifted (lrcorner garage + (6, 48+6));
 kitchen    := kitchen shifted (lrcorner garage + (6, 0));
 blueroom   := blueroom shifted (lrcorner kitchen + (6, 0));
+master     := master shifted (lrcorner blueroom + (6, 0));
 
 drawwall(garage , 6);
 drawwall(livingroom, 6);
 drawwall(kitchen, 6);
 drawwall(blueroom, 6);
+drawwall(master, 6);
 
 drawdoorup(point 1 of livingroom, 49, 72, 6);
 drawdoorright(point 0 of livingroom, 49, 48, 6);
@@ -265,10 +268,13 @@ drawdoorup(point 1 of garage, 6, 36, 6);
 drawdoorup(point 0 of garage, 5*12, 8*12, 6);
 drawdoordown(point 3 of garage, 2*12, 8*12, 6);
 drawdoorleft(point 4 of kitchen, 6, 36, 6);
+drawdoorleft(point 2 of blueroom, 3, 36, 6);
 
 drawinterior(garage);
 drawinterior(livingroom);
 drawinterior(kitchen);
+drawinterior(blueroom);
+drawinterior(master);
 
 #+end_src
 
