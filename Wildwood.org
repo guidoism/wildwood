@@ -244,17 +244,20 @@ primarydef pct along pat = % This was taken from from MetaFun's macros
   (arctime (pct * (arclength pat)) of pat) of pat
 enddef;
 
-path garage, livingroom, kitchen;
+path garage, livingroom, kitchen, blueroom;
 garage := (0,0)--(312,0)--(312,330)--(0,330)--cycle;
 livingroom := (0,0)--(456,0)--(456,174)--(456-66,174)..(456-66-84,174+24)..(456-66-84-84,174)--(0,174)--cycle;
 kitchen := (0,0)--(96,0)--(96,-144)--(516,-144)--(516,48)--(0,48)--cycle;
+blueroom := (0,0)--(132,0)--(132,192)--(0,192)--cycle;
 
 livingroom := livingroom shifted (lrcorner garage + (6, 48+6));
-kitchen := kitchen shifted (lrcorner garage + (6, 0));
+kitchen    := kitchen shifted (lrcorner garage + (6, 0));
+blueroom   := blueroom shifted (lrcorner kitchen + (6, 0));
 
 drawwall(garage , 6);
 drawwall(livingroom, 6);
 drawwall(kitchen, 6);
+drawwall(blueroom, 6);
 
 drawdoorup(point 1 of livingroom, 49, 72, 6);
 drawdoorright(point 0 of livingroom, 49, 48, 6);
