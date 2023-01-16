@@ -221,18 +221,23 @@ def drawinterior (expr p) =
 enddef;
 
 def drawdoorup (expr p, offset, length, thickness) =
-  pickup pencircle scaled thickness;
-  undraw (p+(0,offset-(thickness/2)))--(p+(0,offset+length-thickness));
+  pickup pencircle scaled 3thickness;
+  undraw (p+(0,offset))--(p+(0,offset+length));
+enddef;
+
+def drawdoordown (expr p, offset, length, thickness) =
+  pickup pencircle scaled 3thickness;
+  undraw (p-(0,offset))--(p-(0,offset+length));
 enddef;
 
 def drawdoorright (expr p, offset, length, thickness) =
-  pickup pencircle scaled thickness;
-  undraw (p+(offset-(thickness/2),0))--(p+(offset+length-thickness,0));
+  pickup pencircle scaled 3thickness;
+  undraw (p+(offset,0))--(p+(offset+length,0));
 enddef;
 
 def drawdoorleft (expr p, offset, length, thickness) =
-  pickup pencircle scaled thickness;
-  undraw (p-(offset+(thickness/2),0))--(p-(offset+length+thickness,0));
+  pickup pencircle scaled 3thickness;
+  undraw (p-(offset,0))--(p-(offset+length,0));
 enddef;
 
 primarydef pct along pat = % This was taken from from MetaFun's macros
@@ -251,28 +256,16 @@ drawwall(garage , 6);
 drawwall(livingroom, 6);
 drawwall(kitchen, 6);
 
-drawdoorup(point 1 of livingroom, 49, 72, 12);
-drawdoorright(point 0 of livingroom, 49, 48, 12);
-drawdoorup(point 1 of garage, 16, 36, 12);
-drawdoorleft(point 4 of kitchen, 6, 36, 12);
+drawdoorup(point 1 of livingroom, 49, 72, 6);
+drawdoorright(point 0 of livingroom, 49, 48, 6);
+drawdoorup(point 1 of garage, 6, 36, 6);
+drawdoorup(point 0 of garage, 5*12, 8*12, 6);
+drawdoordown(point 3 of garage, 2*12, 8*12, 6);
+drawdoorleft(point 4 of kitchen, 6, 36, 6);
 
 drawinterior(garage);
 drawinterior(livingroom);
 drawinterior(kitchen);
-
-%draw livingroom cutbefore point 1 of livingroom cutafter point 2 of livingroom withcolor red;
-%draw cutbefore point 2.5bp along livingroom of livingroom withcolor red;
-%draw point 3 of livingroom withpen pencircle scaled 10bp;
-
-%draw point 3.2bp along livingroom withpen pencircle scaled 10bp;
-%draw livingroom cutbefore (point 3.5 along livingroom) cutafter point 2 of livingroom withcolor red;
-%draw livingroom cutbefore (point 3.5 along livingroom) withcolor red;
-%draw livingroom cutbefore point 1 of livingroom withcolor red;
-%draw livingroom cutbefore (point 4.9bp along livingroom) withcolor red;
-
-
-
-
 
 #+end_src
 
