@@ -269,6 +269,7 @@ drawdoorup(point 0 of garage, 5*12, 8*12, 6);
 drawdoordown(point 3 of garage, 2*12, 8*12, 6);
 drawdoorleft(point 4 of kitchen, 6, 36, 6);
 drawdoorleft(point 2 of blueroom, 3, 36, 6);
+drawdoorleft(point 4 of master, 3, 36, 6);
 
 drawinterior(garage);
 drawinterior(livingroom);
