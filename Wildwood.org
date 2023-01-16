@@ -206,25 +206,33 @@ We can draw a single point from a path like this:
 
 #+name: wildwood
 #+begin_src metapost
+linecap := butt;
+linejoin := mitered;
+
 def drawwall (expr p, thickness) =
-  pickup pensquare scaled (thickness*2);
+  pickup pencircle scaled (thickness*2);
   draw p withcolor .8 white;
   unfill p;
 enddef;
 
 def drawinterior (expr p) =
-  pickup pensquare scaled 1bp;
+  pickup pencircle scaled 1bp;
   draw p;
 enddef;
 
 def drawdoorup (expr p, offset, length, thickness) =
-  pickup pensquare scaled thickness;
+  pickup pencircle scaled thickness;
   undraw (p+(0,offset-(thickness/2)))--(p+(0,offset+length-thickness));
 enddef;
 
 def drawdoorright (expr p, offset, length, thickness) =
-  pickup pensquare scaled thickness;
+  pickup pencircle scaled thickness;
   undraw (p+(offset-(thickness/2),0))--(p+(offset+length-thickness,0));
+enddef;
+
+def drawdoorleft (expr p, offset, length, thickness) =
+  pickup pencircle scaled thickness;
+  undraw (p-(offset+(thickness/2),0))--(p-(offset+length+thickness,0));
 enddef;
 
 primarydef pct along pat = % This was taken from from MetaFun's macros
@@ -246,6 +254,7 @@ drawwall(kitchen, 6);
 drawdoorup(point 1 of livingroom, 49, 72, 12);
 drawdoorright(point 0 of livingroom, 49, 48, 12);
 drawdoorup(point 1 of garage, 16, 36, 12);
+drawdoorleft(point 4 of kitchen, 6, 36, 12);
 
 drawinterior(garage);
 drawinterior(livingroom);
@@ -260,6 +269,8 @@ drawinterior(kitchen);
 %draw livingroom cutbefore (point 3.5 along livingroom) withcolor red;
 %draw livingroom cutbefore point 1 of livingroom withcolor red;
 %draw livingroom cutbefore (point 4.9bp along livingroom) withcolor red;
+
+
 
 
 
