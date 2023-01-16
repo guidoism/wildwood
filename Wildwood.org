@@ -251,7 +251,6 @@ kitchen := (0,0)--(96,0)--(96,-144)--(516,-144)--(516,48)--(0,48)--cycle;
 blueroom := (0,0)--(132,0)--(132,192)--(0,192)--cycle;
 master := (0,0)--(240,0)--(240,156)--(240-144,156)--(240-144,156+36)--(0,156+36)--cycle;
 
-
 livingroom := livingroom shifted (lrcorner garage + (6, 48+6));
 kitchen    := kitchen shifted (lrcorner garage + (6, 0));
 blueroom   := blueroom shifted (lrcorner kitchen + (6, 0));
