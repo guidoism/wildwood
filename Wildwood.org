@@ -273,10 +273,18 @@ enddef;
 def dimension(expr p, offset) = 
   drawdblarrow p shifted offset withcolor blue;
   picture pic;
-  
-  pic = thelabel(TEX("foo $" & decimal(arclength p) & "''$ bar "), point 1/2 of p shifted offset);
+  l = arclength p;
+  if (l mod 12 = 0): 
+    pic = thelabel("$" & decimal(l / 12) & "'$", point 1/2 of p shifted offset);
+  else:
+    pic = thelabel("$" & decimal(floor(l / 12)) & "'" & decimal(l mod 12) & "''$", point 1/2 of p shifted offset);
+  fi
   unfill bbox pic;
   draw pic withcolor blue;
+
+  %numeric n ;
+  %n := lua("mp.print(math.fmod(330, 12))") ;
+  %draw textext(n) xsized 4cm ;
 enddef;
 
 primarydef pct along pat = % This was taken from from MetaFun's macros
