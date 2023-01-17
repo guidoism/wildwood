@@ -185,11 +185,28 @@ for i=0 upto 80:
 endfor;
 #+end_src
 
+#+name: compile
+#+begin_src elisp
+(org-babel-tangle)
+(org-sbe run-metapost)
+#+end_src
+
+#+RESULTS: compile
+: nil
+
+
 #+name: run-metapost
 #+begin_src sh :results output
+which mpost
 cd output
-mpost --mem=metafun drawing.mp 
+pwd
+#mpost --mem=metafun drawing.mp || cat drawing.log
+#open -a Safari drawing.svg
+context drawing.tex
 #+end_src
+
+#+RESULTS: run-metapost
+
 
 #+begin_src metapost :tangle output/drawing.mp :noweb yes
 outputtemplate := "%j.%o";
@@ -199,6 +216,18 @@ beginfig(0);
 endfig;
 end.
 #+end_src
+
+
+#+begin_src tex :tangle output/drawing.tex :noweb yes
+\starttext
+\startMPcode
+  <<wildwood>>
+\stopMPcode
+\stoptext
+#+end_src
+
+
+
 
 We can draw a single point from a path like this:
 
@@ -245,7 +274,7 @@ def dimension(expr p, offset) =
   drawdblarrow p shifted offset withcolor blue;
   picture pic;
   
-  pic = thelabel(btex $55'$ etex, point 1/2 of p shifted offset);
+  pic = thelabel(TEX("foo $" & decimal(arclength p) & "''$ bar "), point 1/2 of p shifted offset);
   unfill bbox pic;
   draw pic withcolor blue;
 enddef;
@@ -288,9 +317,6 @@ drawinterior(blueroom);
 drawinterior(master);
 
 dimension((point 0 of garage)..(point 3 of garage), (20,0));
-
-
-
 #+end_src
 
 
