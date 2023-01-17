@@ -273,11 +273,11 @@ enddef;
 def dimension(expr p, offset) = 
   drawdblarrow p shifted offset withcolor blue;
   picture pic;
-  l = arclength p;
+  l := arclength p;
   if (l mod 12 = 0): 
-    pic = thelabel("$" & decimal(l / 12) & "'$", point 1/2 of p shifted offset);
+    pic := thelabel("$" & decimal(l / 12) & "'$", point 1/2 of p shifted offset);
   else:
-    pic = thelabel("$" & decimal(floor(l / 12)) & "'" & decimal(l mod 12) & "''$", point 1/2 of p shifted offset);
+    pic := thelabel("$" & decimal(floor(l / 12)) & "'" & decimal(l mod 12) & "''$", point 1/2 of p shifted offset);
   fi
   unfill bbox pic;
   draw pic withcolor blue;
@@ -325,7 +325,11 @@ drawinterior(blueroom);
 drawinterior(master);
 
 dimension((point 0 of garage)..(point 3 of garage), (20,0));
-dimension((point 3 of garage)..(point 2 of garage), (0,20));
+dimension((point 2 of garage)..(point 3 of garage), (0,-20));
+%path p;
+%p := (point 2 of garage)..(point 3 of garage);
+%drawdblarrow p withcolor blue;
+
 #+end_src
 
 
