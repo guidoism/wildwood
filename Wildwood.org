@@ -325,6 +325,7 @@ drawinterior(blueroom);
 drawinterior(master);
 
 dimension((point 0 of garage)..(point 3 of garage), (20,0));
+dimension((point 3 of garage)..(point 2 of garage), (0,20));
 #+end_src
 
 
