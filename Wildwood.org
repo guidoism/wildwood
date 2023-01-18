@@ -221,7 +221,9 @@ end.
 #+begin_src tex :tangle output/drawing.tex :noweb yes
 \definefontfamily [mainface] [ss] [bahnschrift]
 \setupbodyfont[mainface]
-        
+\definepapersize [biggy] [width=600mm,height=300mm]
+\setuppapersize[biggy]
+
 \starttext
 \setuppagenumbering[location=]
 \ss 405 N Wildwood Ln \medskip
