@@ -257,15 +257,8 @@ enddef;
 
 def drawdoorup (expr p, offset, length, thickness) =
   pickup pencircle scaled 3thickness;
-  %pair z[];
-  %z1 = (p+(0,offset));
-  %z2 = (p+(0,offset+length));
-  %undraw z1--z2;
-  %undraw (p+(0,offset))--(p+(0,offset+length));
-  path door;
-  door := (p+(0,offset))--(p+(0,offset+length));
-  undraw door;
-  %dimension(
+  undraw (p+(0,offset))--(p+(0,offset+length));
+  dimension((point 0 of p)--((point 0 of p)+(0,offset)), (10, 0));
 enddef;
 
 def drawdoordown (expr p, offset, length, thickness) =
@@ -283,7 +276,8 @@ def drawdoorleft (expr p, offset, length, thickness) =
   undraw (p-(offset,0))--(p-(offset+length,0));
 enddef;
 
-def dimension(expr p, offset) = 
+def dimension(expr p, offset) =
+  pickup pencircle scaled 1bp;
   drawdblarrow p shifted offset shortened 1.75bp withcolor .7 white;
   picture pic;
   l := arclength p;
