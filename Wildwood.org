@@ -284,9 +284,9 @@ def dimension(expr p, offset) =
   picture pic;
   l := arclength p;
   if (l mod 12 = 0): 
-    pic := thelabel("$" & decimal(l / 12) & "' $", point 1/2 of p shifted offset);
+    pic := thelabel("\small $" & decimal(l / 12) & "' $", point 1/2 of p shifted offset);
   else:
-    pic := thelabel("$" & decimal(floor(l / 12)) & "'" & decimal(l mod 12) & "''$", point 1/2 of p shifted offset);
+    pic := thelabel("\small $" & decimal(floor(l / 12)) & "'" & decimal(l mod 12) & "''$", point 1/2 of p shifted offset);
   fi
   unfill bbox pic;
   draw pic withcolor .7 white;
