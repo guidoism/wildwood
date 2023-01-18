@@ -222,7 +222,7 @@ end.
 \setupbodyfont[adventor,ss,12pt]
 
 \startMPenvironment
-\setupbodyfont[adventor,ss,12pt]
+\setupbodyfont[adventor,ss,18pt]
 \stopMPenvironment
 
 \starttext
