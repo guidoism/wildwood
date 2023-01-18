@@ -260,7 +260,7 @@ enddef;
 def drawdoorup (expr p, offset, length, thickness) =
   pickup pencircle scaled 3thickness;
   undraw (p+(0,offset))--(p+(0,offset+length));
-  if length > 10:
+  if offset > 10:
     dimension((point 0 of p)--((point 0 of p)+(0,offset)), (10, 0));
   fi
 enddef;
