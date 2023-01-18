@@ -261,7 +261,10 @@ def drawdoorup (expr p, offset, length, thickness) =
   %z1 = (p+(0,offset));
   %z2 = (p+(0,offset+length));
   %undraw z1--z2;
-  undraw (p+(0,offset))--(p+(0,offset+length));
+  %undraw (p+(0,offset))--(p+(0,offset+length));
+  path door;
+  door := (p+(0,offset))--(p+(0,offset+length));
+  undraw door;
   %dimension(
 enddef;
 
