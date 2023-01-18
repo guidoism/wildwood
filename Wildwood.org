@@ -219,7 +219,16 @@ end.
 
 
 #+begin_src tex :tangle output/drawing.tex :noweb yes
+\setupbodyfont[adventor,ss,12pt]
+
+\startMPenvironment
+\setupbodyfont[adventor,ss,12pt]
+\stopMPenvironment
+
 \starttext
+\setuppagenumbering[location=]
+        guido bartolucci Guido
+        
 \startMPcode
   <<wildwood>>
 \stopMPcode
@@ -271,16 +280,16 @@ def drawdoorleft (expr p, offset, length, thickness) =
 enddef;
 
 def dimension(expr p, offset) = 
-  drawdblarrow p shifted offset withcolor blue;
+  drawdblarrow p shifted offset withcolor .7 white;
   picture pic;
   l := arclength p;
   if (l mod 12 = 0): 
-    pic := thelabel("$" & decimal(l / 12) & "'$", point 1/2 of p shifted offset);
+    pic := thelabel("\ss " & decimal(l / 12) & "'", point 1/2 of p shifted offset);
   else:
-    pic := thelabel("$" & decimal(floor(l / 12)) & "'" & decimal(l mod 12) & "''$", point 1/2 of p shifted offset);
+    pic := thelabel("\ss " & decimal(floor(l / 12)) & "'" & decimal(l mod 12) & "''", point 1/2 of p shifted offset);
   fi
   unfill bbox pic;
-  draw pic withcolor blue;
+  draw pic withcolor .7 white;
 
   %numeric n ;
   %n := lua("mp.print(math.fmod(330, 12))") ;
