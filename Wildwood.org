@@ -219,7 +219,7 @@ end.
 
 
 #+begin_src tex :tangle output/drawing.tex :noweb yes
-\definefontfamily [mainface] [ss] [DINOT Light]
+\definefontfamily [mainface] [ss] [bahnschrift]
 \setupbodyfont[mainface]
         
 \starttext
@@ -280,9 +280,9 @@ def dimension(expr p, offset) =
   picture pic;
   l := arclength p;
   if (l mod 12 = 0): 
-    pic := thelabel("\ss " & decimal(l / 12) & "\prime", point 1/2 of p shifted offset);
+    pic := thelabel("$" & decimal(l / 12) & "' $", point 1/2 of p shifted offset);
   else:
-    pic := thelabel("\ss " & decimal(floor(l / 12)) & "'" & decimal(l mod 12) & "\"", point 1/2 of p shifted offset);
+    pic := thelabel("$" & decimal(floor(l / 12)) & "'" & decimal(l mod 12) & "''$", point 1/2 of p shifted offset);
   fi
   unfill bbox pic;
   draw pic withcolor .7 white;
