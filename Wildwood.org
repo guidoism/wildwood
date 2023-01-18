@@ -219,11 +219,12 @@ end.
 
 
 #+begin_src tex :tangle output/drawing.tex :noweb yes
-\setupbodyfont[adventor,ss,12pt]
-
+\definefontfamily [mainface] [ss] [DINOT Light]
+\setupbodyfont[mainface]
+        
 \starttext
 \setuppagenumbering[location=]
-405 N Wildwood Ln \medskip
+\ss 405 N Wildwood Ln \medskip
 \startMPcode
   <<wildwood>>
 \stopMPcode
