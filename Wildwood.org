@@ -275,7 +275,7 @@ def drawdoorleft (expr p, offset, length, thickness) =
 enddef;
 
 def dimension(expr p, offset) = 
-  drawdblarrow p shifted offset withcolor .7 white;
+  drawdblarrow p shifted offset shortened 1.75bp withcolor .7 white;
   picture pic;
   l := arclength p;
   if (l mod 12 = 0): 
