@@ -238,12 +238,12 @@ end.
 \definefont[dim2][name:bahnschriftlight*default at 10pt]
 \definefont[dim][name:bahnschriftlight*default at 10pt]
                                             
-\definepapersize [biggy] [width=600mm,height=300mm]
+\definepapersize [biggy] [width=500mm,height=200mm]
 \setuppapersize[biggy]
 
 \starttext
 \setuppagenumbering[location=]
-\bahnlight 123456
+\bahnlight
 405 N Wildwood Ln \medskip
 \startMPcode
   <<wildwood>>
