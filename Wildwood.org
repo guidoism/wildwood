@@ -1,3 +1,17 @@
+** Measurements
+
+Starting at doorway between garage and hallway:
+
+- Garage wall to living room opening:
+- Garage wall to brick:
+- Living room opening:
+- Height of living room opening:   
+- Garage wall to far family room wall:
+
+    
+
+
+** Ideas
 
 Orient up to 90°
 
@@ -219,14 +233,18 @@ end.
 
 
 #+begin_src tex :tangle output/drawing.tex :noweb yes
-\definefontfamily [mainface] [ss] [bahnschrift]
-\setupbodyfont[mainface]
+        
+\definefont[bahnlight][name:bahnschriftlight*default]
+\definefont[dim2][name:bahnschriftlight*default at 10pt]
+\definefont[dim][name:bahnschriftlight*default at 10pt]
+                                            
 \definepapersize [biggy] [width=600mm,height=300mm]
 \setuppapersize[biggy]
 
 \starttext
 \setuppagenumbering[location=]
-\ss 405 N Wildwood Ln \medskip
+\bahnlight 123456
+405 N Wildwood Ln \medskip
 \startMPcode
   <<wildwood>>
 \stopMPcode
@@ -282,16 +300,16 @@ enddef;
 
 def dimension(expr p, offset) =
   pickup pencircle scaled 1bp;
-  drawdblarrow p shifted offset shortened 1.75bp withcolor .7 white;
+  drawdblarrow p shifted offset shortened 1.75bp;
   picture pic;
   l := arclength p;
   if (l mod 12 = 0): 
-    pic := thelabel("\small $" & decimal(l / 12) & "' $", point 1/2 of p shifted offset);
+    pic := thelabel("\dim " & decimal(l / 12) & "' ", point 1/2 of p shifted offset);
   else:
-    pic := thelabel("\small $" & decimal(floor(l / 12)) & "'" & decimal(l mod 12) & "''$", point 1/2 of p shifted offset);
+    pic := thelabel("\dim " & decimal(floor(l / 12)) & "'" & decimal(l mod 12) & "''", point 1/2 of p shifted offset);
   fi
   unfill bbox pic;
-  draw pic withcolor .7 white;
+  draw pic;
 
   %numeric n ;
   %n := lua("mp.print(math.fmod(330, 12))") ;
