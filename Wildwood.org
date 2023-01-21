@@ -308,10 +308,6 @@ def dimension(expr p, offset) =
   fi
   unfill bbox pic;
   draw pic;
-
-  %numeric n ;
-  %n := lua("mp.print(math.fmod(330, 12))") ;
-  %draw textext(n) xsized 4cm ;
 enddef;
 
 primarydef pct along pat = % This was taken from from MetaFun's macros
