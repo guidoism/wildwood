@@ -8,8 +8,12 @@ Starting at doorway between garage and hallway:
 - Height of living room opening:   
 - Garage wall to far family room wall:
 
-    
+** GUI
 
+- Mostly text-based
+- When you press a key it highlights the GUI part and names it
+- Click on point and it highlights it and gives the reference name ready to be pasted
+- Same with clicking on place where we want a point    
 
 ** Ideas
 
@@ -273,30 +277,12 @@ def drawinterior (expr p) =
   draw p;
 enddef;
 
-def drawdoorup (expr p, offset, length, thickness) =
-  pickup pencircle scaled 3thickness;
-  undraw (p+(0,offset))--(p+(0,offset+length));
-  if offset > 10:
-    dimension((point 0 of p)--((point 0 of p)+(0,offset)), (10, 0));
-  fi
-enddef;
+def doorup    (expr p, offset, length) = (p+(0,offset))--(p+(0,offset+length)); enddef;
+def doordown  (expr p, offset, length) = (p-(0,offset))--(p-(0,offset+length)); enddef;
+def doorright (expr p, offset, length) = (p+(offset,0))--(p+(offset+length,0)); enddef;
+def doorleft  (expr p, offset, length) = (p-(offset,0))--(p-(offset+length,0)); enddef;
 
-def drawdoordown (expr p, offset, length, thickness) =
-  pickup pencircle scaled 3thickness;
-  undraw (p-(0,offset))--(p-(0,offset+length));
-enddef;
-
-def drawdoorright (expr p, offset, length, thickness) =
-  pickup pencircle scaled 3thickness;
-  undraw (p+(offset,0))--(p+(offset+length,0));
-enddef;
-
-def drawdoorleft (expr p, offset, length, thickness) =
-  pickup pencircle scaled 3thickness;
-  undraw (p-(offset,0))--(p-(offset+length,0));
-enddef;
-
-def dimension(expr p, offset) =
+def drawdimension(expr p, offset) =
   pickup pencircle scaled .7bp;
   drawdblarrow p shifted offset shortened 1.75bp;
   picture pic;
@@ -332,14 +318,15 @@ drawwall(kitchen, 6);
 drawwall(blueroom, 6);
 drawwall(master, 6);
 
-drawdoorup(point 1 of livingroom,    49,   72,   6); 
-drawdoorright(point 0 of livingroom, 49,   48,   6);
-drawdoorup(point 1 of garage,        6,    36,   6);
-drawdoorup(point 0 of garage,        5*12, 8*12, 6);
-drawdoordown(point 3 of garage,      2*12, 8*12, 6);
-drawdoorleft(point 4 of kitchen,     6,    36,   6);
-drawdoorleft(point 2 of blueroom,    3,    36,   6);
-drawdoorleft(point 4 of master,      3,    36,   6);
+path door[];
+door[0] := doorup    (point 1 of garage, 6, 36);      undraw door[0]; % Garage to Family
+door[1] := doorup    (point 0 of garage, 5*12, 8*12); undraw door[1]; % West garage door
+door[2] := doordown  (point 3 of garage, 2*12, 8*12); undraw door[2]; % East garage door
+door[3] := doorup    (point 1 of livingroom, 49, 72); undraw door[3]; % Living room to entry
+door[4] := doorright (point 0 of livingroom, 49, 48); undraw door[4];
+door[5] := doorleft  (point 4 of kitchen, 6, 36);     undraw door[5];
+door[6] := doorleft  (point 2 of blueroom, 3, 36);    undraw door[6];
+door[7] := doorleft  (point 4 of master, 3, 36);      undraw door[7];
 
 drawinterior(garage);
 drawinterior(livingroom);
@@ -347,14 +334,21 @@ drawinterior(kitchen);
 drawinterior(blueroom);
 drawinterior(master);
 
-dimension((point 0 of garage)..(point 3 of garage), (20,0));
-dimension((point 2 of garage)..(point 3 of garage), (0,-20));
+drawdimension((point 0 of door[1])--(point 0 of garage), (5,0));
+drawdimension((point 0 of door[2])--(point 3 of garage), (10,0));
+drawdimension((point 1 of door[1])--(point 1 of door[2]), (5,0));
+drawdimension((point 0 of garage)--(point 3 of garage), (20,0));
+drawdimension((point 2 of garage)--(point 3 of garage), (0,-20));
+drawdimension((point 5 of kitchen)--(point 4 of kitchen), (0,-5));
+
+%path outline; outline = (0,-50)--(100,-50)--(100,50)--(0,50)--cycle;
+%clip currentpicture to outline; draw outline;
+
 %path p;
 %p := (point 2 of garage)..(point 3 of garage);
 %drawdblarrow p withcolor blue;
 
 #+end_src
-
 
 
 #+begin_src elisp
