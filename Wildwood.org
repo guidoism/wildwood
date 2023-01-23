@@ -340,7 +340,7 @@ drawdimension((point 1 of door[1])--(point 1 of door[2]), (5,0));
 drawdimension((point 0 of garage)--(point 3 of garage), (20,0));
 drawdimension((point 2 of garage)--(point 3 of garage), (0,-20));
 drawdimension((point 5 of kitchen)--(point 4 of kitchen), (0,-5));
-drawdimension((point 5 of kitchen)--(point 0 of door[4]), (0,0)); % TODO: how to get lower part
+drawdimension((point 5 of kitchen)--(point 0 of door[4] shifted (0,-6)), (0,0));
 
 %path outline; outline = (0,-50)--(100,-50)--(100,50)--(0,50)--cycle;
 %clip currentpicture to outline; draw outline;
