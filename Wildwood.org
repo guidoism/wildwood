@@ -127,6 +127,12 @@ def doordown  (expr p, offset, length) = (p-(0,offset))--(p-(0,offset+length)); 
 def doorright (expr p, offset, length) = (p+(offset,0))--(p+(offset+length,0)); enddef;
 def doorleft  (expr p, offset, length) = (p-(offset,0))--(p-(offset+length,0)); enddef;
 
+def drawwindowdown (expr p) =
+  undraw p;
+  draw p shifted (0,-3) withpen pencircle scaled .5bp;
+  draw p shifted (0,-5.5) withpen pencircle scaled .5bp;
+enddef;
+
 def drawdimension(expr p, offset) =
   pickup pencircle scaled .7bp;
   drawdblarrow p shifted offset shortened 1.75bp;
@@ -169,12 +175,13 @@ T :=  1.365 ft;
 U :=  0.615 ft;
 V :=  3.930 ft;
 W :=  9.990 ft;
-X :=  2.670 ft;
+X := 15.975 ft;
+Y :=  2.670 ft;
 
 path garage, livingroom, kitchen, blueroom, master, masterbath, hallbath, southbed, smallbed, laundry;
 garage := (0,0)--(312,0)--(312,330)--(0,330)--cycle;
 livingroom := (0,0)--(456,0)--(456,174)--(456-66,174)..(456-66-84,174+24)..(456-66-84-84,174)--(0,174)--cycle;
-kitchen := (0,0)--(E,0)--(E,-J)--(D-E,-J)--(D-E,K-J)--(0,K-J)--cycle;
+kitchen := (0,0)--(E,0)--(E,-J)--(D,-J)--(D,K-J)--(0,K-J)--cycle;
 blueroom := (0,0)--(132,0)--(132,192)--(0,192)--cycle;
 master := (0,0)--(240,0)--(240,156)--(240-144,156)--(240-144,156+36)--(0,156+36)--cycle;
 
@@ -189,7 +196,8 @@ drawwall(kitchen, 6);
 drawwall(blueroom, 6);
 drawwall(master, 6);
 
-path chimney; chimney := unitsquare scaled (D-W-C, Y);
+%path chimney; chimney := (C,)--(D-W,K-J-Y)--(D-W,K-J)--(C,K-J)--cycle;
+%pickup pencircle scaled 1bp; draw chimney shifted (lrcorner garage + (6, 0));
 
 path door[];
 door[0]  := doorup    (point 1 of garage, 6, 36);       undraw door[0]; % Garage to family
@@ -203,6 +211,15 @@ door[7]  := doorright (point 0 of kitchen,     G, F-G); undraw door[7]; % Laundr
 
 door[10] := doorleft  (point 2 of blueroom, 3, 36);     undraw door[10]; % Blue room door
 door[11] := doorleft  (point 4 of master, 3, 36);       undraw door[11]; % Master room door
+
+path window[];
+
+window[0] := doorright (point 2 of kitchen, L, M-L);
+window[1] := doorright (point 2 of kitchen, N, O-N);
+window[2] := doorleft  (point 3 of kitchen, T, S-T);
+drawwindowdown(window[0])
+drawwindowdown(window[1])
+drawwindowdown(window[2])
 
 drawinterior(garage);
 drawinterior(livingroom);
