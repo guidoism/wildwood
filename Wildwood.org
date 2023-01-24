@@ -190,14 +190,14 @@ drawwall(blueroom, 6);
 drawwall(master, 6);
 
 path door[];
-door[0] := doorup    (point 1 of garage, 6, 36);      undraw door[0]; % Garage to family
-door[1] := doorup    (point 0 of garage, 5*12, 8*12); undraw door[1]; % West garage door
-door[2] := doordown  (point 3 of garage, 2*12, 8*12); undraw door[2]; % East garage door
-door[3] := doorup    (point 1 of livingroom, 49, 72); undraw door[3]; % Living room to front entry
-door[4] := doorright (point 0 of livingroom, 49, 48); undraw door[4]; % Living to garage entry
-door[5] := doorleft  (point 4 of kitchen, 6, 36);     undraw door[5]; % Family to front entry
-door[6] := doorleft  (point 2 of blueroom, 3, 36);    undraw door[6]; % Blue room door
-door[7] := doorleft  (point 4 of master, 3, 36);      undraw door[7]; % Master room door
+door[0] := doorup    (point 1 of garage, 6, 36);       undraw door[0]; % Garage to family
+door[1] := doorup    (point 0 of garage, 5*12, 8*12);  undraw door[1]; % West garage door
+door[2] := doordown  (point 3 of garage, 2*12, 8*12);  undraw door[2]; % East garage door
+door[3] := doorup    (point 1 of livingroom, 49, 72);  undraw door[3]; % Living room to front entry
+door[4] := doorright (point 0 of livingroom, 49, 48);  undraw door[4]; % Living to garage entry
+door[5] := doorleft  (point 4 of kitchen,     U, V-U); undraw door[5]; % Family to front entry
+door[6] := doorleft  (point 2 of blueroom, 3, 36);     undraw door[6]; % Blue room door
+door[7] := doorleft  (point 4 of master, 3, 36);       undraw door[7]; % Master room door
 
 drawinterior(garage);
 drawinterior(livingroom);
