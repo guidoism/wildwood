@@ -239,6 +239,7 @@ door[8]  := doorright (point 2 of kitchen,     P, Q-P); undraw door[8]; % Slidin
 door[9]  := doorleft  (point 1 of entry,       BH, BD); undraw door[9]; % Blue room door
 door[10] := doorleft  (point 1 of entry,       BG-BF, BF); undraw door[10]; % Master room door
 door[11] := doorright (point 5 of entry,       BQ, BR);  undraw door[11]; % Understairs closet door
+door[12] := doorup    (point 5 of entry,       BM, BN);  undraw door[12]; % Entry closet door
 
 path window[];
 
