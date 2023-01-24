@@ -174,9 +174,9 @@ F :=  5.420 ft;     AF := 17.730 ft;     BF :=  2.415 ft;
 G :=  3.015 ft;     AG := 12.52EstFt;    BG :=  3.115 ft;
 H :=  1.910 ft;     AH := 14.890 ft;     BH :=  7.690 ft;
 I :=  0.330 ft;     AI :=  5.690 ft;     BI := 15.470 ft;
-J := 12.525 ft;     AJ :=  4.435 ft;     %BJ :=  ft;
-K := 15.975 ft;     AK :=  6.040 ft;     %BK :=  ft;
-L :=  2.155 ft;     AL :=  4.385 ft;     %BL :=  ft;
+J := 12.525 ft;     AJ :=  4.435 ft;     BJ :=  3.365 ft;
+K := 15.975 ft;     AK :=  6.040 ft;     BK :=  3.985 ft;
+L :=  2.155 ft;     AL :=  4.385 ft;     BL :=  6.900 ft;
 M :=  7.950 ft;     AM :=  1.475 ft;     %BM :=  ft;
 N := 10.920 ft;     AN := 38.520 ft;     %BN :=  ft;
 O := 15.855 ft;     
@@ -197,7 +197,7 @@ livingroom := (0,0)--(AN,0)--(AN,AD)--(AN-AI,AD)..(AN-AI-AH/2,AD+AM)..(AN-AI-AH,
 kitchen := (0,0)--(E,0)--(E,-J)--(D,-J)--(D,K-J)--(0,K-J)--cycle;
 blueroom := (0,0)--(132,0)--(132,192)--(0,192)--cycle;
 master := (0,0)--(240,0)--(240,156)--(240-144,156)--(240-144,156+36)--(0,156+36)--cycle;
-entry := (0,0)--(BB,0)--(BB,BI)--(BB-3.08 EstFt,BI)--(BB-3.08 EstFt,3.75 EstFt)--(6.75 EstFt,3.75 EstFt)--(6.75 EstFt,AD)--(0,AD)--cycle;
+entry := (0,0)--(BB,0)--(BB,BI)--(BB-BJ,BI)--(BB-BJ,BK)--(BL,BK)--(BL,AD)--(0,AD)--cycle;
 
 livingroom := livingroom shifted (lrcorner garage + (6,(K-J)+6));
 kitchen    := kitchen shifted (lrcorner garage + (6,0));
