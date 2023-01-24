@@ -88,7 +88,7 @@ end.
 \definefont[bahnlight][name:bahnschriftlight*default]
 \definefont[dim][name:bahnschriftlight*default at 5pt]
                                             
-\definepapersize [biggy] [width=480mm,height=230mm]
+\definepapersize [biggy] [width=530mm,height=230mm]
 \setuppapersize[biggy]
 
 \starttext
