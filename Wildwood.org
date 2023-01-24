@@ -205,7 +205,14 @@ drawwall(kitchen, 6);
 drawwall(blueroom, 6);
 drawwall(master, 6);
 
-%path chimney; chimney := (C,)--(D-W,K-J-Y)--(D-W,K-J)--(C,K-J)--cycle;
+% Kitchen floor
+draw (point 2 of kitchen shifted (9.990ft,0))--(point 2 of kitchen shifted (9.990ft,K)) withpen pencircle scaled .1bp dashed withdots;
+
+path chimney;
+chimney := (0,0)--(D-W-C,0)--(D-W-C,Y)--(0,Y)--cycle;
+chimney := chimney shifted (lrcorner garage + (6, 0)) shifted (C,K-J-Y);
+fill chimney withpen pencircle scaled .7bp withcolor .7 white;
+
 %pickup pencircle scaled 1bp; draw chimney shifted (lrcorner garage + (6, 0));
 
 path door[];
@@ -244,9 +251,6 @@ drawinterior(livingroom);
 drawinterior(kitchen);
 drawinterior(blueroom);
 drawinterior(master);
-
-% Kitchen floor
-draw (point 2 of kitchen shifted (9.990ft,0))--(point 2 of kitchen shifted (9.990ft,K)) dashed withdots;
 
 drawdimension((point 0 of door[1])--(point 0 of garage), (5,0));
 drawdimension((point 0 of door[2])--(point 3 of garage), (10,0));
