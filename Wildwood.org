@@ -188,26 +188,29 @@ W :=  9.990 ft;
 X := 15.975 ft;
 Y :=  2.670 ft;
 
-path garage, livingroom, kitchen, blueroom, master, masterbath, hallbath, southbed, smallbed, laundry;
+path garage, livingroom, kitchen, blueroom, master, masterbath, hallbath, southbed, smallbed, laundry, entry;
 garage := (0,0)--(312,0)--(312,330)--(0,330)--cycle;
 livingroom := (0,0)--(AN,0)--(AN,AD)--(AN-AI,AD)..(AN-AI-AH/2,AD+AM)..(AN-AI-AH,AD)--(0,AD)--cycle;
 kitchen := (0,0)--(E,0)--(E,-J)--(D,-J)--(D,K-J)--(0,K-J)--cycle;
 blueroom := (0,0)--(132,0)--(132,192)--(0,192)--cycle;
 master := (0,0)--(240,0)--(240,156)--(240-144,156)--(240-144,156+36)--(0,156+36)--cycle;
+entry := (0,0)--(BB,0)--(BB,BI)--(BB-3.08 EstFt,BI)--(BB-3.08 EstFt,3.75 EstFt)--(6.75 EstFt,3.75 EstFt)--(6.75 EstFt,AD)--(0,AD)--cycle;
 
-livingroom := livingroom shifted (lrcorner garage + (6, (K-J)+6));
-kitchen    := kitchen shifted (lrcorner garage + (6, 0));
-blueroom   := blueroom shifted (lrcorner kitchen + (6, 0));
-master     := master shifted (lrcorner blueroom + (6, 0));
+livingroom := livingroom shifted (lrcorner garage + (6,(K-J)+6));
+kitchen    := kitchen shifted (lrcorner garage + (6,0));
+blueroom   := blueroom shifted (lrcorner kitchen + (6,0));
+master     := master shifted (lrcorner blueroom + (6,0));
+entry      := entry shifted (lrcorner livingroom + (6,0));
 
 drawwall(garage , 6);
 drawwall(livingroom, 6);
 drawwall(kitchen, 6);
 drawwall(blueroom, 6);
 drawwall(master, 6);
+drawwall(entry, 6);
 
 % Kitchen floor
-draw (point 2 of kitchen shifted (9.990ft,0))--(point 2 of kitchen shifted (9.990ft,K)) withpen pencircle scaled .1bp dashed withdots;
+draw (point 2 of kitchen shifted (9.990ft,0))--(point 2 of kitchen shifted (9.990ft,K)) withpen pencircle scaled .1bp dashed evenly;
 
 path chimney;
 chimney := (0,0)--(D-W-C,0)--(D-W-C,Y)--(0,Y)--cycle;
