@@ -158,6 +158,7 @@ primarydef pct along pat = % This was taken from from MetaFun's macros
 enddef;
 
 ft = 12bp;
+EstFt = 12bp; % Estimated feet, need to re-measure these dimensions
 
 % L I V I N G  ---  K I T C H E N  ---
 
@@ -167,7 +168,7 @@ C := 18.530 ft;     AC := 10.580 ft;
 D := 43.530 ft;     AD := 14.840 ft;
 E :=  8.550 ft;     AE :=  3.080 ft;
 F :=  5.420 ft;     AF := 17.730 ft;
-G :=  3.015 ft;     AG := 12.520 ft; % (est)
+G :=  3.015 ft;     AG := 12.52EstFt;
 H :=  1.910 ft;     AH := 14.890 ft;
 I :=  0.330 ft;     AI :=  5.690 ft;
 J := 12.525 ft;     AJ :=  4.435 ft;
