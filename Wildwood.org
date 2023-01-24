@@ -212,6 +212,9 @@ path chimney;
 chimney := (0,0)--(D-W-C,0)--(D-W-C,Y)--(0,Y)--cycle;
 chimney := chimney shifted (lrcorner garage + (6, 0)) shifted (C,K-J-Y);
 fill chimney withpen pencircle scaled .7bp withcolor .7 white;
+path hearth;
+hearth := (AA,0)--(AA+AB,0)--(AA+AB,2)--(0,2)--cycle;
+fill hearth withpen pencircle scaled .7bp withcolor .7 white;
 
 %pickup pencircle scaled 1bp; draw chimney shifted (lrcorner garage + (6, 0));
 
