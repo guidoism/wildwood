@@ -57,161 +57,11 @@ we get to a new slice, and on and on.
 We should be able to use anything to generate the slices, not just
 OpenSCAD.
 
-*** Just do it in OpenSCAD
-
-#+begin_src scad
-include <BOSL/constants.scad>
-use <BOSL/transforms.scad>
-
-x = 38;
-y = 14.5;
-t = .5;
-
-difference {
-  square([x, y], center=true);
-  square([x+(2*t), y+(2*t)], center=true);
-}
-#+end_src
-
-*** Try out MetaPost
-
-#+begin_src metapost
-ft = 1cm;
-pickup pensquare scaled 1bp;
-draw (0,0)--(26ft,0)--(26ft,27.5ft)--(0,27.5ft)--cycle;
-pickup pensquare scaled 0.5ft;
-draw (-.25ft,-.25ft)--(26.25ft,-.25ft)--(26.25ft,27.75ft)--(-0.25ft,27.75ft)--cycle withcolor .8 white;
-undraw (26.25ft,0.5ft)--(26.25ft,0.5ft+3ft);
-undraw (-.25ft,3ft)--(-.25ft,10ft);
-undraw (-.25ft,13ft)--(-.25ft,20ft);
-#+end_src
-
-Clean up a bit and use math
-
-#+begin_src metapost
-ft = 1cm;
-wall_depth = 0.5ft;
-
-% Draw the measured room outline
-pickup pensquare scaled 1bp;
-draw (0,0)--(26ft,0)--(26ft,27.5ft)--(0,27.5ft)--cycle;
-
-% Draw in the thickness of the walls
-pickup pensquare scaled 0.5ft;
-t = wall_depth / 2;
-draw (0-t,0-t)--(26ft+t,0-t)--(26ft+t,27.5ft+t)--(0-t,27.5ft+t)--cycle withcolor .8 white;
-
-undraw (26ft+t,0.5ft)--(26ft+t,0.5ft+3ft);
-undraw (0-t,5ft)     --(0-t,5ft+8ft);      % 5ft from bottom, 8ft wide
-undraw (0-t,26ft-2ft)--(0-t,26ft-2ft-8ft); % 2ft from the top, 8ft wide
-#+end_src
-
-Move out numbers into variables
-
-#+begin_src metapost
-ft = 1cm;
-width = 26ft;
-depth = 27.5ft;
-wall_depth = 0.5ft;
-
-% Draw the measured room outline
-pickup pensquare scaled 1bp;
-draw (0,0)--(width,0)--(width,depth)--(0,depth)--cycle;
-
-% Draw in the thickness of the walls
-pickup pensquare scaled 0.5ft;
-t = wall_depth / 2;
-draw (0-t,0-t)--(width+t,0-t)--(width+t,depth+t)--(0-t,depth+t)--cycle withcolor .8 white;
-
-undraw (width+t,0.5ft)--(width+t,0.5ft+3ft);
-undraw (0-t,5ft)       --(0-t,5ft+8ft);      % 5ft from bottom, 8ft wide
-undraw (0-t,width-2ft)--(0-t,width-2ft-8ft); % 2ft from the top, 8ft wide
-#+end_src
-
-Add living room
-
-#+begin_src metapost
-path p[];
-ft = 1cm;
-wall_depth = 0.5ft;
-
-garage_width = 26ft;
-garage_depth = 27.5ft;
-living_width = 38ft;
-living_depth = 14.5ft;
-mud_hall_depth = 4ft;
-mud_hall_width = 8ft;
-family_room_hall_width = 43ft;
-kitchen_depth = 12ft;
-family_room_width = 35ft;
-family_room_depth = 16ft;
-
-% G A R A G E
-pickup pensquare scaled 1bp; % Draw the measured room outline
-draw (0,0)--(garage_width,0)--(garage_width,garage_depth)--(0,garage_depth)--cycle;
-
-pickup pensquare scaled 0.5ft; % Draw in the thickness of the walls
-t = wall_depth / 2;
-p0 = (0,0)--(garage_width,0)
-          --(garage_width,garage_depth)
-          --(0,garage_depth)
-          --cycle;
-
-pickup pensquare scaled (2wall_depth);
-draw p0 withcolor .8 white;
-unfill p0;
-
-% L I V I N G   R O O M
-p1 = (0,0)--(living_width,0)--(living_width,living_depth)--(0,living_depth)--cycle;
-
-pickup pensquare scaled (2wall_depth);
-draw p1 shifted (garage_width+wall_depth, mud_hall_depth+wall_depth) withcolor .8 white;
-unfill p1 shifted (garage_width+wall_depth, mud_hall_depth+wall_depth);
-
-% F A M I L Y  R O O M
-p2 = (0,0)--(mud_hall_width,0)--(mud_hall_width,-kitchen_depth)
-          --(family_room_hall_width,-kitchen_depth)
-          --(family_room_hall_width,mud_hall_depth)
-          --(0,mud_hall_depth)
-          --cycle;
-
-pickup pensquare scaled (2wall_depth);
-draw p2 shifted (garage_width+wall_depth, 0) withcolor .8 white;
-unfill p2 shifted (garage_width+wall_depth, 0);
-
-% D O O R S
-undraw (0,garage_depth-2ft)--(0,garage_depth-2ft-8ft); % Top garage door (2ft from top, 8ft wide)
-undraw (0,5ft)--(0,5ft+8ft);                           % Bottom garage door (5ft from bottom, 8ft wide)
-undraw (garage_width,1ft)--(garage_width,1ft+2ft);     % Door from garage to mudroom hallway
-undraw ((4.5ft,mud_hall_depth)--(4.5ft+4ft,mud_hall_depth)) shifted (garage_width+wall_depth, 0); % Opening from mud room hallway to living room
-
-% R O O M  L I N E S
-pickup pensquare scaled 1bp;
-draw p0;
-draw p1 shifted (garage_width+wall_depth, mud_hall_depth+wall_depth);
-draw p2 shifted (garage_width+wall_depth, 0);
-
-% A R R O W S
-drawdblarrow (4ft,garage_depth)--(4ft,0);
-
-
-% G R I D
-for i=0 upto 80:
-  for j=0 upto 50:
-    draw (i*ft,j*ft) shifted (0, -16ft);
-  endfor;
-endfor;
-#+end_src
-
 #+name: compile
 #+begin_src elisp
 (org-babel-tangle)
 (org-sbe run-metapost)
 #+end_src
-
-#+RESULTS: compile
-: nil
-
 
 #+name: run-metapost
 #+begin_src sh :results output
@@ -222,9 +72,6 @@ pwd
 #open -a Safari drawing.svg
 context drawing.tex
 #+end_src
-
-#+RESULTS: run-metapost
-
 
 #+begin_src metapost :tangle output/drawing.mp :noweb yes
 outputtemplate := "%j.%o";
@@ -252,8 +99,6 @@ end.
 \stopMPcode
 \stoptext
 #+end_src
-
-
 
 
 We can draw a single point from a path like this:
@@ -300,10 +145,37 @@ primarydef pct along pat = % This was taken from from MetaFun's macros
   (arctime (pct * (arclength pat)) of pat) of pat
 enddef;
 
+%ft = 12bp;
+%A :=  4.090 ft;
+%B :=  8.095 ft;
+%C := 18.530 ft;
+%D := 43.530 ft;
+%E :=  8.550 ft;
+%F :=  5.420 ft;
+%G :=  3.015 ft;
+%H :=  1.910 ft;
+%I :=  0.330 ft;
+%J := 12.525 ft;
+%K := 15.975 ft;
+%L :=  2.155 ft;
+%M :=  7.950 ft;
+%N := 10.920 ft;
+%O := 15.855 ft;
+%P := 17.110 ft;
+%Q := 22.905 ft;
+%R := 24.460 ft;
+%S := 12.085 ft;
+%T :=  1.365 ft;
+%U :=  0.615 ft;
+%V :=  3.930 ft;
+%W :=  9.990 ft;
+%X :=  2.670 ft;
+
 path garage, livingroom, kitchen, blueroom, master, masterbath, hallbath, southbed, smallbed, laundry;
 garage := (0,0)--(312,0)--(312,330)--(0,330)--cycle;
 livingroom := (0,0)--(456,0)--(456,174)--(456-66,174)..(456-66-84,174+24)..(456-66-84-84,174)--(0,174)--cycle;
 kitchen := (0,0)--(96,0)--(96,-144)--(516,-144)--(516,48)--(0,48)--cycle;
+%kitchen := (0,0)--(E,0)--(E,-J)--(D-E,-J)--(D-E,K-J)--(0,K-J)--cycle;
 blueroom := (0,0)--(132,0)--(132,192)--(0,192)--cycle;
 master := (0,0)--(240,0)--(240,156)--(240-144,156)--(240-144,156+36)--(0,156+36)--cycle;
 
