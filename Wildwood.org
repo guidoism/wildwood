@@ -189,6 +189,8 @@ drawwall(kitchen, 6);
 drawwall(blueroom, 6);
 drawwall(master, 6);
 
+path chimney; chimney := unitsquare scaled (D-W-C, Y);
+
 path door[];
 door[0]  := doorup    (point 1 of garage, 6, 36);       undraw door[0]; % Garage to family
 door[1]  := doorup    (point 0 of garage, 5*12, 8*12);  undraw door[1]; % West garage door
