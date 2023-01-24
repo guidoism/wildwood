@@ -163,9 +163,9 @@ enddef;
 ft = 12bp;
 EstFt = 12bp; % Estimated feet, need to re-measure these dimensions
 
-% L I V I N G  ---  K I T C H E N  ---   H A L L W A Y 
+% L I V I N G  ---  K I T C H E N  ---   H A L L W A Y
 
-A :=  4.090 ft;     AA := 23.070 ft;     BA :=  3.330 ft;
+A :=  4.090 ft;     AA := 23.070 ft;     BA :=  3.330 ft;    
 B :=  8.095 ft;     AB :=  4.925 ft;     BB := 23.065 ft;
 C := 18.530 ft;     AC := 10.580 ft;     BC := 19.190 ft;
 D := 43.530 ft;     AD := 14.840 ft;     BD :=  2.410 ft;
@@ -191,6 +191,23 @@ W :=  9.990 ft;
 X := 15.975 ft;
 Y :=  2.670 ft;
 
+% L A U N D R Y
+DA := 2.620 ft;
+DB := 5.375 ft;
+DC := 8.725 ft;
+DD := 8.070 ft;
+DE := 3.490 ft;
+DF := 2.685 ft;
+DG := 2.915 ft;
+DH := 3.025 ft;
+DI := 4.890 ft;
+DJ := 3.025 ft;
+DK := 2.840 ft;
+DL := 2.250 ft;
+DM := 2.615 ft;
+DN := 3.060 ft;
+
+
 path garage, livingroom, kitchen, blueroom, master, masterbath, hallbath, southbed, smallbed, laundry, entry;
 garage := (0,0)--(312,0)--(312,330)--(0,330)--cycle;
 livingroom := (0,0)--(AN,0)--(AN,AD)--(AN-AI,AD)..(AN-AI-AH/2,AD+AM)..(AN-AI-AH,AD)--(0,AD)--cycle;
@@ -198,12 +215,14 @@ kitchen := (0,0)--(E,0)--(E,-J)--(D,-J)--(D,K-J)--(0,K-J)--cycle;
 blueroom := (0,0)--(132,0)--(132,192)--(0,192)--cycle;
 master := (0,0)--(240,0)--(240,156)--(240-144,156)--(240-144,156+36)--(0,156+36)--cycle;
 entry := (0,0)--(BB,0)--(BB,BI)--(BB-BJ,BI)--(BB-BJ,BK)--(BL,BK)--(BL,AD)--(0,AD)--cycle;
+laundry := (0,0)--(0,-DN)--(-DF,-DN)--(-DF,-DN-DE)--(-DF+DG,-DN-DE)--(DB-DH,-DC)--(DB,-DC)--(DB,0)--cycle;
 
 livingroom := livingroom shifted (lrcorner garage + (6,(K-J)+6));
 kitchen    := kitchen shifted (lrcorner garage + (6,0));
 blueroom   := blueroom shifted (lrcorner kitchen + (6,0));
 master     := master shifted (lrcorner blueroom + (6,0));
 entry      := entry shifted (lrcorner livingroom + (6,0));
+laundry    := laundry shifted (point 1 of kitchen + (-DB-6,-6));
 
 drawwall(garage , 6);
 drawwall(livingroom, 6);
@@ -211,6 +230,7 @@ drawwall(kitchen, 6);
 %drawwall(blueroom, 6);
 %drawwall(master, 6);
 drawwall(entry, 6);
+drawwall(laundry, 6);
 
 % Kitchen floor
 draw (point 2 of kitchen shifted (9.990ft,0))--(point 2 of kitchen shifted (9.990ft,K)) withpen pencircle scaled .1bp dashed evenly;
@@ -266,6 +286,7 @@ drawinterior(kitchen);
 drawinterior(entry);
 %drawinterior(blueroom);
 %drawinterior(master);
+drawinterior(laundry);
 
 drawdimension((point 0 of door[1])--(point 0 of garage), (5,0));
 drawdimension((point 0 of door[2])--(point 3 of garage), (10,0));
