@@ -233,8 +233,9 @@ door[5]  := doorleft  (point 4 of kitchen,     U, V-U); undraw door[5]; % Family
 door[6]  := doorright (point 0 of kitchen,     I, H-I); undraw door[6]; % Garage entry closet
 door[7]  := doorright (point 0 of kitchen,     G, F-G); undraw door[7]; % Laundry room door
 door[8]  := doorright (point 2 of kitchen,     P, Q-P); undraw door[8]; % Sliding door
-%door[10] := doorleft  (point 2 of blueroom, 3, 36);     undraw door[10]; % Blue room door
-%door[11] := doorleft  (point 4 of master, 3, 36);       undraw door[11]; % Master room door
+door[9]  := doorleft  (point 1 of entry,       BH, BD); undraw door[9]; % Blue room door
+door[10] := doorleft  (point 1 of entry,       BG-BF,BF); undraw door[10]; % Master room door
+
 
 path window[];
 
