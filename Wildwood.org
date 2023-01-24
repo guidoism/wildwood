@@ -177,15 +177,15 @@ I :=  0.330 ft;     AI :=  5.690 ft;     BI := 15.470 ft;
 J := 12.525 ft;     AJ :=  4.435 ft;     BJ :=  3.365 ft;
 K := 15.975 ft;     AK :=  6.040 ft;     BK :=  3.985 ft;
 L :=  2.155 ft;     AL :=  4.385 ft;     BL :=  6.900 ft;
-M :=  7.950 ft;     AM :=  1.475 ft;     %BM :=  ft;
-N := 10.920 ft;     AN := 38.520 ft;     %BN :=  ft;
-O := 15.855 ft;     
-P := 17.110 ft;     
-Q := 22.905 ft;     
-R := 24.460 ft;     
-S := 12.085 ft;     
-T :=  1.365 ft;
-U :=  0.615 ft;
+M :=  7.950 ft;     AM :=  1.475 ft;     BM :=  1.220 ft;
+N := 10.920 ft;     AN := 38.520 ft;     BN :=  4.900 ft;
+O := 15.855 ft;                          BO :=  4.740 ft;
+P := 17.110 ft;                          BP :=  6.400 ft;
+Q := 22.905 ft;                          BQ :=  3.315 ft;
+R := 24.460 ft;                          BR :=  2.400 ft;
+S := 12.085 ft;                          
+T :=  1.365 ft;                          
+U :=  0.615 ft;                          
 V :=  3.930 ft;
 W :=  9.990 ft;
 X := 15.975 ft;
@@ -237,8 +237,8 @@ door[6]  := doorright (point 0 of kitchen,     I, H-I); undraw door[6]; % Garage
 door[7]  := doorright (point 0 of kitchen,     G, F-G); undraw door[7]; % Laundry room door
 door[8]  := doorright (point 2 of kitchen,     P, Q-P); undraw door[8]; % Sliding door
 door[9]  := doorleft  (point 1 of entry,       BH, BD); undraw door[9]; % Blue room door
-door[10] := doorleft  (point 1 of entry,       BG-BF,BF); undraw door[10]; % Master room door
-
+door[10] := doorleft  (point 1 of entry,       BG-BF, BF); undraw door[10]; % Master room door
+door[11] := doorright (point 5 of entry,       BQ, BR);  undraw door[11]; % Understairs closet door
 
 path window[];
 
