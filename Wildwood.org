@@ -256,6 +256,7 @@ drawdimension((point 2 of garage)--(point 3 of garage), (0,-20));
 drawdimension((point 5 of kitchen)--(point 4 of kitchen), (0,-15));
 drawdimension((point 5 of kitchen)--(point 0 of door[4]), (0,-5));
 drawdimension((point 1 of kitchen)--(point 2 of kitchen), (5,0));
+drawdimension((point 3 of kitchen)--(point 4 of kitchen), (-5,0));
 
 %path outline; outline = (0,-50)--(100,-50)--(100,50)--(0,50)--cycle;
 %clip currentpicture to outline; draw outline;
