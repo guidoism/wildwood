@@ -87,12 +87,15 @@ end.
         
 \definefont[bahnlight][name:bahnschriftlight*default]
 \definefont[dim][name:bahnschriftlight*default at 5pt]
+\definefont[title][name:bahnschrift*default at 25pt]
                                             
 \definepapersize [biggy] [width=530mm,height=230mm]
 \setuppapersize[biggy]
 
 \starttext
 \setuppagenumbering[location=]
+\title
+405 N Wildwood Ln        
 \bahnlight
 \startMPcode{decimalfun}
   <<wildwood>>
