@@ -219,7 +219,7 @@ window[1] := doorright (point 2 of kitchen, N, O-N);
 window[2] := doorleft  (point 3 of kitchen, T, S-T);
 drawwindowdown(window[0])
 drawwindowdown(window[1])
-drawwindowdown(window[2])
+%drawwindowdown(window[2])
 
 drawinterior(garage);
 drawinterior(livingroom);
