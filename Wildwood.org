@@ -217,12 +217,14 @@ door[11] := doorleft  (point 4 of master, 3, 36);       undraw door[11]; % Maste
 
 path window[];
 
-window[0] := doorright (point 2 of kitchen, L, M-L);
-window[1] := doorright (point 2 of kitchen, N, O-N);
-window[2] := doorleft  (point 3 of kitchen, T, S-T);
+window[0] := doorright (point 2 of kitchen,    L, M-L); % Window over sink
+window[1] := doorright (point 2 of kitchen,    N, O-N); % Family room picture window
+window[2] := doorleft  (point 3 of kitchen,    T, S-T); % Family room big window
+window[3] := doorleft  (point 3 of livingroom, 6, AH);
 drawwindowdown(window[0])
 drawwindowdown(window[1])
 %drawwindowdown(window[2])
+  
 
 drawinterior(garage);
 drawinterior(livingroom);
