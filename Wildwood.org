@@ -152,25 +152,28 @@ primarydef pct along pat = % This was taken from from MetaFun's macros
 enddef;
 
 ft = 12bp;
-A :=  4.090 ft;
-B :=  8.095 ft;
-C := 18.530 ft;
-D := 43.530 ft;
-E :=  8.550 ft;
-F :=  5.420 ft;
-G :=  3.015 ft;
-H :=  1.910 ft;
-I :=  0.330 ft;
-J := 12.525 ft;
-K := 15.975 ft;
-L :=  2.155 ft;
-M :=  7.950 ft;
-N := 10.920 ft;
-O := 15.855 ft;
-P := 17.110 ft;
-Q := 22.905 ft;
-R := 24.460 ft;
-S := 12.085 ft;
+
+% L I V I N G  ---  K I T C H E N  ---
+
+A :=  4.090 ft;     AA := 23.070 ft;
+B :=  8.095 ft;     AB :=  4.925 ft;
+C := 18.530 ft;     AC := 10.580 ft;
+D := 43.530 ft;     AD := 14.840 ft;
+E :=  8.550 ft;     AE :=  3.080 ft;
+F :=  5.420 ft;     AF := 17.730 ft;
+G :=  3.015 ft;     AG := 12.520 ft; % (est)
+H :=  1.910 ft;     AH := 14.890 ft;
+I :=  0.330 ft;     AI :=  5.690 ft;
+J := 12.525 ft;     AJ :=  4.435 ft;
+K := 15.975 ft;     AK :=  6.040 ft;
+L :=  2.155 ft;     AL :=  4.385 ft;
+M :=  7.950 ft;     AM :=  1.475 ft;
+N := 10.920 ft;     AN := 38.520 ft;
+O := 15.855 ft;     
+P := 17.110 ft;     
+Q := 22.905 ft;     
+R := 24.460 ft;     
+S := 12.085 ft;     
 T :=  1.365 ft;
 U :=  0.615 ft;
 V :=  3.930 ft;
@@ -180,7 +183,7 @@ Y :=  2.670 ft;
 
 path garage, livingroom, kitchen, blueroom, master, masterbath, hallbath, southbed, smallbed, laundry;
 garage := (0,0)--(312,0)--(312,330)--(0,330)--cycle;
-livingroom := (0,0)--(456,0)--(456,174)--(456-66,174)..(456-66-84,174+24)..(456-66-84-84,174)--(0,174)--cycle;
+livingroom := (0,0)--(AN,0)--(AN,AD)--(AN-AI,AD)..(AN-AI-AH/2,AD+AM)..(AN-AI-AH,AD)--(0,AD)--cycle;
 kitchen := (0,0)--(E,0)--(E,-J)--(D,-J)--(D,K-J)--(0,K-J)--cycle;
 blueroom := (0,0)--(132,0)--(132,192)--(0,192)--cycle;
 master := (0,0)--(240,0)--(240,156)--(240-144,156)--(240-144,156+36)--(0,156+36)--cycle;
