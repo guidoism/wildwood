@@ -147,8 +147,8 @@ def drawdimension(expr p, offset) =
   drawdblarrow p shifted offset shortened 1.75bp;
   picture pic;
   l := arclength p;
-  if (l mod 12 = 0): 
-    pic := thelabel("\dim " & decimal(l / 12) & "' ", point 1/2 of p shifted offset);
+  if (floor(l mod 12) = 0):
+    pic := thelabel("\dim " & decimal(floor(l / 12)) & "' ", point 1/2 of p shifted offset);
   else:
     pic := thelabel("\dim " & decimal(floor(l / 12)) & "'" & decimal(floor(l mod 12)), point 1/2 of p shifted offset);
   fi
