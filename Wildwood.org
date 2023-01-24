@@ -94,7 +94,7 @@ end.
 \starttext
 \setuppagenumbering[location=]
 \bahnlight
-\startMPcode
+\startMPcode{decimalfun}
   <<wildwood>>
 \stopMPcode
 \stoptext
@@ -135,7 +135,7 @@ def drawdimension(expr p, offset) =
   if (l mod 12 = 0): 
     pic := thelabel("\dim " & decimal(l / 12) & "' ", point 1/2 of p shifted offset);
   else:
-    pic := thelabel("\dim " & decimal(floor(l / 12)) & "'" & decimal(l mod 12) & "''", point 1/2 of p shifted offset);
+    pic := thelabel("\dim " & decimal(floor(l / 12)) & "'" & decimal(floor(l mod 12)) & "''", point 1/2 of p shifted offset);
   fi
   unfill bbox pic;
   draw pic;
@@ -178,7 +178,7 @@ kitchen := (0,0)--(E,0)--(E,-J)--(D-E,-J)--(D-E,K-J)--(0,K-J)--cycle;
 blueroom := (0,0)--(132,0)--(132,192)--(0,192)--cycle;
 master := (0,0)--(240,0)--(240,156)--(240-144,156)--(240-144,156+36)--(0,156+36)--cycle;
 
-livingroom := livingroom shifted (lrcorner garage + (6, 48+6));
+livingroom := livingroom shifted (lrcorner garage + (6, (K-J)+6));
 kitchen    := kitchen shifted (lrcorner garage + (6, 0));
 blueroom   := blueroom shifted (lrcorner kitchen + (6, 0));
 master     := master shifted (lrcorner blueroom + (6, 0));
