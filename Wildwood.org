@@ -135,7 +135,7 @@ def drawdimension(expr p, offset) =
   if (l mod 12 = 0): 
     pic := thelabel("\dim " & decimal(l / 12) & "' ", point 1/2 of p shifted offset);
   else:
-    pic := thelabel("\dim " & decimal(floor(l / 12)) & "'" & decimal(floor(l mod 12)) & "''", point 1/2 of p shifted offset);
+    pic := thelabel("\dim " & decimal(floor(l / 12)) & "'" & decimal(floor(l mod 12)), point 1/2 of p shifted offset);
   fi
   unfill bbox pic;
   draw pic;
