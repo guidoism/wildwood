@@ -96,16 +96,11 @@ def doordown  (expr p, offset, length) = (p-(0,offset))--(p-(0,offset+length)); 
 def doorright (expr p, offset, length) = (p+(offset,0))--(p+(offset+length,0)); enddef;
 def doorleft  (expr p, offset, length) = (p-(offset,0))--(p-(offset+length,0)); enddef;
 
-def drawwindowdown (expr p) =
+% v is the vector to the outside
+def drawwindow (expr p, v) =
   undraw p;
-  draw p shifted (0,-3) withpen pencircle scaled .5bp;
-  draw p shifted (0,-5.5) withpen pencircle scaled .5bp;
-enddef;
-
-def drawwindowup (expr p) =
-  undraw p;
-  draw p shifted (0,3) withpen pencircle scaled .5bp;
-  draw p shifted (0,5.5) withpen pencircle scaled .5bp;
+  draw p shifted ((th/2)    * xpart v,   (th/2) * ypart v) withpen pencircle scaled .5bp;
+  draw p shifted ((th-.5bp) * xpart v,(th-.5bp) * ypart v) withpen pencircle scaled .5bp;
 enddef;
 
 def drawdimension(expr p, offset) =
@@ -247,9 +242,9 @@ path window[];
 window[0] := doorright (point 2 of kitchen,    L, M-L); % Window over sink
 window[1] := doorright (point 2 of kitchen,    N, O-N); % Family room picture window
 window[2] := doorright (point 2 of kitchen,    R, S-T); % Family room big window
-drawwindowdown(window[0]);
-drawwindowdown(window[1]);
-drawwindowdown(window[2]);
+drawwindow(window[0], down);
+drawwindow(window[1], down);
+drawwindow(window[2], down);
 
 % Big rounded window
 window[3] := (point 3 of livingroom)..(point 4 of livingroom)..(point 5 of livingroom);
@@ -258,10 +253,10 @@ draw window[3] shortened 1bp shifted (0,3) withpen pencircle scaled .5bp;
 draw window[3] shortened 1bp shifted (0,5.5) withpen pencircle scaled .5bp;
 
 window[4] := doorright (point 6 of livingroom, AE, AF-AG);
-drawwindowup(window[4]);
+drawwindow(window[4], up);
 
 window[5] := doorup (point 1 of southbed, FI, FK);
-drawwindowup(window[5]);
+drawwindow(window[5], right);
 
 drawinterior(garage);
 drawinterior(livingroom);
