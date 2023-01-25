@@ -219,6 +219,9 @@ entry := (0,0)--(BB,0)--(BB,BI)--(BB-BJ,BI)--(BB-BJ,BK)--(BL,BK)--(BL,AD)--(0,AD
 %laundrybath := (0,0)--(DD,0)--(DD,DJ)--(DD-DH,DJ)--(DG,DI)--(0,DI)--cycle;
 laundry := (0,0)--(DD,0)--(DD,J)--(0,J)--cycle;
 
+% Just the wall separtating the laundry from the bath
+laundrybath := (0,DI)--(DG,DI)--(DD-DH,DJ)--(DD,DJ);
+
 livingroom  := livingroom shifted (lrcorner garage + (6,(K-J)+6));
 kitchen     := kitchen shifted (lrcorner garage + (6,0));
 blueroom    := blueroom shifted (lrcorner kitchen + (6,0));
@@ -227,6 +230,7 @@ entry       := entry shifted (lrcorner livingroom + (6,0));
 laundry     := laundry shifted (lrcorner garage + (6,-J));
 %laundry     := laundry shifted (point 1 of kitchen + (-DB-6,-6));
 %laundrybath := laundrybath shifted (lrcorner garage + (6,-DN-DE-DI-6-6-6-6-6));
+laundrybath := laundrybath shifted (lrcorner garage + (6,-J));
 
 drawwall(garage , 6);
 drawwall(livingroom, 6);
@@ -235,7 +239,7 @@ drawwall(kitchen, 6);
 %drawwall(master, 6);
 drawwall(entry, 6);
 drawwall(laundry, 6);
-%drawwall(laundrybath, 6);
+drawwall(laundrybath, 6);
 
 % Kitchen floor
 draw (point 2 of kitchen shifted (9.990ft,0))--(point 2 of kitchen shifted (9.990ft,K)) withpen pencircle scaled .1bp dashed evenly;
