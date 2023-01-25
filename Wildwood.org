@@ -301,6 +301,7 @@ drawdimension((point 2 of garage)--(point 3 of garage), (0,-20));
 drawdimension((point 5 of kitchen)--(point 4 of kitchen), (0,-15));
 drawdimension((point 5 of kitchen)--(point 0 of door[4]), (0,-8));
 drawdimension((point 5 of kitchen)--((point 5 of kitchen) + (C,0)), (0,-11));
+drawdimension((point 0 of kitchen)--(point 1 of kitchen), (0,8));
 drawdimension((point 1 of kitchen)--(point 2 of kitchen), (7,0));
 drawdimension((point 3 of kitchen)--(point 4 of kitchen), (-9,0));
 drawdimension((point 3 of kitchen)--(point 4 of kitchen), (-9,0));
@@ -308,6 +309,13 @@ drawdimension((point 0 of kitchen)--(point 5 of kitchen), (15,0));
 
 drawdimension((point 0 of livingroom)--(point 6 of livingroom), (10,0));
 drawdimension((point 6 of livingroom)--(point 2 of livingroom), (0,-15));
+drawdimension((point 6 of livingroom)--((point 6 of livingroom)+(AE,0)), (0,-20));
+drawdimension((point 6 of livingroom)--((point 6 of livingroom)+(AF,0)), (0,-25));
+drawdimension((point 2 of livingroom)--((point 2 of livingroom)-(AI,0)), (0,-25));
+drawdimension((point 2 of livingroom)--((point 2 of livingroom)-(0,AJ)), (13,0));
+drawdimension((point 1 of livingroom)--((point 1 of livingroom)+(0,AL)), (-7,0));
+
+
 drawdimension((point 0 of entry)--(point 1 of entry), (0,25));
 
 drawdimension((point 0 of kitchenhallcloset)--(point 1 of kitchenhallcloset), (0,9)); % DL
