@@ -314,6 +314,7 @@ drawdimension((point 1 of blueroom)--(point 2 of blueroom), (-9,0));
 drawdimension((point 0 of master)--(point 1 of master), (0,9));
 drawdimension((point 1 of master)--(point 2 of master), (-9,0));
 
+drawdimension((point 0 of entrycloset)--(point 3 of entrycloset), (9,0));
 
 %path outline; outline = (0,-50)--(100,-50)--(100,50)--(0,50)--cycle;
 %clip currentpicture to outline; draw outline;
