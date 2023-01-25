@@ -261,6 +261,9 @@ drawwindow(window[4], up);
 window[5] := doorup (point 1 of southbed, FI, FK);
 drawwindow(window[5], right);
 
+window[6] := doorleft (point 2 of southbed, FD, FE);
+drawwindow(window[6], up);
+
 drawinterior(garage);
 drawinterior(livingroom);
 drawinterior(kitchen);
