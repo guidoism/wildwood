@@ -338,13 +338,13 @@ drawdimension((point 0 of entrycloset)--(point 3 of entrycloset), (9,0));
 %drawdblarrow p withcolor blue;
 
 picture pic;
-pic := thelabel("\title 405 N Wildwood Ln", (150, -50));
+pic := thelabel("\title 405 N Wildwood Ln", (180, -50));
 unfill bbox pic;
 draw pic;
 
 
 path c;
-c = fullcircle scaled 50 shifted (0,-50);
+c = fullcircle scaled 50 shifted (20,-50);
 draw c;
 
 def cardinal(expr s, p) = 
@@ -359,7 +359,7 @@ cardinal("E", point 2 of c);
 cardinal("N", point 4 of c);
 cardinal("W", point 6 of c);
 
-fill (point 1 of c)--(point 4 of c)--(point 7 of c)--cycle scaled .7 shifted -(0,.7*22);
+fill (point 1 of c + (-4,-8))--(point 4 of c + (6,0))--(point 7 of c + (-4,8))--cycle;
 
 #+end_src
 
