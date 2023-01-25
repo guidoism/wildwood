@@ -1,5 +1,9 @@
 ** Measurements
 
+- I'm measuring everything using feet with a decimal point up to thousanth
+  of a foot, I now that this is too many significant digits but I figure
+  I might as well record the precision given to me my the laser tool and
+  assume it will all even out in the end.
 - When measuring doors I'm measuring to the opening and windows I'm
   measuring to the glass or the interior frame, in both cases trim is
   ignored.
@@ -183,7 +187,7 @@ kitchenhallcloset := (0,0)--(DL,0)--(DL,DM)--(0,DM)--cycle;
 smallbed := (0,0)--(EI,0)--(EI,EF)--(EI+EO,EF)--(EI+EO,EA)--(EM,EA)--(EM,EC)--(0,EC)--cycle;
 southbed := (0,0)--(FA,0)--(FA,FG)--(0,FG)--cycle;
 
-th := 6; % Interior wall thickness 
+th := 0.445 EstFt; % Interior wall thickness 
 
 livingroom  := livingroom shifted (lrcorner garage + (th,(K-J)+th));
 kitchen     := kitchen shifted (lrcorner garage + (th,0));
