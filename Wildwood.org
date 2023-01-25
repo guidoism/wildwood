@@ -1,12 +1,8 @@
 ** Measurements
 
-Starting at doorway between garage and hallway:
-
-- Garage wall to living room opening:
-- Garage wall to brick:
-- Living room opening:
-- Height of living room opening:   
-- Garage wall to far family room wall:
+- When measuring doors I'm measuring to the opening and windows I'm
+  measuring to the glass or the interior frame, in both cases trim is
+  ignored.
 
 ** GUI
 
@@ -14,38 +10,6 @@ Starting at doorway between garage and hallway:
 - When you press a key it highlights the GUI part and names it
 - Click on point and it highlights it and gives the reference name ready to be pasted
 - Same with clicking on place where we want a point    
-
-** Ideas
-
-Orient up to 90°
-
-wall height = 8'
-6" walls
-
-living = rectangle 38' x 14'6" with:
-  opening on bottom wall 4' wide, 5'9" from left ("living-family")
-  opening on right wall 6' wide, 4'6" from top
-  window on top wall 5'11" wide, 5'3" from left, XX" from floor, XX" from ceiling
-  6 windows on top wall XX' wide, 5'6" from right, XX" from floor, XX" from ceiling, XX" between windows
-
-garage = rectangle 26' x 27'6" with:
-  door on right wall 3' wide, 6" from bottom ("garage-family")
-  door on bottom wall 3' wide, 2" from right
-  window on top, XX" wide, XX" from left, XX" from floor, XX" from ceiling
-  window on top, XX" wide, XX" from right, XX" from floor, XX" from ceiling
-  garagedoor on left, XX" wide, XX" from bottom
-  garagedoor on left, XX" wide, XX" from top
-
-family = path heading right go 8'6", turn right, go 12', turn left, go 35',
-              turn left, go 16', turn left, go 43'6", turn left, go 4'
-  door on left, 3' wide, 6" from top ("garage-family")
-  opening on top, 4' wide, 4' from left ("living-family")
-  door on bottom, XX" wide, XX" from right, XX" from floor, XX" from ceiling
-  opening on top, XX" wide, 6" from right
-  patiodoor on bottom, XX" wide, 10'3" from right
-  window on bottom, XX" wide, XX" from right, XX" from floor, XX" from ceiling
-  window on bottom, XX" wide, XX" from right, XX" from floor, XX" from ceiling
-  window on bottom, XX" wide, XX" from right, XX" from floor, XX" from ceiling
 
 ** Floor plan slices, extrude up until the slice is different
 
@@ -219,6 +183,8 @@ kitchenhallcloset := (0,0)--(DL,0)--(DL,DM)--(0,DM)--cycle;
 smallbed := (0,0)--(EI,0)--(EI,EF)--(EI+EO,EF)--(EI+EO,EA)--(EM,EA)--(EM,EC)--(0,EC)--cycle;
 southbed := (0,0)--(FA,0)--(FA,FG)--(0,FG)--cycle;
 
+th := 6; % Interior wall thickness 
+
 livingroom  := livingroom shifted (lrcorner garage + (6,(K-J)+6));
 kitchen     := kitchen shifted (lrcorner garage + (6,0));
 blueroom    := blueroom shifted (lrcorner kitchen + (6,0));
@@ -289,6 +255,9 @@ draw window[3] shortened 1bp shifted (0,5.5) withpen pencircle scaled .5bp;
 
 window[4] := doorright (point 6 of livingroom, AE, AF-AG);
 drawwindowup(window[4]);
+
+window[5] := doorup (point 1 of southbed, FI, FK);
+drawwindowup(window[5]);
 
 drawinterior(garage);
 drawinterior(livingroom);
