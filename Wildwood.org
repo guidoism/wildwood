@@ -208,7 +208,7 @@ DM := 2.615 ft;
 DN := 3.060 ft;
 
 
-path garage, livingroom, kitchen, blueroom, master, masterbath, hallbath, southbed, smallbed, laundry, laundrybath, entry;
+path garage, livingroom, kitchen, blueroom, master, masterbath, hallbath, southbed, smallbed, laundry, laundrybath, entry, kitchenhallcloset;
 garage := (0,0)--(312,0)--(312,330)--(0,330)--cycle;
 livingroom := (0,0)--(AN,0)--(AN,AD)--(AN-AI,AD)..(AN-AI-AH/2,AD+AM)..(AN-AI-AH,AD)--(0,AD)--cycle;
 kitchen := (0,0)--(E,0)--(E,-J)--(D,-J)--(D,K-J)--(0,K-J)--cycle;
@@ -216,7 +216,8 @@ blueroom := (0,0)--(132,0)--(132,192)--(0,192)--cycle;
 master := (0,0)--(240,0)--(240,156)--(240-144,156)--(240-144,156+36)--(0,156+36)--cycle;
 entry := (0,0)--(BB,0)--(BB,BI)--(BB-BJ,BI)--(BB-BJ,BK)--(BL,BK)--(BL,AD)--(0,AD)--cycle;
 laundrybath := (0,0)--(DD,0)--(DD,DJ)--(DD-DH,DJ)--(DG,DI)--(0,DI)--cycle;
-laundry := (0,0)--(DD,0)--(DD,J)--(0,J)--cycle;
+laundry := (0,0)--(DD,0)--(DD,J-6)--(0,J-6)--cycle;
+kitchenhallcloset := (0,0)--(DL,0)--(DL,DM)--(0,DM)--cycle;
 
 livingroom  := livingroom shifted (lrcorner garage + (6,(K-J)+6));
 kitchen     := kitchen shifted (lrcorner garage + (6,0));
@@ -225,7 +226,8 @@ master      := master shifted (lrcorner blueroom + (6,0));
 entry       := entry shifted (lrcorner livingroom + (6,0));
 laundry     := laundry shifted (lrcorner garage + (6,-J));
 laundrybath := laundrybath shifted (lrcorner garage + (6,-J));
-
+kitchenhallcloset := kitchenhallcloset shifted (lrcorner garage + (6,-DM-6));
+  
 drawwall(garage , 6);
 drawwall(livingroom, 6);
 drawwall(kitchen, 6);
@@ -234,6 +236,7 @@ drawwall(kitchen, 6);
 drawwall(entry, 6);
 drawwall(laundry, 6);
 drawwall(laundrybath, 6);
+drawwall(kitchenhallcloset, 6);
 
 % Kitchen floor
 draw (point 2 of kitchen shifted (9.990ft,0))--(point 2 of kitchen shifted (9.990ft,K)) withpen pencircle scaled .1bp dashed evenly;
@@ -289,20 +292,27 @@ drawinterior(kitchen);
 drawinterior(entry);
 %drawinterior(blueroom);
 %drawinterior(master);
+drawinterior(laundry);
 
 drawdimension((point 0 of door[1])--(point 0 of garage), (5,0));
 drawdimension((point 0 of door[2])--(point 3 of garage), (10,0));
 drawdimension((point 1 of door[1])--(point 1 of door[2]), (5,0));
 drawdimension((point 0 of garage)--(point 3 of garage), (20,0));
 drawdimension((point 2 of garage)--(point 3 of garage), (0,-20));
+
 drawdimension((point 5 of kitchen)--(point 4 of kitchen), (0,-15));
-drawdimension((point 5 of kitchen)--(point 0 of door[4]), (0,-5));
+drawdimension((point 5 of kitchen)--(point 0 of door[4]), (0,-8));
 drawdimension((point 1 of kitchen)--(point 2 of kitchen), (7,0));
 drawdimension((point 3 of kitchen)--(point 4 of kitchen), (-9,0));
 drawdimension((point 3 of kitchen)--(point 4 of kitchen), (-9,0));
+drawdimension((point 0 of kitchen)--(point 5 of kitchen), (15,0));
+
 drawdimension((point 0 of livingroom)--(point 6 of livingroom), (10,0));
 drawdimension((point 6 of livingroom)--(point 2 of livingroom), (0,-15));
 drawdimension((point 0 of entry)--(point 1 of entry), (0,25));
+
+drawdimension((point 0 of kitchenhallcloset)--(point 1 of kitchenhallcloset), (0,9)); % DL
+drawdimension((point 0 of kitchenhallcloset)--(point 3 of kitchenhallcloset), (9,0)); % DM
 
 %path outline; outline = (0,-50)--(100,-50)--(100,50)--(0,50)--cycle;
 %clip currentpicture to outline; draw outline;
