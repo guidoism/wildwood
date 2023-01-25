@@ -215,12 +215,8 @@ kitchen := (0,0)--(E,0)--(E,-J)--(D,-J)--(D,K-J)--(0,K-J)--cycle;
 blueroom := (0,0)--(132,0)--(132,192)--(0,192)--cycle;
 master := (0,0)--(240,0)--(240,156)--(240-144,156)--(240-144,156+36)--(0,156+36)--cycle;
 entry := (0,0)--(BB,0)--(BB,BI)--(BB-BJ,BI)--(BB-BJ,BK)--(BL,BK)--(BL,AD)--(0,AD)--cycle;
-%laundry := (0,0)--(0,-DN)--(-DF,-DN)--(-DF,-DN-DE)--(-DF+DG,-DN-DE)--(DB-DH,-DC)--(DB,-DC)--(DB,0)--cycle;
-%laundrybath := (0,0)--(DD,0)--(DD,DJ)--(DD-DH,DJ)--(DG,DI)--(0,DI)--cycle;
+laundrybath := (0,0)--(DD,0)--(DD,DJ)--(DD-DH,DJ)--(DG,DI)--(0,DI)--cycle;
 laundry := (0,0)--(DD,0)--(DD,J)--(0,J)--cycle;
-
-% Just the wall separtating the laundry from the bath
-laundrybath := (0,DI)--(DG,DI)--(DD-DH,DJ)--(DD,DJ);
 
 livingroom  := livingroom shifted (lrcorner garage + (6,(K-J)+6));
 kitchen     := kitchen shifted (lrcorner garage + (6,0));
@@ -228,8 +224,6 @@ blueroom    := blueroom shifted (lrcorner kitchen + (6,0));
 master      := master shifted (lrcorner blueroom + (6,0));
 entry       := entry shifted (lrcorner livingroom + (6,0));
 laundry     := laundry shifted (lrcorner garage + (6,-J));
-%laundry     := laundry shifted (point 1 of kitchen + (-DB-6,-6));
-%laundrybath := laundrybath shifted (lrcorner garage + (6,-DN-DE-DI-6-6-6-6-6));
 laundrybath := laundrybath shifted (lrcorner garage + (6,-J));
 
 drawwall(garage , 6);
@@ -295,7 +289,6 @@ drawinterior(kitchen);
 drawinterior(entry);
 %drawinterior(blueroom);
 %drawinterior(master);
-drawinterior(laundry);
 
 drawdimension((point 0 of door[1])--(point 0 of garage), (5,0));
 drawdimension((point 0 of door[2])--(point 3 of garage), (10,0));
