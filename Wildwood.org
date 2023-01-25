@@ -189,22 +189,22 @@ W :=  9.990 ft;
 X := 15.975 ft;
 Y :=  2.670 ft;
 
-% L A U N D R Y --- S M A L L B E D
-DA := 2.620 ft;     EA := 12.000 ft;
-DB := 5.375 ft;     EB :=  7.370 ft;
-DC := 8.725 ft;     EC :=  3.550 ft;
-DD := 8.070 ft;     ED := 14.900 ft;
-DE := 3.490 ft;     EE :=  1.135 ft;
-DF := 2.685 ft;     EF :=  4.630 ft;
-DG := 2.915 ft;     EG :=  2.420 ft;
-DH := 3.025 ft;     EH :=  9.935EstFt;
-DI := 4.890 ft;     EI := 12.250EstFt;
-DJ := 3.025 ft;     EJ :=  3.740 ft;
-DK := 2.840 ft;     EK :=  1.800 ft;
-DL := 2.250 ft;     EL :=  6.655 ft;
+% L A U N D R Y --- S M A L L B E D  --- S O U T H B E D
+DA := 2.620 ft;     EA := 12.000 ft;     FA := 12.295 ft;
+DB := 5.375 ft;     EB :=  7.370 ft;     FB := 15.170 ft;
+DC := 8.725 ft;     EC :=  3.550 ft;     FC :=  5.395 ft;
+DD := 8.070 ft;     ED := 14.900 ft;     FD :=  3.600 ft;
+DE := 3.490 ft;     EE :=  1.135 ft;     FE :=  3.835 ft;
+DF := 2.685 ft;     EF :=  4.630 ft;     FF :=  7.375 ft;
+DG := 2.915 ft;     EG :=  2.420 ft;     FG := 11.445 ft;
+DH := 3.025 ft;     EH :=  9.935EstFt;   FH :=  2.415 ft;
+DI := 4.890 ft;     EI := 12.250EstFt;   FI :=  4.370 ft;
+DJ := 3.025 ft;     EJ :=  3.740 ft;     FJ :=  4.115 ft;
+DK := 2.840 ft;     EK :=  1.800 ft;     FK :=  3.405 ft;
+DL := 2.250 ft;     EL :=  6.655 ft;     FL :=  2.450 ft;
 DM := 2.615 ft;     EM :=  2.315 ft;
 DN := 3.060 ft;     EN :=  2.450 ft;
-                    EO :=  0.910 ft;
+                    EO :=  0.910 ft;     
 
 path garage, livingroom, kitchen, blueroom, master, masterbath, hallbath, southbed, smallbed, laundry, laundrybath, entry, kitchenhallcloset;
 garage := (0,0)--(312,0)--(312,330)--(0,330)--cycle;
