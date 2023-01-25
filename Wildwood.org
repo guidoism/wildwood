@@ -327,6 +327,14 @@ drawdimension((point 7 of entry)--(point 6 of entry), (0,-15));
 drawdimension((point 0 of kitchenhallcloset)--(point 1 of kitchenhallcloset), (0,9)); % DL
 drawdimension((point 0 of kitchenhallcloset)--(point 3 of kitchenhallcloset), (9,0)); % DM
 
+drawdimension((point 0 of smallbed)--(point 1 of smallbed), (0,9)); % EI
+drawdimension((point 4 of smallbed)--(point 5 of smallbed), (0,-9));
+drawdimension((point 6 of smallbed)--(point 7 of smallbed), (0,-9)); % EM
+drawdimension((point 5 of smallbed)--(point 5 of smallbed + (0,-EA)), (9,0)); % EA
+
+drawdimension((point 0 of southbed)--(point 1 of southbed), (0,9)); % FA
+drawdimension((point 1 of southbed)--(point 2 of southbed), (-9,0)); % FG
+
 %path outline; outline = (0,-50)--(100,-50)--(100,50)--(0,50)--cycle;
 %clip currentpicture to outline; draw outline;
 
