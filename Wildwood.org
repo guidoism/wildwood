@@ -270,6 +270,7 @@ door[11] := doorright (point 5 of entry,      BQ, BR);  undraw door[11]; % Under
 door[12] := doorup    (point 5 of entry,      BM, BN);  undraw door[12]; % Entry closet door
 door[13] := doorleft  (point 6 of entry, 0.7EstFt, 5.5EstFt); undraw door[13]; % Front entry door
 door[14] := doorup    (point 0 of southbed,      FM, FH); undraw door[14]; % Door to south bedroom
+door[15] := doorup    (point 1 of smallbed,      EE, EG); undraw door[15]; % Door to small bedroom
 
 path window[];
 
