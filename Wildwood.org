@@ -265,6 +265,8 @@ drawinterior(entry);
 drawinterior(blueroom);
 drawinterior(master);
 drawinterior(laundry);
+drawinterior(smallbed);
+drawinterior(southbed);
 
 drawdimension((point 0 of door[1])--(point 0 of garage), (5,0));
 drawdimension((point 0 of door[2])--(point 3 of garage), (10,0));
@@ -311,9 +313,28 @@ drawdimension((point 1 of southbed)--(point 2 of southbed), (-9,0)); % FG
 %drawdblarrow p withcolor blue;
 
 picture pic;
-pic := thelabel("\title 405 N Wildwood Ln", (0, -50));
+pic := thelabel("\title 405 N Wildwood Ln", (150, -50));
 unfill bbox pic;
 draw pic;
+
+
+path c;
+c = fullcircle scaled 50 shifted (0,-50);
+draw c;
+
+def cardinal(expr s, p) = 
+picture pic;
+pic := thelabel(s, p);
+unfill bbox pic; 
+draw pic;
+enddef;
+
+cardinal("S", point 0 of c);
+cardinal("E", point 2 of c);
+cardinal("N", point 4 of c);
+cardinal("W", point 6 of c);
+
+fill (point 1 of c)--(point 4 of c)--(point 7 of c)--cycle scaled .7 shifted -(0,.7*22);
 
 #+end_src
 
