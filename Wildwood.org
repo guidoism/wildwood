@@ -169,7 +169,7 @@ DM := 2.615 ft;     EM :=  2.315 ft;     FM :=  0.610 ft;
 DN := 3.060 ft;     EN :=  2.450 ft;
                     EO :=  0.910 ft;     
 
-path garage, livingroom, kitchen, blueroom, master, masterbath, hallbath, southbed, smallbed, laundry, laundrybath, entry, kitchenhallcloset;
+path garage, livingroom, kitchen, blueroom, master, masterbath, hallbath, southbed, smallbed, laundry, laundrybath, entry, kitchenhallcloset, entrycloset;
 garage := (0,0)--(312,0)--(312,330)--(0,330)--cycle;
 livingroom := (0,0)--(AN,0)--(AN,AD)--(AN-AI,AD)..(AN-AI-AH/2,AD+AM)..(AN-AI-AH,AD)--(0,AD)--cycle;
 kitchen := (0,0)--(E,0)--(E,-J)--(D,-J)--(D,K-J)--(0,K-J)--cycle;
@@ -181,6 +181,7 @@ laundry := (0,0)--(DD,0)--(DD,J-6)--(0,J-6)--cycle;
 kitchenhallcloset := (0,0)--(DL,0)--(DL,DM)--(0,DM)--cycle;
 smallbed := (0,0)--(EI,0)--(EI,EF)--(EI+EO,EF)--(EI+EO,EA)--(EM,EA)--(EM,EC)--(0,EC)--cycle;
 southbed := (0,0)--(FA,0)--(FA,FG)--(0,FG)--cycle;
+entrycloset := (0,0)--(1.8EstFt,0)--(1.8EstFt,6.400ft)--(0,6.4000ft)--cycle;
 
 th := 0.445 EstFt; % Interior wall thickness 
 
@@ -194,6 +195,7 @@ laundrybath := laundrybath shifted (lrcorner garage + (th,-J));
 kitchenhallcloset := kitchenhallcloset shifted (lrcorner garage + (th,-DM-th));
 smallbed    := smallbed shifted (point 6 of entry + (th,-EC));
 southbed    := southbed shifted (point 2 of entry + (th,-FH-FM-th-1));
+entrycloset := entrycloset shifted (point 5 of entry + (th,th));
   
 drawwall(garage , th);
 drawwall(livingroom, th);
@@ -206,6 +208,7 @@ drawwall(laundrybath, th);
 drawwall(kitchenhallcloset, th);
 drawwall(smallbed, th);
 drawwall(southbed, th);
+drawwall(entrycloset, th);
 
 % Kitchen floor
 draw (point 2 of kitchen shifted (9.990ft,0))--(point 2 of kitchen shifted (9.990ft,K)) withpen pencircle scaled .1bp dashed evenly;
@@ -304,6 +307,13 @@ drawdimension((point 5 of smallbed)--(point 5 of smallbed + (0,-EA)), (9,0)); % 
 
 drawdimension((point 0 of southbed)--(point 1 of southbed), (0,9)); % FA
 drawdimension((point 1 of southbed)--(point 2 of southbed), (-9,0)); % FG
+
+drawdimension((point 0 of blueroom)--(point 1 of blueroom), (0,9));
+drawdimension((point 1 of blueroom)--(point 2 of blueroom), (-9,0));
+
+drawdimension((point 0 of master)--(point 1 of master), (0,9));
+drawdimension((point 1 of master)--(point 2 of master), (-9,0));
+
 
 %path outline; outline = (0,-50)--(100,-50)--(100,50)--(0,50)--cycle;
 %clip currentpicture to outline; draw outline;
