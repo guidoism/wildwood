@@ -94,8 +94,6 @@ end.
 
 \starttext
 \setuppagenumbering[location=]
-\title
-405 N Wildwood Ln        
 \bahnlight
 \startMPcode{decimalfun}
   <<wildwood>>
@@ -321,6 +319,11 @@ drawdimension((point 0 of kitchenhallcloset)--(point 3 of kitchenhallcloset), (9
 %path p;
 %p := (point 2 of garage)..(point 3 of garage);
 %drawdblarrow p withcolor blue;
+
+picture pic;
+pic := thelabel("\title 405 N Wildwood Ln", (0, -50));
+unfill bbox pic;
+draw pic;
 
 #+end_src
 
