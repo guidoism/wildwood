@@ -202,7 +202,7 @@ DI := 4.890 ft;     EI := 12.250EstFt;   FI :=  4.370 ft;
 DJ := 3.025 ft;     EJ :=  3.740 ft;     FJ :=  4.115 ft;
 DK := 2.840 ft;     EK :=  1.800 ft;     FK :=  3.405 ft;
 DL := 2.250 ft;     EL :=  6.655 ft;     FL :=  2.450 ft;
-DM := 2.615 ft;     EM :=  2.315 ft;
+DM := 2.615 ft;     EM :=  2.315 ft;     FM :=  0.610 ft;
 DN := 3.060 ft;     EN :=  2.450 ft;
                     EO :=  0.910 ft;     
 
@@ -228,7 +228,7 @@ laundry     := laundry shifted (lrcorner garage + (6,-J));
 laundrybath := laundrybath shifted (lrcorner garage + (6,-J));
 kitchenhallcloset := kitchenhallcloset shifted (lrcorner garage + (6,-DM-6));
 smallbed    := smallbed shifted (point 6 of entry + (6,-EC));
-southbed    := southbed shifted (point 2 of entry + (6,-FH-6-6-3));
+southbed    := southbed shifted (point 2 of entry + (6,-FH-FM-6-1));
   
 drawwall(garage , 6);
 drawwall(livingroom, 6);
@@ -269,6 +269,7 @@ door[10] := doorleft  (point 1 of entry,   BG-BF, BF); undraw door[10]; % Master
 door[11] := doorright (point 5 of entry,      BQ, BR);  undraw door[11]; % Understairs closet door
 door[12] := doorup    (point 5 of entry,      BM, BN);  undraw door[12]; % Entry closet door
 door[13] := doorleft  (point 6 of entry, 0.7EstFt, 5.5EstFt); undraw door[13]; % Front entry door
+door[14] := doorup    (point 0 of southbed,      FM, FH); undraw door[14]; % Door to south bedroom
 
 path window[];
 
