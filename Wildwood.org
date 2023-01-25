@@ -225,7 +225,7 @@ hearth := hearth shifted (point 0 of livingroom) shifted (AA,0);
 fill hearth withpen pencircle scaled .7bp withcolor .7 white;
 
 path door[];
-door[0]  := doorup    (point 1 of garage, th, 36);       undraw door[0]; % Garage to family
+door[0]  := doorup    (point 1 of garage, th, 36);      undraw door[0]; % Garage to family
 door[1]  := doorup    (point 0 of garage, 5*12, 8*12);  undraw door[1]; % West garage door
 door[2]  := doordown  (point 3 of garage, 2*12, 8*12);  undraw door[2]; % East garage door
 door[3]  := doorup    (point 1 of livingroom, 49, 72);  undraw door[3]; % Living room to front entry
@@ -234,8 +234,8 @@ door[5]  := doorleft  (point 4 of kitchen,     U, V-U); undraw door[5]; % Family
 door[6]  := doorright (point 0 of kitchen,     I, H-I); undraw door[6]; % Garage entry closet
 door[7]  := doorright (point 0 of kitchen,     G, F-G); undraw door[7]; % Laundry room door
 door[8]  := doorright (point 2 of kitchen,     P, Q-P); undraw door[8]; % Sliding door
-door[9]  := doorleft  (point 1 of entry,      BH, BD); undraw door[9]; % Blue room door
-door[10] := doorleft  (point 1 of entry,   BG-BF, BF); undraw door[10]; % Master room door
+door[9]  := doorleft  (point 1 of entry,      BH, BD);  undraw door[9]; % Blue room door
+door[10] := doorleft  (point 1 of entry,   BG-BF, BF);  undraw door[10]; % Master room door
 door[11] := doorright (point 5 of entry,      BQ, BR);  undraw door[11]; % Understairs closet door
 door[12] := doorup    (point 5 of entry,      BM, BN);  undraw door[12]; % Entry closet door
 door[13] := doorleft  (point 6 of entry, 0.7EstFt, 5.5EstFt); undraw door[13]; % Front entry door
