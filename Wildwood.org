@@ -201,28 +201,30 @@ GS :=  ft;                HS :=  ft;
 GT :=  ft;                HT :=  ft;          
 
 % S O U T H H A L L  ---  G A R A G E
-KA :=  ft;                LA :=  ft;
-KB :=  ft;                LB :=  ft;
-KC :=  ft;                LC :=  ft;
-KD :=  ft;                LD :=  ft;
-KE :=  ft;                LE :=  ft;
-KF :=  ft;                LF :=  ft;
-KG :=  ft;                LG :=  ft;
-KH :=  ft;                LH :=  ft;
-KI :=  ft;                LI :=  ft;
-KJ :=  ft;                LJ :=  ft;
-KK :=  ft;                LK :=  ft;
-KL :=  ft;                LL :=  ft;
-KM :=  ft;                LM :=  ft;
-KN :=  ft;                LN :=  ft;
-KO :=  ft;                LO :=  ft;
-KP :=  ft;                LP :=  ft;
-KQ :=  ft;                LQ :=  ft;
-KR :=  ft;                LR :=  ft;
-KS :=  ft;                LS :=  ft;
-KT :=  ft;                LT :=  ft;
+KA := 4.955 ft;           LA :=  ft;
+KB := 1.030 ft;           LB :=  ft;
+KC := 2.415 ft;           LC :=  ft;
+KD := 1.215 ft;           LD :=  ft;
+KE := 1.915 ft;           LE :=  ft;
+KF := 2.495 ft;           LF :=  ft;
+KG := 1.595 ft;           LG :=  ft;
+                          LH :=  ft;
+                          LI :=  ft;
+KJ := 0.555 ft;           LJ :=  ft;
+                          LK :=  ft;
+KL := 0.590 ft;           LL :=  ft;
+KM := 9.420 ft;           LM :=  ft;
+                          LN :=  ft;
+                          LO :=  ft;
+                          LP :=  ft;
+                          LQ :=  ft;
+                          LR :=  ft;
+                          LS :=  ft;
+                          LT :=  ft;
 
-path garage, livingroom, kitchen, blueroom, master, masterbath, masterclosetwest, mastercloseteast, hallbath, southbed, smallbed, laundry, laundrybath, entry, kitchenhallcloset, entrycloset;
+path garage, livingroom, kitchen, blueroom, master, masterbath,
+     masterclosetwest, mastercloseteast, hallbath, southbed,
+     smallbed, laundry, laundrybath, entry, kitchenhallcloset, entrycloset, southhallcloset;
 garage := (0,0)--(312,0)--(312,330)--(0,330)--cycle;
 livingroom := (0,0)--(AN,0)--(AN,AD)--(AN-AI,AD)..(AN-AI-AH/2,AD+AM)..(AN-AI-AH,AD)--(0,AD)--cycle;
 kitchen := (0,0)--(E,0)--(E,-J)--(D,-J)--(D,K-J)--(0,K-J)--cycle;
@@ -237,6 +239,7 @@ kitchenhallcloset := (0,0)--(DL,0)--(DL,DM)--(0,DM)--cycle;
 smallbed := (0,0)--(EI,0)--(EI,EF)--(EI+EO,EF)--(EI+EO,EA)--(EM,EA)--(EM,EC)--(0,EC)--cycle;
 southbed := (0,0)--(FA,0)--(FA,FG)--(0,FG)--cycle;
 entrycloset := (0,0)--(1.8EstFt,0)--(1.8EstFt,6.400ft)--(0,6.4000ft)--cycle;
+southhallcloset := (0,0)--(KG,0)--(KG,KF)--(0,KF)--cycle;
 
 livingroom  := livingroom shifted (lrcorner garage + (th,(K-J)+th));
 kitchen     := kitchen shifted (lrcorner garage + (th,0));
@@ -251,6 +254,7 @@ blueroom    := blueroom shifted (lrcorner kitchen + (th,0));
 master       := master shifted (point 1 of entry + (-JR,-X-th));
 masterclosetwest := masterclosetwest shifted (point 0 of master + (-JH-th,0));
 mastercloseteast := mastercloseteast shifted (point 0 of master + (-JH-th,JT+th));
+southhallcloset  := southhallcloset shifted (point 4 of entry + (-KG-th,KB+KC+KJ+th));
 
 drawwall(garage , th);
 drawwall(livingroom, th);
@@ -266,7 +270,7 @@ drawwall(kitchenhallcloset, th);
 drawwall(smallbed, th);
 drawwall(southbed, th);
 drawwall(entrycloset, th);
-
+drawwall(southhallcloset, th);
 
   
 % Kitchen floor
@@ -304,6 +308,8 @@ door[17] := doorup    (point 3 of master, JO, JL-JA-JO-JP); undraw door[17]; % M
 door[18] := doorup    (point 0 of master, JI, JT-JI-(JJ/2)); undraw door[18]; % Master closet door 1
 door[19] := doordown  (point 5 of master, JK, JS-JK-(JJ/2)); undraw door[19]; % Master closet door 2
 door[20] := doorright (point 5 of blueroom, IG, II); undraw door[20]; % Blue room closet door
+door[21] := doorup    (point 4 of entry, KB+KC+KD, KE); undraw door[21]; % South hall closet door  
+door[22] := doorup    (point 4 of entry, KB, KC); undraw door[22]; % Attic door
 
 path window[];
 
@@ -352,6 +358,7 @@ drawinterior(mastercloseteast);
 drawinterior(laundry);
 drawinterior(smallbed);
 drawinterior(southbed);
+drawinterior(southhallcloset);
 
 drawdimension((point 0 of door[1])--(point 0 of garage), (5,0));
 drawdimension((point 0 of door[2])--(point 3 of garage), (10,0));
