@@ -234,7 +234,7 @@ master := (0,0)--(FA+BJ,0)--(FA+BJ,12.8EstFt)--(BJ,12.8EstFt)--(BJ,X)--(0,X)--cy
 
 entry := (0,0)--(BB,0)--(BB,BI)--(BB-BJ,BI)--(BB-BJ,BK)--(BL,BK)--(BL,AD)--(0,AD)--cycle;
 laundrybath := (0,0)--(DD,0)--(DD,DJ)--(DD-DH,DJ)--(DG,DI)--(0,DI)--cycle;
-laundry := (0,0)--(DD,0)--(DD,J-6)--(0,J-6)--cycle;
+laundry := (0,0)--(DD,0)--(DD,J-th)--(0,J-th)--cycle;
 kitchenhallcloset := (0,0)--(DL,0)--(DL,DM)--(0,DM)--cycle;
 smallbed := (0,0)--(EI,0)--(EI,EF)--(EI+EO,EF)--(EI+EO,EA)--(EM,EA)--(EM,EC)--(0,EC)--cycle;
 southbed := (0,0)--(FA,0)--(FA,FG)--(0,FG)--cycle;
@@ -386,6 +386,8 @@ drawdimension((point 0 of master)--(point 1 of master), (0,9));
 drawdimension((point 1 of master)--(point 2 of master), (-9,0));
 
 drawdimension((point 0 of entrycloset)--(point 3 of entrycloset), (9,0));
+
+
 
 %path outline; outline = (0,-50)--(100,-50)--(100,50)--(0,50)--cycle;
 %clip currentpicture to outline; draw outline;
