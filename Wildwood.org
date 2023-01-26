@@ -126,7 +126,7 @@ EstFt = 12bp; % Estimated feet, need to re-measure these dimensions
 TODO = 0bp; % Unknown
 th := 0.445 EstFt; % Interior wall thickness 
 
-% L I V I N G  ---  K I T C H E N  ---   H A L L W A Y
+% L I V I N G  ---  K I T C H E N  ---   E N T R Y
 
 A :=  4.090 ft;     AA := 23.070 ft;     BA :=  3.330 ft;    
 B :=  8.095 ft;     AB :=  4.925 ft;     BB := 23.065 ft;
@@ -154,7 +154,7 @@ W :=  9.990 ft;
 X := 15.975 ft;
 Y :=  2.670 ft;
 
-% L A U N D R Y --- S M A L L B E D  --- S O U T H B E D  --- B L U E 
+% L A U N D R Y --- S M A L L B E D  --- S O U T H B E D  --- M A S T E R
 DA := 2.620 ft;     EA := 12.000 ft;     FA := 12.295 ft;     JA := 13 EstFt;
 DB := 5.375 ft;     EB :=  7.370 ft;     FB := 15.170 ft;     JB := TODO ft;
 DC := 8.725 ft;     EC :=  3.550 ft;     FC :=  5.395 ft;     JC := TODO ft;
@@ -174,8 +174,49 @@ DN := 3.060 ft;     EN :=  2.450 ft;                          JN := TODO ft;
                     EQ := 3.695EstFt;                         JQ := TODO ft;
                                                               JR := BJ;
 
-% M A S T E R  ---  M A S T E R B A T H --- H A L L B A T H
+% M A S T E R B A T H --- H A L L B A T H --- B L U E R O O M
+GA :=  ft;                HA :=  ft;          IA :=  ft;
+GB :=  ft;                HB :=  ft;          IB :=  ft;
+GC :=  ft;                HC :=  ft;          IC :=  ft;
+GD :=  ft;                HD :=  ft;          ID :=  ft;
+GE :=  ft;                HE :=  ft;          IE :=  ft;
+GF :=  ft;                HF :=  ft;          IF :=  ft;
+GG :=  ft;                HG :=  ft;          IG :=  ft;
+GH :=  ft;                HH :=  ft;          IH :=  ft;
+GI :=  ft;                HI :=  ft;          II :=  ft;
+GJ :=  ft;                HJ :=  ft;          IJ :=  ft;
+GK :=  ft;                HK :=  ft;          IK :=  ft;
+GL :=  ft;                HL :=  ft;          IL :=  ft;
+GM :=  ft;                HM :=  ft;          IM :=  ft;
+GN :=  ft;                HN :=  ft;          IN :=  ft;
+GO :=  ft;                HO :=  ft;          IO :=  ft;
+GP :=  ft;                HP :=  ft;          IP :=  ft;
+GQ :=  ft;                HQ :=  ft;          IQ :=  ft;
+GR :=  ft;                HR :=  ft;          IR :=  ft;
+GS :=  ft;                HS :=  ft;          IS :=  ft;
+GT :=  ft;                HT :=  ft;          IT :=  ft;
 
+% S O U T H H A L L  ---  G A R A G E
+KA :=  ft;                LA :=  ft;
+KB :=  ft;                LB :=  ft;
+KC :=  ft;                LC :=  ft;
+KD :=  ft;                LD :=  ft;
+KE :=  ft;                LE :=  ft;
+KF :=  ft;                LF :=  ft;
+KG :=  ft;                LG :=  ft;
+KH :=  ft;                LH :=  ft;
+KI :=  ft;                LI :=  ft;
+KJ :=  ft;                LJ :=  ft;
+KK :=  ft;                LK :=  ft;
+KL :=  ft;                LL :=  ft;
+KM :=  ft;                LM :=  ft;
+KN :=  ft;                LN :=  ft;
+KO :=  ft;                LO :=  ft;
+KP :=  ft;                LP :=  ft;
+KQ :=  ft;                LQ :=  ft;
+KR :=  ft;                LR :=  ft;
+KS :=  ft;                LS :=  ft;
+KT :=  ft;                LT :=  ft;
 
 path garage, livingroom, kitchen, blueroom, master, masterbath, hallbath, southbed, smallbed, laundry, laundrybath, entry, kitchenhallcloset, entrycloset;
 garage := (0,0)--(312,0)--(312,330)--(0,330)--cycle;
