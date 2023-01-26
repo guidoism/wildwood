@@ -302,6 +302,8 @@ door[15] := doorup    (point 1 of smallbed, EE, EG); undraw door[15]; % Door to 
 door[16] := doorleft  (point 1 of smallbed, ER, ES); undraw door[16]; % Small room closet
 door[17] := doorup    (point 3 of master, JO, JL-JA-JO-JP); undraw door[17]; % Master bath door
 % TODO: master bath door width
+door[18] := doorup    (point 0 of master, JI, JT-JI-(JJ/2)); undraw door[18]; % Master closet door 1
+door[19] := doordown  (point 5 of master, JK, JS-JK-(JJ/2)); undraw door[19]; % Master closet door 2
 
 path window[];
 
