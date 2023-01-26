@@ -224,7 +224,8 @@ KM := 9.420 ft;           LM :=  ft;
 
 path garage, livingroom, kitchen, blueroom, master, masterbath,
      masterclosetwest, mastercloseteast, hallbath, southbed,
-     smallbed, laundry, laundrybath, entry, kitchenhallcloset, entrycloset, southhallcloset;
+     smallbed, smallbedcloset, laundry, laundrybath, entry, kitchenhallcloset,
+     entrycloset, southhallcloset;
 garage := (0,0)--(312,0)--(312,330)--(0,330)--cycle;
 livingroom := (0,0)--(AN,0)--(AN,AD)--(AN-AI,AD)..(AN-AI-AH/2,AD+AM)..(AN-AI-AH,AD)--(0,AD)--cycle;
 kitchen := (0,0)--(E,0)--(E,-J)--(D,-J)--(D,K-J)--(0,K-J)--cycle;
@@ -237,6 +238,7 @@ laundrybath := (0,0)--(DD,0)--(DD,DJ)--(DD-DH,DJ)--(DG,DI)--(0,DI)--cycle;
 laundry := (0,0)--(DD,0)--(DD,J-th)--(0,J-th)--cycle;
 kitchenhallcloset := (0,0)--(DL,0)--(DL,DM)--(0,DM)--cycle;
 smallbed := (0,0)--(EI,0)--(EI,EF)--(EI+EO,EF)--(EI+EO,EA)--(EM,EA)--(EM,EC)--(0,EC)--cycle;
+smallbedcloset := (0,0)--(ET,0)--(ET,EN)--(0,EN)--cycle;
 southbed := (0,0)--(FA,0)--(FA,FG)--(0,FG)--cycle;
 entrycloset := (0,0)--(1.8EstFt,0)--(1.8EstFt,6.400ft)--(0,6.4000ft)--cycle;
 southhallcloset := (0,0)--(KG,0)--(KG,KF)--(0,KF)--cycle;
@@ -248,6 +250,7 @@ laundry     := laundry shifted (lrcorner garage + (th,-J));
 laundrybath := laundrybath shifted (lrcorner garage + (th,-J));
 kitchenhallcloset := kitchenhallcloset shifted (lrcorner garage + (th,-DM-th));
 smallbed    := smallbed shifted (point 6 of entry + (th,-EC));
+smallbedcloset := smallbedcloset shifted (point 1 of smallbed + (-ER-ES-EV,-EN-th));
 southbed    := southbed shifted (point 2 of entry + (th,-FH-FM-th-1));
 entrycloset := entrycloset shifted (point 5 of entry + (th,th));
 blueroom    := blueroom shifted (lrcorner kitchen + (th,0));
@@ -268,6 +271,7 @@ drawwall(laundry, th);
 drawwall(laundrybath, th);
 drawwall(kitchenhallcloset, th);
 drawwall(smallbed, th);
+drawwall(smallbedcloset, th);
 drawwall(southbed, th);
 drawwall(entrycloset, th);
 drawwall(southhallcloset, th);
@@ -357,6 +361,7 @@ drawinterior(masterclosetwest);
 drawinterior(mastercloseteast);
 drawinterior(laundry);
 drawinterior(smallbed);
+drawinterior(smallbedcloset);
 drawinterior(southbed);
 drawinterior(southhallcloset);
 
