@@ -172,7 +172,10 @@ DN := 3.060 ft;     EN :=  2.450 ft;                          JN := TODO ft;
                     EO :=  0.910 ft;                          JO := JL-JJ;
                     EP := 9.935EstFt;                         JP := TODO ft;
                     EQ := 3.695EstFt;                         JQ := TODO ft;
-                                                              JR := BJ;
+                    ER := 3.365 ft;                           JR := BJ;
+                    ES := 4.885 ft;
+                    ET := 7.510 ft;
+
 
 % M A S T E R B A T H --- H A L L B A T H --- B L U E R O O M
 GA :=  ft;                HA :=  ft;          IA :=  ft;
