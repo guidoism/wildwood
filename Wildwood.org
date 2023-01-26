@@ -227,11 +227,7 @@ garage := (0,0)--(312,0)--(312,330)--(0,330)--cycle;
 livingroom := (0,0)--(AN,0)--(AN,AD)--(AN-AI,AD)..(AN-AI-AH/2,AD+AM)..(AN-AI-AH,AD)--(0,AD)--cycle;
 kitchen := (0,0)--(E,0)--(E,-J)--(D,-J)--(D,K-J)--(0,K-J)--cycle;
 blueroom := (0,0)--(132,0)--(132,192)--(0,192)--cycle;
-
-%master := (0,0)--(240,0)--(240,156)--(240-144,156)--(240-144,156+36)--(0,156+36)--cycle;
-%master := (0,0)--(JD,0)--(JD,JA)--(JR,JA+JO)--(JR,JL)--(0,JL)--cycle;
 master := (0,0)--(FA+BJ,0)--(FA+BJ,12.8EstFt)--(BJ,12.8EstFt)--(BJ,X)--(0,X)--cycle;
-
 entry := (0,0)--(BB,0)--(BB,BI)--(BB-BJ,BI)--(BB-BJ,BK)--(BL,BK)--(BL,AD)--(0,AD)--cycle;
 laundrybath := (0,0)--(DD,0)--(DD,DJ)--(DD-DH,DJ)--(DG,DI)--(0,DI)--cycle;
 laundry := (0,0)--(DD,0)--(DD,J-th)--(0,J-th)--cycle;
@@ -251,7 +247,6 @@ southbed    := southbed shifted (point 2 of entry + (th,-FH-FM-th-1));
 entrycloset := entrycloset shifted (point 5 of entry + (th,th));
 
 blueroom    := blueroom shifted (lrcorner kitchen + (th,0));
-%master      := master shifted (lrcorner blueroom + (th,0));
 master      := master shifted (point 1 of entry + (-BG,-X-th));
 
 
@@ -387,7 +382,14 @@ drawdimension((point 1 of master)--(point 2 of master), (-9,0));
 
 drawdimension((point 0 of entrycloset)--(point 3 of entrycloset), (9,0));
 
-
+drawdimension((point 0 of laundry + (0,DI+th))--(point 3 of laundry + (0,-DN)), (9,0));
+drawdimension((point 4 of laundrybath)--(point 5 of laundrybath), (0,15));
+drawdimension((point 2 of laundrybath)--(point 3 of laundrybath), (0,15));
+drawdimension((point 1 of laundrybath)--(point 2 of laundrybath), (-9,0));
+drawdimension((point 0 of laundrybath)--(point 5 of laundrybath), (9,0));
+drawdimension((point 0 of laundrybath)--(point 1 of laundrybath), (0,9));
+drawdimension((point 2 of laundrybath + (0,th))--(point 2 of laundry), (-9,0));
+drawdimension((point 2 of laundry)--(point 2 of laundry + (-DB,0)), (0,-9));
 
 %path outline; outline = (0,-50)--(100,-50)--(100,50)--(0,50)--cycle;
 %clip currentpicture to outline; draw outline;
