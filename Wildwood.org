@@ -245,7 +245,9 @@ smallbedcloset := (0,0)--(ET,0)--(ET,EN)--(0,EN)--cycle;
 southbed := (0,0)--(FA,0)--(FA,FG)--(0,FG)--cycle;
 entrycloset := (0,0)--(1.8EstFt,0)--(1.8EstFt,6.400ft)--(0,6.4000ft)--cycle;
 southhallcloset := (0,0)--(KG,0)--(KG,KF)--(0,KF)--cycle;
-masterbathsink := (0,0)--(GE,0)--(GE,GH)--(GF,GH)--(GF,GA)--(0,GA)--cycle;  
+masterbathsink := (0,0)--(GE,0)--(GE,GH)--(GF,GH)--(GF,GA)--(0,GA)--cycle;
+masterbathcloset := (0,0)--(GM,0)--(GM,GL)--(0,GL)--cycle;
+masterbathtoilet := (0,0)--(GP,0)--(GP,GQ)--(0,GQ)--cycle;  
 
 livingroom  := livingroom shifted (lrcorner garage + (th,(K-J)+th));
 kitchen     := kitchen shifted (lrcorner garage + (th,0));
@@ -263,6 +265,8 @@ masterclosetwest := masterclosetwest shifted (point 0 of master + (-JH-th,0));
 mastercloseteast := mastercloseteast shifted (point 0 of master + (-JH-th,JT+th));
 southhallcloset  := southhallcloset shifted (point 4 of entry + (-KG-th,KB+KC+KJ+th));
 masterbathsink := masterbathsink shifted (point 3 of master + (th,th));
+masterbathcloset := masterbathcloset shifted (point 3 of master + (th,GA+th+th));
+masterbathtoilet := masterbathtoilet shifted (point 3 of master + (th+GE+th,th));
 
 drawwall(garage , th);
 drawwall(livingroom, th);
@@ -281,6 +285,8 @@ drawwall(southbed, th);
 drawwall(entrycloset, th);
 drawwall(southhallcloset, th);
 drawwall(masterbathsink, th);
+drawwall(masterbathcloset, th);
+drawwall(masterbathtoilet, th);
   
 % Kitchen floor
 draw (point 2 of kitchen shifted (9.990ft,0))--(point 2 of kitchen shifted (9.990ft,K)) withpen pencircle scaled .1bp dashed evenly;
@@ -370,6 +376,8 @@ drawinterior(smallbedcloset);
 drawinterior(southbed);
 drawinterior(southhallcloset);
 drawinterior(masterbathsink);
+drawinterior(masterbathcloset);
+drawinterior(masterbathtoilet);
 
 drawdimension((point 0 of door[1])--(point 0 of garage), (5,0));
 drawdimension((point 0 of door[2])--(point 3 of garage), (10,0));
