@@ -163,20 +163,20 @@ DE := 3.490 ft;     EE :=  1.135 ft;     FE :=  3.835 ft;     JE := TODO ft;
 DF := 2.685 ft;     EF :=  4.630 ft;     FF :=  7.375 ft;     JF := TODO ft;
 DG := 2.915 ft;     EG :=  2.420 ft;     FG := 11.445 ft;     JG := TODO ft;
 DH := 3.025 ft;     EH :=  3.655 ft;     FH :=  2.415 ft;     JH := TODO ft;
-DI := 4.890 ft;     EI := 12.250EstFt;   FI :=  4.370 ft;     JI := TODO ft;
+DI := 4.890 ft;     EI := 11.955 ft;     FI :=  4.370 ft;     JI := TODO ft;
 DJ := 3.025 ft;     EJ :=  3.740 ft;     FJ :=  4.115 ft;     JJ := TODO ft;
 DK := 2.840 ft;     EK :=  1.800 ft;     FK :=  3.405 ft;     JK := TODO ft;
 DL := 2.250 ft;     EL :=  6.655 ft;     FL :=  2.450 ft;     JL := 15.9 ft;
 DM := 2.615 ft;     EM :=  2.315 ft;     FM :=  0.610 ft;     JM := TODO ft;
 DN := 3.060 ft;     EN :=  2.450 ft;                          JN := TODO ft;
                     EO :=  0.910 ft;                          JO := JL-JJ;
-                    EP := 9.935EstFt;                         JP := TODO ft;
-                    EQ := 3.695EstFt;                         JQ := TODO ft;
-                    ER := 3.365 ft;                           JR := BJ;
-                    ES := 4.885 ft;
-                    ET := 7.510 ft;
-                    EU := TODO ft;
-                    EV := TODO ft;
+                    EP := 10.590 ft;                          JP := TODO ft;
+                    EQ :=  3.905 ft;                          JQ := TODO ft;
+                    ER :=  3.365 ft;                          JR := BJ;
+                    ES :=  4.885 ft;
+                    ET :=  7.510 ft;
+                    EU :=  1.330 ft;
+                    EV :=  1.335 ft;
 
 % M A S T E R B A T H --- H A L L B A T H --- B L U E R O O M
 GA :=  ft;                HA :=  ft;          IA :=  ft;
