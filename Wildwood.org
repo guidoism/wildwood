@@ -337,6 +337,7 @@ drawinterior(southbed);
 drawdimension((point 0 of door[1])--(point 0 of garage), (5,0));
 drawdimension((point 0 of door[2])--(point 3 of garage), (10,0));
 drawdimension((point 1 of door[1])--(point 1 of door[2]), (5,0));
+drawdimension((point 0 of door[4])--(point 1 of door[4]), (0,-5));
 drawdimension((point 0 of garage)--(point 3 of garage), (20,0));
 drawdimension((point 2 of garage)--(point 3 of garage), (0,-20));
 
