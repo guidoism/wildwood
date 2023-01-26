@@ -155,26 +155,26 @@ X := 15.975 ft;
 Y :=  2.670 ft;
 
 % L A U N D R Y --- S M A L L B E D  --- S O U T H B E D  --- M A S T E R
-DA := 2.620 ft;     EA := 12.000 ft;     FA := 12.295 ft;     JA := 13 EstFt;
-DB := 5.375 ft;     EB :=  7.370 ft;     FB := 15.170 ft;     JB := TODO ft;
-DC := 8.725 ft;     EC :=  3.550 ft;     FC :=  5.395 ft;     JC := TODO ft;
-DD := 8.070 ft;     ED := 14.900 ft;     FD :=  3.600 ft;     JD := FA+BJ;
-DE := 3.490 ft;     EE :=  1.135 ft;     FE :=  3.835 ft;     JE := TODO ft;
-DF := 2.685 ft;     EF :=  4.630 ft;     FF :=  7.375 ft;     JF := TODO ft;
-DG := 2.915 ft;     EG :=  2.420 ft;     FG := 11.445 ft;     JG := TODO ft;
-DH := 3.025 ft;     EH :=  3.655 ft;     FH :=  2.415 ft;     JH := TODO ft;
-DI := 4.890 ft;     EI := 11.955 ft;     FI :=  4.370 ft;     JI := TODO ft;
-DJ := 3.025 ft;     EJ :=  3.740 ft;     FJ :=  4.115 ft;     JJ := TODO ft;
-DK := 2.840 ft;     EK :=  1.800 ft;     FK :=  3.405 ft;     JK := TODO ft;
-DL := 2.250 ft;     EL :=  6.655 ft;     FL :=  2.450 ft;     JL := 15.9 ft;
-DM := 2.615 ft;     EM :=  2.315 ft;     FM :=  0.610 ft;     JM := TODO ft;
-DN := 3.060 ft;     EN :=  2.450 ft;                          JN := TODO ft;
-                    EO :=  0.910 ft;                          JO := JL-JJ;
-                    EP := 10.590 ft;                          JP := TODO ft;
-                    EQ :=  3.905 ft;                          JQ := TODO ft;
-                    ER :=  3.365 ft;                          JR := BJ;
-                    ES :=  4.885 ft;
-                    ET :=  7.510 ft;
+DA := 2.620 ft;     EA := 12.000 ft;     FA := 12.295 ft;     JA := 12.435 ft;
+DB := 5.375 ft;     EB :=  7.370 ft;     FB := 15.170 ft;     JB :=  4.315 ft;
+DC := 8.725 ft;     EC :=  3.550 ft;     FC :=  5.395 ft;     JC :=  4.960 ft;
+DD := 8.070 ft;     ED := 14.900 ft;     FD :=  3.600 ft;     JD := 16.500 ft;
+DE := 3.490 ft;     EE :=  1.135 ft;     FE :=  3.835 ft;     JE := 19.405 ft;
+DF := 2.685 ft;     EF :=  4.630 ft;     FF :=  7.375 ft;     JF :=  1.490 ft;
+DG := 2.915 ft;     EG :=  2.420 ft;     FG := 11.445 ft;     JG :=  4.805 ft;
+DH := 3.025 ft;     EH :=  3.655 ft;     FH :=  2.415 ft;     JH :=  2.450 ft;
+DI := 4.890 ft;     EI := 11.955 ft;     FI :=  4.370 ft;     JI :=  1.040 ft;
+DJ := 3.025 ft;     EJ :=  3.740 ft;     FJ :=  4.115 ft;     JJ :=  2.340 ft;
+DK := 2.840 ft;     EK :=  1.800 ft;     FK :=  3.405 ft;     JK :=  0.825 ft;
+DL := 2.250 ft;     EL :=  6.655 ft;     FL :=  2.450 ft;     JL := 15.975 ft;
+DM := 2.615 ft;     EM :=  2.315 ft;     FM :=  0.610 ft;     JM := 12.690 ft;
+DN := 3.060 ft;     EN :=  2.450 ft;                          JN :=  6.715 ft;
+                    EO :=  0.910 ft;                          JO :=  0.785 ft;
+                    EP := 10.590 ft;                          JP :=  4/12 EstFt;
+                    EQ :=  3.905 ft;                          JQ :=  8/12 EstFt;
+                    ER :=  3.365 ft;                          JR :=  3.785 ft;
+                    ES :=  4.885 ft;                          JS :=  7.560 ft;
+                    ET :=  7.510 ft;                          JT :=  8.005 ft;
                     EU :=  1.330 ft;
                     EV :=  1.335 ft;
 
@@ -247,8 +247,7 @@ southbed    := southbed shifted (point 2 of entry + (th,-FH-FM-th-1));
 entrycloset := entrycloset shifted (point 5 of entry + (th,th));
 
 blueroom    := blueroom shifted (lrcorner kitchen + (th,0));
-master      := master shifted (point 1 of entry + (-BG,-X-th));
-
+master      := master shifted (point 1 of entry + (-JR+th,-X-th));
 
 drawwall(garage , th);
 drawwall(livingroom, th);
@@ -293,6 +292,8 @@ door[13] := doorleft  (point 6 of entry, 0.7EstFt, 5.5EstFt); undraw door[13]; %
 door[14] := doorup    (point 0 of southbed, FM, FH); undraw door[14]; % Door to south bedroom
 door[15] := doorup    (point 1 of smallbed, EE, EG); undraw door[15]; % Door to small bedroom
 door[16] := doorleft  (point 1 of smallbed, ER, ES); undraw door[16]; % Small room closet
+door[17] := doorup    (point 3 of master, JO, JL-JA-JO-JP); undraw door[17]; % Master bath door
+% TODO: master bath door width
 
 path window[];
 
