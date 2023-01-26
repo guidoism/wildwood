@@ -226,7 +226,6 @@ path garage, livingroom, kitchen, blueroom, master, masterbath, masterclosetwest
 garage := (0,0)--(312,0)--(312,330)--(0,330)--cycle;
 livingroom := (0,0)--(AN,0)--(AN,AD)--(AN-AI,AD)..(AN-AI-AH/2,AD+AM)..(AN-AI-AH,AD)--(0,AD)--cycle;
 kitchen := (0,0)--(E,0)--(E,-J)--(D,-J)--(D,K-J)--(0,K-J)--cycle;
-%blueroom := (0,0)--(132,0)--(132,192)--(0,192)--cycle;
 blueroom := (0,0)--(IB,0)--(IB,IA)--(IH,IA)--(IH,IN)--(0,IN)--cycle;
 master := (0,0)--(JD,0)--(JD,JA)--(JD-JM,JA)--(JD-JM,JL)--(0,JL)--cycle;
 masterclosetwest := (0,0)--(JH,0)--(JH,JT)--(0,JT)--cycle;
@@ -248,7 +247,6 @@ kitchenhallcloset := kitchenhallcloset shifted (lrcorner garage + (th,-DM-th));
 smallbed    := smallbed shifted (point 6 of entry + (th,-EC));
 southbed    := southbed shifted (point 2 of entry + (th,-FH-FM-th-1));
 entrycloset := entrycloset shifted (point 5 of entry + (th,th));
-
 blueroom    := blueroom shifted (lrcorner kitchen + (th,0));
 master       := master shifted (point 1 of entry + (-JR,-X-th));
 masterclosetwest := masterclosetwest shifted (point 0 of master + (-JH-th,0));
@@ -305,6 +303,7 @@ door[17] := doorup    (point 3 of master, JO, JL-JA-JO-JP); undraw door[17]; % M
 % TODO: master bath door width
 door[18] := doorup    (point 0 of master, JI, JT-JI-(JJ/2)); undraw door[18]; % Master closet door 1
 door[19] := doordown  (point 5 of master, JK, JS-JK-(JJ/2)); undraw door[19]; % Master closet door 2
+door[20] := doorright (point 5 of blueroom, IG, II); undraw door[20]; % Blue room closet door
 
 path window[];
 
