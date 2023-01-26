@@ -146,8 +146,8 @@ O := 15.855 ft;                          BO :=  4.740 ft;
 P := 17.110 ft;                          BP :=  6.400 ft;
 Q := 22.905 ft;                          BQ :=  3.315 ft;
 R := 24.460 ft;                          BR :=  2.400 ft;
-S := 12.085 ft;                          
-T :=  1.365 ft;                          
+S :=  1.355 ft;                          
+T := 10.500 ft;                          
 U :=  0.615 ft;                          
 V :=  3.930 ft;
 W :=  9.990 ft;
@@ -298,7 +298,7 @@ path window[];
 
 window[0] := doorright (point 2 of kitchen,    L, M-L); % Window over sink
 window[1] := doorright (point 2 of kitchen,    N, O-N); % Family room picture window
-window[2] := doorright (point 2 of kitchen,    R, S-T); % Family room big window
+window[2] := doorleft  (point 3 of kitchen,    S, T-S); % Family room big window
 drawwindow(window[0], down);
 drawwindow(window[1], down);
 drawwindow(window[2], down);
