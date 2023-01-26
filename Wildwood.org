@@ -226,8 +226,8 @@ path garage, livingroom, kitchen, blueroom, master, masterbath, hallbath, southb
 garage := (0,0)--(312,0)--(312,330)--(0,330)--cycle;
 livingroom := (0,0)--(AN,0)--(AN,AD)--(AN-AI,AD)..(AN-AI-AH/2,AD+AM)..(AN-AI-AH,AD)--(0,AD)--cycle;
 kitchen := (0,0)--(E,0)--(E,-J)--(D,-J)--(D,K-J)--(0,K-J)--cycle;
-blueroom := (0,0)--(132,0)--(132,192)--(0,192)--cycle;
-master := (0,0)--(FA+BJ,0)--(FA+BJ,12.8EstFt)--(BJ,12.8EstFt)--(BJ,X)--(0,X)--cycle;
+%blueroom := (0,0)--(132,0)--(132,192)--(0,192)--cycle;
+master := (0,0)--(JD,0)--(JD,JA)--(JD-JM,JA)--(JD-JM,JL)--(0,JL)--cycle;
 entry := (0,0)--(BB,0)--(BB,BI)--(BB-BJ,BI)--(BB-BJ,BK)--(BL,BK)--(BL,AD)--(0,AD)--cycle;
 laundrybath := (0,0)--(DD,0)--(DD,DJ)--(DD-DH,DJ)--(DG,DI)--(0,DI)--cycle;
 laundry := (0,0)--(DD,0)--(DD,J-th)--(0,J-th)--cycle;
@@ -246,13 +246,13 @@ smallbed    := smallbed shifted (point 6 of entry + (th,-EC));
 southbed    := southbed shifted (point 2 of entry + (th,-FH-FM-th-1));
 entrycloset := entrycloset shifted (point 5 of entry + (th,th));
 
-blueroom    := blueroom shifted (lrcorner kitchen + (th,0));
+%blueroom    := blueroom shifted (lrcorner kitchen + (th,0));
 master      := master shifted (point 1 of entry + (-JR+th,-X-th));
 
 drawwall(garage , th);
 drawwall(livingroom, th);
 drawwall(kitchen, th);
-drawwall(blueroom, th);
+%drawwall(blueroom, th);
 drawwall(master, th);
 drawwall(entry, th);
 drawwall(laundry, th);
@@ -310,26 +310,32 @@ undraw window[3] shortened 3bp;
 draw window[3] shortened 1bp shifted (0,3) withpen pencircle scaled .5bp;
 draw window[3] shortened 1bp shifted (0,5.5) withpen pencircle scaled .5bp;
 
-window[4] := doorright (point 6 of livingroom, AE, AF-AG);
+window[4] := doorright(point 6 of livingroom, AE, AF-AG);
 drawwindow(window[4], up);
 
-window[5] := doorup (point 1 of southbed, FI, FK);
+window[5] := doorup(point 1 of southbed, FI, FK);
 drawwindow(window[5], right);
 
-window[6] := doorleft (point 2 of southbed, FD, FE);
+window[6] := doorleft(point 2 of southbed, FD, FE);
 drawwindow(window[6], up);
 
-window[7] := doorleft (point 4 of smallbed, EH, EP-EH-EQ);
+window[7] := doorleft(point 4 of smallbed, EH, EP-EH-EQ);
 drawwindow(window[7], up);
 
-window[8] := doordown (point 5 of smallbed, EJ, EL-EJ);
+window[8] := doordown(point 5 of smallbed, EJ, EL-EJ);
 drawwindow(window[8], left);
+
+window[9] := doorleft(point 1 of master, JF, JD-JG-JF);
+drawwindow(window[9], down);
+
+window[10] := doorup(point 1 of master, JC, JA-JB-JC);
+drawwindow(window[10], right);
 
 drawinterior(garage);
 drawinterior(livingroom);
 drawinterior(kitchen);
 drawinterior(entry);
-drawinterior(blueroom);
+%drawinterior(blueroom);
 drawinterior(master);
 drawinterior(laundry);
 drawinterior(smallbed);
@@ -383,8 +389,8 @@ drawdimension((point 5 of smallbed)--(point 5 of smallbed + (0,-EA)), (9,0)); % 
 drawdimension((point 0 of southbed)--(point 1 of southbed), (0,9)); % FA
 drawdimension((point 1 of southbed)--(point 2 of southbed), (-9,0)); % FG
 
-drawdimension((point 0 of blueroom)--(point 1 of blueroom), (0,9));
-drawdimension((point 1 of blueroom)--(point 2 of blueroom), (-9,0));
+%drawdimension((point 0 of blueroom)--(point 1 of blueroom), (0,9));
+%drawdimension((point 1 of blueroom)--(point 2 of blueroom), (-9,0));
 
 drawdimension((point 0 of master)--(point 1 of master), (0,9));
 drawdimension((point 1 of master)--(point 2 of master), (-9,0));
