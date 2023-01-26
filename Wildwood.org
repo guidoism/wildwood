@@ -357,6 +357,7 @@ drawdimension((point 6 of livingroom)--((point 6 of livingroom)+(AF,0)), (0,-25)
 drawdimension((point 2 of livingroom)--((point 2 of livingroom)-(AI,0)), (0,-25));
 drawdimension((point 2 of livingroom)--((point 2 of livingroom)-(0,AJ)), (15,0));
 drawdimension((point 1 of livingroom)--((point 1 of livingroom)+(0,AL)), (-7,0));
+drawdimension((point 4 of livingroom)--(point 4 of livingroom + (0,-AM)), (9,0));
 
 drawdimension((point 0 of entry)--(point 1 of entry), (0,25));
 drawdimension((point 7 of entry)--(point 6 of entry), (0,-15));
