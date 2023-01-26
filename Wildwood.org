@@ -247,7 +247,7 @@ southbed    := southbed shifted (point 2 of entry + (th,-FH-FM-th-1));
 entrycloset := entrycloset shifted (point 5 of entry + (th,th));
 
 %blueroom    := blueroom shifted (lrcorner kitchen + (th,0));
-master      := master shifted (point 1 of entry + (-JR+th,-X-th));
+master      := master shifted (point 1 of entry + (-JR,-X-th));
 
 drawwall(garage , th);
 drawwall(livingroom, th);
