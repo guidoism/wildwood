@@ -447,6 +447,8 @@ pic := thelabel("\bahnlight feet", (.4ft, 31ft));
 unfill bbox pic;
 draw pic;
 
+%% TODO: Create version of the drawing with everything faded out and just the path
+%%       of a single room with each of the points pairs using the dimension ids.
 
 
 #+end_src
