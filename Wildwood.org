@@ -123,6 +123,8 @@ enddef;
 
 ft = 12bp;
 EstFt = 12bp; % Estimated feet, need to re-measure these dimensions
+TODO = 0bp; % Unknown
+th := 0.445 EstFt; % Interior wall thickness 
 
 % L I V I N G  ---  K I T C H E N  ---   H A L L W A Y
 
@@ -152,31 +154,39 @@ W :=  9.990 ft;
 X := 15.975 ft;
 Y :=  2.670 ft;
 
-% L A U N D R Y --- S M A L L B E D  --- S O U T H B E D
-DA := 2.620 ft;     EA := 12.000 ft;     FA := 12.295 ft;
-DB := 5.375 ft;     EB :=  7.370 ft;     FB := 15.170 ft;
-DC := 8.725 ft;     EC :=  3.550 ft;     FC :=  5.395 ft;
-DD := 8.070 ft;     ED := 14.900 ft;     FD :=  3.600 ft;
-DE := 3.490 ft;     EE :=  1.135 ft;     FE :=  3.835 ft;
-DF := 2.685 ft;     EF :=  4.630 ft;     FF :=  7.375 ft;
-DG := 2.915 ft;     EG :=  2.420 ft;     FG := 11.445 ft;
-DH := 3.025 ft;     EH :=  3.655 ft;     FH :=  2.415 ft;
-DI := 4.890 ft;     EI := 12.250EstFt;   FI :=  4.370 ft;
-DJ := 3.025 ft;     EJ :=  3.740 ft;     FJ :=  4.115 ft;
-DK := 2.840 ft;     EK :=  1.800 ft;     FK :=  3.405 ft;
-DL := 2.250 ft;     EL :=  6.655 ft;     FL :=  2.450 ft;
-DM := 2.615 ft;     EM :=  2.315 ft;     FM :=  0.610 ft;
-DN := 3.060 ft;     EN :=  2.450 ft;
-                    EO :=  0.910 ft;
-                    EP := 9.935EstFt;
-                    EQ := 3.695EstFt;
+% L A U N D R Y --- S M A L L B E D  --- S O U T H B E D  --- B L U E 
+DA := 2.620 ft;     EA := 12.000 ft;     FA := 12.295 ft;     JA := 13 EstFt;
+DB := 5.375 ft;     EB :=  7.370 ft;     FB := 15.170 ft;     JB := TODO ft;
+DC := 8.725 ft;     EC :=  3.550 ft;     FC :=  5.395 ft;     JC := TODO ft;
+DD := 8.070 ft;     ED := 14.900 ft;     FD :=  3.600 ft;     JD := FA+BJ;
+DE := 3.490 ft;     EE :=  1.135 ft;     FE :=  3.835 ft;     JE := TODO ft;
+DF := 2.685 ft;     EF :=  4.630 ft;     FF :=  7.375 ft;     JF := TODO ft;
+DG := 2.915 ft;     EG :=  2.420 ft;     FG := 11.445 ft;     JG := TODO ft;
+DH := 3.025 ft;     EH :=  3.655 ft;     FH :=  2.415 ft;     JH := TODO ft;
+DI := 4.890 ft;     EI := 12.250EstFt;   FI :=  4.370 ft;     JI := TODO ft;
+DJ := 3.025 ft;     EJ :=  3.740 ft;     FJ :=  4.115 ft;     JJ := TODO ft;
+DK := 2.840 ft;     EK :=  1.800 ft;     FK :=  3.405 ft;     JK := TODO ft;
+DL := 2.250 ft;     EL :=  6.655 ft;     FL :=  2.450 ft;     JL := 15.9 ft;
+DM := 2.615 ft;     EM :=  2.315 ft;     FM :=  0.610 ft;     JM := TODO ft;
+DN := 3.060 ft;     EN :=  2.450 ft;                          JN := TODO ft;
+                    EO :=  0.910 ft;                          JO := JL-JJ;
+                    EP := 9.935EstFt;                         JP := TODO ft;
+                    EQ := 3.695EstFt;                         JQ := TODO ft;
+                                                              JR := BJ;
+
+% M A S T E R  ---  M A S T E R B A T H --- H A L L B A T H
+
 
 path garage, livingroom, kitchen, blueroom, master, masterbath, hallbath, southbed, smallbed, laundry, laundrybath, entry, kitchenhallcloset, entrycloset;
 garage := (0,0)--(312,0)--(312,330)--(0,330)--cycle;
 livingroom := (0,0)--(AN,0)--(AN,AD)--(AN-AI,AD)..(AN-AI-AH/2,AD+AM)..(AN-AI-AH,AD)--(0,AD)--cycle;
 kitchen := (0,0)--(E,0)--(E,-J)--(D,-J)--(D,K-J)--(0,K-J)--cycle;
 blueroom := (0,0)--(132,0)--(132,192)--(0,192)--cycle;
-master := (0,0)--(240,0)--(240,156)--(240-144,156)--(240-144,156+36)--(0,156+36)--cycle;
+
+%master := (0,0)--(240,0)--(240,156)--(240-144,156)--(240-144,156+36)--(0,156+36)--cycle;
+%master := (0,0)--(JD,0)--(JD,JA)--(JR,JA+JO)--(JR,JL)--(0,JL)--cycle;
+master := (0,0)--(FA+BJ,0)--(FA+BJ,12.8EstFt)--(BJ,12.8EstFt)--(BJ,X)--(0,X)--cycle;
+
 entry := (0,0)--(BB,0)--(BB,BI)--(BB-BJ,BI)--(BB-BJ,BK)--(BL,BK)--(BL,AD)--(0,AD)--cycle;
 laundrybath := (0,0)--(DD,0)--(DD,DJ)--(DD-DH,DJ)--(DG,DI)--(0,DI)--cycle;
 laundry := (0,0)--(DD,0)--(DD,J-6)--(0,J-6)--cycle;
@@ -185,12 +195,8 @@ smallbed := (0,0)--(EI,0)--(EI,EF)--(EI+EO,EF)--(EI+EO,EA)--(EM,EA)--(EM,EC)--(0
 southbed := (0,0)--(FA,0)--(FA,FG)--(0,FG)--cycle;
 entrycloset := (0,0)--(1.8EstFt,0)--(1.8EstFt,6.400ft)--(0,6.4000ft)--cycle;
 
-th := 0.445 EstFt; % Interior wall thickness 
-
 livingroom  := livingroom shifted (lrcorner garage + (th,(K-J)+th));
 kitchen     := kitchen shifted (lrcorner garage + (th,0));
-blueroom    := blueroom shifted (lrcorner kitchen + (th,0));
-master      := master shifted (lrcorner blueroom + (th,0));
 entry       := entry shifted (lrcorner livingroom + (th,0));
 laundry     := laundry shifted (lrcorner garage + (th,-J));
 laundrybath := laundrybath shifted (lrcorner garage + (th,-J));
@@ -198,7 +204,12 @@ kitchenhallcloset := kitchenhallcloset shifted (lrcorner garage + (th,-DM-th));
 smallbed    := smallbed shifted (point 6 of entry + (th,-EC));
 southbed    := southbed shifted (point 2 of entry + (th,-FH-FM-th-1));
 entrycloset := entrycloset shifted (point 5 of entry + (th,th));
-  
+
+blueroom    := blueroom shifted (lrcorner kitchen + (th,0));
+%master      := master shifted (lrcorner blueroom + (th,0));
+master      := master shifted (point 1 of entry + (-BG,-X-th));
+
+
 drawwall(garage , th);
 drawwall(livingroom, th);
 drawwall(kitchen, th);
@@ -361,6 +372,25 @@ cardinal("W", point 6 of c);
 
 fill (point 1 of c + (-4,-8))--(point 4 of c + (6,0))--(point 7 of c + (-4,8))--cycle;
 
+%%%%%%% G R I D
+
+path dimensions;
+dimensions := (-0.4ft,30ft)--(101.6ft,30ft);
+draw dimensions;
+for i=0 upto 102:
+  if (floor(i mod 10) = 0):
+    draw ((i*ft)-0.4ft,30ft)--((i*ft)-0.4ft,29.5ft);
+  else:
+    draw ((i*ft)-0.4ft,30ft)--((i*ft)-0.4ft,29.75ft);
+  fi;
+endfor;
+picture pic;
+pic := thelabel("\bahnlight feet", (.4ft, 31ft));
+unfill bbox pic;
+draw pic;
+
+
+
 #+end_src
 
 
@@ -392,7 +422,7 @@ print('pickup pensquare scaled 0.5ft;')
 *** Try out templating to Metapost using Jinja templates
   
   
-
+** 
 
 ** Build a wall at a time
 
