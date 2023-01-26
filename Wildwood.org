@@ -179,27 +179,28 @@ DN := 3.060 ft;     EN :=  2.450 ft;                          JN :=  6.715 ft;
                     EV :=  1.335 ft;
 
 % M A S T E R B A T H --- H A L L B A T H --- B L U E R O O M
-GA :=  ft;                HA :=  ft;          IA := 15.985 ft;
-GB :=  ft;                HB :=  ft;          IB := 10.990 ft;
-GC :=  ft;                HC :=  ft;          IC :=  1.535 ft;
-GD :=  ft;                HD :=  ft;          ID :=  1.520 ft;
-GE :=  ft;                HE :=  ft;          IE :=  2.950 ft;
-GF :=  ft;                HF :=  ft;          IF :=  0.990 ft;
-GG :=  ft;                HG :=  ft;          IG :=  0.565 ft;
-GH :=  ft;                HH :=  ft;          IH :=  7.455 ft;
-GI :=  ft;                HI :=  ft;          II :=  5.895 ft;
-GJ :=  ft;                HJ :=  ft;          IJ :=  7.025 ft;
-GK :=  ft;                HK :=  ft;          IK :=  0.560 ft;
-GL :=  ft;                HL :=  ft;          IL :=  0.565 ft;
-GM :=  ft;                HM :=  ft;          IM :=  2.485 ft;
-GN :=  ft;                HN :=  ft;          IN := 13.260 ft;
-GO :=  ft;                HO :=  ft;          
-GP :=  ft;                HP :=  ft;          
-GQ :=  ft;                HQ :=  ft;          
-GR :=  ft;                HR :=  ft;          
-GS :=  ft;                HS :=  ft;          
-GT :=  ft;                HT :=  ft;          
-
+GA :=  3.095 ft;          HA :=  ft;          IA := 15.985 ft;
+GB :=  4/12 EstFt;        HB :=  ft;          IB := 10.990 ft;
+GC :=  2.415 ft;          HC :=  ft;          IC :=  1.535 ft;
+GD :=  4/12 EstFt;        HD :=  ft;          ID :=  1.520 ft;
+GE :=  6.920 ft;          HE :=  ft;          IE :=  2.950 ft;
+GF :=  2.420 ft;          HF :=  ft;          IF :=  0.990 ft;
+GG :=  2.075 ft;          HG :=  ft;          IG :=  0.565 ft;
+GH :=  9.005 ft;          HH :=  ft;          IH :=  7.455 ft;
+GI :=  4.465 ft;          HI :=  ft;          II :=  5.895 ft;
+GJ :=  0.790 ft;          HJ :=  ft;          IJ :=  7.025 ft;
+GK :=  1.245 ft;          HK :=  ft;          IK :=  0.560 ft;
+GL :=  5.440 ft;          HL :=  ft;          IL :=  0.565 ft;
+GM :=  2.000 ft;          HM :=  ft;          IM :=  2.485 ft;
+GN := 12.235 ft;          HN :=  ft;          IN := 13.260 ft;
+GO :=  3.020 ft;          HO :=  ft;          
+GP :=  4.880 ft;          HP :=  ft;          
+GQ :=  6.830 ft;          HQ :=  ft;          
+GR :=  0.825 ft;          HR :=  ft;          
+GS :=  3.700 ft;          HS :=  ft;          
+GT :=  4/12 EstFt;        HT :=  ft;          
+GU :=  5.010 ft;
+  
 % S O U T H H A L L  ---  G A R A G E
 KA := 4.955 ft;           LA :=  ft;
 KB := 1.030 ft;           LB :=  ft;
@@ -222,8 +223,10 @@ KM := 9.420 ft;           LM :=  ft;
                           LS :=  ft;
                           LT :=  ft;
 
-path garage, livingroom, kitchen, blueroom, master, masterbath,
-     masterclosetwest, mastercloseteast, hallbath, southbed,
+path garage, livingroom, kitchen, blueroom, master,
+     masterclosetwest, mastercloseteast, southbed,
+     masterbathsink, masterbathcloset, masterbathtoilet,
+     hallbath, hallbathcloset,
      smallbed, smallbedcloset, laundry, laundrybath, entry, kitchenhallcloset,
      entrycloset, southhallcloset;
 garage := (0,0)--(312,0)--(312,330)--(0,330)--cycle;
@@ -242,6 +245,7 @@ smallbedcloset := (0,0)--(ET,0)--(ET,EN)--(0,EN)--cycle;
 southbed := (0,0)--(FA,0)--(FA,FG)--(0,FG)--cycle;
 entrycloset := (0,0)--(1.8EstFt,0)--(1.8EstFt,6.400ft)--(0,6.4000ft)--cycle;
 southhallcloset := (0,0)--(KG,0)--(KG,KF)--(0,KF)--cycle;
+masterbathsink := (0,0)--(GE,0)--(GE,GH)--(GF,GH)--(GF,GA)--(0,GA)--cycle;  
 
 livingroom  := livingroom shifted (lrcorner garage + (th,(K-J)+th));
 kitchen     := kitchen shifted (lrcorner garage + (th,0));
@@ -258,6 +262,7 @@ master       := master shifted (point 1 of entry + (-JR,-X-th));
 masterclosetwest := masterclosetwest shifted (point 0 of master + (-JH-th,0));
 mastercloseteast := mastercloseteast shifted (point 0 of master + (-JH-th,JT+th));
 southhallcloset  := southhallcloset shifted (point 4 of entry + (-KG-th,KB+KC+KJ+th));
+masterbathsink := masterbathsink shifted (point 3 of master + (th,th));
 
 drawwall(garage , th);
 drawwall(livingroom, th);
@@ -275,7 +280,7 @@ drawwall(smallbedcloset, th);
 drawwall(southbed, th);
 drawwall(entrycloset, th);
 drawwall(southhallcloset, th);
-
+drawwall(masterbathsink, th);
   
 % Kitchen floor
 draw (point 2 of kitchen shifted (9.990ft,0))--(point 2 of kitchen shifted (9.990ft,K)) withpen pencircle scaled .1bp dashed evenly;
@@ -364,6 +369,7 @@ drawinterior(smallbed);
 drawinterior(smallbedcloset);
 drawinterior(southbed);
 drawinterior(southhallcloset);
+drawinterior(masterbathsink);
 
 drawdimension((point 0 of door[1])--(point 0 of garage), (5,0));
 drawdimension((point 0 of door[2])--(point 3 of garage), (10,0));
