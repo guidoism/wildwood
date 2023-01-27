@@ -380,6 +380,12 @@ drawwindow(window[11], right);
 window[12] := doorup(point 3 of hallbath, HF, HH);
 drawwindow(window[12], right);
 
+window[13] := doorright(point 3 of garage, LL, LI);
+drawwindow(window[13], up);
+
+window[14] := doorleft(point 2 of garage, LK, LJ);
+drawwindow(window[14], up);
+
 drawinterior(garage);
 drawinterior(livingroom);
 drawinterior(kitchen);
@@ -469,6 +475,15 @@ drawdimension((point 2 of laundry)--(point 2 of laundry + (-DB,0)), (0,-9));
 
 drawdimension((point 1 of masterbathtoilet)--(point 2 of masterbathtoilet), (-9,0));
 drawdimension((point 3 of hallbath)--(point 4 of hallbath), (-9,0));
+
+
+for i=0 upto 19:
+  draw door[22] shifted (-i*0.5*ft, 0);
+  %draw (point 0 of door[22] shifted (-i*ft, 0))--(point 1 of door[22] shifted (-i*ft, 0));
+endfor;
+
+
+
 
 %path outline; outline = (0,-50)--(100,-50)--(100,50)--(0,50)--cycle;
 %clip currentpicture to outline; draw outline;
