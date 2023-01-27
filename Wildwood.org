@@ -224,7 +224,7 @@ KM := 9.420 ft;           LM :=  ft;
                           LT :=  ft;
 
 path garage, livingroom, kitchen, blueroom, master,
-     masterclosetwest, mastercloseteast, southbed,
+     masterclosetwest, mastercloseteast, southbed, southbedcloset,
      masterbathsink, masterbathcloset, masterbathtoilet,
      hallbath, hallbathcloset,
      smallbed, smallbedcloset, laundry, laundrybath, entry, kitchenhallcloset,
@@ -243,6 +243,7 @@ kitchenhallcloset := (0,0)--(DL,0)--(DL,DM)--(0,DM)--cycle;
 smallbed := (0,0)--(EI,0)--(EI,EF)--(EI+EO,EF)--(EI+EO,EA)--(EM,EA)--(EM,EC)--(0,EC)--cycle;
 smallbedcloset := (0,0)--(ET,0)--(ET,EN)--(0,EN)--cycle;
 southbed := (0,0)--(FA,0)--(FA,FG)--(0,FG)--cycle;
+southbedcloset := (0,0)--(FL,0)--(FL,FF)--(0,FF)--cycle;
 entrycloset := (0,0)--(1.8EstFt,0)--(1.8EstFt,6.400ft)--(0,6.4000ft)--cycle;
 southhallcloset := (0,0)--(KG,0)--(KG,KF)--(0,KF)--cycle;
 masterbathsink := (0,0)--(GE,0)--(GE,GH)--(GF,GH)--(GF,GA)--(0,GA)--cycle;
@@ -260,6 +261,7 @@ kitchenhallcloset := kitchenhallcloset shifted (lrcorner garage + (th,-DM-th));
 smallbed    := smallbed shifted (point 6 of entry + (th,-EC));
 smallbedcloset := smallbedcloset shifted (point 1 of smallbed + (-ER-ES-EV,-EN-th));
 southbed    := southbed shifted (point 2 of entry + (th,-FH-FM-th-1));
+southbedcloset := southbedcloset shifted (point 3 of smallbed + (th,0));  
 entrycloset := entrycloset shifted (point 5 of entry + (th,th));
 blueroom    := blueroom shifted (lrcorner kitchen + (th,0));
 master       := master shifted (point 1 of entry + (-JR,-X-th));
@@ -286,6 +288,7 @@ drawwall(kitchenhallcloset, th);
 drawwall(smallbed, th);
 drawwall(smallbedcloset, th);
 drawwall(southbed, th);
+drawwall(southbedcloset, th);
 drawwall(entrycloset, th);
 drawwall(southhallcloset, th);
 drawwall(masterbathsink, th);
@@ -334,6 +337,7 @@ door[22] := doorup    (point 4 of entry, KB, KC); undraw door[22]; % Attic door
 door[23] := doorup    (point 1 of masterbathsink, GG, GQ-GO-GG); undraw door[23]; % Master bath door to toilet  
 door[24] := doorup    (point 1 of masterbathcloset, GK, GL-GJ-GK); undraw door[24]; % Master bath closet door
 door[25] := doorleft  (point 1 of hallbathcloset, HN-th, HO); undraw door[25]; % Hall bath closet door
+door[26] := doorup    (point 1 of southbedcloset, 1 ft, 5 ft); undraw door[26]; % South bed closet door
     
 path window[];
 
@@ -389,6 +393,7 @@ drawinterior(laundry);
 drawinterior(smallbed);
 drawinterior(smallbedcloset);
 drawinterior(southbed);
+drawinterior(southbedcloset);
 drawinterior(southhallcloset);
 drawinterior(masterbathsink);
 drawinterior(masterbathcloset);
