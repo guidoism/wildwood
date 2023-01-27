@@ -442,6 +442,14 @@ if true:
   drawdimension((point 3 of kitchen)--(point 4 of kitchen), (-9,0));
   drawdimension((point 3 of kitchen)--(point 4 of kitchen), (-9,0));
   drawdimension((point 0 of kitchen)--(point 5 of kitchen), (15,0));
+  drawdimension((point 2 of kitchen)--(point 0 of window[0]), (0,5));
+  drawdimension((point 0 of window[0])--(point 1 of window[0]), (0,5));
+  drawdimension((point 0 of window[1])--(point 1 of window[1]), (0,5));
+  drawdimension((point 0 of window[2])--(point 1 of window[2]), (0,5));
+  drawdimension((point 0 of door[8])--(point 1 of door[8]), (0,5));
+  drawdimension((point 1 of window[1])--(point 0 of door[8]), (0,5));
+  drawdimension((point 1 of window[0])--(point 0 of window[1]), (0,5));
+  drawdimension((point 1 of window[2])--(point 1 of door[8]), (0,5));
   
   drawdimension((point 0 of livingroom)--(point 6 of livingroom), (10,0));
   drawdimension((point 6 of livingroom)--(point 2 of livingroom), (0,-15));
@@ -463,12 +471,14 @@ if true:
   drawdimension((point 5 of entry + (0,1.220ft))--(point 5 of entry + (0,-BK)), (-9,0));
   drawdimension((point 0 of door[11])--(point 1 of door[11]), (0,4));
   drawdimension((point 4 of entry)--(point 4 of entry + (3.365ft,0)), (0,0));
+  drawdimension((point 1 of entry)--(point 2 of entry), (-9,0));
   
   drawdimension((point 0 of kitchenhallcloset)--(point 1 of kitchenhallcloset), (0,9)); % DL
   drawdimension((point 0 of kitchenhallcloset)--(point 3 of kitchenhallcloset), (9,0)); % DM
   
   drawdimension((point 0 of smallbed)--(point 1 of smallbed), (0,9)); % EI
   drawdimension((point 4 of smallbed)--(point 5 of smallbed), (0,-9));
+  drawdimension((point 3 of smallbed)--(point 4 of smallbed), (-9,0));
   drawdimension((point 6 of smallbed)--(point 7 of smallbed), (0,-9)); % EM
   drawdimension((point 5 of smallbed)--(point 5 of smallbed + (0,-EA)), (9,0)); % EA
   
@@ -477,6 +487,8 @@ if true:
   
   drawdimension((point 0 of blueroom)--(point 1 of blueroom), (0,9));
   drawdimension((point 1 of blueroom)--(point 2 of blueroom), (-9,0));
+  drawdimension((point 2 of blueroom)--(point 3 of blueroom), (0,-9));
+  drawdimension((point 3 of blueroom)--(point 4 of blueroom), (9,0));
   
   drawdimension((point 0 of master)--(point 1 of master), (0,9));
   drawdimension((point 1 of master)--(point 2 of master), (-9,0));
