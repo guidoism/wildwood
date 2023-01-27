@@ -248,12 +248,8 @@ southhallcloset := (0,0)--(KG,0)--(KG,KF)--(0,KF)--cycle;
 masterbathsink := (0,0)--(GE,0)--(GE,GH)--(GF,GH)--(GF,GA)--(0,GA)--cycle;
 masterbathcloset := (0,0)--(GM,0)--(GM,GL)--(0,GL)--cycle;
 masterbathtoilet := (0,0)--(GP,0)--(GP,GQ)--(0,GQ)--cycle;
-%hallbath := (0,0)--(HB,0)--(HB,-HE)--(HA,-HE)--(HA,HF-HE)--(HA-HC,HF-HE)--(HA-HC,HS)--(0,HS)--cycle;
-%hallbath := (0,0)--(HA,0)--(HA,HS+HI)--(0,HS+HI)--cycle;
-%hallbath := (0,0)--(HB,0)--(HB,-HE)--(HA,-HE)--(HA,HT)--cycle;
-%hallbath := (0,0)--(HB,0)--(HB,-HE)--(HA,-HE)--(HA,3ft)--(0,3ft)--cycle;
 hallbath := (0,0)--(GE+th,0)--(GE+th,-2.1EstFt)--(FA,-2.1EstFt)--(FA,5.5EstFt)--(0,5.5EstFt)--cycle;
-%hallbathcloset := (0,0)--(HK,0)--(HK,HJ)--(0,HJ)--cycle;
+hallbathcloset := (0,0)--(HK,0)--(HK,HJ)--(0,HJ)--cycle;
 
 livingroom  := livingroom shifted (lrcorner garage + (th,(K-J)+th));
 kitchen     := kitchen shifted (lrcorner garage + (th,0));
@@ -274,7 +270,7 @@ masterbathsink := masterbathsink shifted (point 3 of master + (th,th));
 masterbathcloset := masterbathcloset shifted (point 3 of master + (th,GA+th+th));
 masterbathtoilet := masterbathtoilet shifted (point 3 of master + (th+GE+th,th));
 hallbath := hallbath shifted (point 3 of masterbathcloset + (0,th));
-%hallbathcloset := hallbathcloset shifted (point 3 of masterbathcloset + (0,th));
+hallbathcloset := hallbathcloset shifted (point 5 of hallbath + (0,-HJ));
 
 drawwall(garage , th);
 drawwall(livingroom, th);
@@ -296,6 +292,7 @@ drawwall(masterbathsink, th);
 drawwall(masterbathcloset, th);
 drawwall(masterbathtoilet, th);
 drawwall(hallbath, th);
+drawwall(hallbathcloset, th);
   
 % Kitchen floor
 draw (point 2 of kitchen shifted (9.990ft,0))--(point 2 of kitchen shifted (9.990ft,K)) withpen pencircle scaled .1bp dashed evenly;
@@ -388,6 +385,7 @@ drawinterior(masterbathsink);
 drawinterior(masterbathcloset);
 drawinterior(masterbathtoilet);
 drawinterior(hallbath);
+drawinterior(hallbathcloset);
 
 drawdimension((point 0 of door[1])--(point 0 of garage), (5,0));
 drawdimension((point 0 of door[2])--(point 3 of garage), (10,0));
