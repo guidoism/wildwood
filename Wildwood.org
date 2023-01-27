@@ -228,7 +228,7 @@ path garage, livingroom, kitchen, blueroom, master,
      hallbath, hallbathcloset,
      smallbed, smallbedcloset, laundry, laundrybath, entry, kitchenhallcloset,
      entrycloset, southhallcloset;
-garage := (0,0)--(312,0)--(312,330)--(0,330)--cycle;
+garage := (0,0)--(LB,0)--(LB,LA)--(0,LA)--cycle;
 livingroom := (0,0)--(AN,0)--(AN,AD)--(AN-AI,AD)..(AN-AI-AH/2,AD+AM)..(AN-AI-AH,AD)--(0,AD)--cycle;
 kitchen := (0,0)--(E,0)--(E,-J)--(D,-J)--(D,K-J)--(0,K-J)--cycle;
 blueroom := (0,0)--(IB,0)--(IB,IA)--(IH,IA)--(IH,IN)--(0,IN)--cycle;
@@ -309,10 +309,10 @@ hearth := hearth shifted (point 0 of livingroom) shifted (AA,0);
 fill hearth withpen pencircle scaled .7bp withcolor .7 white;
 
 path door[];
-door[0]  := doorup    (point 1 of garage, th, 36);      undraw door[0]; % Garage to family
-door[1]  := doorup    (point 0 of garage, 5*12, 8*12);  undraw door[1]; % West garage door
-door[2]  := doordown  (point 3 of garage, 2*12, 8*12);  undraw door[2]; % East garage door
-door[3]  := doorup    (point 1 of livingroom, 49, 72);  undraw door[3]; % Living room to front entry
+door[0]  := doorup    (point 1 of garage, LN, LO); undraw door[0]; % Garage to family
+door[1]  := doorup    (point 0 of garage, LL, LF-LL); undraw door[1]; % West garage door
+door[2]  := doordown  (point 3 of garage, LE, LG-LE); undraw door[2]; % East garage door
+door[3]  := doorup    (point 1 of livingroom, 49, 72); undraw door[3]; % Living room to front entry
 door[4]  := doorright (point 5 of kitchen, A, B-A); undraw door[4]; % Living to garage entry
 door[5]  := doorleft  (point 4 of kitchen, U, V-U); undraw door[5]; % Family to front entry
 door[6]  := doorright (point 0 of kitchen, I, H-I); undraw door[6]; % Garage entry closet
