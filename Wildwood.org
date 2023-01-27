@@ -412,6 +412,11 @@ drawinterior(hallbath);
 drawinterior(hallbathcloset);
 
 if true:
+  label.rt(btex Kitchen etex, .5[point 1 of kitchen, point 0 of window[1]]);
+fi;
+
+
+if true:
   drawdimension((point 0 of door[1])--(point 0 of garage), (5,0));
   drawdimension((point 0 of door[2])--(point 3 of garage), (10,0));
   drawdimension((point 1 of door[1])--(point 1 of door[2]), (5,0));
