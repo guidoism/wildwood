@@ -371,6 +371,12 @@ drawwindow(window[9], down);
 window[10] := doorup(point 1 of master, JC, JA-JB-JC);
 drawwindow(window[10], right);
 
+window[11] := doorup(point 1 of masterbathtoilet, GR, GS-GR);
+drawwindow(window[11], right);
+
+window[12] := doorup(point 3 of hallbath, HF, HH);
+drawwindow(window[12], right);
+
 drawinterior(garage);
 drawinterior(livingroom);
 drawinterior(kitchen);
