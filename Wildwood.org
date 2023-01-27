@@ -55,6 +55,7 @@ end.
         
 \definefont[bahnlight][name:bahnschriftlight*default]
 \definefont[small][name:bahnschriftlight*default at 8pt]
+\definefont[roomname][name:bahnschriftlight*default at 15pt]
 \definefont[dim][name:bahnschriftlight*default at 5pt]
 \definefont[title][name:bahnschrift*default at 25pt]
                                             
@@ -412,7 +413,16 @@ drawinterior(hallbath);
 drawinterior(hallbathcloset);
 
 if true:
-  label.rt(btex Kitchen etex, .5[point 1 of kitchen, point 0 of window[1]]);
+  label.rt(btex \roomname Kitchen etex, .5[point 1 of kitchen, point 2 of kitchen] shifted (4ft,0));
+  label.rt(btex \roomname Family Room etex, .5[point 1 of kitchen, point 2 of kitchen] shifted (14ft,0));
+  label.rt(btex \roomname Bedroom 1 etex, .5[point 0 of blueroom, point 5 of blueroom] shifted (2ft,0));
+  label.rt(btex \roomname Bedroom 2 etex, .5[point 0 of blueroom, point 5 of blueroom] shifted (20ft,0));
+  label.rt(btex \roomname Bedroom 3 etex, .5[point 0 of southbed, point 3 of southbed] shifted (2ft,0));
+  label.rt(btex \roomname Bedroom 4 etex, .5[point 0 of southbed, point 3 of southbed] shifted (-12ft,0));
+  label.rt(btex \roomname Bath 1 etex, .5[point 0 of masterbathsink, point 5 of masterbathsink] shifted (1ft,0));
+  label.rt(btex \roomname Bath 2 etex, .5[point 0 of hallbath, point 5 of hallbath] shifted (4ft,0));
+  label.rt(btex \roomname Bath 3 etex, .5[point 0 of laundrybath, point 5 of laundrybath] shifted (1ft,0));
+  label.rt(btex \roomname Living Room etex, .5[point 0 of livingroom, point 6 of livingroom] shifted (12ft,0));
 fi;
 
 
@@ -485,7 +495,21 @@ if true:
   drawdimension((point 2 of laundry)--(point 2 of laundry + (-DB,0)), (0,-9));
   
   drawdimension((point 1 of masterbathtoilet)--(point 2 of masterbathtoilet), (-9,0));
+  drawdimension((point 0 of masterbathtoilet)--(point 1 of masterbathtoilet), (0,9));
+  drawdimension((point 0 of masterbathsink)--(point 1 of masterbathsink), (0,9));
+  drawdimension((point 1 of masterbathsink)--(point 2 of masterbathsink), (-9,0));
+  drawdimension((point 2 of masterbathsink)--(point 3 of masterbathsink), (0,-9));
+  drawdimension((point 3 of masterbathsink)--(point 4 of masterbathsink), (9,0));
+  drawdimension((point 4 of masterbathsink)--(point 5 of masterbathsink), (0,-5));
+  drawdimension((point 0 of masterbathcloset)--(point 1 of masterbathcloset), (0,9));
+  drawdimension((point 1 of masterbathcloset)--(point 2 of masterbathcloset), (-9,0));
+  
   drawdimension((point 3 of hallbath)--(point 4 of hallbath), (-9,0));
+  drawdimension((point 1 of hallbath)--(point 2 of hallbath), (9,0));
+  drawdimension((point 0 of hallbath)--(point 1 of hallbath), (0,5));
+  drawdimension((point 5 of hallbath)--(point 6 of hallbath), (40,0));
+  drawdimension((point 0 of hallbathcloset)--(point 3 of hallbathcloset), (9,0));
+  drawdimension((point 0 of hallbathcloset)--(point 1 of hallbathcloset), (0,5));
 fi;
 
 for i=0 upto 19:
