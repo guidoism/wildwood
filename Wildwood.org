@@ -197,8 +197,8 @@ GO :=  3.020 ft;          HO :=  1.915 ft;
 GP :=  4.880 ft;          HP :=  ft;          
 GQ :=  6.830 ft;          HQ :=  2.425 ft;          
 GR :=  0.825 ft;          HR :=  6.240 ft;          
-GS :=  3.700 ft;          HS :=  ft;          
-GT :=  4/12 EstFt;        HT :=  ft;          
+GS :=  3.700 ft;          HS = HT-HE-HI;
+GT :=  4/12 EstFt;        HT = HF+HH+HG;
 GU :=  5.010 ft;
   
 % S O U T H H A L L  ---  G A R A G E
@@ -248,7 +248,11 @@ southhallcloset := (0,0)--(KG,0)--(KG,KF)--(0,KF)--cycle;
 masterbathsink := (0,0)--(GE,0)--(GE,GH)--(GF,GH)--(GF,GA)--(0,GA)--cycle;
 masterbathcloset := (0,0)--(GM,0)--(GM,GL)--(0,GL)--cycle;
 masterbathtoilet := (0,0)--(GP,0)--(GP,GQ)--(0,GQ)--cycle;
-%hallbath := (0,0)--(HB,0)--(HB,-HE)--(HA,-HE)--(HA,HF-HE)--(HA-HC,HF-HE)--(HA-HC,)--(0,HQ)--cycle;
+%hallbath := (0,0)--(HB,0)--(HB,-HE)--(HA,-HE)--(HA,HF-HE)--(HA-HC,HF-HE)--(HA-HC,HS)--(0,HS)--cycle;
+%hallbath := (0,0)--(HA,0)--(HA,HS+HI)--(0,HS+HI)--cycle;
+%hallbath := (0,0)--(HB,0)--(HB,-HE)--(HA,-HE)--(HA,HT)--cycle;
+%hallbath := (0,0)--(HB,0)--(HB,-HE)--(HA,-HE)--(HA,3ft)--(0,3ft)--cycle;
+hallbath := (0,0)--(GE+th,0)--(GE+th,-2.1EstFt)--(FA,-2.1EstFt)--(FA,5.5EstFt)--(0,5.5EstFt)--cycle;
 %hallbathcloset := (0,0)--(HK,0)--(HK,HJ)--(0,HJ)--cycle;
 
 livingroom  := livingroom shifted (lrcorner garage + (th,(K-J)+th));
@@ -269,7 +273,7 @@ southhallcloset  := southhallcloset shifted (point 4 of entry + (-KG-th,KB+KC+KJ
 masterbathsink := masterbathsink shifted (point 3 of master + (th,th));
 masterbathcloset := masterbathcloset shifted (point 3 of master + (th,GA+th+th));
 masterbathtoilet := masterbathtoilet shifted (point 3 of master + (th+GE+th,th));
-%hallbath := hallbath shifted (point 3 of masterbathcloset + (0,th));
+hallbath := hallbath shifted (point 3 of masterbathcloset + (0,th));
 %hallbathcloset := hallbathcloset shifted (point 3 of masterbathcloset + (0,th));
 
 drawwall(garage , th);
@@ -291,6 +295,7 @@ drawwall(southhallcloset, th);
 drawwall(masterbathsink, th);
 drawwall(masterbathcloset, th);
 drawwall(masterbathtoilet, th);
+drawwall(hallbath, th);
   
 % Kitchen floor
 draw (point 2 of kitchen shifted (9.990ft,0))--(point 2 of kitchen shifted (9.990ft,K)) withpen pencircle scaled .1bp dashed evenly;
@@ -382,6 +387,7 @@ drawinterior(southhallcloset);
 drawinterior(masterbathsink);
 drawinterior(masterbathcloset);
 drawinterior(masterbathtoilet);
+drawinterior(hallbath);
 
 drawdimension((point 0 of door[1])--(point 0 of garage), (5,0));
 drawdimension((point 0 of door[2])--(point 3 of garage), (10,0));
