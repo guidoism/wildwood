@@ -332,7 +332,8 @@ door[20] := doorright (point 5 of blueroom, IG, II); undraw door[20]; % Blue roo
 door[21] := doorup    (point 4 of entry, KB+KC+KD, KE); undraw door[21]; % South hall closet door  
 door[22] := doorup    (point 4 of entry, KB, KC); undraw door[22]; % Attic door
 door[23] := doorup    (point 1 of masterbathsink, GG, GQ-GO-GG); undraw door[23]; % Master bath door to toilet  
-
+door[24] := doorup    (point 1 of masterbathcloset, GK, GL-GJ-GK); undraw door[24]; % Master bath closet door
+    
 path window[];
 
 window[0] := doorright (point 2 of kitchen,    L, M-L); % Window over sink
