@@ -202,26 +202,25 @@ GT :=  4/12 EstFt;        HT = HF+HH+HG;
 GU :=  5.010 ft;
   
 % S O U T H H A L L  ---  G A R A G E
-KA := 4.955 ft;           LA :=  ft;
-KB := 1.030 ft;           LB :=  ft;
-KC := 2.415 ft;           LC :=  ft;
-KD := 1.215 ft;           LD :=  ft;
-KE := 1.915 ft;           LE :=  ft;
-KF := 2.495 ft;           LF :=  ft;
-KG := 1.595 ft;           LG :=  ft;
+KA := 4.955 ft;           LA := 27.415 ft;
+KB := 1.030 ft;           LB := 26.160 ft;
+KC := 2.415 ft;           LC :=  4.040 ft;
+KD := 1.215 ft;           LD :=  1.305 ft;
+KE := 1.915 ft;           LE :=  3.955 ft;
+KF := 2.495 ft;           LF := 13.115 ft;
+KG := 1.595 ft;           LG := 13.085 ft;
                           LH :=  ft;
-                          LI :=  ft;
-KJ := 0.555 ft;           LJ :=  ft;
-                          LK :=  ft;
-KL := 0.590 ft;           LL :=  ft;
-KM := 9.420 ft;           LM :=  ft;
-                          LN :=  ft;
-                          LO :=  ft;
-                          LP :=  ft;
-                          LQ :=  ft;
-                          LR :=  ft;
-                          LS :=  ft;
-                          LT :=  ft;
+                          LI :=  3.380 ft;
+KJ := 0.555 ft;           LJ :=  3.380 ft;
+                          LK :=  3.640 ft;
+KL := 0.590 ft;           LL :=  3.780 ft;
+KM := 9.420 ft;           LM := 12.180 ft;
+                          LN :=  0.570 ft;
+                          LO :=  2.670 ft;
+                          LP :=  5.395 ft;
+                          LQ := 15.485 ft;
+                          LR :=  2.850 ft;
+                          LS :=  2.600 ft;
 
 path garage, livingroom, kitchen, blueroom, master,
      masterclosetwest, mastercloseteast, southbed, southbedcloset,
