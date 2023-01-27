@@ -54,6 +54,7 @@ end.
 #+begin_src tex :tangle output/drawing.tex :noweb yes
         
 \definefont[bahnlight][name:bahnschriftlight*default]
+\definefont[small][name:bahnschriftlight*default at 8pt]
 \definefont[dim][name:bahnschriftlight*default at 5pt]
 \definefont[title][name:bahnschrift*default at 25pt]
                                             
@@ -308,10 +309,6 @@ hearth := (0,0)--(AB,0)--(AB,2)--(0,2)--cycle;
 hearth := hearth shifted (point 0 of livingroom) shifted (AA,0);
 fill hearth withpen pencircle scaled .7bp withcolor .7 white;
 
-dotlabel.lft(btex \dim water service etex, (LB-0.4ft,LQ));
-dotlabel.lft(btex \dim electrical panel etex, (LB-0.4ft,LP));
-
-  
 path door[];
 door[0]  := doorup    (point 1 of garage, LN, LO); undraw door[0]; % Garage to family
 door[1]  := doorup    (point 0 of garage, LL, LF-LL); undraw door[1]; % West garage door
@@ -510,14 +507,29 @@ fi;
 %p := (point 2 of garage)..(point 3 of garage);
 %drawdblarrow p withcolor blue;
 
+% Outside brick wall
+pickup pencircle scaled (th);
+draw (-th/2,th)--(-th/2,-3.965ft) withcolor .8 white;
+
+  
+dotlabel.lft(btex \dim water service entrence etex, (LB-0.4ft,LQ));
+dotlabel.lft(btex \dim electrical panel etex, (LB-0.4ft,LP));
+dotlabel.rt(btex \dim electrical service entrence etex, (7.315ft,-.7ft));
+
 picture pic;
-pic := thelabel("\title 405 N Wildwood Ln", (180, -50));
+pic := thelabel("\title 405 N Wildwood Ln", (180, -90));
+unfill bbox pic;
+draw pic;
+
+picture pic;
+pic := thelabel("\small Scale: 1 inch in real world = 1 bp (1/72'') on drawing", (170, -110));
 unfill bbox pic;
 draw pic;
 
 
+pickup pencircle scaled .7bp;
 path c;
-c = fullcircle scaled 50 shifted (20,-50);
+c = fullcircle scaled 50 shifted (20,-90);
 draw c;
 
 def cardinal(expr s, p) = 
