@@ -337,7 +337,7 @@ door[22] := doorup    (point 4 of entry, KB, KC); undraw door[22]; % Attic door
 door[23] := doorup    (point 1 of masterbathsink, GG, GQ-GO-GG); undraw door[23]; % Master bath door to toilet  
 door[24] := doorup    (point 1 of masterbathcloset, GK, GL-GJ-GK); undraw door[24]; % Master bath closet door
 door[25] := doorleft  (point 1 of hallbathcloset, HN-th, HO); undraw door[25]; % Hall bath closet door
-door[26] := doorup    (point 1 of southbedcloset, 1 ft, 5 ft); undraw door[26]; % South bed closet door
+door[26] := doorup    (point 1 of southbedcloset, 1EstFt, 5EstFt); undraw door[26]; % South bed closet door
     
 path window[];
 
