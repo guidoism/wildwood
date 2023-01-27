@@ -308,6 +308,10 @@ hearth := (0,0)--(AB,0)--(AB,2)--(0,2)--cycle;
 hearth := hearth shifted (point 0 of livingroom) shifted (AA,0);
 fill hearth withpen pencircle scaled .7bp withcolor .7 white;
 
+dotlabel.lft(btex \dim water service etex, (LB-0.4ft,LQ));
+dotlabel.lft(btex \dim electrical panel etex, (LB-0.4ft,LP));
+
+  
 path door[];
 door[0]  := doorup    (point 1 of garage, LN, LO); undraw door[0]; % Garage to family
 door[1]  := doorup    (point 0 of garage, LL, LF-LL); undraw door[1]; % West garage door
