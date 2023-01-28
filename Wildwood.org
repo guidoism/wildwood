@@ -412,7 +412,7 @@ drawinterior(masterbathtoilet);
 drawinterior(hallbath);
 drawinterior(hallbathcloset);
 
-if true:
+if false:
   label.rt(btex \roomname Kitchen etex, .5[point 1 of kitchen, point 2 of kitchen] shifted (4ft,0));
   label.rt(btex \roomname Family Room etex, .5[point 1 of kitchen, point 2 of kitchen] shifted (14ft,0));
   label.rt(btex \roomname Bedroom 1 etex, .5[point 0 of blueroom, point 5 of blueroom] shifted (2ft,0));
@@ -426,7 +426,7 @@ if true:
 fi;
 
 
-if true:
+if false:
   drawdimension((point 0 of door[1])--(point 0 of garage), (5,0));
   drawdimension((point 0 of door[2])--(point 3 of garage), (10,0));
   drawdimension((point 1 of door[1])--(point 1 of door[2]), (5,0));
@@ -531,11 +531,19 @@ endfor;
 
 
 if false:
-  pickup pencircle scaled .01bp;
-  for i=0 upto 25:
-    draw ((LB,-J)--(LB,AD+K-J+th)) shifted (i*ft,0) withcolor .5 white;
-    for j=0 upto 31:
-      draw ((LB,-J)--(LB+25ft,-J)) shifted (0,j*ft) withcolor .5 white;
+  pickup pencircle scaled .1bp;
+  for i=0 upto 29*4:
+    if i mod 4 = 0:
+      draw ((LB,-J)--(LB,AD+K-J+th)) shifted (i*ft/4,0) withcolor .5 white;
+    else:
+      draw ((LB,-J)--(LB,AD+K-J+th)) shifted (i*ft/4,0) withcolor .9 white;
+    fi;
+    for j=0 upto 31*4:
+      if j mod 4 = 0:
+        draw ((LB,-J)--(LB+29ft,-J)) shifted (0,j*ft/4) withcolor .5 white;
+      else:
+        draw ((LB,-J)--(LB+29ft,-J)) shifted (0,j*ft/4) withcolor .9 white;
+      fi;
     endfor;
   endfor;
 fi;
@@ -557,6 +565,7 @@ draw (-th/2,th)--(-th/2,-3.965ft) withcolor .8 white;
 dotlabel.lft(btex \dim water service entrence etex, (LB-0.4ft,LQ));
 dotlabel.lft(btex \dim electrical panel etex, (LB-0.4ft,LP));
 dotlabel.rt(btex \dim electrical service entrence etex, (7.315ft,-.7ft));
+dotlabel.rt(btex \dim proposed thermostat location etex, (point 4 of kitchen shifted (-6ft,-.5ft)));
 
 picture pic;
 pic := thelabel("\title 405 N Wildwood Ln", (180, -90));
