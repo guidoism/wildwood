@@ -59,5 +59,35 @@ around counter-clockwise until we form a cycle. We ignore all windows,
 doors, and shared walls at this point. This is just defining the
 interior perception of a room.
 
+These are cartesian coordinates. Note that it doesn't matter that you
+go into the negative, but I like to keep all of my origins at the
+perceptual lower-left of the room.
+
+#+name: Paths
+| Room              | Path                                                                                    |
+| Garage            | (0,0)--(LB,0)--(LB,LA)--(0,LA)--cycle                                                   |
+| Livingroom        | (0,0)--(AN,0)--(AN,AD)--(AN-AI,AD)..(AN-AI-AH/2,AD+AM)..(AN-AI-AH,AD)--(0,AD)--cycle    |
+| Kitchen           | (0,0)--(E,0)--(E,-J)--(D,-J)--(D,K-J)--(0,K-J)--cycle                                   |
+| Blueroom          | (0,0)--(IB,0)--(IB,IA)--(IH,IA)--(IH,IN)--(0,IN)--cycle                                 |
+| Master            | (0,0)--(JD,0)--(JD,JA)--(JD-JM,JA)--(JD-JM,JL)--(0,JL)--cycle                           |
+| Masterclosetwest  | (0,0)--(JH,0)--(JH,JT)--(0,JT)--cycle                                                   |
+| Mastercloseteast  | (0,0)--(JH,0)--(JH,JS)--(0,JS)--cycle                                                   |
+| Entry             | (0,0)--(BB,0)--(BB,BI)--(BB-BJ,BI)--(BB-BJ,BK)--(BL,BK)--(BL,AD)--(0,AD)--cycle         |
+| Laundrybath       | (0,0)--(DD,0)--(DD,DJ)--(DD-DH,DJ)--(DG,DI)--(0,DI)--cycle                              |
+| Laundry           | (0,0)--(DD,0)--(DD,J-th)--(0,J-th)--cycle                                               |
+| Kitchenhallcloset | (0,0)--(DL,0)--(DL,DM)--(0,DM)--cycle                                                   |
+| Smallbed          | (0,0)--(EI,0)--(EI,EF)--(EI+EO,EF)--(EI+EO,EA)--(EM,EA)--(EM,EC)--(0,EC)--cycle         |
+| Smallbedcloset    | (0,0)--(ET,0)--(ET,EN)--(0,EN)--cycle                                                   |
+| Southbed          | (0,0)--(FA,0)--(FA,FG)--(0,FG)--cycle                                                   |
+| Southbedcloset    | (0,0)--(FL,0)--(FL,FF)--(0,FF)--cycle                                                   |
+| Entrycloset       | (0,0)--(1.8EstFt,0)--(1.8EstFt,6.400ft)--(0,6.4000ft)--cycle                            |
+| Southhallcloset   | (0,0)--(KG,0)--(KG,KF)--(0,KF)--cycle                                                   |
+| Masterbathsink    | (0,0)--(GE,0)--(GE,GH)--(GF,GH)--(GF,GA)--(0,GA)--cycle                                 |
+| Masterbathcloset  | (0,0)--(GM,0)--(GM,GL)--(0,GL)--cycle                                                   |
+| Masterbathtoilet  | (0,0)--(GP,0)--(GP,GQ)--(0,GQ)--cycle                                                   |
+| Hallbath          | (0,0)--(GE+th,0)--(GE+th,-2.1EstFt)--(FA,-2.1EstFt)--(FA,5.5EstFt)--(0,5.5EstFt)--cycle |
+| Hallbathcloset    | (0,0)--(HK,0)--(HK,HJ)--(0,HJ)--cycle                                                   |
+
+
 
 
