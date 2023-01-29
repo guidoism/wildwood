@@ -88,6 +88,12 @@ def drawwall (expr p, thickness) =
   unfill p;
 enddef;
 
+def drawatticwall (expr p, thickness) =
+  pickup pencircle scaled (thickness*2);
+  draw p withcolor .625 yellow;
+  fill p withcolor background withtransparency ("normal", .7);
+enddef;
+
 def drawinterior (expr p) =
   pickup pencircle scaled 1bp;
   draw p;
@@ -203,33 +209,36 @@ GS :=  3.700 ft;          HS = HT-HE-HI;
 GT :=  4/12 EstFt;        HT = HF+HH+HG;
 GU :=  5.010 ft;
   
-% S O U T H H A L L  ---  G A R A G E
-KA := 4.955 ft;           LA := 27.415 ft;
-KB := 1.030 ft;           LB := 26.160 ft;
-KC := 2.415 ft;           LC :=  4.040 ft;
-KD := 1.215 ft;           LD :=  1.305 ft;
-KE := 1.915 ft;           LE :=  3.955 ft;
-KF := 2.495 ft;           LF := 13.115 ft;
-KG := 1.595 ft;           LG := 13.085 ft;
-                          LH :=  ft;
-                          LI :=  3.380 ft;
-KJ := 0.555 ft;           LJ :=  3.380 ft;
-                          LK :=  3.640 ft;
-KL := 0.590 ft;           LL :=  3.780 ft;
-KM := 9.420 ft;           LM := 12.180 ft;
-                          LN :=  0.570 ft;
-                          LO :=  2.670 ft;
-                          LP :=  5.395 ft;
-                          LQ := 15.485 ft;
-                          LR :=  2.850 ft;
-                          LS :=  2.600 ft;
+% S O U T H H A L L  ---  G A R A G E         R E C R O O M
+KA := 4.955 ft;           LA := 27.415 ft;    MA := 42 EstFt;
+KB := 1.030 ft;           LB := 26.160 ft;    MB := 14.25 EstFt;
+KC := 2.415 ft;           LC :=  4.040 ft;    MC := 15.75 EstFt;
+KD := 1.215 ft;           LD :=  1.305 ft;    MD := 13.75 EstFt;
+KE := 1.915 ft;           LE :=  3.955 ft;    ME :=  1.25 EstFt;
+KF := 2.495 ft;           LF := 13.115 ft;    MF := 12 EstFt;
+KG := 1.595 ft;           LG := 13.085 ft;    MG :=  ft;
+                          LH :=  ft;          MH :=  ft;
+                          LI :=  3.380 ft;    MI :=  ft;
+KJ := 0.555 ft;           LJ :=  3.380 ft;    MJ :=  ft;
+                          LK :=  3.640 ft;    MK :=  ft;
+KL := 0.590 ft;           LL :=  3.780 ft;    ML :=  ft;
+KM := 9.420 ft;           LM := 12.180 ft;    MM :=  ft;
+                          LN :=  0.570 ft;    MN :=  ft;
+                          LO :=  2.670 ft;    MO :=  2 EstFt;
+                          LP :=  5.395 ft;    
+                          LQ := 15.485 ft;    MQ :=  4 EstFt;
+                          LR :=  2.850 ft;    MR :=  ft;
+                          LS :=  2.600 ft;    MS :=  ft;
+
+  
 
 path garage, livingroom, kitchen, blueroom, master,
      masterclosetwest, mastercloseteast, southbed, southbedcloset,
      masterbathsink, masterbathcloset, masterbathtoilet,
      hallbath, hallbathcloset,
      smallbed, smallbedcloset, laundry, laundrybath, entry, kitchenhallcloset,
-     entrycloset, southhallcloset;
+     entrycloset, southhallcloset,
+     recroom;
 garage := (0,0)--(LB,0)--(LB,LA)--(0,LA)--cycle;
 livingroom := (0,0)--(AN,0)--(AN,AD)--(AN-AI,AD)..(AN-AI-AH/2,AD+AM)..(AN-AI-AH,AD)--(0,AD)--cycle;
 kitchen := (0,0)--(E,0)--(E,-J)--(D,-J)--(D,K-J)--(0,K-J)--cycle;
@@ -252,6 +261,7 @@ masterbathcloset := (0,0)--(GM,0)--(GM,GL)--(0,GL)--cycle;
 masterbathtoilet := (0,0)--(GP,0)--(GP,GQ)--(0,GQ)--cycle;
 hallbath := (0,0)--(GE+th,0)--(GE+th,-2.1EstFt)--(FA,-2.1EstFt)--(FA,5.5EstFt)--(0,5.5EstFt)--cycle;
 hallbathcloset := (0,0)--(HK,0)--(HK,HJ)--(0,HJ)--cycle;
+recroom := (0,0)--(MA,0)--(MA,MB)--(MD+MF,MB)--(MD+MF,MC)--(MD,MC)--(MD,MB)--(0,MB)--cycle;
 
 livingroom  := livingroom shifted (lrcorner garage + (th,(K-J)+th));
 kitchen     := kitchen shifted (lrcorner garage + (th,0));
@@ -274,6 +284,7 @@ masterbathcloset := masterbathcloset shifted (point 3 of master + (th,GA+th+th))
 masterbathtoilet := masterbathtoilet shifted (point 3 of master + (th+GE+th,th));
 hallbath := hallbath shifted (point 3 of masterbathcloset + (0,th));
 hallbathcloset := hallbathcloset shifted (point 5 of hallbath + (0,-HJ));
+recroom := recroom shifted (xpart point 1 of master - MA,ypart point 1 of southhallcloset - MC);
 
 drawwall(garage , th);
 drawwall(livingroom, th);
@@ -297,7 +308,7 @@ drawwall(masterbathcloset, th);
 drawwall(masterbathtoilet, th);
 drawwall(hallbath, th);
 drawwall(hallbathcloset, th);
-  
+
 % Kitchen floor
 draw (point 2 of kitchen shifted (9.990ft,0))--(point 2 of kitchen shifted (9.990ft,K)) withpen pencircle scaled .1bp dashed evenly;
 
@@ -412,6 +423,16 @@ drawinterior(masterbathtoilet);
 drawinterior(hallbath);
 drawinterior(hallbathcloset);
 
+
+%%%% A T T I C
+if true:
+  drawatticwall(recroom, th);
+  drawinterior(recroom);
+  window[16] := doorup(point 1 of recroom, MQ, MO);
+  drawwindow(window[16], right);
+
+fi;
+
 if false:
   label.rt(btex \roomname Kitchen etex, .5[point 1 of kitchen, point 2 of kitchen] shifted (4ft,0));
   label.rt(btex \roomname Family Room etex, .5[point 1 of kitchen, point 2 of kitchen] shifted (14ft,0));
@@ -424,7 +445,6 @@ if false:
   label.rt(btex \roomname Bath 3 etex, .5[point 0 of laundrybath, point 5 of laundrybath] shifted (1ft,0));
   label.rt(btex \roomname Living Room etex, .5[point 0 of livingroom, point 6 of livingroom] shifted (12ft,0));
 fi;
-
 
 if false:
   drawdimension((point 0 of door[1])--(point 0 of garage), (5,0));
@@ -525,9 +545,13 @@ if false:
   drawdimension((point 0 of hallbathcloset)--(point 1 of hallbathcloset), (0,5));
 fi;
 
-for i=0 upto 19:
-  draw door[22] shifted (-i*0.5*ft, 0);
-endfor;
+
+% Stairs
+if false:
+  for i=0 upto 19:
+    draw door[22] shifted (-i*0.5*ft, 0);
+  endfor;
+fi;
 
 
 if false:
@@ -548,15 +572,6 @@ if false:
   endfor;
 fi;
 
-
-
-%path outline; outline = (0,-50)--(100,-50)--(100,50)--(0,50)--cycle;
-%clip currentpicture to outline; draw outline;
-
-%path p;
-%p := (point 2 of garage)..(point 3 of garage);
-%drawdblarrow p withcolor blue;
-
 % Outside brick wall
 pickup pencircle scaled (th);
 draw (-th/2,th)--(-th/2,-3.965ft) withcolor .8 white;
@@ -576,7 +591,6 @@ picture pic;
 pic := thelabel("\small Scale: 1 inch in real world = 1 bp (1/72'') on drawing", (170, -110));
 unfill bbox pic;
 draw pic;
-
 
 pickup pencircle scaled .7bp;
 path c;
