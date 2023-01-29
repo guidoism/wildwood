@@ -15,6 +15,11 @@ Also note that the measurements labeled with "℮" are estimates. This
 is where I screwed something up during the measurement or I couldn't
 get my tool into a small place.
 
+Note that you can also define measurements in terms of other
+measurements either in this same room or other. See Hallbath
+below as an example. These equations follow the same rules
+layed on in Metapost.
+
 #+name: Measurements
 |   | Kitchen |   Living |  Entry | Laundry | Smallbed | Southbed | Master | MasterBath | Hallbath | Blueroom | Southhall | Garage | Recroom | Trollroom | Chimneyroom | Garageattic |
 |   |         |        A |      B |       D |        E |        F |      J |          G |        H |        I |         K |      L | M       | P         | N           | O           |
