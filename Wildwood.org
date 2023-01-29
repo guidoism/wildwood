@@ -209,7 +209,7 @@ GS :=  3.700 ft;          HS = HT-HE-HI;
 GT :=  4/12 EstFt;        HT = HF+HH+HG;
 GU :=  5.010 ft;
   
-% S O U T H H A L L  ---  G A R A G E         R E C R O O M
+% S O U T H H A L L  ---  G A R A G E   ---   R E C R O O M
 KA := 4.955 ft;           LA := 27.415 ft;    MA := 42 EstFt;
 KB := 1.030 ft;           LB := 26.160 ft;    MB := 14.25 EstFt;
 KC := 2.415 ft;           LC :=  4.040 ft;    MC := 15.75 EstFt;
@@ -218,11 +218,11 @@ KE := 1.915 ft;           LE :=  3.955 ft;    ME :=  1.25 EstFt;
 KF := 2.495 ft;           LF := 13.115 ft;    MF := 12 EstFt;
 KG := 1.595 ft;           LG := 13.085 ft;    MG :=  ft;
                           LH :=  ft;          MH :=  ft;
-                          LI :=  3.380 ft;    MI :=  ft;
-KJ := 0.555 ft;           LJ :=  3.380 ft;    MJ :=  ft;
+                          LI :=  3.380 ft;    MI := 2.5 EstFt;
+KJ := 0.555 ft;           LJ :=  3.380 ft;    MJ := 10 EstFt;
                           LK :=  3.640 ft;    MK :=  ft;
-KL := 0.590 ft;           LL :=  3.780 ft;    ML :=  ft;
-KM := 9.420 ft;           LM := 12.180 ft;    MM :=  ft;
+KL := 0.590 ft;           LL :=  3.780 ft;    ML := 2.5 EstFt;
+KM := 9.420 ft;           LM := 12.180 ft;    MM := 9 EstFt;
                           LN :=  0.570 ft;    MN :=  ft;
                           LO :=  2.670 ft;    MO :=  2 EstFt;
                           LP :=  5.395 ft;    
@@ -230,6 +230,22 @@ KM := 9.420 ft;           LM := 12.180 ft;    MM :=  ft;
                           LR :=  2.850 ft;    MR :=  ft;
                           LS :=  2.600 ft;    MS :=  ft;
 
+% T R O L L R O O M  ---  C H I M N E Y R O O M --- G A R A G E A T T I C
+PA := 17 EstFt;           NA :=  ft;                OA :=  ft;
+PB := 26 EstFt;           NB :=  ft;                OB :=  ft;
+PC := 10 EstFt;           NC :=  ft;                OC :=  ft;
+PD := 2.5 EstFt;          ND :=  ft;                OD :=  ft;
+PE :=  ft;                NE :=  ft;                OE :=  ft;
+PF :=  ft;                NF :=  ft;                OF :=  ft;
+PG :=  ft;                NG :=  ft;                OG :=  ft;
+PH :=  ft;                NH :=  ft;                OH :=  ft;
+PI :=  ft;                NI :=  ft;                OI :=  ft;
+PJ :=  ft;                NJ :=  ft;                OJ :=  ft;
+PK :=  ft;                NK :=  ft;                OK :=  ft;
+PL := 2 EstFt;            NL :=  ft;                OL :=  ft;
+PM := 2 EstFt;            NM :=  ft;                OM :=  ft;
+PN := 15 EstFt;
+PO := 9.75 EstFt;
   
 
 path garage, livingroom, kitchen, blueroom, master,
@@ -238,7 +254,7 @@ path garage, livingroom, kitchen, blueroom, master,
      hallbath, hallbathcloset,
      smallbed, smallbedcloset, laundry, laundrybath, entry, kitchenhallcloset,
      entrycloset, southhallcloset,
-     recroom;
+     recroom, trollroom;
 garage := (0,0)--(LB,0)--(LB,LA)--(0,LA)--cycle;
 livingroom := (0,0)--(AN,0)--(AN,AD)--(AN-AI,AD)..(AN-AI-AH/2,AD+AM)..(AN-AI-AH,AD)--(0,AD)--cycle;
 kitchen := (0,0)--(E,0)--(E,-J)--(D,-J)--(D,K-J)--(0,K-J)--cycle;
@@ -262,6 +278,7 @@ masterbathtoilet := (0,0)--(GP,0)--(GP,GQ)--(0,GQ)--cycle;
 hallbath := (0,0)--(GE+th,0)--(GE+th,-2.1EstFt)--(FA,-2.1EstFt)--(FA,5.5EstFt)--(0,5.5EstFt)--cycle;
 hallbathcloset := (0,0)--(HK,0)--(HK,HJ)--(0,HJ)--cycle;
 recroom := (0,0)--(MA,0)--(MA,MB)--(MD+MF,MB)--(MD+MF,MC)--(MD,MC)--(MD,MB)--(0,MB)--cycle;
+trollroom := (0,0)--(PO,0)--(PO,-PL)--(PB,-PL)--(PB,PN)--(0,PN)--cycle;
 
 livingroom  := livingroom shifted (lrcorner garage + (th,(K-J)+th));
 kitchen     := kitchen shifted (lrcorner garage + (th,0));
@@ -285,7 +302,8 @@ masterbathtoilet := masterbathtoilet shifted (point 3 of master + (th+GE+th,th))
 hallbath := hallbath shifted (point 3 of masterbathcloset + (0,th));
 hallbathcloset := hallbathcloset shifted (point 5 of hallbath + (0,-HJ));
 recroom := recroom shifted (xpart point 1 of master - MA,ypart point 1 of southhallcloset - MC);
-
+trollroom := trollroom shifted (point 4 of recroom + (-PO,th));
+  
 drawwall(garage , th);
 drawwall(livingroom, th);
 drawwall(kitchen, th);
@@ -322,6 +340,7 @@ hearth := hearth shifted (point 0 of livingroom) shifted (AA,0);
 fill hearth withpen pencircle scaled .7bp withcolor .7 white;
 
 path door[];
+
 door[0]  := doorup    (point 1 of garage, LN, LO); undraw door[0]; % Garage to family
 door[1]  := doorup    (point 0 of garage, LL, LF-LL); undraw door[1]; % West garage door
 door[2]  := doordown  (point 3 of garage, LE, LG-LE); undraw door[2]; % East garage door
@@ -426,10 +445,12 @@ drawinterior(hallbathcloset);
 
 %%%% A T T I C
 if true:
-  drawatticwall(recroom, th);
-  drawinterior(recroom);
-  window[16] := doorup(point 1 of recroom, MQ, MO);
-  drawwindow(window[16], right);
+  drawatticwall(recroom, th); drawinterior(recroom);
+  drawatticwall(trollroom, th); drawinterior(trollroom);
+  
+  window[16] := doorup(point 1 of recroom, MQ, MO); drawwindow(window[16], right);
+  door[27]   := doorup(point 0 of recroom, MM, ML); undraw door[27];
+  door[28]   := doorleft(point 2 of recroom, MJ, MI); undraw door[28];
 
 fi;
 
