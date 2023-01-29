@@ -1,4 +1,20 @@
 
+** Measurements
+
+This is where we put all of the raw measurements. I like to draw a
+room on paper and label all of the possible dimensions. Then I fill
+in those labels on another paper with the labels listed out.
+
+In this example I am using feet with decimal fractions. I find this a
+lot easier to deal with than feet, inches, and 16ths of an inch. It's
+clear that I have too many significant digits but I like to just
+record exactly what the laser measuring tool tells me and know that
+small inaccuracies will average out in the end.
+
+Also note that the measurements labeled with "℮" are estimates. This
+is where I screwed something up during the measurement or I couldn't
+get my tool into a small place.
+
 #+name: Measurements
 |   | Kitchen |   Living |  Entry | Laundry | Smallbed | Southbed | Master | MasterBath | Hallbath | Blueroom | Southhall | Garage | Recroom | Trollroom | Chimneyroom | Garageattic |
 |   |         |        A |      B |       D |        E |        F |      J |          G |        H |        I |         K |      L | M       | P         | N           | O           |
@@ -28,4 +44,15 @@
 | X |  15.975 |          |        |         |          |          |        |            |          |          |           |        |         |           |             |             |
 | Y |   2.670 |          |        |         |          |          |        |            |          |          |           |        |         |           |             |             |
 | Z |         |          |        |         |          |          |        |            |          |          |           |        |         |           |             |             |
+
+** Paths
+
+This is where we define the paths that each of the rooms' walls make.
+This is a huge departure from normal floorplan applications. We are
+going to define each room seperately starting at the origin and moving
+around counter-clockwise until we form a cycle. We ignore all windows,
+doors, and shared walls at this point. This is just defining the
+interior perception of a room.
+
+
 
