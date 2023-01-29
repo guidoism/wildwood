@@ -231,8 +231,8 @@ KM := 9.420 ft;           LM := 12.180 ft;    MM := 9 EstFt;
                           LS :=  2.600 ft;    MS :=  ft;
 
 % T R O L L R O O M  ---  C H I M N E Y R O O M --- G A R A G E A T T I C
-PA := 17 EstFt;           NA :=  ft;                OA :=  ft;
-PB := 26 EstFt;           NB :=  ft;                OB :=  ft;
+PA := 17 EstFt;           NA := 32.25 EstFt;        OA :=  ft;
+PB := 26 EstFt;           NB := 15.5 EstFt;         OB :=  ft;
 PC := 10 EstFt;           NC :=  ft;                OC :=  ft;
 PD := 2.5 EstFt;          ND :=  ft;                OD :=  ft;
 PE :=  ft;                NE :=  ft;                OE :=  ft;
@@ -254,7 +254,7 @@ path garage, livingroom, kitchen, blueroom, master,
      hallbath, hallbathcloset,
      smallbed, smallbedcloset, laundry, laundrybath, entry, kitchenhallcloset,
      entrycloset, southhallcloset,
-     recroom, trollroom;
+     recroom, trollroom, chimneyroom;
 garage := (0,0)--(LB,0)--(LB,LA)--(0,LA)--cycle;
 livingroom := (0,0)--(AN,0)--(AN,AD)--(AN-AI,AD)..(AN-AI-AH/2,AD+AM)..(AN-AI-AH,AD)--(0,AD)--cycle;
 kitchen := (0,0)--(E,0)--(E,-J)--(D,-J)--(D,K-J)--(0,K-J)--cycle;
@@ -279,6 +279,7 @@ hallbath := (0,0)--(GE+th,0)--(GE+th,-2.1EstFt)--(FA,-2.1EstFt)--(FA,5.5EstFt)--
 hallbathcloset := (0,0)--(HK,0)--(HK,HJ)--(0,HJ)--cycle;
 recroom := (0,0)--(MA,0)--(MA,MB)--(MD+MF,MB)--(MD+MF,MC)--(MD,MC)--(MD,MB)--(0,MB)--cycle;
 trollroom := (0,0)--(PO,0)--(PO,-PL)--(PB,-PL)--(PB,PN)--(0,PN)--cycle;
+chimneyroom := (0,0)--(NA,0)--(NA,NB)--(0,NB)--cycle;
 
 livingroom  := livingroom shifted (lrcorner garage + (th,(K-J)+th));
 kitchen     := kitchen shifted (lrcorner garage + (th,0));
@@ -303,6 +304,7 @@ hallbath := hallbath shifted (point 3 of masterbathcloset + (0,th));
 hallbathcloset := hallbathcloset shifted (point 5 of hallbath + (0,-HJ));
 recroom := recroom shifted (xpart point 1 of master - MA,ypart point 1 of southhallcloset - MC);
 trollroom := trollroom shifted (point 4 of recroom + (-PO,th));
+chimneyroom := chimneyroom shifted (point 0 of recroom + (-NA-th,0));
   
 drawwall(garage , th);
 drawwall(livingroom, th);
@@ -445,8 +447,13 @@ drawinterior(hallbathcloset);
 
 %%%% A T T I C
 if true:
-  drawatticwall(recroom, th); drawinterior(recroom);
-  drawatticwall(trollroom, th); drawinterior(trollroom);
+  drawatticwall(recroom, th); 
+  drawatticwall(trollroom, th); 
+  drawatticwall(chimneyroom, th); 
+
+  drawinterior(recroom);
+  drawinterior(trollroom);
+  drawinterior(chimneyroom);
   
   window[16] := doorup(point 1 of recroom, MQ, MO); drawwindow(window[16], right);
   door[27]   := doorup(point 0 of recroom, MM, ML); undraw door[27];
