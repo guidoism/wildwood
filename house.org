@@ -88,6 +88,10 @@ perceptual lower-left of the room.
 | Hallbath          | (0,0)--(GE+th,0)--(GE+th,-2.1EstFt)--(FA,-2.1EstFt)--(FA,5.5EstFt)--(0,5.5EstFt)--cycle |
 | Hallbathcloset    | (0,0)--(HK,0)--(HK,HJ)--(0,HJ)--cycle                                                   |
 
+** Relative Positions
 
+This is where we define the relative positions of the rooms. For
+example room 1's upper right corner might be the same as Room 2's
+lower left corner.
 
 
