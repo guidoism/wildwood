@@ -97,6 +97,7 @@ This is where we define the relative positions of the rooms. For
 example room 1's upper right corner might be the same as Room 2's
 lower left corner.
 
+#+name: Positions
 | livingroom        | lrcorner garage + (th,(K-J)+th)                                       |
 | kitchen           | lrcorner garage + (th,0)                                              |
 | entry             | lrcorner livingroom + (th,0)                                          |
@@ -125,7 +126,7 @@ lower left corner.
 ** Draw the walls
 
 #+name: definerooms
-#+begin_src python :var measurements=Measurements :var paths=Paths :results output
+#+begin_src python :var measurements=Measurements :var paths=Paths :var positions=Positions :results output
 names = measurements[0][1:]
 prefix = dict(zip(names, measurements[1][1:]))
 prefix.setdefault('')
@@ -143,9 +144,12 @@ for i, d in enumerate(data):
 
 print('path', ', '.join(names), ';')
 
+print()
 paths = paths[1:]
 print('\n'.join(f'{k} := {v};' for k, v in paths))
-    
+print()
+print('\n'.join(f'{k} := {k} shifted ({v});' for k, v in positions))
+
 #+end_src
 
 ** Main Metapost picture
