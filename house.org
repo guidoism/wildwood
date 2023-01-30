@@ -149,20 +149,23 @@ print()
 print('\n'.join(f'{k} := {k} shifted ({v});' for k, v in positions))
 #+end_src
 
-
 ** Draw the walls
 
 #+name: drawwalls
 #+begin_src python :var paths=Paths :results output
 paths = paths[1:]
 paths = list(zip(*paths))[0]
-print("""def drawwall (expr p, thickness) =
+print("""
+def drawwall (expr p, thickness) =
   pickup pencircle scaled (thickness*2);
   draw p withcolor .8 white;
-  unfill p;
+  fill p withcolor background withtransparency ("normal", 1);
 enddef;
 """)
 print('\n'.join((f'drawwall({s}, th);' for s in paths)))
+print()
+print('pickup pencircle scaled 1bp;')
+print('\n'.join((f'draw {s};' for s in paths)))
 
 #+end_src
 
