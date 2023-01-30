@@ -129,7 +129,7 @@ lower left corner.
 |  1 | "West garage door"           | up       | left    | point 0 of garage           | LL       | LF-LL        |
 |  2 | "East garage door"           | down     | left    | point 3 of garage           | LE       | LG-LE        |
 |  3 | "Living room to front entry" | up       | right   | point 1 of livingroom       | 49       | 72           |
-|  4 | "Living to garage entry"     | right    | left    | point 5 of kitchen          | A        | B-A          |
+|  4 | "Living to garage entry"     | right    | up      | point 5 of kitchen          | A        | B-A          |
 |  5 | "Family to front entry"      | left     | up      | point 4 of kitchen          | U        | V-U          |
 |  6 | "Garage entry closet"        | right    | down    | point 0 of kitchen          | I        | H-I          |
 |  7 | "Laundry room door"          | right    | down    | point 0 of kitchen          | G        | F-G          |
@@ -151,7 +151,7 @@ lower left corner.
 | 23 | "Master bath door to toilet" | up       | right   | point 1 of masterbathsink   | GG       | GQ-GO-GG     |
 | 24 | "Master bath closet door"    | up       | right   | point 1 of masterbathcloset | GK       | GL-GJ-GK     |
 | 25 | "Hall bath closet door"      | left     | up      | point 1 of hallbathcloset   | HN-th    | HO           |
-| 26 | "South bed closet door"      | up       | down    | point 1 of southbedcloset   | 1 est    | 5 est        |
+| 26 | "South bed closet door"      | up       | right   | point 1 of southbedcloset   | 1 est    | 5 est        |
 
 ** Windows
 
@@ -216,6 +216,7 @@ def drawdoor (expr direction, outdirection, start, offset, width, i) =
   pickup pencircle scaled (th);
   door[i] = (direction*offset + start)..(direction*offset+direction*width + start);
   undraw door[i];
+  draw door[i] shifted (outdirection * -th) withcolor blue withtransparency ("normal", .5);
 enddef;
 """)
 doors = doors[1:]
