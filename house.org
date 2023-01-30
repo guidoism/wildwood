@@ -213,10 +213,11 @@ print('\n'.join((f'draw {s};' for s in paths)))
 print("""
 path door[];
 def drawdoor (expr direction, outdirection, start, offset, width, i) =
-  pickup pencircle scaled (th);
+  pickup pencircle scaled (th+2bp); % 2bp for the width of the interior lines on either side
   door[i] = (direction*offset + start)..(direction*offset+direction*width + start);
-  undraw door[i];
-  draw door[i] shifted (outdirection * -th) withcolor blue withtransparency ("normal", .5);
+  undraw door[i] shifted (outdirection * th/2);
+  % Uncomment to show doors
+  %draw door[i] shifted (outdirection * th/2) withcolor blue withtransparency ("normal", .5);
 enddef;
 """)
 doors = doors[1:]
