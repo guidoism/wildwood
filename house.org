@@ -156,6 +156,9 @@ lower left corner.
 ** Windows
 
 #+name: Windows
+| 0 | "Window over sink"           | right | down | point 2 of kitchen | L | M-N |
+| 1 | "Family room picture window" | right | down | point 2 of kitchen | N | O-N |
+| 2 | "Family room big window"     | left  | down | point 3 of kitchen | S | T-S |
 
 
 * Python
