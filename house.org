@@ -173,6 +173,10 @@ lower left corner.
 | 15 |                              | right | down  | point 0 of blueroom         | ID  IB-IC-ID |       |
 
 * Python
+
+It would probably be more natural to use a templating engine like
+jinja instead of raw python.
+
 ** Define the rooms as Metapost paths
 
 #+name: definerooms
@@ -188,6 +192,7 @@ for i, d in enumerate(data):
     n = names[i]
     s = suffix[i]
     p = prefix[n]
+    # MP is already defined in Metapost so we remove the point, it's not used anyways 
     defs = [f'{p}{k} := {err(v)};' for k, v in zip(suffix, d) if f'{p}{k}' != 'MP']
     print(f'% {n} ({p})')
     print('\n'.join(defs))
