@@ -188,7 +188,7 @@ print()
 print('\n'.join(f'{k} := {k} shifted ({v});' for k, v in positions))
 #+end_src
 
-** Draw the walls
+** Draw the walls, doors, and windows
 
 #+name: drawwalls
 #+begin_src python :var paths=Paths :results output
@@ -212,8 +212,8 @@ print('\n'.join((f'draw {s};' for s in paths)))
 #+begin_src python :var doors=Doors :results output
 print("""
 path door[];
-def drawdoor (expr direction, out, start, offset, width, i) =
-  pickup pencircle scaled (th*2.3);
+def drawdoor (expr direction, outdirection, start, offset, width, i) =
+  pickup pencircle scaled (th);
   door[i] = (direction*offset + start)..(direction*offset+direction*width + start);
   undraw door[i];
 enddef;
