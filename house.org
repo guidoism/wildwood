@@ -235,7 +235,7 @@ for i, name, direction, outdir, start, offset, width in doors:
 \definefont[dim][name:bahnschriftlight*default at 5pt]
 \definefont[title][name:bahnschrift*default at 25pt]
                                             
-\definepapersize [biggy] [width=550mm,height=230mm]
+\definepapersize[biggy][width=550mm,height=230mm]
 \setuppapersize[biggy]
 
 \starttext
