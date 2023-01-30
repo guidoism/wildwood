@@ -83,12 +83,12 @@ are more natural to define.
 | smallbedcloset    | (0,0)--(ET,0)--(ET,EN)--(0,EN)--cycle                                                   |
 | southbed          | (0,0)--(FA,0)--(FA,FG)--(0,FG)--cycle                                                   |
 | southbedcloset    | (0,0)--(FL,0)--(FL,FF)--(0,FF)--cycle                                                   |
-| entrycloset       | (0,0)--(1.8EstFt,0)--(1.8EstFt,6.400ft)--(0,6.4000ft)--cycle                            |
+| entrycloset       | (0,0)--(1.8est,0)--(1.8est,6.400ft)--(0,6.4000ft)--cycle                            |
 | southhallcloset   | (0,0)--(KG,0)--(KG,KF)--(0,KF)--cycle                                                   |
 | masterbathsink    | (0,0)--(GE,0)--(GE,GH)--(GF,GH)--(GF,GA)--(0,GA)--cycle                                 |
 | masterbathcloset  | (0,0)--(GM,0)--(GM,GL)--(0,GL)--cycle                                                   |
 | masterbathtoilet  | (0,0)--(GP,0)--(GP,GQ)--(0,GQ)--cycle                                                   |
-| hallbath          | (0,0)--(GE+th,0)--(GE+th,-2.1EstFt)--(FA,-2.1EstFt)--(FA,5.5EstFt)--(0,5.5EstFt)--cycle |
+| hallbath          | (0,0)--(GE+th,0)--(GE+th,-2.1est)--(FA,-2.1est)--(FA,5.5est)--(0,5.5est)--cycle |
 | hallbathcloset    | (0,0)--(HK,0)--(HK,HJ)--(0,HJ)--cycle                                                   |
 
 ** Relative Positions
