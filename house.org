@@ -123,7 +123,7 @@ lower left corner.
 | trollroom         | point 4 of recroom + (-PO,th)                                         |
 | chimneyroom       | point 0 of recroom + (-NA-th,0)                                       |
 
-** Draw the walls
+** Define the rooms as Metapost paths
 
 #+name: definerooms
 #+begin_src python :var measurements=Measurements :var paths=Paths :var positions=Positions :results output
