@@ -156,24 +156,21 @@ lower left corner.
 ** Windows
 
 #+name: Windows
-| 0 | "Window over sink"           | right | down | point 2 of kitchen    | L  | M-N   |   |   |
-| 1 | "Family room picture window" | right | down | point 2 of kitchen    | N  | O-N   |   |   |
-| 2 | "Family room big window"     | left  | down | point 3 of kitchen    | S  | T-S   |   |   |
-| 4 |                              | right | up   | point 6 of livingroom | AE | AF-AG |   |   |
-
-window[5] := doorup right (point 1 of southbed, FI, FK);
-window[6] := doorleft up (point 2 of southbed, FD, FE);
-window[7] := doorleft up (point 4 of smallbed, EH, EP-EH-EQ);
-window[8] := doordown left (point 5 of smallbed, EJ, EL-EJ);
-window[9] := doorleft down (point 1 of master, JF, JD-JG-JF);
-window[10] := doorup right (point 1 of master, JC, JA-JB-JC);
-window[11] := doorup right (point 1 of masterbathtoilet, GR, GS-GR);
-window[12] := doorup right (point 3 of hallbath, HF, HH);
-window[13] := doorright up (point 3 of garage, LL, LI);
-window[14] := doorleft up (point 2 of garage, LK, LJ);
-window[15] := doorright down (point 0 of blueroom, ID, IB-IC-ID);
-
-
+|  0 | "Window over sink"           | right | down  | point 2 of kitchen          | L            | M-N   |
+|  1 | "Family room picture window" | right | down  | point 2 of kitchen          | N            | O-N   |
+|  2 | "Family room big window"     | left  | down  | point 3 of kitchen          | S            | T-S   |
+|  4 |                              | right | up    | point 6 of livingroom       | AE           | AF-AG |
+|  5 |                              | up    | right | point 1 of southbed         | FI  FK       |       |
+|  6 |                              | left  | up    | point 2 of southbed         | FD  FE       |       |
+|  7 |                              | left  | up    | point 4 of smallbed         | EH  EP-EH-EQ |       |
+|  8 |                              | down  | left  | point 5 of smallbed         | EJ  EL-EJ    |       |
+|  9 |                              | left  | down  | point 1 of master           | JF  JD-JG-JF |       |
+| 10 |                              | up    | right | point 1 of master           | JC  JA-JB-JC |       |
+| 11 |                              | up    | right | point 1 of masterbathtoilet | GR  GS-GR    |       |
+| 12 |                              | up    | right | point 3 of hallbath         | HF  HH       |       |
+| 13 |                              | right | up    | point 3 of garage           | LL  LI       |       |
+| 14 |                              | left  | up    | point 2 of garage           | LK  LJ       |       |
+| 15 |                              | right | down  | point 0 of blueroom         | ID  IB-IC-ID |       |
 
 * Python
 ** Define the rooms as Metapost paths
