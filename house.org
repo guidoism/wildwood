@@ -1,4 +1,5 @@
 
+* Tables
 ** Measurements
 
 This is where we put all of the raw measurements. I like to draw a
@@ -120,6 +121,40 @@ lower left corner.
 | hallbath          | point 3 of masterbathcloset + (0,th)                                  |
 | hallbathcloset    | point 5 of hallbath + (0,-HJ)                                         |
 
+** Doors
+
+#+name: Doors
+|  0 | "Garage to family"           | up    | point 1 of garage           | LN       | LO           |
+|  1 | "West garage door"           | up    | point 0 of garage           | LL       | LF-LL        |
+|  2 | "East garage door"           | down  | point 3 of garage           | LE       | LG-LE        |
+|  3 | "Living room to front entry" | up    | point 1 of livingroom       | 49       | 72           |
+|  4 | "Living to garage entry"     | right | point 5 of kitchen          | A        | B-A          |
+|  5 | "Family to front entry"      | left  | point 4 of kitchen          | U        | V-U          |
+|  6 | "Garage entry closet"        | right | point 0 of kitchen          | I        | H-I          |
+|  7 | "Laundry room door"          | right | point 0 of kitchen          | G        | F-G          |
+|  8 | "Sliding door"               | right | point 2 of kitchen          | P        | Q-P          |
+|  9 | "Blue room door"             | left  | point 1 of entry            | BH       | BD           |
+| 10 | "Master room door"           | left  | point 1 of entry            | BG-BF    | BF           |
+| 11 | "Understairs closet door"    | right | point 5 of entry            | BQ       | BR           |
+| 12 | "Entry closet door"          | up    | point 5 of entry            | BM       | BN           |
+| 13 | "Front entry door"           | left  | point 6 of entry            | 0.7 est  | 5.5 est      |
+| 14 | "Door to south bedroom"      | up    | point 0 of southbed         | FM       | FH           |
+| 15 | "Door to small bedroom"      | up    | point 1 of smallbed         | EE       | EG           |
+| 16 | "Small room closet"          | left  | point 1 of smallbed         | ER       | ES           |
+| 17 | "Master bath door"           | up    | point 3 of master           | JO       | JL-JA-JO-JP  |
+| 18 | "Master closet door 1"       | up    | point 0 of master           | JI       | JT-JI-(JJ/2) |
+| 19 | "Master closet door 2"       | down  | point 5 of master           | JK       | JS-JK-(JJ/2) |
+| 20 | "Blue room closet door"      | right | point 5 of blueroom         | IG       | II           |
+| 21 | "South hall closet door"     | up    | point 4 of entry            | KB+KC+KD | KE           |
+| 22 | "Attic door"                 | up    | point 4 of entry            | KB       | KC           |
+| 23 | "Master bath door to toilet" | up    | point 1 of masterbathsink   | GG       | GQ-GO-GG     |
+| 24 | "Master bath closet door"    | up    | point 1 of masterbathcloset | GK       | GL-GJ-GK     |
+| 25 | "Hall bath closet door"      | left  | point 1 of hallbathcloset   | HN-th    | HO           |
+| 26 | "South bed closet door"      | up    | point 1 of southbedcloset   | 1 est    | 5 est        |
+
+** Windows
+
+* Python
 ** Define the rooms as Metapost paths
 
 #+name: definerooms
@@ -166,7 +201,22 @@ print('\n'.join((f'drawwall({s}, th);' for s in paths)))
 print()
 print('pickup pencircle scaled 1bp;')
 print('\n'.join((f'draw {s};' for s in paths)))
+#+end_src
 
+
+#+name: drawdoors
+#+begin_src python :var doors=Doors :results output
+print("""
+path door[];
+def drawdoor (expr direction, start, offset, width, i) =
+  pickup pencircle scaled (th*2.3);
+  door[i] = (direction*offset + start)..(direction*offset+direction*width + start);
+  undraw door[i];
+enddef;
+""")
+
+for i, name, direction, start, offset, width in doors:
+    print(f'drawdoor({direction}, {start}, {offset}, {width}, {i});');
 #+end_src
 
 ** Main Metapost picture
@@ -194,6 +244,7 @@ print('\n'.join((f'draw {s};' for s in paths)))
   th := 0.445est; % Interior wall thickness 
   <<definerooms()>>
   <<drawwalls()>>
+  <<drawdoors()>>
 \stopMPcode
 \stoptext
 #+end_src
