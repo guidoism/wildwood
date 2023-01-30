@@ -97,28 +97,28 @@ This is where we define the relative positions of the rooms. For
 example room 1's upper right corner might be the same as Room 2's
 lower left corner.
 
-| livingroom        | livingroom shifted (lrcorner garage + (th,(K-J)+th));                                 |
-| kitchen           | kitchen shifted (lrcorner garage + (th,0));                                           |
-| entry             | entry shifted (lrcorner livingroom + (th,0));                                         |
-| laundry           | laundry shifted (lrcorner garage + (th,-J));                                          |
-| laundrybath       | laundrybath shifted (lrcorner garage + (th,-J));                                      |
-| kitchenhallcloset | kitchenhallcloset shifted (lrcorner garage + (th,-DM-th));                            |
-| smallbed          | smallbed shifted (point 6 of entry + (th,-EC));                                       |
-| smallbedcloset    | smallbedcloset shifted (point 1 of smallbed + (-ER-ES-EV,-EN-th));                    |
-| southbed          | southbed shifted (point 2 of entry + (th,-FH-FM-th-1));                               |
-| southbedcloset    | southbedcloset shifted (point 3 of smallbed + (th,0));                                |
-| entrycloset       | entrycloset shifted (point 5 of entry + (th,th));                                     |
-| blueroom          | blueroom shifted (lrcorner kitchen + (th,0));                                         |
-| master            | master shifted (point 1 of entry + (-JR,-X-th));                                      |
-| masterclosetwest  | masterclosetwest shifted (point 0 of master + (-JH-th,0));                            |
-| mastercloseteast  | mastercloseteast shifted (point 0 of master + (-JH-th,JT+th));                        |
-| southhallcloset   | southhallcloset shifted (point 4 of entry + (-KG-th,KB+KC+KJ+th));                    |
-| masterbathsink    | masterbathsink shifted (point 3 of master + (th,th));                                 |
-| masterbathcloset  | masterbathcloset shifted (point 3 of master + (th,GA+th+th));                         |
-| masterbathtoilet  | masterbathtoilet shifted (point 3 of master + (th+GE+th,th));                         |
-| hallbath          | hallbath shifted (point 3 of masterbathcloset + (0,th));                              |
-| hallbathcloset    | hallbathcloset shifted (point 5 of hallbath + (0,-HJ));                               |
-| recroom           | recroom shifted (xpart point 1 of master - MA,ypart point 1 of southhallcloset - MC); |
-| trollroom         | trollroom shifted (point 4 of recroom + (-PO,th));                                    |
-| chimneyroom       | chimneyroom shifted (point 0 of recroom + (-NA-th,0));                                |
+| livingroom        | lrcorner garage + (th,(K-J)+th)                                       |
+| kitchen           | lrcorner garage + (th,0)                                              |
+| entry             | lrcorner livingroom + (th,0)                                          |
+| laundry           | lrcorner garage + (th,-J)                                             |
+| laundrybath       | lrcorner garage + (th,-J)                                             |
+| kitchenhallcloset | lrcorner garage + (th,-DM-th)                                         |
+| smallbed          | point 6 of entry + (th,-EC)                                           |
+| smallbedcloset    | point 1 of smallbed + (-ER-ES-EV,-EN-th)                              |
+| southbed          | point 2 of entry + (th,-FH-FM-th-1)                                   |
+| southbedcloset    | point 3 of smallbed + (th,0)                                          |
+| entrycloset       | point 5 of entry + (th,th)                                            |
+| blueroom          | lrcorner kitchen + (th,0)                                             |
+| master            | point 1 of entry + (-JR,-X-th)                                        |
+| masterclosetwest  | point 0 of master + (-JH-th,0)                                        |
+| mastercloseteast  | point 0 of master + (-JH-th,JT+th)                                    |
+| southhallcloset   | point 4 of entry + (-KG-th,KB+KC+KJ+th)                               |
+| masterbathsink    | point 3 of master + (th,th)                                           |
+| masterbathcloset  | point 3 of master + (th,GA+th+th)                                     |
+| masterbathtoilet  | point 3 of master + (th+GE+th,th)                                     |
+| hallbath          | point 3 of masterbathcloset + (0,th)                                  |
+| hallbathcloset    | point 5 of hallbath + (0,-HJ)                                         |
+| recroom           | (xpart point 1 of master - MA,ypart point 1 of southhallcloset - MC)  |
+| trollroom         | point 4 of recroom + (-PO,th)                                         |
+| chimneyroom       | point 0 of recroom + (-NA-th,0)                                       |
 
