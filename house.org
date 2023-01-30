@@ -159,6 +159,41 @@ lower left corner.
 | 0 | "Window over sink"           | right | down | point 2 of kitchen | L | M-N |
 | 1 | "Family room picture window" | right | down | point 2 of kitchen | N | O-N |
 | 2 | "Family room big window"     | left  | down | point 3 of kitchen | S | T-S |
+window[4] := doorright(point 6 of livingroom, AE, AF-AG);
+drawwindow(window[4], up);
+
+window[5] := doorup(point 1 of southbed, FI, FK);
+drawwindow(window[5], right);
+
+window[6] := doorleft(point 2 of southbed, FD, FE);
+drawwindow(window[6], up);
+
+window[7] := doorleft(point 4 of smallbed, EH, EP-EH-EQ);
+drawwindow(window[7], up);
+
+window[8] := doordown(point 5 of smallbed, EJ, EL-EJ);
+drawwindow(window[8], left);
+
+window[9] := doorleft(point 1 of master, JF, JD-JG-JF);
+drawwindow(window[9], down);
+
+window[10] := doorup(point 1 of master, JC, JA-JB-JC);
+drawwindow(window[10], right);
+
+window[11] := doorup(point 1 of masterbathtoilet, GR, GS-GR);
+drawwindow(window[11], right);
+
+window[12] := doorup(point 3 of hallbath, HF, HH);
+drawwindow(window[12], right);
+
+window[13] := doorright(point 3 of garage, LL, LI);
+drawwindow(window[13], up);
+
+window[14] := doorleft(point 2 of garage, LK, LJ);
+drawwindow(window[14], up);
+
+window[15] := doorright(point 0 of blueroom, ID, IB-IC-ID);
+drawwindow(window[15], down);
 
 
 * Python
