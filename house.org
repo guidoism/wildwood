@@ -21,7 +21,7 @@ below as an example. These equations follow the same rules
 layed on in Metapost.
 
 #+name: Measurements
-|   | Kitchen |   Living |  Entry | Laundry | Smallbed | Southbed | Master | MasterBath | Hallbath | Blueroom | Southhall | Garage | Recroom | Trollroom | Chimneyroom | Garageattic |
+|   | kitchen |   living |  entry | laundry | smallbed | southbed | master | masterbath | hallbath | blueroom | southhall | garage | recroom | trollroom | chimneyroom | garageattic |
 |   |         |        A |      B |       D |        E |        F |      J |          G |        H |        I |         K |      L | M       | P         | N           | O           |
 | A |   4.090 |   23.070 |  3.330 |   2.620 |   12.000 |   12.295 | 12.435 |      3.095 |   12.290 |   15.985 |     4.955 | 27.415 |         |           |             |             |
 | B |   8.095 |    4.925 | 23.065 |   5.375 |    7.370 |   15.170 |  4.315 |     ℮ 4/12 |    7.110 |   10.990 |     1.030 | 26.160 |         |           |             |             |
@@ -68,28 +68,28 @@ are more natural to define.
 
 #+name: Paths
 | Room              | Path                                                                                    |
-| Garage            | (0,0)--(LB,0)--(LB,LA)--(0,LA)--cycle                                                   |
-| Livingroom        | (0,0)--(AN,0)--(AN,AD)--(AN-AI,AD)..(AN-AI-AH/2,AD+AM)..(AN-AI-AH,AD)--(0,AD)--cycle    |
-| Kitchen           | (0,0)--(E,0)--(E,-J)--(D,-J)--(D,K-J)--(0,K-J)--cycle                                   |
-| Blueroom          | (0,0)--(IB,0)--(IB,IA)--(IH,IA)--(IH,IN)--(0,IN)--cycle                                 |
-| Master            | (0,0)--(JD,0)--(JD,JA)--(JD-JM,JA)--(JD-JM,JL)--(0,JL)--cycle                           |
-| Masterclosetwest  | (0,0)--(JH,0)--(JH,JT)--(0,JT)--cycle                                                   |
-| Mastercloseteast  | (0,0)--(JH,0)--(JH,JS)--(0,JS)--cycle                                                   |
-| Entry             | (0,0)--(BB,0)--(BB,BI)--(BB-BJ,BI)--(BB-BJ,BK)--(BL,BK)--(BL,AD)--(0,AD)--cycle         |
-| Laundrybath       | (0,0)--(DD,0)--(DD,DJ)--(DD-DH,DJ)--(DG,DI)--(0,DI)--cycle                              |
-| Laundry           | (0,0)--(DD,0)--(DD,J-th)--(0,J-th)--cycle                                               |
-| Kitchenhallcloset | (0,0)--(DL,0)--(DL,DM)--(0,DM)--cycle                                                   |
-| Smallbed          | (0,0)--(EI,0)--(EI,EF)--(EI+EO,EF)--(EI+EO,EA)--(EM,EA)--(EM,EC)--(0,EC)--cycle         |
-| Smallbedcloset    | (0,0)--(ET,0)--(ET,EN)--(0,EN)--cycle                                                   |
-| Southbed          | (0,0)--(FA,0)--(FA,FG)--(0,FG)--cycle                                                   |
-| Southbedcloset    | (0,0)--(FL,0)--(FL,FF)--(0,FF)--cycle                                                   |
-| Entrycloset       | (0,0)--(1.8EstFt,0)--(1.8EstFt,6.400ft)--(0,6.4000ft)--cycle                            |
-| Southhallcloset   | (0,0)--(KG,0)--(KG,KF)--(0,KF)--cycle                                                   |
-| Masterbathsink    | (0,0)--(GE,0)--(GE,GH)--(GF,GH)--(GF,GA)--(0,GA)--cycle                                 |
-| Masterbathcloset  | (0,0)--(GM,0)--(GM,GL)--(0,GL)--cycle                                                   |
-| Masterbathtoilet  | (0,0)--(GP,0)--(GP,GQ)--(0,GQ)--cycle                                                   |
-| Hallbath          | (0,0)--(GE+th,0)--(GE+th,-2.1EstFt)--(FA,-2.1EstFt)--(FA,5.5EstFt)--(0,5.5EstFt)--cycle |
-| Hallbathcloset    | (0,0)--(HK,0)--(HK,HJ)--(0,HJ)--cycle                                                   |
+| garage            | (0,0)--(LB,0)--(LB,LA)--(0,LA)--cycle                                                   |
+| livingroom        | (0,0)--(AN,0)--(AN,AD)--(AN-AI,AD)..(AN-AI-AH/2,AD+AM)..(AN-AI-AH,AD)--(0,AD)--cycle    |
+| kitchen           | (0,0)--(E,0)--(E,-J)--(D,-J)--(D,K-J)--(0,K-J)--cycle                                   |
+| blueroom          | (0,0)--(IB,0)--(IB,IA)--(IH,IA)--(IH,IN)--(0,IN)--cycle                                 |
+| master            | (0,0)--(JD,0)--(JD,JA)--(JD-JM,JA)--(JD-JM,JL)--(0,JL)--cycle                           |
+| masterclosetwest  | (0,0)--(JH,0)--(JH,JT)--(0,JT)--cycle                                                   |
+| mastercloseteast  | (0,0)--(JH,0)--(JH,JS)--(0,JS)--cycle                                                   |
+| entry             | (0,0)--(BB,0)--(BB,BI)--(BB-BJ,BI)--(BB-BJ,BK)--(BL,BK)--(BL,AD)--(0,AD)--cycle         |
+| laundrybath       | (0,0)--(DD,0)--(DD,DJ)--(DD-DH,DJ)--(DG,DI)--(0,DI)--cycle                              |
+| laundry           | (0,0)--(DD,0)--(DD,J-th)--(0,J-th)--cycle                                               |
+| kitchenhallcloset | (0,0)--(DL,0)--(DL,DM)--(0,DM)--cycle                                                   |
+| smallbed          | (0,0)--(EI,0)--(EI,EF)--(EI+EO,EF)--(EI+EO,EA)--(EM,EA)--(EM,EC)--(0,EC)--cycle         |
+| smallbedcloset    | (0,0)--(ET,0)--(ET,EN)--(0,EN)--cycle                                                   |
+| southbed          | (0,0)--(FA,0)--(FA,FG)--(0,FG)--cycle                                                   |
+| southbedcloset    | (0,0)--(FL,0)--(FL,FF)--(0,FF)--cycle                                                   |
+| entrycloset       | (0,0)--(1.8EstFt,0)--(1.8EstFt,6.400ft)--(0,6.4000ft)--cycle                            |
+| southhallcloset   | (0,0)--(KG,0)--(KG,KF)--(0,KF)--cycle                                                   |
+| masterbathsink    | (0,0)--(GE,0)--(GE,GH)--(GF,GH)--(GF,GA)--(0,GA)--cycle                                 |
+| masterbathcloset  | (0,0)--(GM,0)--(GM,GL)--(0,GL)--cycle                                                   |
+| masterbathtoilet  | (0,0)--(GP,0)--(GP,GQ)--(0,GQ)--cycle                                                   |
+| hallbath          | (0,0)--(GE+th,0)--(GE+th,-2.1EstFt)--(FA,-2.1EstFt)--(FA,5.5EstFt)--(0,5.5EstFt)--cycle |
+| hallbathcloset    | (0,0)--(HK,0)--(HK,HJ)--(0,HJ)--cycle                                                   |
 
 ** Relative Positions
 
@@ -122,3 +122,52 @@ lower left corner.
 | trollroom         | point 4 of recroom + (-PO,th)                                         |
 | chimneyroom       | point 0 of recroom + (-NA-th,0)                                       |
 
+** Draw the walls
+
+#+name: definerooms
+#+begin_src python :var measurements=Measurements :var paths=Paths :results output
+names = measurements[0][1:]
+prefix = dict(zip(names, measurements[1][1:]))
+prefix.setdefault('')
+data = list(zip(*measurements[2:])) # transpose
+suffix, data = data[0], data[1:]
+err = lambda e: e.strip('℮') + ' est' if isinstance(e, str) and '℮' in e else f'{e} ft'
+
+for i, d in enumerate(data):
+    n = names[i]
+    s = suffix[i]
+    p = prefix[n]
+    defs = [f'{p}{k} := {err(v)};' for k, v in zip(suffix, d)]
+    print(f'% {n} ({p})')
+    print('\n'.join(defs))
+
+print('path', ', '.join(names), ';')
+
+paths = paths[1:]
+print('\n'.join(f'{k} := {v};' for k, v in paths))
+    
+#+end_src
+
+** Main Metapost picture
+
+#+begin_src tex :tangle house.tex :noweb yes
+        
+\definefont[bahnlight][name:bahnschriftlight*default]
+\definefont[small][name:bahnschriftlight*default at 8pt]
+\definefont[roomname][name:bahnschriftlight*default at 15pt]
+\definefont[dim][name:bahnschriftlight*default at 5pt]
+\definefont[title][name:bahnschrift*default at 25pt]
+                                            
+\definepapersize [biggy] [width=550mm,height=230mm]
+\setuppapersize[biggy]
+
+\starttext
+\setuppagenumbering[location=]
+\bahnlight
+\startMPcode{decimalfun}
+  ft = 12bp;  % Let's make a big point (bp) equal to one inch in the plans
+  est = 12bp; % Estimated feet are the same, but we mark them so we know they may not be perfect
+  <<definerooms()>>
+\stopMPcode
+\stoptext
+#+end_src
