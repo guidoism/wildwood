@@ -245,7 +245,8 @@ def drawdoor (expr direction, outdirection, start, offset, width, i) =
   door[i] = (direction*offset + start)..(direction*offset+direction*width + start);
   undraw door[i] shifted (outdirection * th/2);
   % Uncomment to show doors
-  %draw door[i] shifted (outdirection * th/2) withcolor blue withtransparency ("normal", .5);
+  % pickup pencircle scaled th;
+  % draw door[i] shifted (outdirection * th/2) withcolor blue withtransparency ("normal", .3);
 enddef;
 """)
 doors = doors[1:]
@@ -262,7 +263,12 @@ def drawwindow (expr direction, outdirection, start, offset, width, i) =
   pickup pencircle scaled (th+2bp); % 2bp for the width of the interior lines on either side
   window[i] = (direction*offset + start)..(direction*offset+direction*width + start);
   undraw window[i] shifted (outdirection * th/2);
-  draw window[i] shifted (outdirection * th/2) withcolor blue withtransparency ("normal", .5);
+  pickup pencircle scaled (1bp);
+  draw window[i];
+  draw window[i] shifted (outdirection * ((th/2)-.5bp));
+  draw window[i] shifted (outdirection * ((th)-1bp));
+
+
 enddef;
 """)
 windows = windows[1:]
