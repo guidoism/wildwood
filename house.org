@@ -1,5 +1,4 @@
 
-- [ ] Wierd: South hall bath closet door
 - [ ] Missing: Interior line to blue room closet
 - [ ] Missing: Wall thickness between laundry and bath
 - [ ] Missing: Curved window
@@ -76,29 +75,29 @@ I may change this to optionally allow turtle-style paths since they
 are more natural to define.
 
 #+name: Paths
-| Room              | Path                                                                                    |
-| garage            | (0,0)--(LB,0)--(LB,LA)--(0,LA)--cycle                                                   |
-| livingroom        | (0,0)--(AN,0)--(AN,AD)--(AN-AI,AD)..(AN-AI-AH/2,AD+AM)..(AN-AI-AH,AD)--(0,AD)--cycle    |
-| kitchen           | (0,0)--(E,0)--(E,-J)--(D,-J)--(D,K-J)--(0,K-J)--cycle                                   |
-| blueroom          | (0,0)--(IB,0)--(IB,IA)--(IH,IA)--(IH,IN)--(0,IN)--cycle                                 |
-| master            | (0,0)--(JD,0)--(JD,JA)--(JD-JM,JA)--(JD-JM,JL)--(0,JL)--cycle                           |
-| masterclosetwest  | (0,0)--(JH,0)--(JH,JT)--(0,JT)--cycle                                                   |
-| mastercloseteast  | (0,0)--(JH,0)--(JH,JS)--(0,JS)--cycle                                                   |
-| entry             | (0,0)--(BB,0)--(BB,BI)--(BB-BJ,BI)--(BB-BJ,BK)--(BL,BK)--(BL,AD)--(0,AD)--cycle         |
-| laundrybath       | (0,0)--(DD,0)--(DD,DJ)--(DD-DH,DJ)--(DG,DI)--(0,DI)--cycle                              |
-| laundry           | (0,0)--(DD,0)--(DD,J-th)--(0,J-th)--cycle                                               |
-| kitchenhallcloset | (0,0)--(DL,0)--(DL,DM)--(0,DM)--cycle                                                   |
-| smallbed          | (0,0)--(EI,0)--(EI,EF)--(EI+EO,EF)--(EI+EO,EA)--(EM,EA)--(EM,EC)--(0,EC)--cycle         |
-| smallbedcloset    | (0,0)--(ET,0)--(ET,EN)--(0,EN)--cycle                                                   |
-| southbed          | (0,0)--(FA,0)--(FA,FG)--(0,FG)--cycle                                                   |
-| southbedcloset    | (0,0)--(FL,0)--(FL,FF)--(0,FF)--cycle                                                   |
-| entrycloset       | (0,0)--(1.8est,0)--(1.8est,6.400ft)--(0,6.4000ft)--cycle                            |
-| southhallcloset   | (0,0)--(KG,0)--(KG,KF)--(0,KF)--cycle                                                   |
-| masterbathsink    | (0,0)--(GE,0)--(GE,GH)--(GF,GH)--(GF,GA)--(0,GA)--cycle                                 |
-| masterbathcloset  | (0,0)--(GM,0)--(GM,GL)--(0,GL)--cycle                                                   |
-| masterbathtoilet  | (0,0)--(GP,0)--(GP,GQ)--(0,GQ)--cycle                                                   |
-| hallbath          | (0,0)--(GE+th,0)--(GE+th,-2.1est)--(FA,-2.1est)--(FA,5.5est)--(0,5.5est)--cycle |
-| hallbathcloset    | (0,0)--(HK,0)--(HK,HJ)--(0,HJ)--cycle                                                   |
+| Room              | Path                                                                                                                        |
+| garage            | (0,0)--(LB,0)--(LB,LA)--(0,LA)--cycle                                                                                       |
+| livingroom        | (0,0)--(AN,0)--(AN,AD)--(AN-AI,AD)..(AN-AI-AH/2,AD+AM)..(AN-AI-AH,AD)--(0,AD)--cycle                                        |
+| kitchen           | (0,0)--(E,0)--(E,-J)--(D,-J)--(D,K-J)--(0,K-J)--cycle                                                                       |
+| blueroom          | (0,0)--(IB,0)--(IB,IA)--(IH,IA)--(IH,IN)--(0,IN)--cycle                                                                     |
+| master            | (0,0)--(JD,0)--(JD,JA)--(JD-JM,JA)--(JD-JM,JL)--(0,JL)--cycle                                                               |
+| masterclosetwest  | (0,0)--(JH,0)--(JH,JT)--(0,JT)--cycle                                                                                       |
+| mastercloseteast  | (0,0)--(JH,0)--(JH,JS)--(0,JS)--cycle                                                                                       |
+| entry             | (0,0)--(BB,0)--(BB,BI)--(BB-BJ,BI)--(BB-BJ,BK)--(BL,BK)--(BL,AD)--(0,AD)--cycle                                             |
+| laundrybath       | (0,0)--(DD,0)--(DD,DJ)--(DD-DH,DJ)--(DG,DI)--(0,DI)--cycle                                                                  |
+| laundry           | (0,0)--(DD,0)--(DD,J-th)--(0,J-th)--cycle                                                                                   |
+| kitchenhallcloset | (0,0)--(DL,0)--(DL,DM)--(0,DM)--cycle                                                                                       |
+| smallbed          | (0,0)--(EI,0)--(EI,EF)--(EI+EO,EF)--(EI+EO,EA)--(EM,EA)--(EM,EC)--(0,EC)--cycle                                             |
+| smallbedcloset    | (0,0)--(ET,0)--(ET,EN)--(0,EN)--cycle                                                                                       |
+| southbed          | (0,0)--(FA,0)--(FA,FG)--(0,FG)--cycle                                                                                       |
+| southbedcloset    | (0,0)--(FL,0)--(FL,FF)--(0,FF)--cycle                                                                                       |
+| entrycloset       | (0,0)--(1.8est,0)--(1.8est,6.400ft)--(0,6.4000ft)--cycle                                                                    |
+| southhallcloset   | (0,0)--(KG,0)--(KG,KF)--(0,KF)--cycle                                                                                       |
+| masterbathsink    | (0,0)--(GE,0)--(GE,GH)--(GF,GH)--(GF,GA)--(0,GA)--cycle                                                                     |
+| masterbathcloset  | (0,0)--(GM,0)--(GM,GL)--(0,GL)--cycle                                                                                       |
+| masterbathtoilet  | (0,0)--(GP,0)--(GP,GQ)--(0,GQ)--cycle                                                                                       |
+| hallbath          | (0,0)--(GE+th,0)--(GE+th,-2.1est)--(FA,-2.1est)--(FA,5.5est)--(HK+th,5.5est)--(HK+th,5.5est-HJ-th)--(0,5.5est-HJ-th)--cycle |
+| hallbathcloset    | (0,0)--(HK,0)--(HK,HJ)--(0,HJ)--cycle                                                                                       |
 
 ** Relative Positions
 
@@ -127,7 +126,7 @@ lower left corner.
 | masterbathcloset  | point 3 of master + (th,GA+th+th)                                     |
 | masterbathtoilet  | point 3 of master + (th+GE+th,th)                                     |
 | hallbath          | point 3 of masterbathcloset + (0,th)                                  |
-| hallbathcloset    | point 5 of hallbath + (0,-HJ)                                         |
+| hallbathcloset    | point 5 of hallbath + (-HK-th,-HJ)                                    |
 
 ** Doors
 
@@ -158,7 +157,7 @@ lower left corner.
 | 22 | "Attic door"                 | up       | left    | point 4 of entry            | KB       | KC           |
 | 23 | "Master bath door to toilet" | up       | right   | point 1 of masterbathsink   | GG       | GQ-GO-GG     |
 | 24 | "Master bath closet door"    | up       | right   | point 1 of masterbathcloset | GK       | GL-GJ-GK     |
-| 25 | "Hall bath closet door"      | left     | up      | point 1 of hallbathcloset   | HN-th    | HO           |
+| 25 | "Hall bath closet door"      | left     | down    | point 1 of hallbathcloset   | HN-th    | HO           |
 | 26 | "South bed closet door"      | up       | right   | point 1 of southbedcloset   | 1 est    | 5 est        |
 | 27 | "Garage side door"           | left     | down    | point 1 of garage           | LR       | LS           |
 
