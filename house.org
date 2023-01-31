@@ -1,7 +1,6 @@
 
 - [ ] Missing: Interior line to blue room closet
 - [ ] Missing: Wall thickness between laundry and bath
-- [ ] Missing: Curved window
 - [ ] Missing: Laundry bath window
 - [ ] Missing: Laundry bath door to outside  
 - [ ] Add: SVGs of each room seperately  
