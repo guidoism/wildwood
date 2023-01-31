@@ -159,7 +159,7 @@ lower left corner.
 | 26 | "South bed closet door"      | up       | right   | point 1 of southbedcloset   | 1 est       | 5 est        |
 | 27 | "Garage side door"           | left     | down    | point 1 of garage           | LR          | LS           |
 | 28 | "Laundry to outside door"    | up       | left    | point 0 of laundry          | DI+th+.5est | DE-1est      |
-
+| 29 | "South hall bath door"       | down     | left    | point 7 of hallbath         | .25est      | 2.5est       |
 ** Windows
 
 #+name: Windows
