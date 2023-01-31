@@ -432,8 +432,8 @@ for label, p, offset in dims:
   est = 12bp; % Estimated feet are the same, but we mark them so we know they may not be perfect
   th := 0.445est; % Interior wall thickness 
   <<definerooms()>>
-  <<drawdoors()>>
   <<drawwalls()>>
+  <<drawdoors()>>
   <<drawwindows()>>
   <<fireplacestuff>>
   <<drawdimensions()>>
