@@ -276,3 +276,7 @@ TSWLatexianTemp*
 *.lpz
 
 house.tex
+house.pdf
+house.tuc
+*.svg
+*.mpo
