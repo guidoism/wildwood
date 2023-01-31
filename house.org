@@ -411,7 +411,6 @@ for label, p, offset in dims:
 ** Main Metapost picture
 
 #+begin_src tex :tangle house.tex :noweb yes
-        
 \definefont[bahnlight][name:bahnschriftlight*default]
 \definefont[small][name:bahnschriftlight*default at 8pt]
 \definefont[roomname][name:bahnschriftlight*default at 15pt]
@@ -443,7 +442,16 @@ for label, p, offset in dims:
 \stoptext
 #+end_src
 
-*** Outside walls
+** Inputs to 3D CAD
+
+We'd like to do a 3D model of our house too. Because programs like
+OpenSCAD scan extrude 2D drawings from SVGs into the third dimension
+we can produce a few drawings and treat them as "slices" in the third
+dimensions. For example, we start with just the walls and doors and we
+can extrude up until the lowest window elevation, then we extrude up
+again until there's another change in layout, etc.
+
+** Outside walls
 
 We have a few outside walls that are easier to define directly in
 metapost here.
@@ -454,7 +462,7 @@ pickup pencircle scaled (th);
 draw (-th/2,th)--(-th/2,-3.965ft) withcolor .8 white;
 #+end_src
 
-*** Utility Labels
+** Utility Labels
 
 Label the locations of the water and electrical service entrances and
 electrican panel, etc.
@@ -467,7 +475,7 @@ dotlabel.rt(btex \dim electrical service entrance etex, (7.315ft,-.7ft));
 dotlabel.rt(btex \dim proposed thermostat location etex, (point 4 of kitchen shifted (-6ft,-.5ft)));
 #+end_src
 
-*** Fireplace Stuff
+** Fireplace Stuff
 
 #+name: fireplacestuff
 #+begin_src metapost
