@@ -278,6 +278,23 @@ enddef;
 windows = windows[1:]
 for i, name, direction, outdir, start, offset, width in windows:
     print(f'drawwindow({direction}, {outdir}, {start}, {offset}, {width}, {i});');
+
+print("""
+% Extra hand-drawn window path
+window[3] := (point 3 of livingroom)..(point 4 of livingroom)..(point 5 of livingroom);
+path p;
+p := window[3];
+pickup pencircle scaled (th+2bp); % 2bp for the width of the interior lines on either side
+undraw p shifted (up * th/2);
+pickup pencircle scaled (1bp);
+
+draw p;
+draw p paralleled ((-th/2)+.5bp);
+draw p paralleled ((-th)+1bp);
+
+%draw p shifted (up * ((th/2)-.5bp));
+%draw p shifted (up * ((th)-1bp));
+""")
 #+end_src
 
 
