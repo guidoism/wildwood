@@ -4,7 +4,8 @@
 - [ ] Missing: Wall thickness between laundry and bath
 - [ ] Missing: Window above kitchen sink
 - [ ] Missing: Curved window
-- [ ] Missing: Laundry bath window  
+- [ ] Missing: Laundry bath window
+- [ ] Add: SVGs of each room seperately  
 
 * Tables
 ** Measurements
@@ -165,21 +166,22 @@ lower left corner.
 ** Windows
 
 #+name: Windows
-|  0 | "Window over sink"           | right | down  | point 2 of kitchen          | L  | M-N      |
-|  1 | "Family room picture window" | right | down  | point 2 of kitchen          | N  | O-N      |
-|  2 | "Family room big window"     | left  | down  | point 3 of kitchen          | S  | T-S      |
-|  4 |                              | right | up    | point 6 of livingroom       | AE | AF-AG    |
-|  5 |                              | up    | right | point 1 of southbed         | FI | FK       |
-|  6 |                              | left  | up    | point 2 of southbed         | FD | FE       |
-|  7 |                              | left  | up    | point 4 of smallbed         | EH | EP-EH-EQ |
-|  8 |                              | down  | left  | point 5 of smallbed         | EJ | EL-EJ    |
-|  9 |                              | left  | down  | point 1 of master           | JF | JD-JG-JF |
-| 10 |                              | up    | right | point 1 of master           | JC | JA-JB-JC |
-| 11 |                              | up    | right | point 1 of masterbathtoilet | GR | GS-GR    |
-| 12 |                              | up    | right | point 3 of hallbath         | HF | HH       |
-| 13 |                              | right | up    | point 3 of garage           | LL | LI       |
-| 14 |                              | left  | up    | point 2 of garage           | LK | LJ       |
-| 15 |                              | right | down  | point 0 of blueroom         | ID | IB-IC-ID |
+| id | name                         | door dir | out dir | starting point              | offset | width    |
+|  0 | "Window over sink"           | right    | down    | point 2 of kitchen          | L      | M-N      |
+|  1 | "Family room picture window" | right    | down    | point 2 of kitchen          | N      | O-N      |
+|  2 | "Family room big window"     | left     | down    | point 3 of kitchen          | S      | T-S      |
+|  4 |                              | right    | up      | point 6 of livingroom       | AE     | AF-AG    |
+|  5 |                              | up       | right   | point 1 of southbed         | FI     | FK       |
+|  6 |                              | left     | up      | point 2 of southbed         | FD     | FE       |
+|  7 |                              | left     | up      | point 4 of smallbed         | EH     | EP-EH-EQ |
+|  8 |                              | down     | left    | point 5 of smallbed         | EJ     | EL-EJ    |
+|  9 |                              | left     | down    | point 1 of master           | JF     | JD-JG-JF |
+| 10 |                              | up       | right   | point 1 of master           | JC     | JA-JB-JC |
+| 11 |                              | up       | right   | point 1 of masterbathtoilet | GR     | GS-GR    |
+| 12 |                              | up       | right   | point 3 of hallbath         | HF     | HH       |
+| 13 |                              | right    | up      | point 3 of garage           | LL     | LI       |
+| 14 |                              | left     | up      | point 2 of garage           | LK     | LJ       |
+| 15 |                              | right    | down    | point 0 of blueroom         | ID     | IB-IC-ID |
 
 * Python
 
