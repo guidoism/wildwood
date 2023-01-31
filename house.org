@@ -2,7 +2,6 @@
 - [ ] Missing: Interior line to blue room closet
 - [ ] Missing: Wall thickness between laundry and bath
 - [ ] Missing: Laundry bath window
-- [ ] Missing: Laundry bath door to outside  
 - [ ] Add: SVGs of each room seperately  
 
 * Tables
@@ -161,7 +160,6 @@ lower left corner.
 | 27 | "Garage side door"           | left     | down    | point 1 of garage           | LR          | LS           |
 | 28 | "Laundry to outside door"    | up       | left    | point 0 of laundry          | DI+th+.5est | DE-1est      |
 
-
 ** Windows
 
 #+name: Windows
@@ -181,6 +179,95 @@ lower left corner.
 | 13 |                              | right      | up      | point 3 of garage           | LL     | LI       |
 | 14 |                              | left       | up      | point 2 of garage           | LK     | LJ       |
 | 15 |                              | right      | down    | point 0 of blueroom         | ID     | IB-IC-ID |
+
+** Dimension Lines
+
+#+name: DimensionLines
+| label | path                                                             | offset  |
+|       | (point 0 of door[1])--(point 0 of garage)                        | (5,0)   |
+|       | (point 0 of door[2])--(point 3 of garage)                        | (10,0)  |
+|       | (point 1 of door[1])--(point 1 of door[2])                       | (5,0)   |
+|       | (point 0 of door[4])--(point 1 of door[4])                       | (0,-5)  |
+|       | (point 0 of garage)--(point 3 of garage)                         | (20,0)  |
+|       | (point 2 of garage)--(point 3 of garage)                         | (0,-20) |
+|       | (point 5 of kitchen)--(point 4 of kitchen)                       | (0,-15) |
+|       | (point 5 of kitchen)--(point 0 of door[4])                       | (0,-8)  |
+|       | (point 5 of kitchen)--((point 5 of kitchen) + (C,0))             | (0,-11) |
+|       | (point 0 of kitchen)--(point 1 of kitchen)                       | (0,8)   |
+|       | (point 1 of kitchen)--(point 2 of kitchen)                       | (7,0)   |
+|       | (point 3 of kitchen)--(point 4 of kitchen)                       | (-9,0)  |
+|       | (point 3 of kitchen)--(point 4 of kitchen)                       | (-9,0)  |
+|       | (point 0 of kitchen)--(point 5 of kitchen)                       | (15,0)  |
+|       | (point 2 of kitchen)--(point 0 of window[0])                     | (0,5)   |
+|       | (point 0 of window[0])--(point 1 of window[0])                   | (0,5)   |
+|       | (point 0 of window[1])--(point 1 of window[1])                   | (0,5)   |
+|       | (point 0 of window[2])--(point 1 of window[2])                   | (0,5)   |
+|       | (point 0 of door[8])--(point 1 of door[8])                       | (0,5)   |
+|       | (point 1 of window[1])--(point 0 of door[8])                     | (0,5)   |
+|       | (point 1 of window[0])--(point 0 of window[1])                   | (0,5)   |
+|       | (point 1 of window[2])--(point 1 of door[8])                     | (0,5)   |
+|       | (point 0 of livingroom)--(point 6 of livingroom)                 | (10,0)  |
+|       | (point 6 of livingroom)--(point 2 of livingroom)                 | (0,-15) |
+|       | (point 6 of livingroom)--((point 6 of livingroom)+(AE,0))        | (0,-20) |
+|       | (point 6 of livingroom)--((point 6 of livingroom)+(AF,0))        | (0,-25) |
+|       | (point 2 of livingroom)--((point 2 of livingroom)-(AI,0))        | (0,-25) |
+|       | (point 2 of livingroom)--((point 2 of livingroom)-(0,AJ))        | (15,0)  |
+|       | (point 1 of livingroom)--((point 1 of livingroom)+(0,AL))        | (-7,0)  |
+|       | (point 4 of livingroom)--(point 4 of livingroom + (0,-AM))       | (9,0)   |
+|       | (point 0 of entry)--(point 1 of entry)                           | (0,25)  |
+|       | (point 7 of entry)--(point 6 of entry)                           | (0,-15) |
+|       | (point 0 of door[5])--(point 1 of door[5])                       | (0,9)   |
+|       | (point 0 of door[9])--(point 1 of door[9])                       | (0,4)   |
+|       | (point 0 of door[10])--(point 1 of door[10])                     | (0,4)   |
+|       | (point 6 of entry)--(point 6 of entry + (0,-BO))                 | (-9,0)  |
+|       | (point 5 of entry)--(point 5 of entry + (0,-BK))                 | (0,0)   |
+|       | (point 5 of entry)--(point 5 of entry + (3.315ft,0))             | (0,-9)  |
+|       | (point 5 of entry + (0,1.220ft))--(point 5 of entry + (0,-BK))   | (-9,0)  |
+|       | (point 0 of door[11])--(point 1 of door[11])                     | (0,4)   |
+|       | (point 4 of entry)--(point 4 of entry + (3.365ft,0))             | (0,0)   |
+|       | (point 1 of entry)--(point 2 of entry)                           | (-9,0)  |
+| DL    | (point 0 of kitchenhallcloset)--(point 1 of kitchenhallcloset)   | (0,9)   |
+| DM    | (point 0 of kitchenhallcloset)--(point 3 of kitchenhallcloset)   | (9,0)   |
+| EI    | (point 0 of smallbed)--(point 1 of smallbed)                     | (0,9)   |
+|       | (point 4 of smallbed)--(point 5 of smallbed)                     | (0,-9)  |
+|       | (point 3 of smallbed)--(point 4 of smallbed)                     | (-9,0)  |
+| EM    | (point 6 of smallbed)--(point 7 of smallbed)                     | (0,-9)  |
+| EA    | (point 5 of smallbed)--(point 5 of smallbed + (0,-EA))           | (9,0)   |
+| FA    | (point 0 of southbed)--(point 1 of southbed)                     | (0,9)   |
+| FG    | (point 1 of southbed)--(point 2 of southbed)                     | (-9,0)  |
+|       | (point 0 of blueroom)--(point 1 of blueroom)                     | (0,9)   |
+|       | (point 1 of blueroom)--(point 2 of blueroom)                     | (-9,0)  |
+|       | (point 2 of blueroom)--(point 3 of blueroom)                     | (0,-9)  |
+|       | (point 3 of blueroom)--(point 4 of blueroom)                     | (9,0)   |
+|       | (point 0 of master)--(point 1 of master)                         | (0,9)   |
+|       | (point 1 of master)--(point 2 of master)                         | (-9,0)  |
+|       | (point 4 of master)--(point 5 of master)                         | (0,-9)  |
+|       | (point 0 of master)--(point 5 of master)                         | (9,0)   |
+|       | (point 3 of master)--(point 4 of master)                         | (-9,0)  |
+|       | (point 0 of entrycloset)--(point 3 of entrycloset)               | (9,0)   |
+|       | (point 0 of laundry + (0,DI+th))--(point 3 of laundry + (0,-DN)) | (9,0)   |
+|       | (point 4 of laundrybath)--(point 5 of laundrybath)               | (0,15)  |
+|       | (point 2 of laundrybath)--(point 3 of laundrybath)               | (0,15)  |
+|       | (point 1 of laundrybath)--(point 2 of laundrybath)               | (-9,0)  |
+|       | (point 0 of laundrybath)--(point 5 of laundrybath)               | (9,0)   |
+|       | (point 0 of laundrybath)--(point 1 of laundrybath)               | (0,9)   |
+|       | (point 2 of laundrybath + (0,th))--(point 2 of laundry)          | (-9,0)  |
+|       | (point 2 of laundry)--(point 2 of laundry + (-DB,0))             | (0,-9)  |
+|       | (point 1 of masterbathtoilet)--(point 2 of masterbathtoilet)     | (-9,0)  |
+|       | (point 0 of masterbathtoilet)--(point 1 of masterbathtoilet)     | (0,9)   |
+|       | (point 0 of masterbathsink)--(point 1 of masterbathsink)         | (0,9)   |
+|       | (point 1 of masterbathsink)--(point 2 of masterbathsink)         | (-9,0)  |
+|       | (point 2 of masterbathsink)--(point 3 of masterbathsink)         | (0,-9)  |
+|       | (point 3 of masterbathsink)--(point 4 of masterbathsink)         | (9,0)   |
+|       | (point 4 of masterbathsink)--(point 5 of masterbathsink)         | (0,-5)  |
+|       | (point 0 of masterbathcloset)--(point 1 of masterbathcloset)     | (0,9)   |
+|       | (point 1 of masterbathcloset)--(point 2 of masterbathcloset)     | (-9,0)  |
+|       | (point 3 of hallbath)--(point 4 of hallbath)                     | (-9,0)  |
+|       | (point 1 of hallbath)--(point 2 of hallbath)                     | (9,0)   |
+|       | (point 0 of hallbath)--(point 1 of hallbath)                     | (0,5)   |
+|       | (point 5 of hallbath)--(point 6 of hallbath)                     | (40,0)  |
+|       | (point 0 of hallbathcloset)--(point 3 of hallbathcloset)         | (9,0)   |
+|       | (point 0 of hallbathcloset)--(point 1 of hallbathcloset)         | (0,5)   |
 
 * Python
 
@@ -298,11 +385,29 @@ draw p paralleled ((-th)+1bp);
 """)
 #+end_src
 
+#+name: drawdimensions
+#+begin_src python :var dims=DimensionLines :results output
+print("""
+def drawdimension(expr p, offset, name) =
+  pickup pencircle scaled .7bp;
+  drawdblarrow p shifted offset shortened 1.75bp;
+  picture pic;
+  l := arclength p;
+  if (floor(l mod 12) = 0):
+    pic := thelabel("\dim " & decimal(floor(l / 12)) & "' ", point 1/2 of p shifted offset);
+  else:
+    pic := thelabel("\dim " & decimal(floor(l / 12)) & "'" & decimal(floor(l mod 12)), point 1/2 of p shifted offset);
+  fi
+  unfill bbox pic;
+  draw pic;
+enddef;
+""")
+dims = dims[1:]
+for label, p, offset in dims:
+    print(f'drawdimension({p}, {offset}, "{label}");');
+#+end_src
 
-
-
-
-
+* Metapost
 ** Main Metapost picture
 
 #+begin_src tex :tangle house.tex :noweb yes
@@ -330,6 +435,7 @@ draw p paralleled ((-th)+1bp);
   <<drawwalls()>>
   <<drawdoors()>>
   <<drawwindows()>>
+  <<drawdimensions()>>
 \stopMPcode
 \stoptext
 #+end_src
