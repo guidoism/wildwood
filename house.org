@@ -259,17 +259,21 @@ for i, name, direction, outdir, start, offset, width in doors:
 #+begin_src python :var windows=Windows :results output
 print("""
 path window[];
-def drawwindow (expr direction, outdirection, start, offset, width, i) =
+
+def drawwindowpath (expr p, outdirection) = 
   pickup pencircle scaled (th+2bp); % 2bp for the width of the interior lines on either side
-  window[i] = (direction*offset + start)..(direction*offset+direction*width + start);
-  undraw window[i] shifted (outdirection * th/2);
+  undraw p shifted (outdirection * th/2);
   pickup pencircle scaled (1bp);
-  draw window[i];
-  draw window[i] shifted (outdirection * ((th/2)-.5bp));
-  draw window[i] shifted (outdirection * ((th)-1bp));
-
-
+  draw p;
+  draw p shifted (outdirection * ((th/2)-.5bp));
+  draw p shifted (outdirection * ((th)-1bp));
 enddef;
+
+def drawwindow (expr direction, outdirection, start, offset, width, i) =
+  window[i] = (direction*offset + start)..(direction*offset+direction*width + start);
+  drawwindowpath(window[i], outdirection);
+enddef;
+
 """)
 windows = windows[1:]
 for i, name, direction, outdir, start, offset, width in windows:
