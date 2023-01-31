@@ -314,7 +314,8 @@ print("""
 def drawwall (expr p, thickness) =
   pickup pencircle scaled (thickness*2);
   draw p withcolor .8 white;
-  fill p withcolor background withtransparency ("normal", 1);
+  unfill p;
+  % fill p withcolor background withtransparency ("normal", 1);
 enddef;
 """)
 print('\n'.join((f'drawwall({s}, th);' for s in paths)))
@@ -442,7 +443,7 @@ for label, p, offset in dims:
 \stoptext
 #+end_src
 
-** Inputs to 3D CAD
+** Inputs for 3D CAD
 
 We'd like to do a 3D model of our house too. Because programs like
 OpenSCAD scan extrude 2D drawings from SVGs into the third dimension
@@ -450,6 +451,26 @@ we can produce a few drawings and treat them as "slices" in the third
 dimensions. For example, we start with just the walls and doors and we
 can extrude up until the lowest window elevation, then we extrude up
 again until there's another change in layout, etc.
+
+mpost --mem=metafun slice1.mp && open -a Safari slice1.svg
+
+#+name: slice1
+#+begin_src metapost :tangle slice1.mp :noweb yes
+outputformat := "svg";
+outputtemplate:="%j.%{outputformat}";
+beginfig(1)
+  input TEX;
+  linecap := butt;
+  linejoin := mitered;
+  ft = 12bp;  % Let's make a big point (bp) equal to one inch in the plans
+  est = 12bp; % Estimated feet are the same, but we mark them so we know they may not be perfect
+  th := 0.445est; % Interior wall thickness 
+  <<definerooms()>>
+  <<drawwalls()>>
+  <<drawdoors()>>
+endfig;
+end
+#+end_src
 
 ** Outside walls
 
