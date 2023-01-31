@@ -1,4 +1,11 @@
 
+- [ ] Wierd: South hall bath closet door
+- [ ] Missing: Interior line to blue room closet
+- [ ] Missing: Wall thickness between laundry and bath
+- [ ] Missing: Window above kitchen sink
+- [ ] Missing: Curved window
+- [ ] Missing: Laundry bath window  
+
 * Tables
 ** Measurements
 
@@ -152,25 +159,27 @@ lower left corner.
 | 24 | "Master bath closet door"    | up       | right   | point 1 of masterbathcloset | GK       | GL-GJ-GK     |
 | 25 | "Hall bath closet door"      | left     | up      | point 1 of hallbathcloset   | HN-th    | HO           |
 | 26 | "South bed closet door"      | up       | right   | point 1 of southbedcloset   | 1 est    | 5 est        |
+| 27 | "Garage side door"           | left     | down    | point 1 of garage           | LR       | LS           |
+
 
 ** Windows
 
 #+name: Windows
-|  0 | "Window over sink"           | right | down  | point 2 of kitchen          | L            | M-N   |
-|  1 | "Family room picture window" | right | down  | point 2 of kitchen          | N            | O-N   |
-|  2 | "Family room big window"     | left  | down  | point 3 of kitchen          | S            | T-S   |
-|  4 |                              | right | up    | point 6 of livingroom       | AE           | AF-AG |
-|  5 |                              | up    | right | point 1 of southbed         | FI  FK       |       |
-|  6 |                              | left  | up    | point 2 of southbed         | FD  FE       |       |
-|  7 |                              | left  | up    | point 4 of smallbed         | EH  EP-EH-EQ |       |
-|  8 |                              | down  | left  | point 5 of smallbed         | EJ  EL-EJ    |       |
-|  9 |                              | left  | down  | point 1 of master           | JF  JD-JG-JF |       |
-| 10 |                              | up    | right | point 1 of master           | JC  JA-JB-JC |       |
-| 11 |                              | up    | right | point 1 of masterbathtoilet | GR  GS-GR    |       |
-| 12 |                              | up    | right | point 3 of hallbath         | HF  HH       |       |
-| 13 |                              | right | up    | point 3 of garage           | LL  LI       |       |
-| 14 |                              | left  | up    | point 2 of garage           | LK  LJ       |       |
-| 15 |                              | right | down  | point 0 of blueroom         | ID  IB-IC-ID |       |
+|  0 | "Window over sink"           | right | down  | point 2 of kitchen          | L  | M-N      |
+|  1 | "Family room picture window" | right | down  | point 2 of kitchen          | N  | O-N      |
+|  2 | "Family room big window"     | left  | down  | point 3 of kitchen          | S  | T-S      |
+|  4 |                              | right | up    | point 6 of livingroom       | AE | AF-AG    |
+|  5 |                              | up    | right | point 1 of southbed         | FI | FK       |
+|  6 |                              | left  | up    | point 2 of southbed         | FD | FE       |
+|  7 |                              | left  | up    | point 4 of smallbed         | EH | EP-EH-EQ |
+|  8 |                              | down  | left  | point 5 of smallbed         | EJ | EL-EJ    |
+|  9 |                              | left  | down  | point 1 of master           | JF | JD-JG-JF |
+| 10 |                              | up    | right | point 1 of master           | JC | JA-JB-JC |
+| 11 |                              | up    | right | point 1 of masterbathtoilet | GR | GS-GR    |
+| 12 |                              | up    | right | point 3 of hallbath         | HF | HH       |
+| 13 |                              | right | up    | point 3 of garage           | LL | LI       |
+| 14 |                              | left  | up    | point 2 of garage           | LK | LJ       |
+| 15 |                              | right | down  | point 0 of blueroom         | ID | IB-IC-ID |
 
 * Python
 
@@ -244,6 +253,28 @@ for i, name, direction, outdir, start, offset, width in doors:
     print(f'drawdoor({direction}, {outdir}, {start}, {offset}, {width}, {i});');
 #+end_src
 
+
+#+name: drawwindows
+#+begin_src python :var windows=Windows :results output
+print("""
+path window[];
+def drawwindow (expr direction, outdirection, start, offset, width, i) =
+  pickup pencircle scaled (th+2bp); % 2bp for the width of the interior lines on either side
+  window[i] = (direction*offset + start)..(direction*offset+direction*width + start);
+  undraw window[i] shifted (outdirection * th/2);
+  draw window[i] shifted (outdirection * th/2) withcolor blue withtransparency ("normal", .5);
+enddef;
+""")
+windows = windows[1:]
+for i, name, direction, outdir, start, offset, width in windows:
+    print(f'drawwindow({direction}, {outdir}, {start}, {offset}, {width}, {i});');
+#+end_src
+
+
+
+
+
+
 ** Main Metapost picture
 
 #+begin_src tex :tangle house.tex :noweb yes
@@ -270,6 +301,7 @@ for i, name, direction, outdir, start, offset, width in doors:
   <<definerooms()>>
   <<drawwalls()>>
   <<drawdoors()>>
+  <<drawwindows()>>
 \stopMPcode
 \stoptext
 #+end_src
