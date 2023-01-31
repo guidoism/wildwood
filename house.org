@@ -436,6 +436,32 @@ for label, p, offset in dims:
   <<drawdoors()>>
   <<drawwindows()>>
   <<drawdimensions()>>
+  <<outsidewalls>>
+  <<utilitylabels>>
 \stopMPcode
 \stoptext
+#+end_src
+
+*** Outside walls
+
+We have a few outside walls that are easier to define directly in
+metapost here.
+
+#+name: outsidewalls
+#+begin_src metapost
+pickup pencircle scaled (th);
+draw (-th/2,th)--(-th/2,-3.965ft) withcolor .8 white;
+#+end_src
+
+*** Utility Labels
+
+Label the locations of the water and electrical service entrances and
+electrican panel, etc.
+
+#+name: utilitylabels
+#+begin_src metapost
+dotlabel.lft(btex \dim water service entrance etex, (LB-0.4ft,LQ));
+dotlabel.lft(btex \dim electrical panel etex, (LB-0.4ft,LP));
+dotlabel.rt(btex \dim electrical service entrance etex, (7.315ft,-.7ft));
+dotlabel.rt(btex \dim proposed thermostat location etex, (point 4 of kitchen shifted (-6ft,-.5ft)));
 #+end_src
