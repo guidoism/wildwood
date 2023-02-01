@@ -29,34 +29,34 @@ below as an example. These equations follow the same rules
 layed on in Metapost.
 
 #+name: Measurements
-|   | kitchen | livingroom |  entry | laundry | smallbed | southbed | master | masterbath | hallbath | blueroom | southhall | garage | recroom | trollroom | chimneyroom | garageattic |   |
-|   |         |          A |      B |       D |        E |        F |      J |          G |        H |        I |         K |      L | M       | P         | N           | O           |   |
-| A |   4.090 |     23.070 |  3.330 |   2.620 |   12.000 |   12.295 | 12.435 |      3.095 |   12.290 |   15.985 |     4.955 | 27.415 |         |           | 32.500      | 28.230      | a |
-| B |   8.095 |      4.925 | 23.065 |   5.375 |    7.370 |   15.170 |  4.315 |     ℮ 4/12 |    7.110 |   10.990 |     1.030 | 26.160 |         |           | 15.545      | 23.825      | b |
-| C |  18.530 |     10.580 | 19.190 |   8.725 |    3.550 |    5.395 |  4.960 |      2.415 |    9.325 |    1.535 |     2.415 |  4.040 |         |           | 11.615      |             | c |
-| D |  43.530 |     14.840 |  2.410 |   8.070 |   14.900 |    3.600 | 16.500 |     ℮ 4/12 |    4.815 |    1.520 |     1.215 |  1.305 |         |           |  7.650      |             | d |
-| E |   8.550 |      3.080 | 10.080 |   3.490 |    1.135 |    3.835 | 19.405 |      6.920 |    3.170 |    2.950 |     1.915 |  3.955 |         |           |  3.830      |             | e |
-| F |   5.420 |     17.730 |  2.415 |   2.685 |    4.630 |    7.375 |  1.490 |      2.420 |    3.095 |    0.990 |     2.495 | 13.115 |         |           |             |             | f |
-| G |   3.015 |   ℮ 12.520 |  3.115 |   2.915 |    2.420 |   11.445 |  4.805 |      2.075 |    1.270 |    0.565 |     1.595 | 13.085 |         |           |  0.4        |             | g |
-| H |   1.910 |     14.890 |  7.690 |   3.025 |    3.655 |    2.415 |  2.450 |      9.005 |    2.925 |    7.455 |           |        |         |           |  5.985      |             | h |
-| I |   0.330 |      5.690 | 15.470 |   4.890 |   11.955 |    4.370 |  1.040 |      4.465 |    2.260 |    5.895 |           |  3.380 |         |           |  4.1        |             | i |
-| J |  12.525 |      4.435 |  3.365 |   3.025 |    3.740 |    4.115 |  2.340 |      0.790 |    2.010 |    7.025 |     0.555 |  3.380 |         |           |  2.595      |             | j |
-| K |  15.975 |      6.040 |  3.985 |   2.840 |    1.800 |    3.405 |  0.825 |      1.245 |    2.530 |    0.560 |           |  3.640 |         |           |  8.745      | 5.040       | k |
-| L |   2.155 |      4.385 |  6.900 |   2.250 |    6.655 |    2.450 | 15.975 |      5.440 |          |    0.565 |     0.590 |  3.780 |         |           |  1.895      |             | l |
-| M |   7.950 |      1.475 |  1.220 |   2.615 |    2.315 |    0.610 | 12.690 |      2.000 |          |    2.485 |     9.420 | 12.180 |         |           |  2.110      |             | m |
-| N |  10.920 |     38.520 |  4.900 |   3.060 |    2.450 |          |  6.715 |     12.235 |    0.745 |   13.260 |           |  0.570 |         |           |             |             | n |
-| O |  15.855 |            |  4.740 |         |    0.910 |          |  0.785 |      3.020 |    1.915 |          |           |  2.670 |         |           |             |             | o |
-| P |  17.110 |            |  6.400 |         |   10.590 |          | ℮ 4/12 |      4.880 |          |          |           |  5.395 |         |           |             |             | p |
-| Q |  22.905 |            |  3.315 |         |    3.905 |          | ℮ 8/12 |      6.830 |    2.425 |          |           | 15.485 |         |           |             |             | q |
-| R |  24.460 |            |  2.400 |         |    3.365 |          |  3.785 |      0.825 |    6.240 |          |           |  2.850 |         |           |             |             | r |
-| S |   1.355 |            |        |         |    4.885 |          |  7.560 |      3.700 | HT-HE-HI |          |           |  2.600 |         |           |             |             | s |
-| T |  10.500 |            |        |         |    7.510 |          |  8.005 |     ℮ 4/12 | HF+HH+HG |          |           |        |         |           |             |             | t |
-| U |   0.615 |            |        |         |    1.330 |          |        |      5.010 |          |          |           |        |         |           |             |             | u |
-| V |   3.930 |            |        |         |    1.335 |          |        |            |          |          |           |        |         |           |             |             |   |
-| W |   9.990 |            |        |         |          |          |        |            |          |          |           |        |         |           |             |             |   |
-| X |  15.975 |            |        |         |          |          |        |            |          |          |           |        |         |           |             |             |   |
-| Y |   2.670 |            |        |         |          |          |        |            |          |          |           |        |         |           |             |             |   |
-| Z |         |            |        |         |          |          |        |            |          |          |           |        |         |           |             |             |   |
+|   | kitchen | livingroom |  entry | laundry | smallbed | southbed | master | masterbath | hallbath | blueroom | southhall | garage | recroom | trollroom | chimneyroom | garageattic |
+|   |         |          A |      B |       D |        E |        F |      J |          G |        H |        I |         K |      L | M       | P         |           N |           O |
+| A |   4.090 |     23.070 |  3.330 |   2.620 |   12.000 |   12.295 | 12.435 |      3.095 |   12.290 |   15.985 |     4.955 | 27.415 | 42.315  | 16.435    |      32.500 |      28.230 |
+| B |   8.095 |      4.925 | 23.065 |   5.375 |    7.370 |   15.170 |  4.315 |     ℮ 4/12 |    7.110 |   10.990 |     1.030 | 26.160 | 14.675  | 23.285    |      15.545 |      23.825 |
+| C |  18.530 |     10.580 | 19.190 |   8.725 |    3.550 |    5.395 |  4.960 |      2.415 |    9.325 |    1.535 |     2.415 |  4.040 | 16.035  | 10.650    |      11.615 |             |
+| D |  43.530 |     14.840 |  2.410 |   8.070 |   14.900 |    3.600 | 16.500 |     ℮ 4/12 |    4.815 |    1.520 |     1.215 |  1.305 | 13.900  |  2.080    |       7.650 |             |
+| E |   8.550 |      3.080 | 10.080 |   3.490 |    1.135 |    3.835 | 19.405 |      6.920 |    3.170 |    2.950 |     1.915 |  3.955 |  1.385  | 10.615    |       3.830 |             |
+| F |   5.420 |     17.730 |  2.415 |   2.685 |    4.630 |    7.375 |  1.490 |      2.420 |    3.095 |    0.990 |     2.495 | 13.115 | 11.840  |           |             |             |
+| G |   3.015 |   ℮ 12.520 |  3.115 |   2.915 |    2.420 |   11.445 |  4.805 |      2.075 |    1.270 |    0.565 |     1.595 | 13.085 |  3.370  |  4.0      |         0.4 |             |
+| H |   1.910 |     14.890 |  7.690 |   3.025 |    3.655 |    2.415 |  2.450 |      9.005 |    2.925 |    7.455 |           |        |  2.860  |  3.680    |       5.985 |             |
+| I |   0.330 |      5.690 | 15.470 |   4.890 |   11.955 |    4.370 |  1.040 |      4.465 |    2.260 |    5.895 |           |  3.380 |  2.590  |           |         4.1 |             |
+| J |  12.525 |      4.435 |  3.365 |   3.025 |    3.740 |    4.115 |  2.340 |      0.790 |    2.010 |    7.025 |     0.555 |  3.380 | 11.055  |           |       2.595 |             |
+| K |  15.975 |      6.040 |  3.985 |   2.840 |    1.800 |    3.405 |  0.825 |      1.245 |    2.530 |    0.560 |           |  3.640 |  3.540  |           |       8.745 |       5.040 |
+| L |   2.155 |      4.385 |  6.900 |   2.250 |    6.655 |    2.450 | 15.975 |      5.440 |          |    0.565 |     0.590 |  3.780 |  2.935  |           |       1.895 |             |
+| M |   7.950 |      1.475 |  1.220 |   2.615 |    2.315 |    0.610 | 12.690 |      2.000 |          |    2.485 |     9.420 | 12.180 |  8.205  |           |       2.110 |             |
+| N |  10.920 |     38.520 |  4.900 |   3.060 |    2.450 |          |  6.715 |     12.235 |    0.745 |   13.260 |           |  0.570 |  6.160  | 15.110    |             |             |
+| O |  15.855 |            |  4.740 |         |    0.910 |          |  0.785 |      3.020 |    1.915 |          |           |  2.670 |  2.935  |           |             |             |
+| P |  17.110 |            |  6.400 |         |   10.590 |          | ℮ 4/12 |      4.880 |          |          |           |  5.395 |         | 10.615    |             |             |
+| Q |  22.905 |            |  3.315 |         |    3.905 |          | ℮ 8/12 |      6.830 |    2.425 |          |           | 15.485 |  5.615  |  3.030    |             |             |
+| R |  24.460 |            |  2.400 |         |    3.365 |          |  3.785 |      0.825 |    6.240 |          |           |  2.850 |         | 10.020    |             |             |
+| S |   1.355 |            |        |         |    4.885 |          |  7.560 |      3.700 | HT-HE-HI |          |           |  2.600 |         |           |             |             |
+| T |  10.500 |            |        |         |    7.510 |          |  8.005 |     ℮ 4/12 | HF+HH+HG |          |           |        |         |           |             |             |
+| U |   0.615 |            |        |         |    1.330 |          |        |      5.010 |          |          |           |        |         |           |             |             |
+| V |   3.930 |            |        |         |    1.335 |          |        |            |          |          |           |        |         |           |             |             |
+| W |   9.990 |            |        |         |          |          |        |            |          |          |           |        |         |           |             |             |
+| X |  15.975 |            |        |         |          |          |        |            |          |          |           |        |         |           |             |             |
+| Y |   2.670 |            |        |         |          |          |        |            |          |          |           |        |         |           |             |             |
+| Z |         |            |        |         |          |          |        |            |          |          |           |        |         |           |             |             |
 
 ** Paths
 
@@ -456,6 +456,12 @@ again until there's another change in layout, etc.
 
 mpost --mem=metafun slice1.mp && open -a Safari slice1.svg
 
+Since our operations are doing a lot of undrawing which isn't actually
+transparent and makes the extruding not work. So, the easiest thing to
+fix this problem I think is to export to a high resolution png and use
+that to import the 2d shape into OpenSCAD.
+
+
 #+name: slice1
 #+begin_src metapost :tangle slice1.mp :noweb yes
 outputformat := "svg";
@@ -521,64 +527,10 @@ draw hearth withpen pencircle scaled 1bp withcolor black;
 (global-set-key (kbd "<f5>") 'compile-house)
 
 #+name: compile
-#+begin_src elisp
+#+begin_src elisp :results output silent
 (org-babel-tangle)
 (org-sbe runcontext)
 #+end_src
-
-#+RESULTS: compile
-#+begin_example
-resolvers       | formats | executing runner 'run luatex format': /usr/local/texlive/2022/bin/universal-darwin/luatex --jobname="house" --fmt=/Users/guido/Library/texlive/2022/texmf-var/luatex-cache/context/a86c089b384a3076dc514ba966a1fac9/formats/luatex/cont-en.fmt --lua=/Users/guido/Library/texlive/2022/texmf-var/luatex-cache/context/a86c089b384a3076dc514ba966a1fac9/formats/luatex/cont-en.lui cont-yes.mkiv --c:currentrun=1 --c:fulljobname="./house.tex" --c:input="./house.tex" --c:kindofrun=1 --c:maxnofruns=9 --c:texmfbinpath="/usr/local/texlive/2022/bin/universal-darwin"
-This is LuaTeX, Version 1.15.0 (TeX Live 2022) 
- system commands enabled.
-open source     > level 1, order 1, name '/usr/local/texlive/2022/texmf-dist/tex/context/base/mkiv/cont-yes.mkiv'
-system          > 
-system          > ConTeXt  ver: 2021.03.05 19:11 MKIV  fmt: 2022.9.22  int: english/english
-system          > 
-system          > 'cont-new.mkiv' loaded
-open source     > level 2, order 2, name '/usr/local/texlive/2022/texmf-dist/tex/context/base/mkiv/cont-new.mkiv'
-system          > beware: some patches loaded from cont-new.mkiv
-close source    > level 2, order 2, name '/usr/local/texlive/2022/texmf-dist/tex/context/base/mkiv/cont-new.mkiv'
-system          > files > jobname 'house', input './house', result 'house'
-fonts           > latin modern fonts are not preloaded
-languages       > language 'en' is active
-open source     > level 2, order 3, name '/Users/guido/Dropbox/Repositories/Experiments/2023-01-10.wildwood-floor-plan/public/wildwood/house.tex'
-fonts           > preloading latin modern fonts (second stage)
-fonts           > 'fallback modern-designsize rm 12pt' is loaded
-metapost        > initializing instance 'decimalfun:1' using format 'metafun' and method 'decimal'
-metapost        > loading 'metafun' as '/usr/local/texlive/2022/texmf-dist/metapost/context/base/mpiv/metafun.mpiv' using method 'decimal'
-metapost        > initializing number mode 'decimal'
-metapost        > use 'textext(.....)' instead of 'btex ..... etex'
-backend         > xmp > using file '/usr/local/texlive/2022/texmf-dist/tex/context/base/mkiv/lpdf-pdx.xml'
-pages           > flushing realpage 1, userpage 1, subpage 1
-close source    > level 2, order 3, name '/Users/guido/Dropbox/Repositories/Experiments/2023-01-10.wildwood-floor-plan/public/wildwood/house.tex'
-close source    > level 1, order 3, name '/usr/local/texlive/2022/texmf-dist/tex/context/base/mkiv/cont-yes.mkiv'
-
-mkiv lua stats  > used config file: selfautoparent:/texmfcnf.lua;selfautoparent:/texmf-dist/web2c/texmfcnf.lua
-mkiv lua stats  > used cache path: readable+writable: '/Users/guido/Library/texlive/2022/texmf-var/luatex-cache/context/a86c089b384a3076dc514ba966a1fac9'
-mkiv lua stats  > resource resolver: loadtime 0.057 seconds, 0 scans with scantime 0.000 seconds, 0 shared scans, 32 found files, scanned paths: <none>
-mkiv lua stats  > stored bytecode data: 454 modules (0.147 sec), 96 tables (0.006 sec), 550 chunks (0.153 sec)
-mkiv lua stats  > traced context: maxstack: 1423, freed: 3, unreachable: 1420
-mkiv lua stats  > cleaned up reserved nodes: 60 nodes, 10 lists of 442
-mkiv lua stats  > node memory usage: 11 attribute, 4 attribute_list, 1 glue, 51 glue_spec, 3 kern, 2 penalty, 2 temp, 2 user_defined
-mkiv lua stats  > node list callback tasks: 8 unique task lists, 7 instances (re)created, 193 calls
-mkiv lua stats  > driver time: 0.047 seconds 
-mkiv lua stats  > used backend: pdf (backend for directly generating pdf output)
-mkiv lua stats  > jobdata time: 0.000 seconds saving, 0.000 seconds loading
-mkiv lua stats  > callbacks: internal: 565, file: 824, direct: 2, late: 0, function 2184, total: 3575 (3575 per page)
-mkiv lua stats  > randomizer: resumed with value 0.39433193765581
-mkiv lua stats  > result saved in file: house.pdf, compresslevel 3, objectcompresslevel 1
-mkiv lua stats  > loaded patterns: en::1, load time: 0.000
-mkiv lua stats  > loaded fonts: 3 files: bahnschrift.ttf, latinmodern-math.otf, lmroman12-regular.otf
-mkiv lua stats  > font engine: otf 3.113, afm 1.513, tfm 1.000, 9 instances, 4 shared in backend, 3 common vectors, 1 common hashes, load time 0.128 seconds 
-mkiv lua stats  > metapost: 0.351 seconds, loading: 0.062, execution: 0.351, n: 3, average: 0.255, instances: 1, luacalls: 98, memory: 2.940 M
-mkiv lua stats  > used platform: osx-64, type: unix, binary subtree: bin
-mkiv lua stats  > used engine: luatex version: 1.15, functionality level: 7509, banner: this is luatex, version 1.15.0 (tex live 2022)
-mkiv lua stats  > used hash slots: 46517 of 65536 + 200000
-mkiv lua stats  > lua properties: engine: lua 5.3, used memory: 162 MB, ctx: 163 MB, max: unknown MB, hash chars: min(64,40), symbol mask: utf (τεχ)
-mkiv lua stats  > runtime: 0.784 seconds, 1 processed pages, 1 shipped pages, 1.276 pages/second
-system          | total runtime: 0.993 seconds
-#+end_example
 
 #+name: runcontext
 #+begin_src sh :results output
