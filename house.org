@@ -1,10 +1,9 @@
 
-
-
 - [ ] Missing: Interior line to blue room closet
 - [ ] Missing: Wall thickness between laundry and bath
 - [ ] Missing: Laundry bath window
-- [ ] Add: SVGs of each room seperately  
+- [ ] Add: pics of each room seperately zoomed in
+- [ ] Add: Seperate layers for each floor in PDF
 
 * Tables
 ** Measurements
@@ -98,6 +97,12 @@ are more natural to define.
 | masterbathtoilet  | (0,0)--(GP,0)--(GP,GQ)--(0,GQ)--cycle                                                                                       |
 | hallbath          | (0,0)--(GE+th,0)--(GE+th,-2.1est)--(FA,-2.1est)--(FA,5.5est)--(HK+th,5.5est)--(HK+th,5.5est-HJ-th)--(0,5.5est-HJ-th)--cycle |
 | hallbathcloset    | (0,0)--(HK,0)--(HK,HJ)--(0,HJ)--cycle                                                                                       |
+| recroom           | (0,0)--(MA,0)--(MA,MB)--(MD+MF,MB)--(MD+MF,MC)--(MD,MC)--(MD,MB)--(0,MB)--cycle                                             |
+
+TODO: Add relative positions
+| trollroom         | (0,0)--(PO,0)--(PO,-PL)--(PS+PR,-PL)--(PS+PR,-PL+PT)--(PB,-PL+PT)--(PB,PN)--(0,PN)--cycle                                         |
+| chimneyroom       | (0,0)--(NA,0)--(NA,NB)--(0,NB)--cycle                                                                                       |
+| garageattic       | (0,0)--(OB,0)--(OB,OK)--(OB+OI,OK)--(OB+OI,OK+OJ)--(OB,OK+OK)--(OB,OA)--(0,OA)--cycle                                       |
 
 ** Relative Positions
 
@@ -106,27 +111,29 @@ example room 1's upper right corner might be the same as Room 2's
 lower left corner.
 
 #+name: Positions
-| livingroom        | lrcorner garage + (th,(K-J)+th)                                       |
-| kitchen           | lrcorner garage + (th,0)                                              |
-| entry             | lrcorner livingroom + (th,0)                                          |
-| laundry           | lrcorner garage + (th,-J)                                             |
-| laundrybath       | lrcorner garage + (th,-J)                                             |
-| kitchenhallcloset | lrcorner garage + (th,-DM-th)                                         |
-| smallbed          | point 6 of entry + (th,-EC)                                           |
-| smallbedcloset    | point 1 of smallbed + (-ER-ES-EV,-EN-th)                              |
-| southbed          | point 2 of entry + (th,-FH-FM-th-1)                                   |
-| southbedcloset    | point 3 of smallbed + (th,0)                                          |
-| entrycloset       | point 5 of entry + (th,th)                                            |
-| blueroom          | lrcorner kitchen + (th,0)                                             |
-| master            | point 1 of entry + (-JR,-X-th)                                        |
-| masterclosetwest  | point 0 of master + (-JH-th,0)                                        |
-| mastercloseteast  | point 0 of master + (-JH-th,JT+th)                                    |
-| southhallcloset   | point 4 of entry + (-KG-th,KB+KC+KJ+th)                               |
-| masterbathsink    | point 3 of master + (th,th)                                           |
-| masterbathcloset  | point 3 of master + (th,GA+th+th)                                     |
-| masterbathtoilet  | point 3 of master + (th+GE+th,th)                                     |
-| hallbath          | point 3 of masterbathcloset + (0,th)                                  |
-| hallbathcloset    | point 5 of hallbath + (-HK-th,-HJ)                                    |
+| livingroom        | lrcorner garage + (th,(K-J)+th)                                      |
+| kitchen           | lrcorner garage + (th,0)                                             |
+| entry             | lrcorner livingroom + (th,0)                                         |
+| laundry           | lrcorner garage + (th,-J)                                            |
+| laundrybath       | lrcorner garage + (th,-J)                                            |
+| kitchenhallcloset | lrcorner garage + (th,-DM-th)                                        |
+| smallbed          | point 6 of entry + (th,-EC)                                          |
+| smallbedcloset    | point 1 of smallbed + (-ER-ES-EV,-EN-th)                             |
+| southbed          | point 2 of entry + (th,-FH-FM-th-1)                                  |
+| southbedcloset    | point 3 of smallbed + (th,0)                                         |
+| entrycloset       | point 5 of entry + (th,th)                                           |
+| blueroom          | lrcorner kitchen + (th,0)                                            |
+| master            | point 1 of entry + (-JR,-X-th)                                       |
+| masterclosetwest  | point 0 of master + (-JH-th,0)                                       |
+| mastercloseteast  | point 0 of master + (-JH-th,JT+th)                                   |
+| southhallcloset   | point 4 of entry + (-KG-th,KB+KC+KJ+th)                              |
+| masterbathsink    | point 3 of master + (th,th)                                          |
+| masterbathcloset  | point 3 of master + (th,GA+th+th)                                    |
+| masterbathtoilet  | point 3 of master + (th+GE+th,th)                                    |
+| hallbath          | point 3 of masterbathcloset + (0,th)                                 |
+| hallbathcloset    | point 5 of hallbath + (-HK-th,-HJ)                                   |
+| recroom           | (xpart point 1 of master - MA, ypart point 0 of smallbedcloset - MC) |
+
 
 ** Doors
 
@@ -320,10 +327,12 @@ def drawwall (expr p, thickness) =
   % fill p withcolor background withtransparency ("normal", 1);
 enddef;
 """)
-print('\n'.join((f'drawwall({s}, th);' for s in paths)))
+upstairs = {'recroom'}
+print('\n'.join((f'drawwall({s}, th);' for s in paths if s not in upstairs)))
 print()
 print('pickup pencircle scaled 1bp;')
-print('\n'.join((f'draw {s};' for s in paths)))
+print('\n'.join((f'draw {s};' for s in paths if s not in upstairs)))
+print('\n'.join((f'draw {s} withcolor red;' for s in paths if s in upstairs)))
 #+end_src
 
 
@@ -438,12 +447,14 @@ for label, p, offset in dims:
   <<drawdoors()>>
   <<drawwindows()>>
   <<fireplacestuff>>
-  <<drawdimensions()>>
-  <<outsidewalls>>
-  <<utilitylabels>>
 \stopMPcode
 \stoptext
 #+end_src
+
+  <<drawdimensions()>>
+  <<outsidewalls>>
+  <<utilitylabels>>
+
 
 ** Inputs for 3D CAD
 
