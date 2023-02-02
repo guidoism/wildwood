@@ -111,28 +111,30 @@ example room 1's upper right corner might be the same as Room 2's
 lower left corner.
 
 #+name: Positions
-| livingroom        | lrcorner garage + (th,(K-J)+th)                                      |
-| kitchen           | lrcorner garage + (th,0)                                             |
-| entry             | lrcorner livingroom + (th,0)                                         |
-| laundry           | lrcorner garage + (th,-J)                                            |
-| laundrybath       | lrcorner garage + (th,-J)                                            |
-| kitchenhallcloset | lrcorner garage + (th,-DM-th)                                        |
-| smallbed          | point 6 of entry + (th,-EC)                                          |
-| smallbedcloset    | point 1 of smallbed + (-ER-ES-EV,-EN-th)                             |
-| southbed          | point 2 of entry + (th,-FH-FM-th-1)                                  |
-| southbedcloset    | point 3 of smallbed + (th,0)                                         |
-| entrycloset       | point 5 of entry + (th,th)                                           |
-| blueroom          | lrcorner kitchen + (th,0)                                            |
-| master            | point 1 of entry + (-JR,-X-th)                                       |
-| masterclosetwest  | point 0 of master + (-JH-th,0)                                       |
-| mastercloseteast  | point 0 of master + (-JH-th,JT+th)                                   |
-| southhallcloset   | point 4 of entry + (-KG-th,KB+KC+KJ+th)                              |
-| masterbathsink    | point 3 of master + (th,th)                                          |
-| masterbathcloset  | point 3 of master + (th,GA+th+th)                                    |
-| masterbathtoilet  | point 3 of master + (th+GE+th,th)                                    |
-| hallbath          | point 3 of masterbathcloset + (0,th)                                 |
-| hallbathcloset    | point 5 of hallbath + (-HK-th,-HJ)                                   |
-| recroom           | (xpart point 1 of master - MA, ypart point 0 of smallbedcloset - MC) |
+| name              | horizontal position                                                  | floor level |
+| garage            | (0,0)                                                                |           1 |
+| livingroom        | lrcorner garage + (th,(K-J)+th)                                      |           1 |
+| kitchen           | lrcorner garage + (th,0)                                             |           1 |
+| entry             | lrcorner livingroom + (th,0)                                         |           1 |
+| laundry           | lrcorner garage + (th,-J)                                            |           1 |
+| laundrybath       | lrcorner garage + (th,-J)                                            |           1 |
+| kitchenhallcloset | lrcorner garage + (th,-DM-th)                                        |           1 |
+| smallbed          | point 6 of entry + (th,-EC)                                          |           1 |
+| smallbedcloset    | point 1 of smallbed + (-ER-ES-EV,-EN-th)                             |           1 |
+| southbed          | point 2 of entry + (th,-FH-FM-th-1)                                  |           1 |
+| southbedcloset    | point 3 of smallbed + (th,0)                                         |           1 |
+| entrycloset       | point 5 of entry + (th,th)                                           |           1 |
+| blueroom          | lrcorner kitchen + (th,0)                                            |           1 |
+| master            | point 1 of entry + (-JR,-X-th)                                       |           1 |
+| masterclosetwest  | point 0 of master + (-JH-th,0)                                       |           1 |
+| mastercloseteast  | point 0 of master + (-JH-th,JT+th)                                   |           1 |
+| southhallcloset   | point 4 of entry + (-KG-th,KB+KC+KJ+th)                              |           1 |
+| masterbathsink    | point 3 of master + (th,th)                                          |           1 |
+| masterbathcloset  | point 3 of master + (th,GA+th+th)                                    |           1 |
+| masterbathtoilet  | point 3 of master + (th+GE+th,th)                                    |           1 |
+| hallbath          | point 3 of masterbathcloset + (0,th)                                 |           1 |
+| hallbathcloset    | point 5 of hallbath + (-HK-th,-HJ)                                   |           1 |
+| recroom           | (xpart point 1 of master - MA, ypart point 0 of smallbedcloset - MC) |           2 |
 
 
 ** Doors
@@ -310,16 +312,20 @@ print('path', ', '.join(list(zip(*paths))[0]), ';')
 print()
 print('\n'.join(f'{k} := {v};' for k, v in paths))
 print()
-print('\n'.join(f'{k} := {k} shifted ({v});' for k, v in positions))
+positions = positions[1:]
+print('\n'.join(f'{k} := {k} shifted ({v});' for k, v, level in positions))
 #+end_src
 
 ** Draw the walls, doors, and windows
 
 #+name: drawwalls
-#+begin_src python :var paths=Paths :results output
+#+begin_src python :var paths=Paths :var positions=Positions :results output :var level=1
 paths = paths[1:]
 paths = list(zip(*paths))[0]
-print("""
+roomlevel = {k: v for k,_,v in positions[1:]}
+
+if level == 1:
+    print("""
 def drawwall (expr p, thickness) =
   pickup pencircle scaled (thickness*2);
   draw p withcolor .8 white;
@@ -328,16 +334,17 @@ def drawwall (expr p, thickness) =
 enddef;
 """)
 upstairs = {'recroom'}
-print('\n'.join((f'drawwall({s}, th);' for s in paths if s not in upstairs)))
-print()
+#print('\n'.join((f'drawwall({s}, th);' for s in paths)))
+if level == 1:
+    print('\n'.join((f'drawwall({s}, th);' for s in paths if roomlevel.get(s) == level)))
+    print()
 print('pickup pencircle scaled 1bp;')
-print('\n'.join((f'draw {s};' for s in paths if s not in upstairs)))
-print('\n'.join((f'draw {s} withcolor red;' for s in paths if s in upstairs)))
+color = 'withcolor red' if level == 2 else ''
+print('\n'.join((f'draw {s} {color};' for s in paths if roomlevel.get(s) == level)))
 #+end_src
 
-
 #+name: drawdoors
-#+begin_src python :var doors=Doors :results output
+#+begin_src python :var doors=Doors :var positions=Positions :results output :var level=1
 print("""
 path door[];
 def drawdoor (expr direction, outdirection, start, offset, width, i) =
@@ -354,9 +361,8 @@ for i, name, direction, outdir, start, offset, width in doors:
     print(f'drawdoor({direction}, {outdir}, {start}, {offset}, {width}, {i});');
 #+end_src
 
-
 #+name: drawwindows
-#+begin_src python :var windows=Windows :results output
+#+begin_src python :var windows=Windows :var positions=Positions :results output :var level=1
 print("""
 path window[];
 
@@ -443,13 +449,19 @@ for label, p, offset in dims:
   est = 12bp; % Estimated feet are the same, but we mark them so we know they may not be perfect
   th := 0.445est; % Interior wall thickness 
   <<definerooms()>>
+  
   <<drawwalls()>>
   <<drawdoors()>>
-  <<drawwindows()>>
+  <<drawwindows()>> 
   <<fireplacestuff>>
+  <<drawwalls(level=2)>>
+
 \stopMPcode
 \stoptext
 #+end_src
+
+  <<drawdoors(level=2)>>
+  <<drawwindows(level=2)>> 
 
   <<drawdimensions()>>
   <<outsidewalls>>
