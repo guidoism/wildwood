@@ -98,10 +98,10 @@ are more natural to define.
 | hallbath          | (0,0)--(GE+th,0)--(GE+th,-2.1est)--(FA,-2.1est)--(FA,5.5est)--(HK+th,5.5est)--(HK+th,5.5est-HJ-th)--(0,5.5est-HJ-th)--cycle |
 | hallbathcloset    | (0,0)--(HK,0)--(HK,HJ)--(0,HJ)--cycle                                                                                       |
 | recroom           | (0,0)--(MA,0)--(MA,MB)--(MD+MF,MB)--(MD+MF,MC)--(MD,MC)--(MD,MB)--(0,MB)--cycle                                             |
+| chimneyroom       | (0,0)--(NA,0)--(NA,NB)--(0,NB)--cycle                                                                                       |
 
 TODO: Add relative positions
 | trollroom         | (0,0)--(PO,0)--(PO,-PL)--(PS+PR,-PL)--(PS+PR,-PL+PT)--(PB,-PL+PT)--(PB,PN)--(0,PN)--cycle                                         |
-| chimneyroom       | (0,0)--(NA,0)--(NA,NB)--(0,NB)--cycle                                                                                       |
 | garageattic       | (0,0)--(OB,0)--(OB,OK)--(OB+OI,OK)--(OB+OI,OK+OJ)--(OB,OK+OK)--(OB,OA)--(0,OA)--cycle                                       |
 
 ** Relative Positions
@@ -135,7 +135,7 @@ lower left corner.
 | hallbath          | point 3 of masterbathcloset + (0,th)                                 |           1 |
 | hallbathcloset    | point 5 of hallbath + (-HK-th,-HJ)                                   |           1 |
 | recroom           | (xpart point 1 of master - MA, ypart point 0 of smallbedcloset - MC) |           2 |
-
+| chimneyroom       | point 0 of recroom + (-NA,0)                                         |           2 |
 
 ** Doors
 
@@ -455,6 +455,8 @@ for label, p, offset in dims:
   <<drawwindows()>> 
   <<fireplacestuff>>
   <<drawwalls(level=2)>>
+  
+  <<atticchimney>>
 
 \stopMPcode
 \stoptext
@@ -542,6 +544,15 @@ hearth := hearth shifted (point 0 of livingroom) shifted (AA,0);
 fill hearth withpen pencircle scaled .7bp withcolor .7 white;
 draw hearth withpen pencircle scaled 1bp withcolor black;
 #+end_src
+
+
+#+name: atticchimney
+#+begin_src metapost
+path chimney;
+chimney := (0,0)--(NC,0)--(NC,NL)--(0,NL)--cycle;
+fill chimney shifted (point 0 of recroom + (-NC,NH)) withcolor .5 white;
+#+end_src
+
 
 ** Org Babel Stuff
 
