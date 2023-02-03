@@ -453,6 +453,9 @@ for label, p, offset in dims:
   <<drawwalls()>>
   <<drawdoors()>>
   <<drawwindows()>> 
+  <<drawdimensions()>>
+  <<outsidewalls>>
+  <<utilitylabels>>
   <<fireplacestuff>>
   <<drawwalls(level=2)>>
   
@@ -464,10 +467,6 @@ for label, p, offset in dims:
 
   <<drawdoors(level=2)>>
   <<drawwindows(level=2)>> 
-
-  <<drawdimensions()>>
-  <<outsidewalls>>
-  <<utilitylabels>>
 
 
 ** Inputs for 3D CAD
