@@ -453,10 +453,11 @@ for label, p, offset in dims:
   <<drawwalls()>>
   <<drawdoors()>>
   <<drawwindows()>> 
+  <<fireplacestuff>>
   <<drawdimensions()>>
   <<outsidewalls>>
   <<utilitylabels>>
-  <<fireplacestuff>>
+  
   <<drawwalls(level=2)>>
   
   <<atticchimney>>
