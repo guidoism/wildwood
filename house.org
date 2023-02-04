@@ -454,17 +454,22 @@ for label, p, offset in dims:
   <<drawdoors()>>
   <<drawwindows()>> 
   <<fireplacestuff>>
+  <<ruler>>
   <<drawdimensions()>>
   <<outsidewalls>>
   <<utilitylabels>>
-  
   <<drawwalls(level=2)>>
-  
   <<atticchimney>>
-
+  
 \stopMPcode
 \stoptext
 #+end_src
+
+
+
+
+
+
 
   <<drawdoors(level=2)>>
   <<drawwindows(level=2)>> 
@@ -551,6 +556,38 @@ draw hearth withpen pencircle scaled 1bp withcolor black;
 path chimney;
 chimney := (0,0)--(NC,0)--(NC,NL)--(0,NL)--cycle;
 fill chimney shifted (point 0 of recroom + (-NC,NH)) withcolor .5 white;
+#+end_src
+
+
+#+name: ruler
+#+begin_src metapost
+for i=0 upto 102:
+  if (floor(i mod 10) = 0):
+    draw ((i*ft)-0.4ft,30ft)--((i*ft)-0.4ft,29.5ft);
+  else:
+    draw ((i*ft)-0.4ft,30ft)--((i*ft)-0.4ft,29.75ft);
+  fi;
+endfor;
+#+end_src
+
+
+#+name: grid
+#+begin_src metapost
+  pickup pencircle scaled .1bp;
+  for i=0 upto 29*4:
+    if i mod 4 = 0:
+      draw ((LB,-J)--(LB,AD+K-J+th)) shifted (i*ft/4,0) withcolor .5 white;
+    else:
+      draw ((LB,-J)--(LB,AD+K-J+th)) shifted (i*ft/4,0) withcolor .9 white;
+    fi;
+    for j=0 upto 31*4:
+      if j mod 4 = 0:
+        draw ((LB,-J)--(LB+29ft,-J)) shifted (0,j*ft/4) withcolor .5 white;
+      else:
+        draw ((LB,-J)--(LB+29ft,-J)) shifted (0,j*ft/4) withcolor .9 white;
+      fi;
+    endfor;
+  endfor;
 #+end_src
 
 
