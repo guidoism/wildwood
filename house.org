@@ -454,18 +454,20 @@ for label, p, offset in dims:
   <<drawdoors()>>
   <<drawwindows()>> 
   <<fireplacestuff>>
-  <<ruler>>
-  <<drawdimensions()>>
-  <<outsidewalls>>
-  <<utilitylabels>>
-  <<drawwalls(level=2)>>
-  <<atticchimney>>
+
+  <<grid>>
   
 \stopMPcode
 \stoptext
 #+end_src
 
 
+  <<ruler>>
+  <<drawdimensions()>>
+  <<outsidewalls>>
+  <<utilitylabels>>
+  <<drawwalls(level=2)>>
+  <<atticchimney>>
 
 
 
