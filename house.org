@@ -140,37 +140,37 @@ lower left corner.
 ** Doors
 
 #+name: Doors
-| id | name                         | door dir | out dir | starting point              | offset      | width        |
-|  0 | "Garage to family"           | up       | right   | point 1 of garage           | LN          | LO           |
-|  1 | "West garage door"           | up       | left    | point 0 of garage           | LL          | LF-LL        |
-|  2 | "East garage door"           | down     | left    | point 3 of garage           | LE          | LG-LE        |
-|  3 | "Living room to front entry" | up       | right   | point 1 of livingroom       | 49          | 72           |
-|  4 | "Living to garage entry"     | right    | up      | point 5 of kitchen          | A           | B-A          |
-|  5 | "Family to front entry"      | left     | up      | point 4 of kitchen          | U           | V-U          |
-|  6 | "Garage entry closet"        | right    | down    | point 0 of kitchen          | I           | H-I          |
-|  7 | "Laundry room door"          | right    | down    | point 0 of kitchen          | G           | F-G          |
-|  8 | "Sliding door"               | right    | down    | point 2 of kitchen          | P           | Q-P          |
-|  9 | "Blue room door"             | left     | down    | point 1 of entry            | BH          | BD           |
-| 10 | "Master room door"           | left     | down    | point 1 of entry            | BG-BF       | BF           |
-| 11 | "Understairs closet door"    | right    | up      | point 5 of entry            | BQ          | BR           |
-| 12 | "Entry closet door"          | up       | right   | point 5 of entry            | BM          | BN           |
-| 13 | "Front entry door"           | left     | up      | point 6 of entry            | 0.7 est     | 5.5 est      |
-| 14 | "Door to south bedroom"      | up       | left    | point 0 of southbed         | FM          | FH           |
-| 15 | "Door to small bedroom"      | up       | right   | point 1 of smallbed         | EE          | EG           |
-| 16 | "Small room closet"          | left     | down    | point 1 of smallbed         | ER          | ES           |
-| 17 | "Master bath door"           | up       | right   | point 3 of master           | JO          | JL-JA-JO-JP  |
-| 18 | "Master closet door 1"       | up       | left    | point 0 of master           | JI          | JT-JI-(JJ/2) |
-| 19 | "Master closet door 2"       | down     | left    | point 5 of master           | JK          | JS-JK-(JJ/2) |
-| 20 | "Blue room closet door"      | right    | up      | point 5 of blueroom         | IG          | II           |
-| 21 | "South hall closet door"     | up       | left    | point 4 of entry            | KB+KC+KD    | KE           |
-| 22 | "Attic door"                 | up       | left    | point 4 of entry            | KB          | KC           |
-| 23 | "Master bath door to toilet" | up       | right   | point 1 of masterbathsink   | GG          | GQ-GO-GG     |
-| 24 | "Master bath closet door"    | up       | right   | point 1 of masterbathcloset | GK          | GL-GJ-GK     |
-| 25 | "Hall bath closet door"      | left     | down    | point 1 of hallbathcloset   | HN-th       | HO           |
-| 26 | "South bed closet door"      | up       | right   | point 1 of southbedcloset   | 1 est       | 5 est        |
-| 27 | "Garage side door"           | left     | down    | point 1 of garage           | LR          | LS           |
-| 28 | "Laundry to outside door"    | up       | left    | point 0 of laundry          | DI+th+.5est | DE-1est      |
-| 29 | "South hall bath door"       | down     | left    | point 7 of hallbath         | .25est      | 2.5est       |
+| id | name                         | door dir | out dir | starting point              | offset           | width        |
+|  0 | "Garage to family"           | up       | right   | point 1 of garage           | LN               | LO           |
+|  1 | "West garage door"           | up       | left    | point 0 of garage           | LL               | LF-LL        |
+|  2 | "East garage door"           | down     | left    | point 3 of garage           | LE               | LG-LE        |
+|  3 | "Living room to front entry" | up       | right   | point 1 of livingroom       | 49               | 72           |
+|  4 | "Living to garage entry"     | right    | up      | point 5 of kitchen          | A                | B-A          |
+|  5 | "Family to front entry"      | left     | up      | point 4 of kitchen          | U                | V-U          |
+|  6 | "Garage entry closet"        | right    | down    | point 0 of kitchen          | I                | H-I          |
+|  7 | "Laundry room door"          | right    | down    | point 0 of kitchen          | G                | F-G          |
+|  8 | "Sliding door"               | right    | down    | point 2 of kitchen          | P                | Q-P          |
+|  9 | "Blue room door"             | left     | down    | point 1 of entry            | BH               | BD           |
+| 10 | "Master room door"           | left     | down    | point 1 of entry            | BG-BF            | BF           |
+| 11 | "Understairs closet door"    | right    | up      | point 5 of entry            | BQ               | BR           |
+| 12 | "Entry closet door"          | up       | right   | point 5 of entry            | BM               | BN           |
+| 13 | "Front entry door"           | left     | up      | point 6 of entry            | 0.740ft          | 4.425ft      |
+| 14 | "Door to south bedroom"      | up       | left    | point 0 of southbed         | FM               | FH           |
+| 15 | "Door to small bedroom"      | up       | right   | point 1 of smallbed         | EE               | EG           |
+| 16 | "Small room closet"          | left     | down    | point 1 of smallbed         | ER               | ES           |
+| 17 | "Master bath door"           | up       | right   | point 3 of master           | JO               | JL-JA-JO-JP  |
+| 18 | "Master closet door 1"       | up       | left    | point 0 of master           | JI               | JT-JI-(JJ/2) |
+| 19 | "Master closet door 2"       | down     | left    | point 5 of master           | JK               | JS-JK-(JJ/2) |
+| 20 | "Blue room closet door"      | right    | up      | point 5 of blueroom         | IG               | II           |
+| 21 | "South hall closet door"     | up       | left    | point 4 of entry            | KB+KC+KD         | KE           |
+| 22 | "Attic door"                 | up       | left    | point 4 of entry            | KB               | KC           |
+| 23 | "Master bath door to toilet" | up       | right   | point 1 of masterbathsink   | GG               | GQ-GO-GG     |
+| 24 | "Master bath closet door"    | up       | right   | point 1 of masterbathcloset | GK               | GL-GJ-GK     |
+| 25 | "Hall bath closet door"      | left     | down    | point 1 of hallbathcloset   | HN-th            | HO           |
+| 26 | "South bed closet door"      | up       | right   | point 1 of southbedcloset   | 1 est            | 5 est        |
+| 27 | "Garage side door"           | left     | down    | point 1 of garage           | LR               | LS           |
+| 28 | "Laundry to outside door"    | up       | left    | point 0 of laundry          | DI+th+(5/12)*est | 2.685ft      |
+| 29 | "South hall bath door"       | down     | left    | point 7 of hallbath         | .25est           | 2.5est       |
 ** Windows
 
 #+name: Windows
