@@ -44,8 +44,8 @@ layed on in Metapost.
 | L |   2.155 |      4.385 |  6.900 |   2.250 |    6.655 |    2.450 | 15.975 |      5.440 |          |    0.565 |     0.590 |  3.780 |   2.935 |           |       1.895 |      20.690 |            3.010 |
 | M |   7.950 |      1.475 |  1.220 |   2.615 |    2.315 |    0.610 | 12.690 |      2.000 |          |    2.485 |     9.420 | 12.180 |   8.205 |           |       2.110 |      10.575 |            4.565 |
 | N |  10.920 |     38.520 |  4.900 |   3.060 |    2.450 |          |  6.715 |     12.235 |    0.745 |   13.260 |           |  0.570 |   6.160 |    15.110 |             |             |            5.490 |
-| O |  15.855 |            |  4.740 |         |    0.910 |          |  0.785 |      3.020 |    1.915 |          |           |  2.670 |   2.935 |           |             |             |            4.080 |
-| P |  17.110 |            |  6.400 |         |   10.590 |          | ℮ 4/12 |      4.880 |          |          |           |  5.395 |         |    10.615 |             |             |            4.270 |
+| O |  15.855 |            |  4.740 |   1.130 |    0.910 |          |  0.785 |      3.020 |    1.915 |          |           |  2.670 |   2.935 |           |             |             |            4.080 |
+| P |  17.110 |            |  6.400 |   2.930 |   10.590 |          | ℮ 4/12 |      4.880 |          |          |           |  5.395 |         |    10.615 |             |             |            4.270 |
 | Q |  22.905 |            |  3.315 |         |    3.905 |          | ℮ 8/12 |      6.830 |    2.425 |          |           | 15.485 |   5.615 |     3.030 |             |             |            8.500 |
 | R |  24.460 |            |  2.400 |         |    3.365 |          |  3.785 |      0.825 |    6.240 |          |           |  2.850 |         |    10.020 |             |             |            0.500 |
 | S |   1.355 |            |        |         |    4.885 |          |  7.560 |      3.700 | HT-HE-HI |          |           |  2.600 |         |           |             |             |                  |
@@ -174,22 +174,23 @@ lower left corner.
 ** Windows
 
 #+name: Windows
-| id | name                         | window dir | out dir | starting point              | offset | width    |
-|  0 | "Window over sink"           | right      | down    | point 2 of kitchen          | L      | M-L      |
-|  1 | "Family room picture window" | right      | down    | point 2 of kitchen          | N      | O-N      |
-|  2 | "Family room big window"     | left       | down    | point 3 of kitchen          | S      | T-S      |
-|  4 |                              | right      | up      | point 6 of livingroom       | AE     | AF-AG    |
-|  5 |                              | up         | right   | point 1 of southbed         | FI     | FK       |
-|  6 |                              | left       | up      | point 2 of southbed         | FD     | FE       |
-|  7 |                              | left       | up      | point 4 of smallbed         | EH     | EP-EH-EQ |
-|  8 |                              | down       | left    | point 5 of smallbed         | EJ     | EL-EJ    |
-|  9 |                              | left       | down    | point 1 of master           | JF     | JD-JG-JF |
-| 10 |                              | up         | right   | point 1 of master           | JC     | JA-JB-JC |
-| 11 |                              | up         | right   | point 1 of masterbathtoilet | GR     | GS-GR    |
-| 12 |                              | up         | right   | point 3 of hallbath         | HF     | HH       |
-| 13 |                              | right      | up      | point 3 of garage           | LL     | LI       |
-| 14 |                              | left       | up      | point 2 of garage           | LK     | LJ       |
-| 15 |                              | right      | down    | point 0 of blueroom         | ID     | IB-IC-ID |
+| id | name                           | window dir | out dir | starting point              | offset | width    |
+|  0 | "Window over sink"             | right      | down    | point 2 of kitchen          | L      | M-L      |
+|  1 | "Family room picture window"   | right      | down    | point 2 of kitchen          | N      | O-N      |
+|  2 | "Family room big window"       | left       | down    | point 3 of kitchen          | S      | T-S      |
+|  4 |                                | right      | up      | point 6 of livingroom       | AE     | AF-AG    |
+|  5 |                                | up         | right   | point 1 of southbed         | FI     | FK       |
+|  6 |                                | left       | up      | point 2 of southbed         | FD     | FE       |
+|  7 |                                | left       | up      | point 4 of smallbed         | EH     | EP-EH-EQ |
+|  8 |                                | down       | left    | point 5 of smallbed         | EJ     | EL-EJ    |
+|  9 |                                | left       | down    | point 1 of master           | JF     | JD-JG-JF |
+| 10 |                                | up         | right   | point 1 of master           | JC     | JA-JB-JC |
+| 11 |                                | up         | right   | point 1 of masterbathtoilet | GR     | GS-GR    |
+| 12 |                                | up         | right   | point 3 of hallbath         | HF     | HH       |
+| 13 |                                | right      | up      | point 3 of garage           | LL     | LI       |
+| 14 |                                | left       | up      | point 2 of garage           | LK     | LJ       |
+| 15 |                                | right      | down    | point 0 of blueroom         | ID     | IB-IC-ID |
+| 16 | "Laundry room bathroom window" | right      | down    | point 0 of laundrybath      | DO     | DP       |
 
 ** Dimension Lines
 
