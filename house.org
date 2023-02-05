@@ -28,34 +28,34 @@ below as an example. These equations follow the same rules
 layed on in Metapost.
 
 #+name: Measurements
-|   | kitchen | livingroom |  entry | laundry | smallbed | southbed | master | masterbath | hallbath | blueroom | southhall | garage | recroom | trollroom | chimneyroom | garageattic |
-|   |         |          A |      B |       D |        E |        F |      J |          G |        H |        I |         K |      L |       M |         P |           N | O           |
-| A |   4.090 |     23.070 |  3.330 |   2.620 |   12.000 |   12.295 | 12.435 |      3.095 |   12.290 |   15.985 |     4.955 | 27.415 |  42.315 |    16.435 |      32.500 | 28.230      |
-| B |   8.095 |      4.925 | 23.065 |   5.375 |    7.370 |   15.170 |  4.315 |     ℮ 4/12 |    7.110 |   10.990 |     1.030 | 26.160 |  14.675 |    23.285 |      15.545 | 23.825      |
-| C |  18.530 |     10.580 | 19.190 |   8.725 |    3.550 |    5.395 |  4.960 |      2.415 |    9.325 |    1.535 |     2.415 |  4.040 |  16.035 |    10.650 |      11.615 |  2.065      |
-| D |  43.530 |     14.840 |  2.410 |   8.070 |   14.900 |    3.600 | 16.500 |     ℮ 4/12 |    4.815 |    1.520 |     1.215 |  1.305 |  13.900 |     2.080 |       7.650 |             |
-| E |   8.550 |      3.080 | 10.080 |   3.490 |    1.135 |    3.835 | 19.405 |      6.920 |    3.170 |    2.950 |     1.915 |  3.955 |   1.385 |    10.615 |       3.830 |             |
-| F |   5.420 |     17.730 |  2.415 |   2.685 |    4.630 |    7.375 |  1.490 |      2.420 |    3.095 |    0.990 |     2.495 | 13.115 |  11.840 |           |             |             |
-| G |   3.015 |   ℮ 12.520 |  3.115 |   2.915 |    2.420 |   11.445 |  4.805 |      2.075 |    1.270 |    0.565 |     1.595 | 13.085 |   3.370 |       4.0 |         0.4 |             |
-| H |   1.910 |     14.890 |  7.690 |   3.025 |    3.655 |    2.415 |  2.450 |      9.005 |    2.925 |    7.455 |           |        |   2.860 |     3.680 |       5.985 |             |
-| I |   0.330 |      5.690 | 15.470 |   4.890 |   11.955 |    4.370 |  1.040 |      4.465 |    2.260 |    5.895 |           |  3.380 |   2.590 |           |         4.1 | 2.385       |
-| J |  12.525 |      4.435 |  3.365 |   3.025 |    3.740 |    4.115 |  2.340 |      0.790 |    2.010 |    7.025 |     0.555 |  3.380 |  11.055 |           |       2.595 | 2.595       |
-| K |  15.975 |      6.040 |  3.985 |   2.840 |    1.800 |    3.405 |  0.825 |      1.245 |    2.530 |    0.560 |           |  3.640 |   3.540 |           |       8.745 | 5.040       |
-| L |   2.155 |      4.385 |  6.900 |   2.250 |    6.655 |    2.450 | 15.975 |      5.440 |          |    0.565 |     0.590 |  3.780 |   2.935 |           |       1.895 | 20.690      |
-| M |   7.950 |      1.475 |  1.220 |   2.615 |    2.315 |    0.610 | 12.690 |      2.000 |          |    2.485 |     9.420 | 12.180 |   8.205 |           |       2.110 | 10.575      |
-| N |  10.920 |     38.520 |  4.900 |   3.060 |    2.450 |          |  6.715 |     12.235 |    0.745 |   13.260 |           |  0.570 |   6.160 |    15.110 |             |             |
-| O |  15.855 |            |  4.740 |         |    0.910 |          |  0.785 |      3.020 |    1.915 |          |           |  2.670 |   2.935 |           |             |             |
-| P |  17.110 |            |  6.400 |         |   10.590 |          | ℮ 4/12 |      4.880 |          |          |           |  5.395 |         |    10.615 |             |             |
-| Q |  22.905 |            |  3.315 |         |    3.905 |          | ℮ 8/12 |      6.830 |    2.425 |          |           | 15.485 |   5.615 |     3.030 |             |             |
-| R |  24.460 |            |  2.400 |         |    3.365 |          |  3.785 |      0.825 |    6.240 |          |           |  2.850 |         |    10.020 |             |             |
-| S |   1.355 |            |        |         |    4.885 |          |  7.560 |      3.700 | HT-HE-HI |          |           |  2.600 |         |           |             |             |
-| T |  10.500 |            |        |         |    7.510 |          |  8.005 |     ℮ 4/12 | HF+HH+HG |          |           |        |         |           |             |             |
-| U |   0.615 |            |        |         |    1.330 |          |        |      5.010 |          |          |           |        |         |           |             |             |
-| V |   3.930 |            |        |         |    1.335 |          |        |            |          |          |           |        |         |           |             |             |
-| W |   9.990 |            |        |         |          |          |        |            |          |          |           |        |         |           |             |             |
-| X |  15.975 |            |        |         |          |          |        |            |          |          |           |        |         |           |             |             |
-| Y |   2.670 |            |        |         |          |          |        |            |          |          |           |        |         |           |             |             |
-| Z |         |            |        |         |          |          |        |            |          |          |           |        |         |           |             |             |
+|   | kitchen | livingroom |  entry | laundry | smallbed | southbed | master | masterbath | hallbath | blueroom | southhall | garage | recroom | trollroom | chimneyroom | garageattic | garageelevations |
+|   |         |          A |      B |       D |        E |        F |      J |          G |        H |        I |         K |      L |       M |         P |           N |           O |                Q |
+| A |   4.090 |     23.070 |  3.330 |   2.620 |   12.000 |   12.295 | 12.435 |      3.095 |   12.290 |   15.985 |     4.955 | 27.415 |  42.315 |    16.435 |      32.500 |      28.230 |            4.860 |
+| B |   8.095 |      4.925 | 23.065 |   5.375 |    7.370 |   15.170 |  4.315 |     ℮ 4/12 |    7.110 |   10.990 |     1.030 | 26.160 |  14.675 |    23.285 |      15.545 |      23.825 |            1.300 |
+| C |  18.530 |     10.580 | 19.190 |   8.725 |    3.550 |    5.395 |  4.960 |      2.415 |    9.325 |    1.535 |     2.415 |  4.040 |  16.035 |    10.650 |      11.615 |       2.065 |            2.920 |
+| D |  43.530 |     14.840 |  2.410 |   8.070 |   14.900 |    3.600 | 16.500 |     ℮ 4/12 |    4.815 |    1.520 |     1.215 |  1.305 |  13.900 |     2.080 |       7.650 |             |            8.010 |
+| E |   8.550 |      3.080 | 10.080 |   3.490 |    1.135 |    3.835 | 19.405 |      6.920 |    3.170 |    2.950 |     1.915 |  3.955 |   1.385 |    10.615 |       3.830 |             |            9.775 |
+| F |   5.420 |     17.730 |  2.415 |   2.685 |    4.630 |    7.375 |  1.490 |      2.420 |    3.095 |    0.990 |     2.495 | 13.115 |  11.840 |           |             |             |            7.285 |
+| G |   3.015 |   ℮ 12.520 |  3.115 |   2.915 |    2.420 |   11.445 |  4.805 |      2.075 |    1.270 |    0.565 |     1.595 | 13.085 |   3.370 |       4.0 |         0.4 |             |           14.900 |
+| H |   1.910 |     14.890 |  7.690 |   3.025 |    3.655 |    2.415 |  2.450 |      9.005 |    2.925 |    7.455 |           |        |   2.860 |     3.680 |       5.985 |             |            0.985 |
+| I |   0.330 |      5.690 | 15.470 |   4.890 |   11.955 |    4.370 |  1.040 |      4.465 |    2.260 |    5.895 |           |  3.380 |   2.590 |           |         4.1 |       2.385 |            1.480 |
+| J |  12.525 |      4.435 |  3.365 |   3.025 |    3.740 |    4.115 |  2.340 |      0.790 |    2.010 |    7.025 |     0.555 |  3.380 |  11.055 |           |       2.595 |       2.595 |           10.735 |
+| K |  15.975 |      6.040 |  3.985 |   2.840 |    1.800 |    3.405 |  0.825 |      1.245 |    2.530 |    0.560 |           |  3.640 |   3.540 |           |       8.745 |       5.040 |            9.645 |
+| L |   2.155 |      4.385 |  6.900 |   2.250 |    6.655 |    2.450 | 15.975 |      5.440 |          |    0.565 |     0.590 |  3.780 |   2.935 |           |       1.895 |      20.690 |            3.010 |
+| M |   7.950 |      1.475 |  1.220 |   2.615 |    2.315 |    0.610 | 12.690 |      2.000 |          |    2.485 |     9.420 | 12.180 |   8.205 |           |       2.110 |      10.575 |            4.565 |
+| N |  10.920 |     38.520 |  4.900 |   3.060 |    2.450 |          |  6.715 |     12.235 |    0.745 |   13.260 |           |  0.570 |   6.160 |    15.110 |             |             |            5.490 |
+| O |  15.855 |            |  4.740 |         |    0.910 |          |  0.785 |      3.020 |    1.915 |          |           |  2.670 |   2.935 |           |             |             |            4.080 |
+| P |  17.110 |            |  6.400 |         |   10.590 |          | ℮ 4/12 |      4.880 |          |          |           |  5.395 |         |    10.615 |             |             |            4.270 |
+| Q |  22.905 |            |  3.315 |         |    3.905 |          | ℮ 8/12 |      6.830 |    2.425 |          |           | 15.485 |   5.615 |     3.030 |             |             |            8.500 |
+| R |  24.460 |            |  2.400 |         |    3.365 |          |  3.785 |      0.825 |    6.240 |          |           |  2.850 |         |    10.020 |             |             |            0.500 |
+| S |   1.355 |            |        |         |    4.885 |          |  7.560 |      3.700 | HT-HE-HI |          |           |  2.600 |         |           |             |             |                  |
+| T |  10.500 |            |        |         |    7.510 |          |  8.005 |     ℮ 4/12 | HF+HH+HG |          |           |        |         |           |             |             |                  |
+| U |   0.615 |            |        |         |    1.330 |          |        |      5.010 |          |          |           |        |         |           |             |             |                  |
+| V |   3.930 |            |        |         |    1.335 |          |        |            |          |          |           |        |         |           |             |             |                  |
+| W |   9.990 |            |        |         |          |          |        |            |          |          |           |        |         |           |             |             |                  |
+| X |  15.975 |            |        |         |          |          |        |            |          |          |           |        |         |           |             |             |                  |
+| Y |   2.670 |            |        |         |          |          |        |            |          |          |           |        |         |           |             |             |                  |
+| Z |         |            |        |         |          |          |        |            |          |          |           |        |         |           |             |             |                  |
 
 ** Paths
 
@@ -194,93 +194,93 @@ lower left corner.
 ** Dimension Lines
 
 #+name: DimensionLines
-| label | path                                                              | offset  |
-|       | (point 0 of door[1])--(point 0 of garage)                         | (5,0)   |
-|       | (point 0 of door[2])--(point 3 of garage)                         | (10,0)  |
-|       | (point 1 of door[1])--(point 1 of door[2])                        | (5,0)   |
-|       | (point 0 of door[4])--(point 1 of door[4])                        | (0,-5)  |
-|       | (point 0 of garage)--(point 3 of garage)                          | (20,0)  |
-|       | (point 2 of garage)--(point 3 of garage)                          | (0,-20) |
-|       | (point 5 of kitchen)--(point 4 of kitchen)                        | (0,-15) |
-|       | (point 5 of kitchen)--(point 0 of door[4])                        | (0,-8)  |
-|       | (point 5 of kitchen)--((point 5 of kitchen) + (C,0))              | (0,-11) |
-|       | (point 0 of kitchen)--(point 1 of kitchen)                        | (0,8)   |
-|       | (point 1 of kitchen)--(point 2 of kitchen)                        | (7,0)   |
-|       | (point 3 of kitchen)--(point 4 of kitchen)                        | (-9,0)  |
-|       | (point 3 of kitchen)--(point 4 of kitchen)                        | (-9,0)  |
-|       | (point 0 of kitchen)--(point 5 of kitchen)                        | (15,0)  |
-|       | (point 2 of kitchen)--(point 0 of window[0])                      | (0,5)   |
-|       | (point 0 of window[0])--(point 1 of window[0])                    | (0,5)   |
-|       | (point 0 of window[1])--(point 1 of window[1])                    | (0,5)   |
-|       | (point 0 of window[2])--(point 1 of window[2])                    | (0,5)   |
-|       | (point 0 of door[8])--(point 1 of door[8])                        | (0,5)   |
-|       | (point 1 of window[1])--(point 0 of door[8])                      | (0,5)   |
-|       | (point 1 of window[0])--(point 0 of window[1])                    | (0,5)   |
-|       | (point 1 of window[2])--(point 1 of door[8])                      | (0,5)   |
-|       | (point 0 of livingroom)--(point 6 of livingroom)                  | (10,0)  |
-|       | (point 6 of livingroom)--(point 2 of livingroom)                  | (0,-15) |
-|       | (point 6 of livingroom)--((point 6 of livingroom)+(AE,0))         | (0,-20) |
-|       | (point 6 of livingroom)--((point 6 of livingroom)+(AF,0))         | (0,-25) |
-|       | (point 2 of livingroom)--((point 2 of livingroom)-(AI,0))         | (0,-25) |
-|       | (point 2 of livingroom)--((point 2 of livingroom)-(0,AJ))         | (15,0)  |
-|       | (point 1 of livingroom)--((point 1 of livingroom)+(0,AL))         | (-7,0)  |
-|       | (point 4 of livingroom)--(point 4 of livingroom + (0,-AM))        | (9,0)   |
-|       | (point 0 of entry)--(point 1 of entry)                            | (0,25)  |
-|       | (point 7 of entry)--(point 6 of entry)                            | (0,-15) |
-|       | (point 0 of door[5])--(point 1 of door[5])                        | (0,9)   |
-|       | (point 0 of door[9])--(point 1 of door[9])                        | (0,4)   |
-|       | (point 0 of door[10])--(point 1 of door[10])                      | (0,4)   |
-|       | (point 6 of entry)--(point 6 of entry + (0,-BO))                  | (-9,0)  |
-|       | (point 5 of entry)--(point 5 of entry + (0,-BK))                  | (0,0)   |
-|       | (point 5 of entry)--(point 5 of entry + (3.315ft,0))              | (0,-9)  |
-|       | (point 5 of entry + (0,1.220ft))--(point 5 of entry + (0,-BK))    | (-9,0)  |
-|       | (point 0 of door[11])--(point 1 of door[11])                      | (0,4)   |
-|       | (point 4 of entry)--(point 4 of entry + (3.365ft,0))              | (0,0)   |
-|       | (point 1 of entry)--(point 2 of entry)                            | (-9,0)  |
-| DL    | (point 0 of kitchenhallcloset)--(point 1 of kitchenhallcloset)    | (0,9)   |
-| DM    | (point 0 of kitchenhallcloset)--(point 3 of kitchenhallcloset)    | (9,0)   |
-| EI    | (point 0 of smallbed)--(point 1 of smallbed)                      | (0,9)   |
-|       | (point 4 of smallbed)--(point 5 of smallbed)                      | (0,-9)  |
-|       | (point 3 of smallbed)--(point 4 of smallbed)                      | (-9,0)  |
-| EM    | (point 6 of smallbed)--(point 7 of smallbed)                      | (0,-9)  |
-| EA    | (point 5 of smallbed)--(point 5 of smallbed + (0,-EA))            | (9,0)   |
-| FA    | (point 0 of southbed)--(point 1 of southbed)                      | (0,9)   |
-| FG    | (point 1 of southbed)--(point 2 of southbed)                      | (-9,0)  |
-|       | (point 0 of blueroom)--(point 1 of blueroom)                      | (0,9)   |
-|       | (point 1 of blueroom)--(point 2 of blueroom)                      | (-9,0)  |
-|       | (point 2 of blueroom)--(point 3 of blueroom)                      | (0,-9)  |
-|       | (point 3 of blueroom)--(point 4 of blueroom)                      | (9,0)   |
-|       | (point 0 of master)--(point 1 of master)                          | (0,9)   |
-|       | (point 1 of master)--(point 2 of master)                          | (-9,0)  |
-|       | (point 4 of master)--(point 5 of master)                          | (0,-9)  |
-|       | (point 0 of master)--(point 5 of master)                          | (9,0)   |
-|       | (point 3 of master)--(point 4 of master)                          | (-9,0)  |
-|       | (point 0 of entrycloset)--(point 3 of entrycloset)                | (9,0)   |
-|       | (point 0 of laundry + (0,DI+th))--(point 3 of laundry + (0,-DN))  | (9,0)   |
-|       | (point 4 of laundrybath)--(point 5 of laundrybath)                | (0,15)  |
-|       | (point 2 of laundrybath)--(point 3 of laundrybath)                | (0,15)  |
-|       | (point 1 of laundrybath)--(point 2 of laundrybath)                | (-9,0)  |
-|       | (point 0 of laundrybath)--(point 5 of laundrybath)                | (9,0)   |
-|       | (point 0 of laundrybath)--(point 1 of laundrybath)                | (0,9)   |
-|       | (point 2 of laundrybath + (0,th))--(point 2 of laundry)           | (-9,0)  |
-|       | (point 2 of laundry)--(point 2 of laundry + (-DB,0))              | (0,-9)  |
-|       | (point 1 of masterbathtoilet)--(point 2 of masterbathtoilet)      | (-9,0)  |
-|       | (point 0 of masterbathtoilet)--(point 1 of masterbathtoilet)      | (0,9)   |
-|       | (point 0 of masterbathsink)--(point 1 of masterbathsink)          | (0,9)   |
-|       | (point 1 of masterbathsink)--(point 2 of masterbathsink)          | (-9,0)  |
-|       | (point 2 of masterbathsink)--(point 3 of masterbathsink)          | (0,-9)  |
-|       | (point 3 of masterbathsink)--(point 4 of masterbathsink)          | (9,0)   |
-|       | (point 4 of masterbathsink)--(point 5 of masterbathsink)          | (0,-5)  |
-|       | (point 0 of masterbathcloset)--(point 1 of masterbathcloset)      | (0,9)   |
-|       | (point 1 of masterbathcloset)--(point 2 of masterbathcloset)      | (-9,0)  |
-|       | (point 3 of hallbath)--(point 4 of hallbath)                      | (-9,0)  |
-|       | (point 1 of hallbath)--(point 2 of hallbath)                      | (9,0)   |
-|       | (point 0 of hallbath)--(point 1 of hallbath)                      | (0,5)   |
-|       | (point 5 of hallbath)--(point 6 of hallbath)                      | (40,0)  |
-|       | (point 0 of hallbathcloset)--(point 3 of hallbathcloset)          | (9,0)   |
-|       | (point 0 of hallbathcloset)--(point 1 of hallbathcloset)          | (0,5)   |
-|       | (point 1 of garage)--(point 1 of garage + (0,LQ))                 | (-9,0)  |
-|       | (point 1 of garage + (0,LQ))--(point 1 of garage + (0,K-J+th+AD)) | (-9,0)  |
+| label | path                                                                 | offset  |
+|       | (point 0 of door[1])--(point 0 of garage)                            | (5,0)   |
+|       | (point 0 of door[2])--(point 3 of garage)                            | (10,0)  |
+|       | (point 1 of door[1])--(point 1 of door[2])                           | (5,0)   |
+|       | (point 0 of door[4])--(point 1 of door[4])                           | (0,-5)  |
+|       | (point 0 of garage)--(point 3 of garage)                             | (20,0)  |
+|       | (point 2 of garage)--(point 3 of garage)                             | (0,-20) |
+|       | (point 5 of kitchen)--(point 4 of kitchen)                           | (0,-15) |
+|       | (point 5 of kitchen)--(point 0 of door[4])                           | (0,-8)  |
+|       | (point 5 of kitchen)--((point 5 of kitchen) + (C,0))                 | (0,-11) |
+|       | (point 0 of kitchen)--(point 1 of kitchen)                           | (0,8)   |
+|       | (point 1 of kitchen)--(point 2 of kitchen)                           | (7,0)   |
+|       | (point 3 of kitchen)--(point 4 of kitchen)                           | (-9,0)  |
+|       | (point 3 of kitchen)--(point 4 of kitchen)                           | (-9,0)  |
+|       | (point 0 of kitchen)--(point 5 of kitchen)                           | (15,0)  |
+|       | (point 2 of kitchen)--(point 0 of window[0])                         | (0,5)   |
+|       | (point 0 of window[0])--(point 1 of window[0])                       | (0,5)   |
+|       | (point 0 of window[1])--(point 1 of window[1])                       | (0,5)   |
+|       | (point 0 of window[2])--(point 1 of window[2])                       | (0,5)   |
+|       | (point 0 of door[8])--(point 1 of door[8])                           | (0,5)   |
+|       | (point 1 of window[1])--(point 0 of door[8])                         | (0,5)   |
+|       | (point 1 of window[0])--(point 0 of window[1])                       | (0,5)   |
+|       | (point 1 of window[2])--(point 1 of door[8])                         | (0,5)   |
+|       | (point 0 of livingroom)--(point 6 of livingroom)                     | (10,0)  |
+|       | (point 6 of livingroom)--(point 2 of livingroom)                     | (0,-15) |
+|       | (point 6 of livingroom)--((point 6 of livingroom)+(AE,0))            | (0,-20) |
+|       | (point 6 of livingroom)--((point 6 of livingroom)+(AF,0))            | (0,-25) |
+|       | (point 2 of livingroom)--((point 2 of livingroom)-(AI,0))            | (0,-25) |
+|       | (point 2 of livingroom)--((point 2 of livingroom)-(0,AJ))            | (15,0)  |
+|       | (point 1 of livingroom)--((point 1 of livingroom)+(0,AL))            | (-7,0)  |
+|       | (point 4 of livingroom)--(point 4 of livingroom + (0,-AM))           | (9,0)   |
+|       | (point 0 of entry)--(point 1 of entry)                               | (0,25)  |
+|       | (point 7 of entry)--(point 6 of entry)                               | (0,-15) |
+|       | (point 0 of door[5])--(point 1 of door[5])                           | (0,9)   |
+|       | (point 0 of door[9])--(point 1 of door[9])                           | (0,4)   |
+|       | (point 0 of door[10])--(point 1 of door[10])                         | (0,4)   |
+|       | (point 6 of entry)--(point 6 of entry + (0,-BO))                     | (-9,0)  |
+|       | (point 5 of entry)--(point 5 of entry + (0,-BK))                     | (0,0)   |
+|       | (point 5 of entry)--(point 5 of entry + (3.315ft,0))                 | (0,-9)  |
+|       | (point 5 of entry + (0,1.220ft))--(point 5 of entry + (0,-BK))       | (-9,0)  |
+|       | (point 0 of door[11])--(point 1 of door[11])                         | (0,4)   |
+|       | (point 4 of entry)--(point 4 of entry + (3.365ft,0))                 | (0,0)   |
+|       | (point 1 of entry)--(point 2 of entry)                               | (-9,0)  |
+| DL    | (point 0 of kitchenhallcloset)--(point 1 of kitchenhallcloset)       | (0,9)   |
+| DM    | (point 0 of kitchenhallcloset)--(point 3 of kitchenhallcloset)       | (9,0)   |
+| EI    | (point 0 of smallbed)--(point 1 of smallbed)                         | (0,9)   |
+|       | (point 4 of smallbed)--(point 5 of smallbed)                         | (0,-9)  |
+|       | (point 3 of smallbed)--(point 4 of smallbed)                         | (-9,0)  |
+| EM    | (point 6 of smallbed)--(point 7 of smallbed)                         | (0,-9)  |
+| EA    | (point 5 of smallbed)--(point 5 of smallbed + (0,-EA))               | (9,0)   |
+| FA    | (point 0 of southbed)--(point 1 of southbed)                         | (0,9)   |
+| FG    | (point 1 of southbed)--(point 2 of southbed)                         | (-9,0)  |
+|       | (point 0 of blueroom)--(point 1 of blueroom)                         | (0,9)   |
+|       | (point 1 of blueroom)--(point 2 of blueroom)                         | (-9,0)  |
+|       | (point 2 of blueroom)--(point 3 of blueroom)                         | (0,-9)  |
+|       | (point 3 of blueroom)--(point 4 of blueroom)                         | (9,0)   |
+|       | (point 0 of master)--(point 1 of master)                             | (0,9)   |
+|       | (point 1 of master)--(point 2 of master)                             | (-9,0)  |
+|       | (point 4 of master)--(point 5 of master)                             | (0,-9)  |
+|       | (point 0 of master)--(point 5 of master)                             | (9,0)   |
+|       | (point 3 of master)--(point 4 of master)                             | (-9,0)  |
+|       | (point 0 of entrycloset)--(point 3 of entrycloset)                   | (9,0)   |
+|       | (point 0 of laundry + (0,DI+th))--(point 3 of laundry + (0,-DN))     | (9,0)   |
+|       | (point 4 of laundrybath)--(point 5 of laundrybath)                   | (0,15)  |
+|       | (point 2 of laundrybath)--(point 3 of laundrybath)                   | (0,15)  |
+|       | (point 1 of laundrybath)--(point 2 of laundrybath)                   | (-9,0)  |
+|       | (point 0 of laundrybath)--(point 5 of laundrybath)                   | (9,0)   |
+|       | (point 0 of laundrybath)--(point 1 of laundrybath)                   | (0,9)   |
+|       | (point 2 of laundrybath + (0,th))--(point 2 of laundry)              | (-9,0)  |
+|       | (point 2 of laundry)--(point 2 of laundry + (-DB,0))                 | (0,-9)  |
+|       | (point 1 of masterbathtoilet)--(point 2 of masterbathtoilet)         | (-9,0)  |
+|       | (point 0 of masterbathtoilet)--(point 1 of masterbathtoilet)         | (0,9)   |
+|       | (point 0 of masterbathsink)--(point 1 of masterbathsink)             | (0,9)   |
+|       | (point 1 of masterbathsink)--(point 2 of masterbathsink)             | (-9,0)  |
+|       | (point 2 of masterbathsink)--(point 3 of masterbathsink)             | (0,-9)  |
+|       | (point 3 of masterbathsink)--(point 4 of masterbathsink)             | (9,0)   |
+|       | (point 4 of masterbathsink)--(point 5 of masterbathsink)             | (0,-5)  |
+|       | (point 0 of masterbathcloset)--(point 1 of masterbathcloset)         | (0,9)   |
+|       | (point 1 of masterbathcloset)--(point 2 of masterbathcloset)         | (-9,0)  |
+|       | (point 3 of hallbath)--(point 4 of hallbath)                         | (-9,0)  |
+|       | (point 1 of hallbath)--(point 2 of hallbath)                         | (9,0)   |
+|       | (point 0 of hallbath)--(point 1 of hallbath)                         | (0,5)   |
+|       | (point 5 of hallbath)--(point 6 of hallbath)                         | (40,0)  |
+|       | (point 0 of hallbathcloset)--(point 3 of hallbathcloset)             | (9,0)   |
+|       | (point 0 of hallbathcloset)--(point 1 of hallbathcloset)             | (0,5)   |
+|       | (point 1 of garage + (0,QG+QH))--(point 1 of garage + (0,K-J+th+AD)) | (-9,0)  |
+|       | (point 0 of livingroom)--(point 0 of livingroom + (0,4.1ft))         | (4,0)   |
 
 * Python
 
@@ -532,10 +532,24 @@ electrican panel, etc.
 
 #+name: utilitylabels
 #+begin_src metapost
-dotlabel.lft(btex \dim water service entrance etex, (LB-0.4ft,LQ));
-dotlabel.lft(btex \dim electrical panel etex, (LB-0.4ft,LP));
 dotlabel.rt(btex \dim electrical service entrance etex, (7.315ft,-.7ft));
 dotlabel.rt(btex \dim proposed thermostat location etex, (point 4 of kitchen shifted (-6ft,-.5ft)));
+
+path electricalpanel;
+electricalpanel := (0,0)--(.2ft,0)--(.2ft,QB)--(0,QB)--cycle;
+electricalpanel := electricalpanel shifted (point 1 of garage + (-.2ft,QA));
+fill electricalpanel withcolor .7 blue;
+
+path hvacstack;
+hvacstack := (0,0)--(2est,0)--(2est,QE-QD)--(0,QE-QD)--cycle;
+hvacstack := hvacstack shifted (point 1 of garage + (-2est,QD));
+fill hvacstack withcolor transparent(1,.5,blue);
+
+path waterservice;
+waterservice := (0,0)--(.2ft,0)--(.2ft,QH)--(0,QH)--cycle;
+waterservice := waterservice shifted (point 1 of garage + (-.2ft,QG));
+fill waterservice withcolor .7 blue;
+
 #+end_src
 
 ** Fireplace Stuff
