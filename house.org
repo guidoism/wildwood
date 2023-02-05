@@ -41,16 +41,16 @@ layed on in Metapost.
 | I |   0.330 |      5.690 | 15.470 |   4.890 |   11.955 |    4.370 |  1.040 |      4.465 |    2.260 |    5.895 |           |  3.380 |   2.590 |           |         4.1 |       2.385 |            1.480 |
 | J |  12.525 |      4.435 |  3.365 |   3.025 |    3.740 |    4.115 |  2.340 |      0.790 |    2.010 |    7.025 |     0.555 |  3.380 |  11.055 |           |       2.595 |       2.595 |           10.735 |
 | K |  15.975 |      6.040 |  3.985 |   2.840 |    1.800 |    3.405 |  0.825 |      1.245 |    2.530 |    0.560 |           |  3.640 |   3.540 |           |       8.745 |       5.040 |            9.645 |
-| L |   2.155 |      4.385 |  6.900 |   2.250 |    6.655 |    2.450 | 15.975 |      5.440 |          |    0.565 |     0.590 |  3.780 |   2.935 |           |       1.895 |      20.690 |            3.010 |
-| M |   7.950 |      1.475 |  1.220 |   2.615 |    2.315 |    0.610 | 12.690 |      2.000 |          |    2.485 |     9.420 | 12.180 |   8.205 |           |       2.110 |      10.575 |            4.565 |
+| L |   2.155 |      4.385 |  6.900 |   2.250 |    6.655 |    2.450 | 15.975 |      5.440 | HT-HE+HU |    0.565 |     0.590 |  3.780 |   2.935 |           |       1.895 |      20.690 |            3.010 |
+| M |   7.950 |      1.475 |  1.220 |   2.615 |    2.315 |    0.610 | 12.690 |      2.000 |    HK+th |    2.485 |     9.420 | 12.180 |   8.205 |           |       2.110 |      10.575 |            4.565 |
 | N |  10.920 |     38.520 |  4.900 |   3.060 |    2.450 |          |  6.715 |     12.235 |    0.745 |   13.260 |           |  0.570 |   6.160 |    15.110 |             |             |            5.490 |
 | O |  15.855 |            |  4.740 |   1.130 |    0.910 |          |  0.785 |      3.020 |    1.915 |          |           |  2.670 |   2.935 |           |             |             |            4.080 |
 | P |  17.110 |            |  6.400 |   2.930 |   10.590 |          | ℮ 4/12 |      4.880 |          |          |           |  5.395 |         |    10.615 |             |             |            4.270 |
 | Q |  22.905 |            |  3.315 |         |    3.905 |          | ℮ 8/12 |      6.830 |    2.425 |          |           | 15.485 |   5.615 |     3.030 |             |             |            8.500 |
 | R |  24.460 |            |  2.400 |         |    3.365 |          |  3.785 |      0.825 |    6.240 |          |           |  2.850 |         |    10.020 |             |             |            0.500 |
-| S |   1.355 |            |        |         |    4.885 |          |  7.560 |      3.700 | HT-HE-HI |          |           |  2.600 |         |           |             |             |                  |
-| T |  10.500 |            |        |         |    7.510 |          |  8.005 |     ℮ 4/12 | HF+HH+HG |          |           |        |         |           |             |             |                  |
-| U |   0.615 |            |        |         |    1.330 |          |        |      5.010 |          |          |           |        |         |           |             |             |                  |
+| S |   1.355 |            |        |         |    4.885 |          |  7.560 |      3.700 | HL+HQ+HP |          |           |  2.600 |         |           |             |             |                  |
+| T |  10.500 |            |        |         |    7.510 |          |  8.005 |     ℮ 4/12 |    7.245 |          |           |        |         |           |             |             |                  |
+| U |   0.615 |            |        |         |    1.330 |          |        |      5.010 |    1.220 |          |           |        |         |           |             |             |                  |
 | V |   3.930 |            |        |         |    1.335 |          |        |            |          |          |           |        |         |           |             |             |                  |
 | W |   9.990 |            |        |         |          |          |        |            |          |          |           |        |         |           |             |             |                  |
 | X |  15.975 |            |        |         |          |          |        |            |          |          |           |        |         |           |             |             |                  |
@@ -74,35 +74,41 @@ I may change this to optionally allow turtle-style paths since they
 are more natural to define.
 
 #+name: Paths
-| Room              | Path                                                                                                                        |
-| garage            | (0,0)--(LB,0)--(LB,LA)--(0,LA)--cycle                                                                                       |
-| livingroom        | (0,0)--(AN,0)--(AN,AD)--(AN-AI,AD)..(AN-AI-AH/2,AD+AM)..(AN-AI-AH,AD)--(0,AD)--cycle                                        |
-| kitchen           | (0,0)--(E,0)--(E,-J)--(D,-J)--(D,K-J)--(0,K-J)--cycle                                                                       |
-| blueroom          | (0,0)--(IB,0)--(IB,IA)--(IH,IA)--(IH,IN)--(0,IN)--cycle                                                                     |
-| master            | (0,0)--(JD,0)--(JD,JA)--(JD-JM,JA)--(JD-JM,JL)--(0,JL)--cycle                                                               |
-| masterclosetwest  | (0,0)--(JH,0)--(JH,JT)--(0,JT)--cycle                                                                                       |
-| mastercloseteast  | (0,0)--(JH,0)--(JH,JS)--(0,JS)--cycle                                                                                       |
-| entry             | (0,0)--(BB,0)--(BB,BI)--(BB-BJ,BI)--(BB-BJ,BK)--(BL,BK)--(BL,AD)--(0,AD)--cycle                                             |
-| laundrybath       | (0,0)--(DD,0)--(DD,DJ)--(DD-DH,DJ)--(DG,DI)--(0,DI)--cycle                                                                  |
-| laundry           | (0,0)--(DD,0)--(DD,J-th)--(0,J-th)--cycle                                                                                   |
-| kitchenhallcloset | (0,0)--(DL,0)--(DL,DM)--(0,DM)--cycle                                                                                       |
-| smallbed          | (0,0)--(EI,0)--(EI,EF)--(EI+EO,EF)--(EI+EO,EA)--(EM,EA)--(EM,EC)--(0,EC)--cycle                                             |
-| smallbedcloset    | (0,0)--(ET,0)--(ET,EN)--(0,EN)--cycle                                                                                       |
-| southbed          | (0,0)--(FA,0)--(FA,FG)--(0,FG)--cycle                                                                                       |
-| southbedcloset    | (0,0)--(FL,0)--(FL,FF)--(0,FF)--cycle                                                                                       |
-| entrycloset       | (0,0)--(1.8est,0)--(1.8est,6.400ft)--(0,6.4000ft)--cycle                                                                    |
-| southhallcloset   | (0,0)--(KG,0)--(KG,KF)--(0,KF)--cycle                                                                                       |
-| masterbathsink    | (0,0)--(GE,0)--(GE,GH)--(GF,GH)--(GF,GA)--(0,GA)--cycle                                                                     |
-| masterbathcloset  | (0,0)--(GM,0)--(GM,GL)--(0,GL)--cycle                                                                                       |
-| masterbathtoilet  | (0,0)--(GP,0)--(GP,GQ)--(0,GQ)--cycle                                                                                       |
+| Room              | Path                                                                                                             |
+| garage            | (0,0)--(LB,0)--(LB,LA)--(0,LA)--cycle                                                                            |
+| livingroom        | (0,0)--(AN,0)--(AN,AD)--(AN-AI,AD)..(AN-AI-AH/2,AD+AM)..(AN-AI-AH,AD)--(0,AD)--cycle                             |
+| kitchen           | (0,0)--(E,0)--(E,-J)--(D,-J)--(D,K-J)--(0,K-J)--cycle                                                            |
+| blueroom          | (0,0)--(IB,0)--(IB,IA)--(IH,IA)--(IH,IN)--(0,IN)--cycle                                                          |
+| master            | (0,0)--(JD,0)--(JD,JA)--(JD-JM,JA)--(JD-JM,JL)--(0,JL)--cycle                                                    |
+| masterclosetwest  | (0,0)--(JH,0)--(JH,JT)--(0,JT)--cycle                                                                            |
+| mastercloseteast  | (0,0)--(JH,0)--(JH,JS)--(0,JS)--cycle                                                                            |
+| entry             | (0,0)--(BB,0)--(BB,BI)--(BB-BJ,BI)--(BB-BJ,BK)--(BL,BK)--(BL,AD)--(0,AD)--cycle                                  |
+| laundrybath       | (0,0)--(DD,0)--(DD,DJ)--(DD-DH,DJ)--(DG,DI)--(0,DI)--cycle                                                       |
+| laundry           | (0,0)--(DD,0)--(DD,J-th)--(0,J-th)--cycle                                                                        |
+| kitchenhallcloset | (0,0)--(DL,0)--(DL,DM)--(0,DM)--cycle                                                                            |
+| smallbed          | (0,0)--(EI,0)--(EI,EF)--(EI+EO,EF)--(EI+EO,EA)--(EM,EA)--(EM,EC)--(0,EC)--cycle                                  |
+| smallbedcloset    | (0,0)--(ET,0)--(ET,EN)--(0,EN)--cycle                                                                            |
+| southbed          | (0,0)--(FA,0)--(FA,FG)--(0,FG)--cycle                                                                            |
+| southbedcloset    | (0,0)--(FL,0)--(FL,FF)--(0,FF)--cycle                                                                            |
+| entrycloset       | (0,0)--(1.8est,0)--(1.8est,6.400ft)--(0,6.4000ft)--cycle                                                         |
+| southhallcloset   | (0,0)--(KG,0)--(KG,KF)--(0,KF)--cycle                                                                            |
+| masterbathsink    | (0,0)--(GE,0)--(GE,GH)--(GF,GH)--(GF,GA)--(0,GA)--cycle                                                          |
+| masterbathcloset  | (0,0)--(GM,0)--(GM,GL)--(0,GL)--cycle                                                                            |
+| masterbathtoilet  | (0,0)--(GP,0)--(GP,GQ)--(0,GQ)--cycle                                                                            |
+| hallbathcloset    | (0,0)--(HK,0)--(HK,HJ)--(0,HJ)--cycle                                                                            |
+| recroom           | (0,0)--(MA,0)--(MA,MB)--(MD+MF,MB)--(MD+MF,MC)--(MD,MC)--(MD,MB)--(0,MB)--cycle                                  |
+| chimneyroom       | (0,0)--(NA,0)--(NA,NB)--(0,NB)--cycle                                                                            |
+| garageattic       | (0,0)--(OB,0)--(OB,OK)--(OB+OI,OK)--(OB+OI,OK+OJ)--(OB,OK+OJ)--(OB,OA)--(0,OA)--cycle                            |
 | hallbath          | (0,0)--(GE+th,0)--(GE+th,-2.1est)--(FA,-2.1est)--(FA,5.5est)--(HK+th,5.5est)--(HK+th,5.5est-HJ-th)--(0,5.5est-HJ-th)--cycle |
-| hallbathcloset    | (0,0)--(HK,0)--(HK,HJ)--(0,HJ)--cycle                                                                                       |
-| recroom           | (0,0)--(MA,0)--(MA,MB)--(MD+MF,MB)--(MD+MF,MC)--(MD,MC)--(MD,MB)--(0,MB)--cycle                                             |
-| chimneyroom       | (0,0)--(NA,0)--(NA,NB)--(0,NB)--cycle                                                                                       |
-| garageattic       | (0,0)--(OB,0)--(OB,OK)--(OB+OI,OK)--(OB+OI,OK+OJ)--(OB,OK+OJ)--(OB,OA)--(0,OA)--cycle                                       |
+
+
+
 
 TODO: Add relative positions
 | trollroom         | (0,0)--(PO,0)--(PO,-PL)--(PS+PR,-PL)--(PS+PR,-PL+PT)--(PB,-PL+PT)--(PB,PN)--(0,PN)--cycle                                         |
+| hallbath          | (0,0)--(HB,0)--(HB,HU)--(HB,HU-HE)--(HA,HU-HE)--(HA,HU-HE+HT)--(HM+HO+HN,HU-HE+HT)--(HM+HO+HN,HS)--(0,HS)--cycle |
+
+works:
 
 ** Relative Positions
 
