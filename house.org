@@ -117,33 +117,33 @@ example room 1's upper right corner might be the same as Room 2's
 lower left corner.
 
 #+name: Positions
-| name              | horizontal position                                                  | floor level |
-| garage            | (0,0)                                                                |           1 |
-| livingroom        | lrcorner garage + (th,(K-J)+th)                                      |           1 |
-| kitchen           | lrcorner garage + (th,0)                                             |           1 |
-| entry             | lrcorner livingroom + (th,0)                                         |           1 |
-| smallbed          | point 6 of entry + (th,-EC)                                          |           1 |
-| smallbedcloset    | point 1 of smallbed + (-ER-ES-EV,-EN-th)                             |           1 |
-| southbed          | point 2 of entry + (th,-FH-FM-th-1)                                  |           1 |
-| southbedcloset    | point 3 of smallbed + (th,0)                                         |           1 |
-| entrycloset       | point 5 of entry + (th,th)                                           |           1 |
-| blueroom          | lrcorner kitchen + (th,0)                                            |           1 |
-| master            | point 1 of entry + (-JR,-X-th)                                       |           1 |
-| masterclosetwest  | point 0 of master + (-JH-th,0)                                       |           1 |
-| mastercloseteast  | point 0 of master + (-JH-th,JT+th)                                   |           1 |
-| southhallcloset   | point 4 of entry + (-KG-th,KB+KC+KJ+th)                              |           1 |
-| masterbathsink    | point 3 of master + (th,th)                                          |           1 |
-| masterbathcloset  | point 3 of master + (th,GA+th+th)                                    |           1 |
-| masterbathtoilet  | point 3 of master + (th+GE+th,th)                                    |           1 |
-| hallbath          | point 3 of masterbathcloset + (0,th)                                 |           1 |
-| hallbathcloset    | point 5 of hallbath + (-HK-th,-HJ)                                   |           1 |
-| recroom           | (xpart point 1 of master - MA, ypart point 0 of smallbedcloset - MC) |           2 |
-| chimneyroom       | point 0 of recroom + (-NA,0)                                         |           2 |
-| garageattic       | (0,0)                                                                |           2 |
-| laundry           | lrcorner garage + (th,-J)                                            |           1 |
-| laurellaundry     | lrcorner garage + (th,-J)                                            |           1 |
-| kitchenhallcloset | lrcorner garage + (th,-DM-th)                                        |           1 |
-| laundrybath       | lrcorner garage + (th,-J)                                            |           1 |
+| name              | horizontal position                                                  | floor level |        |
+| garage            | (0,0)                                                                |           1 |        |
+| livingroom        | lrcorner garage + (th,(K-J)+th)                                      |           1 |        |
+| kitchen           | lrcorner garage + (th,0)                                             |           1 |        |
+| entry             | lrcorner livingroom + (th,0)                                         |           1 |        |
+| smallbed          | point 6 of entry + (th,-EC)                                          |           1 |        |
+| smallbedcloset    | point 1 of smallbed + (-ER-ES-EV,-EN-th)                             |           1 |        |
+| southbed          | point 2 of entry + (th,-FH-FM-th-1)                                  |           1 |        |
+| southbedcloset    | point 3 of smallbed + (th,0)                                         |           1 |        |
+| entrycloset       | point 5 of entry + (th,th)                                           |           1 |        |
+| blueroom          | lrcorner kitchen + (th,0)                                            |           1 |        |
+| master            | point 1 of entry + (-JR,-X-th)                                       |           1 |        |
+| masterclosetwest  | point 0 of master + (-JH-th,0)                                       |           1 |        |
+| mastercloseteast  | point 0 of master + (-JH-th,JT+th)                                   |           1 |        |
+| southhallcloset   | point 4 of entry + (-KG-th,KB+KC+KJ+th)                              |           1 |        |
+| masterbathsink    | point 3 of master + (th,th)                                          |           1 |        |
+| masterbathcloset  | point 3 of master + (th,GA+th+th)                                    |           1 |        |
+| masterbathtoilet  | point 3 of master + (th+GE+th,th)                                    |           1 |        |
+| hallbath          | point 3 of masterbathcloset + (0,th)                                 |           1 |        |
+| hallbathcloset    | point 5 of hallbath + (-HK-th,-HJ)                                   |           1 |        |
+| recroom           | (xpart point 1 of master - MA, ypart point 0 of smallbedcloset - MC) |           2 |        |
+| chimneyroom       | point 0 of recroom + (-NA,0)                                         |           2 |        |
+| garageattic       | (0,0)                                                                |           2 |        |
+| laundry           | lrcorner garage + (th,-J)                                            |           1 | remove |
+| laurellaundry     | lrcorner garage + (th,-J)                                            |           1 | add    |
+| kitchenhallcloset | lrcorner garage + (th,-DM-th)                                        |           1 | remove |
+| laundrybath       | lrcorner garage + (th,-J)                                            |           1 | remove |
 
 
 ** Doors
@@ -325,7 +325,7 @@ print()
 print('\n'.join(f'{k} := {v};' for k, v in paths))
 print()
 positions = positions[1:]
-print('\n'.join(f'{k} := {k} shifted ({v});' for k, v, level in positions))
+print('\n'.join(f'{k} := {k} shifted ({v});' for k, v, level, laurel in positions))
 #+end_src
 
 ** Draw the walls, doors, and windows
@@ -334,7 +334,7 @@ print('\n'.join(f'{k} := {k} shifted ({v});' for k, v, level in positions))
 #+begin_src python :var paths=Paths :var positions=Positions :results output :var level=1
 paths = paths[1:]
 paths = list(zip(*paths))[0]
-roomlevel = {k: v for k,_,v, in positions[1:]}
+roomlevel = {name: level for name,_,level,laurel in positions[1:]}
 
 if level == 1:
     print("""
@@ -361,7 +361,7 @@ print('\n'.join((f'draw {s} {color};' for s in paths if roomlevel.get(s) == leve
 #+end_src
 
 #+name: drawdoors
-#+begin_src python :var doors=Doors :var positions=Positions :results output :var level=1
+#+begin_src python :var doors=Doors :results output :var level=1
 print("""
 path door[];
 def drawdoor (expr direction, outdirection, start, offset, width, i) =
@@ -379,7 +379,7 @@ for i, name, direction, outdir, start, offset, width in doors:
 #+end_src
 
 #+name: drawwindows
-#+begin_src python :var windows=Windows :var positions=Positions :results output :var level=1
+#+begin_src python :var windows=Windows :results output :var level=1
 print("""
 path window[];
 
