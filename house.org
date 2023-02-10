@@ -4,6 +4,7 @@
 - [ ] Missing: Laundry bath window
 - [ ] Add: pics of each room seperately zoomed in
 - [ ] Add: Seperate layers for each floor in PDF
+- [ ] Fix: Bump out wall in south hall bathroom near tub
 
 * Tables
 ** Measurements
@@ -85,6 +86,7 @@ are more natural to define.
 | entry             | (0,0)--(BB,0)--(BB,BI)--(BB-BJ,BI)--(BB-BJ,BK)--(BL,BK)--(BL,AD)--(0,AD)--cycle                                  |
 | laundrybath       | (0,0)--(DD,0)--(DD,DJ)--(DD-DH,DJ)--(DG,DI)--(0,DI)--cycle                                                       |
 | laundry           | (0,0)--(DD,0)--(DD,J-th)--(0,J-th)--cycle                                                                        |
+| laurellaundry     | (0,0)--(DD,0)--(DD,K)--(0,K)--cycle
 | kitchenhallcloset | (0,0)--(DL,0)--(DL,DM)--(0,DM)--cycle                                                                            |
 | smallbed          | (0,0)--(EI,0)--(EI,EF)--(EI+EO,EF)--(EI+EO,EA)--(EM,EA)--(EM,EC)--(0,EC)--cycle                                  |
 | smallbedcloset    | (0,0)--(ET,0)--(ET,EN)--(0,EN)--cycle                                                                            |
@@ -100,8 +102,6 @@ are more natural to define.
 | chimneyroom       | (0,0)--(NA,0)--(NA,NB)--(0,NB)--cycle                                                                            |
 | garageattic       | (0,0)--(OB,0)--(OB,OK)--(OB+OI,OK)--(OB+OI,OK+OJ)--(OB,OK+OJ)--(OB,OA)--(0,OA)--cycle                            |
 | hallbath          | (0,0)--(GE+th,0)--(GE+th,-2.1est)--(FA,-2.1est)--(FA,5.5est)--(HK+th,5.5est)--(HK+th,5.5est-HJ-th)--(0,5.5est-HJ-th)--cycle |
-
-
 
 
 TODO: Add relative positions
@@ -122,9 +122,6 @@ lower left corner.
 | livingroom        | lrcorner garage + (th,(K-J)+th)                                      |           1 |
 | kitchen           | lrcorner garage + (th,0)                                             |           1 |
 | entry             | lrcorner livingroom + (th,0)                                         |           1 |
-| laundry           | lrcorner garage + (th,-J)                                            |           1 |
-| laundrybath       | lrcorner garage + (th,-J)                                            |           1 |
-| kitchenhallcloset | lrcorner garage + (th,-DM-th)                                        |           1 |
 | smallbed          | point 6 of entry + (th,-EC)                                          |           1 |
 | smallbedcloset    | point 1 of smallbed + (-ER-ES-EV,-EN-th)                             |           1 |
 | southbed          | point 2 of entry + (th,-FH-FM-th-1)                                  |           1 |
@@ -143,6 +140,12 @@ lower left corner.
 | recroom           | (xpart point 1 of master - MA, ypart point 0 of smallbedcloset - MC) |           2 |
 | chimneyroom       | point 0 of recroom + (-NA,0)                                         |           2 |
 | garageattic       | (0,0)                                                                |           2 |
+| laundry           | lrcorner garage + (th,-J)                                            |           1 |
+| laurellaundry     | lrcorner garage + (th,-J)                                            |           1 |
+| kitchenhallcloset | lrcorner garage + (th,-DM-th)                                        |           1 |
+| laundrybath       | lrcorner garage + (th,-J)                                            |           1 |
+
+
 ** Doors
 
 #+name: Doors
@@ -196,7 +199,7 @@ lower left corner.
 | 13 |                                | right      | up      | point 3 of garage           | LL     | LI       |
 | 14 |                                | left       | up      | point 2 of garage           | LK     | LJ       |
 | 15 |                                | right      | down    | point 0 of blueroom         | ID     | IB-IC-ID |
-| 16 | "Laundry room bathroom window" | right      | down    | point 0 of laundrybath      | DO     | DP       |
+| 16 | "Laundry room bathroom window" | right      | down    | point 0 of laundry          | DO     | DP       |
 
 ** Dimension Lines
 
@@ -331,7 +334,7 @@ print('\n'.join(f'{k} := {k} shifted ({v});' for k, v, level in positions))
 #+begin_src python :var paths=Paths :var positions=Positions :results output :var level=1
 paths = paths[1:]
 paths = list(zip(*paths))[0]
-roomlevel = {k: v for k,_,v in positions[1:]}
+roomlevel = {k: v for k,_,v, in positions[1:]}
 
 if level == 1:
     print("""
@@ -342,8 +345,13 @@ def drawwall (expr p, thickness) =
   % fill p withcolor background withtransparency ("normal", 1);
 enddef;
 """)
-upstairs = {'recroom'}
-#print('\n'.join((f'drawwall({s}, th);' for s in paths)))
+
+#remove_for_laurel = {'kitchenhallcloset', 'laundrybath'}
+#if True:
+#    paths = [p for p in paths if p not in remove_for_laurel]
+#else:
+#    paths = [p for p in paths if p not in {'laurellaundry'}]
+    
 if level == 1:
     print('\n'.join((f'drawwall({s}, th);' for s in paths if roomlevel.get(s) == level)))
     print()
@@ -451,6 +459,8 @@ for label, p, offset in dims:
 \setuppagenumbering[location=]
 \bahnlight
 \startMPcode{decimalfun}
+  boolean laurel;
+  laurel := false;
   input TEX;
   linecap := butt;
   linejoin := mitered;
@@ -461,21 +471,27 @@ for label, p, offset in dims:
   
   <<drawwalls()>>
   <<drawdoors()>>
-  <<drawwindows()>> 
+  <<drawwindows()>>
+
+  if laurel:
+    <<grid>>
+  fi;
+  
   <<fireplacestuff>>
 
-  <<ruler>>
-  <<drawdimensions()>>
-  <<outsidewalls>>
-  <<utilitylabels>>
-  <<drawwalls(level=2)>>
-  <<atticchimney>>
+  if not laurel:
+    <<ruler>>
+    <<drawdimensions()>>
+    <<outsidewalls>>
+    <<utilitylabels>>
+    <<drawwalls(level=2)>>
+    <<atticchimney>>
+  fi;
   
 \stopMPcode
 \stoptext
 #+end_src
 
-  <<grid>>
 
 
 
