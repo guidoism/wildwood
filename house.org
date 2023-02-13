@@ -5,6 +5,10 @@
 - [ ] Add: pics of each room seperately zoomed in
 - [ ] Add: Seperate layers for each floor in PDF
 - [ ] Fix: Bump out wall in south hall bathroom near tub
+- [ ] Get: Height of bulkhead in kitchen
+- [ ] Get: Fireplace thingy in family room that you can sit on
+- [ ] Map the electrican circuits using lights
+- [ ] Confirm in person 33" sink centered on window + dishwasher on left + full width of counter to window edge
 
 * Tables
 ** Measurements
@@ -148,9 +152,10 @@ lower left corner.
 
 ** Doors
 
+|  0 | "Garage to family"           | up       | right   | point 1 of garage           | LN               | LO           |
+
 #+name: Doors
 | id | name                         | door dir | out dir | starting point              | offset           | width        |
-|  0 | "Garage to family"           | up       | right   | point 1 of garage           | LN               | LO           |
 |  1 | "West garage door"           | up       | left    | point 0 of garage           | LL               | LF-LL        |
 |  2 | "East garage door"           | down     | left    | point 3 of garage           | LE               | LG-LE        |
 |  3 | "Living room to front entry" | up       | right   | point 1 of livingroom       | 49               | 72           |
@@ -334,7 +339,14 @@ print('\n'.join(f'{k} := {k} shifted ({v});' for k, v, level, laurel in position
 #+begin_src python :var paths=Paths :var positions=Positions :results output :var level=1
 paths = paths[1:]
 paths = list(zip(*paths))[0]
-roomlevel = {name: level for name,_,level,laurel in positions[1:]}
+roomlevel = {name: level for name,_,level,_ in positions[1:]}
+laurel_cmd = {name: laurel for name,_,_,laurel in positions[1:]}
+
+laurel = True
+if laurel:
+    paths = [p for p in paths if laurel_cmd.get(p) != 'remove']
+else:
+    paths = [p for p in paths if laurel_cmd.get(p) != 'add']
 
 if level == 1:
     print("""
@@ -345,19 +357,15 @@ def drawwall (expr p, thickness) =
   % fill p withcolor background withtransparency ("normal", 1);
 enddef;
 """)
-
-#remove_for_laurel = {'kitchenhallcloset', 'laundrybath'}
-#if True:
-#    paths = [p for p in paths if p not in remove_for_laurel]
-#else:
-#    paths = [p for p in paths if p not in {'laurellaundry'}]
     
+
 if level == 1:
     print('\n'.join((f'drawwall({s}, th);' for s in paths if roomlevel.get(s) == level)))
     print()
+    
 print('pickup pencircle scaled 1bp;')
 color = 'withcolor red' if level == 2 else ''
-print('\n'.join((f'draw {s} {color};' for s in paths if roomlevel.get(s) == level)))
+#print('\n'.join((f'draw {s} {color};' for s in paths if roomlevel.get(s) == level)))
 #+end_src
 
 #+name: drawdoors
@@ -460,7 +468,7 @@ for label, p, offset in dims:
 \bahnlight
 \startMPcode{decimalfun}
   boolean laurel;
-  laurel := false;
+  laurel := true;
   input TEX;
   linecap := butt;
   linejoin := mitered;
@@ -614,8 +622,8 @@ endfor;
 
 #+name: grid
 #+begin_src metapost
-  pickup pencircle scaled .1bp;
-  for i=0 upto 29*4:
+  pickup pencircle scaled .2bp;
+  for i=0 upto 45*4:
     if i mod 4 = 0:
       draw ((LB,-J)--(LB,AD+K-J+th)) shifted (i*ft/4,0) withcolor .5 white;
     else:
@@ -623,9 +631,9 @@ endfor;
     fi;
     for j=0 upto 31*4:
       if j mod 4 = 0:
-        draw ((LB,-J)--(LB+29ft,-J)) shifted (0,j*ft/4) withcolor .5 white;
+        draw ((LB,-J)--(LB+45ft,-J)) shifted (0,j*ft/4) withcolor .5 white;
       else:
-        draw ((LB,-J)--(LB+29ft,-J)) shifted (0,j*ft/4) withcolor .9 white;
+        draw ((LB,-J)--(LB+45ft,-J)) shifted (0,j*ft/4) withcolor .9 white;
       fi;
     endfor;
   endfor;
