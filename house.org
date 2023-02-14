@@ -495,6 +495,13 @@ for label, p, offset in dims:
     <<drawwalls(level=2)>>
     <<atticchimney>>
   fi;
+
+  if laurel:
+     path p;
+     %p = fullcircle shifted (25ft,25ft) scaled 4ft;
+     p = (0,0)--(45ft,0)--(45ft,35ft)--(0,35ft)--cycle;
+     clip currentpicture to p shifted (26ft,-15ft);
+  fi;
   
 \stopMPcode
 \stoptext
@@ -622,7 +629,7 @@ endfor;
 
 #+name: grid
 #+begin_src metapost
-  pickup pencircle scaled .2bp;
+  pickup pencircle scaled .1bp;
   for i=0 upto 45*4:
     if i mod 4 = 0:
       draw ((LB,-J)--(LB,AD+K-J+th)) shifted (i*ft/4,0) withcolor .5 white;
