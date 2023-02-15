@@ -356,14 +356,13 @@ def drawwall (expr p, thickness) =
 enddef;
 """)
     
-
 if level == 1:
     print('\n'.join((f'drawwall({s}, th);' for s in paths if roomlevel.get(s) == level)))
     print()
     
 print('pickup pencircle scaled 1bp;')
 color = 'withcolor red' if level == 2 else ''
-#print('\n'.join((f'draw {s} {color};' for s in paths if roomlevel.get(s) == level)))
+print('\n'.join((f'draw {s} {color};' for s in paths if roomlevel.get(s) == level)))
 #+end_src
 
 #+name: drawdoors
