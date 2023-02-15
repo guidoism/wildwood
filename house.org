@@ -153,10 +153,10 @@ lower left corner.
 
 ** Doors
 
-|  0 | "Garage to family"           | up       | right   | point 1 of garage           | LN               | LO           |
 
 #+name: Doors
 | id | name                         | door dir | out dir | starting point              | offset           | width        |
+|  0 | "Garage to family"           | up       | right   | point 1 of garage           | LN               | LO           |
 |  1 | "West garage door"           | up       | left    | point 0 of garage           | LL               | LF-LL        |
 |  2 | "East garage door"           | down     | left    | point 3 of garage           | LE               | LG-LE        |
 |  3 | "Living room to front entry" | up       | right   | point 1 of livingroom       | 49               | 72           |
