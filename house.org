@@ -9,6 +9,7 @@
 - [ ] Get: Fireplace thingy in family room that you can sit on
 - [ ] Map the electrican circuits using lights
 - [ ] Confirm in person 33" sink centered on window + dishwasher on left + full width of counter to window edge
+- [ ] Get elevation of gas line  
 
 * Tables
 ** Measurements
@@ -342,7 +343,7 @@ paths = list(zip(*paths))[0]
 roomlevel = {name: level for name,_,level,_ in positions[1:]}
 laurel_cmd = {name: laurel for name,_,_,laurel in positions[1:]}
 
-laurel = True
+laurel = False
 if laurel:
     paths = [p for p in paths if laurel_cmd.get(p) != 'remove']
 else:
@@ -468,7 +469,7 @@ for label, p, offset in dims:
 \bahnlight
 \startMPcode{decimalfun}
   boolean laurel;
-  laurel := true;
+  laurel := false;
   input TEX;
   linecap := butt;
   linejoin := mitered;
@@ -488,12 +489,12 @@ for label, p, offset in dims:
   <<fireplacestuff>>
 
   if not laurel:
+    <<atticchimney>>
     <<ruler>>
     <<drawdimensions()>>
     <<outsidewalls>>
     <<utilitylabels>>
     <<drawwalls(level=2)>>
-    <<atticchimney>>
   fi;
 
   if laurel:
