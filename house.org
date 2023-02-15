@@ -5,10 +5,7 @@
 - [ ] Add: pics of each room seperately zoomed in
 - [ ] Add: Seperate layers for each floor in PDF
 - [ ] Fix: Bump out wall in south hall bathroom near tub
-- [ ] Get: Height of bulkhead in kitchen
-- [ ] Get: Fireplace thingy in family room that you can sit on
 - [ ] Map the electrican circuits using lights
-- [ ] Confirm in person 33" sink centered on window + dishwasher on left + full width of counter to window edge
 - [ ] Get elevation of gas line  
 
 * Tables
