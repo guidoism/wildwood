@@ -489,7 +489,6 @@ for label, p, offset in dims:
   <<fireplacestuff>>
 
   if not laurel:
-    <<atticchimney>>
     <<ruler>>
     <<drawdimensions()>>
     <<outsidewalls>>
@@ -509,11 +508,7 @@ for label, p, offset in dims:
 #+end_src
 
 
-
-
-
-
-
+  <<atticchimney>>
   <<drawdoors(level=2)>>
   <<drawwindows(level=2)>> 
 
@@ -600,6 +595,11 @@ chimney := (0,0)--(D-W-C,0)--(D-W-C,Y)--(0,Y)--cycle;
 chimney := chimney shifted (lrcorner garage + (th, 0)) shifted (C,K-J-Y);
 fill chimney withpen pencircle scaled .7bp withcolor .7 white;
 draw chimney withpen pencircle scaled 1bp withcolor black;
+path chimneyseat;
+chimneyseat := (0,0)--(D-W-C-8.180ft,0)--(D-W-C-8.180ft,1.495ft)--(0,1.495ft)--cycle;
+chimneyseat := chimneyseat shifted (llcorner chimney + (8.180ft,-1.495ft));
+fill chimneyseat withpen pencircle scaled .7bp withcolor .7 white;
+draw chimneyseat withpen pencircle scaled 1bp withcolor black;
 path hearth;
 hearth := (0,0)--(AB,0)--(AB,2)--(0,2)--cycle;
 hearth := hearth shifted (point 0 of livingroom) shifted (AA,0);
