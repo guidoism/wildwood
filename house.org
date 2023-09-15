@@ -80,15 +80,13 @@ are more natural to define.
 | Room              | Path                                                                                                                        |
 | garage            | (0,0)--(LB,0)--(LB,LA)--(0,LA)--cycle                                                                                       |
 | livingroom        | (0,0)--(AN,0)--(AN,AD)--(AN-AI,AD)..(AN-AI-AH/2,AD+AM)..(AN-AI-AH,AD)--(0,AD)--cycle                                        |
-| kitchen           | (0,0)--(E,0)--(E,-J)--(D,-J)--(D,K-J)--(0,K-J)--cycle                                                                       |
+| kitchen           | (0,0)--(0,0)--(0,-J)--(D-E,-J)--(D-E,K-J)--(0,K-J)--cycle                                                                   |
 | blueroom          | (0,0)--(IB,0)--(IB,IA)--(IH,IA)--(IH,IN)--(0,IN)--cycle                                                                     |
 | master            | (0,0)--(JD,0)--(JD,JA)--(JD-JM,JA)--(JD-JM,JL)--(0,JL)--cycle                                                               |
 | masterclosetwest  | (0,0)--(JH,0)--(JH,JT)--(0,JT)--cycle                                                                                       |
 | mastercloseteast  | (0,0)--(JH,0)--(JH,JS)--(0,JS)--cycle                                                                                       |
 | entry             | (0,0)--(BB,0)--(BB,BI)--(BB-BJ,BI)--(BB-BJ,BK)--(BL,BK)--(BL,AD)--(0,AD)--cycle                                             |
-| laundrybath       | (0,0)--(DD,0)--(DD,DJ)--(DD-DH,DJ)--(DG,DI)--(0,DI)--cycle                                                                  |
-| laundry           | (0,0)--(DD,0)--(DD,J-th)--(0,J-th)--cycle                                                                                   |
-| laurellaundry     | (0,0)--(DD,0)--(DD,K)--(0,K)--cycle                                                                                         |
+| laundry           | (0,0)--(DD,0)--(DD,K)--(0,K)--cycle                                                                                         |
 | kitchenhallcloset | (0,0)--(DL,0)--(DL,DM)--(0,DM)--cycle                                                                                       |
 | smallbed          | (0,0)--(EI,0)--(EI,EF)--(EI+EO,EF)--(EI+EO,EA)--(EM,EA)--(EM,EC)--(0,EC)--cycle                                             |
 | smallbedcloset    | (0,0)--(ET,0)--(ET,EN)--(0,EN)--cycle                                                                                       |
@@ -104,6 +102,7 @@ are more natural to define.
 | chimneyroom       | (0,0)--(NA,0)--(NA,NB)--(0,NB)--cycle                                                                                       |
 | garageattic       | (0,0)--(OB,0)--(OB,OK)--(OB+OI,OK)--(OB+OI,OK+OJ)--(OB,OK+OJ)--(OB,OA)--(0,OA)--cycle                                       |
 | hallbath          | (0,0)--(GE+th,0)--(GE+th,-2.1est)--(FA,-2.1est)--(FA,5.5est)--(HK+th,5.5est)--(HK+th,5.5est-HJ-th)--(0,5.5est-HJ-th)--cycle |
+| laundrybath       | (0,0)--(DD,0)--(DD,DJ)--(DD-DH,DJ)--(DG,DI)--(0,DI)--cycle                                                                  |
 
 
 TODO: Add relative positions
@@ -121,7 +120,7 @@ lower left corner.
 | name              | horizontal position                                                  | floor level |        |
 | garage            | (0,0)                                                                |           1 |        |
 | livingroom        | lrcorner garage + (th,(K-J)+th)                                      |           1 |        |
-| kitchen           | lrcorner garage + (th,0)                                             |           1 |        |
+| kitchen           | lrcorner garage + (th+E,0)                                           |           1 |        |
 | entry             | lrcorner livingroom + (th,0)                                         |           1 |        |
 | smallbed          | point 6 of entry + (th,-EC)                                          |           1 |        |
 | smallbedcloset    | point 1 of smallbed + (-ER-ES-EV,-EN-th)                             |           1 |        |
@@ -141,47 +140,45 @@ lower left corner.
 | recroom           | (xpart point 1 of master - MA, ypart point 0 of smallbedcloset - MC) |           2 |        |
 | chimneyroom       | point 0 of recroom + (-NA,0)                                         |           2 |        |
 | garageattic       | (0,0)                                                                |           2 |        |
-| laundry           | lrcorner garage + (th,-J)                                            |           1 | remove |
-| laurellaundry     | lrcorner garage + (th,-J)                                            |           1 | add    |
-| kitchenhallcloset | lrcorner garage + (th,-DM-th)                                        |           1 | remove |
-| laundrybath       | lrcorner garage + (th,-J)                                            |           1 | remove |
+| laundry           | lrcorner garage + (th,-J)                                            |           1 |        |
 
 
 ** Doors
 
 
 #+name: Doors
-| id | name                         | door dir | out dir | starting point              | offset           | width        |
-|  0 | "Garage to family"           | up       | right   | point 1 of garage           | LN               | LO           |
-|  1 | "West garage door"           | up       | left    | point 0 of garage           | LL               | LF-LL        |
-|  2 | "East garage door"           | down     | left    | point 3 of garage           | LE               | LG-LE        |
-|  3 | "Living room to front entry" | up       | right   | point 1 of livingroom       | 49               | 72           |
-|  4 | "Living to garage entry"     | right    | up      | point 5 of kitchen          | A                | B-A          |
-|  5 | "Family to front entry"      | left     | up      | point 4 of kitchen          | U                | V-U          |
-|  6 | "Garage entry closet"        | right    | down    | point 0 of kitchen          | I                | H-I          |
-|  7 | "Laundry room door"          | right    | down    | point 0 of kitchen          | G                | F-G          |
-|  8 | "Sliding door"               | right    | down    | point 2 of kitchen          | P                | Q-P          |
-|  9 | "Blue room door"             | left     | down    | point 1 of entry            | BH               | BD           |
-| 10 | "Master room door"           | left     | down    | point 1 of entry            | BG-BF            | BF           |
-| 11 | "Understairs closet door"    | right    | up      | point 5 of entry            | BQ               | BR           |
-| 12 | "Entry closet door"          | up       | right   | point 5 of entry            | BM               | BN           |
-| 13 | "Front entry door"           | left     | up      | point 6 of entry            | 0.740ft          | 4.425ft      |
-| 14 | "Door to south bedroom"      | up       | left    | point 0 of southbed         | FM               | FH           |
-| 15 | "Door to small bedroom"      | up       | right   | point 1 of smallbed         | EE               | EG           |
-| 16 | "Small room closet"          | left     | down    | point 1 of smallbed         | ER               | ES           |
-| 17 | "Master bath door"           | up       | right   | point 3 of master           | JO               | JL-JA-JO-JP  |
-| 18 | "Master closet door 1"       | up       | left    | point 0 of master           | JI               | JT-JI-(JJ/2) |
-| 19 | "Master closet door 2"       | down     | left    | point 5 of master           | JK               | JS-JK-(JJ/2) |
-| 20 | "Blue room closet door"      | right    | up      | point 5 of blueroom         | IG               | II           |
-| 21 | "South hall closet door"     | up       | left    | point 4 of entry            | KB+KC+KD         | KE           |
-| 22 | "Attic door"                 | up       | left    | point 4 of entry            | KB               | KC           |
-| 23 | "Master bath door to toilet" | up       | right   | point 1 of masterbathsink   | GG               | GQ-GO-GG     |
-| 24 | "Master bath closet door"    | up       | right   | point 1 of masterbathcloset | GK               | GL-GJ-GK     |
-| 25 | "Hall bath closet door"      | left     | down    | point 1 of hallbathcloset   | HN-th            | HO           |
-| 26 | "South bed closet door"      | up       | right   | point 1 of southbedcloset   | 1 est            | 5 est        |
-| 27 | "Garage side door"           | left     | down    | point 1 of garage           | LR               | LS           |
-| 28 | "Laundry to outside door"    | up       | left    | point 0 of laundry          | DI+th+(5/12)*est | 2.685ft      |
-| 29 | "South hall bath door"       | down     | left    | point 7 of hallbath         | .25est           | 2.5est       |
+| id | name                           | door dir | out dir | starting point              | offset           | width        |
+|  0 | "Garage to family"             | up       | right   | point 1 of garage           | LN               | LO           |
+|  1 | "West garage door"             | up       | left    | point 0 of garage           | LL               | LF-LL        |
+|  2 | "East garage door"             | down     | left    | point 3 of garage           | LE               | LG-LE        |
+|  3 | "Living room to front entry"   | up       | right   | point 1 of livingroom       | 49               | 72           |
+|  5 | "Family to front entry"        | left     | up      | point 4 of kitchen          | U                | V-U          |
+|  8 | "Sliding door"                 | right    | down    | point 2 of kitchen          | P                | Q-P          |
+|  9 | "Blue room door"               | left     | down    | point 1 of entry            | BH               | BD           |
+| 10 | "Master room door"             | left     | down    | point 1 of entry            | BG-BF            | BF           |
+| 11 | "Understairs closet door"      | right    | up      | point 5 of entry            | BQ               | BR           |
+| 12 | "Entry closet door"            | up       | right   | point 5 of entry            | BM               | BN           |
+| 13 | "Front entry door"             | left     | up      | point 6 of entry            | 0.740ft          | 4.425ft      |
+| 14 | "Door to south bedroom"        | up       | left    | point 0 of southbed         | FM               | FH           |
+| 15 | "Door to small bedroom"        | up       | right   | point 1 of smallbed         | EE               | EG           |
+| 16 | "Small room closet"            | left     | down    | point 1 of smallbed         | ER               | ES           |
+| 17 | "Master bath door"             | up       | right   | point 3 of master           | JO               | JL-JA-JO-JP  |
+| 18 | "Master closet door 1"         | up       | left    | point 0 of master           | JI               | JT-JI-(JJ/2) |
+| 19 | "Master closet door 2"         | down     | left    | point 5 of master           | JK               | JS-JK-(JJ/2) |
+| 20 | "Blue room closet door"        | right    | up      | point 5 of blueroom         | IG               | II           |
+| 21 | "South hall closet door"       | up       | left    | point 4 of entry            | KB+KC+KD         | KE           |
+| 22 | "Attic door"                   | up       | left    | point 4 of entry            | KB               | KC           |
+| 23 | "Master bath door to toilet"   | up       | right   | point 1 of masterbathsink   | GG               | GQ-GO-GG     |
+| 24 | "Master bath closet door"      | up       | right   | point 1 of masterbathcloset | GK               | GL-GJ-GK     |
+| 25 | "Hall bath closet door"        | left     | down    | point 1 of hallbathcloset   | HN-th            | HO           |
+| 26 | "South bed closet door"        | up       | right   | point 1 of southbedcloset   | 1 est            | 5 est        |
+| 27 | "Garage side door"             | left     | down    | point 1 of garage           | LR               | LS           |
+| 28 | "Laundry to outside door"      | up       | left    | point 0 of laundry          | DI+th+(5/12)*est | 2.685ft      |
+| 29 | "South hall bath door"         | down     | left    | point 7 of hallbath         | .25est           | 2.5est       |
+|  7 | "Big proposed laundry opening" | right    | up      | point 3 of laundry          | .1est            | DD-.2est     |
+|  4 | "Living to garage entry"       | right    | up      | point 5 of kitchen          | 0.1est           | B+1.4est      |
+
+
 
 
 ** Windows
@@ -466,7 +463,7 @@ for label, p, offset in dims:
 \bahnlight
 \startMPcode{decimalfun}
   boolean laurel;
-  laurel := false;
+  laurel := true;
   input TEX;
   linecap := butt;
   linejoin := mitered;
@@ -487,28 +484,27 @@ for label, p, offset in dims:
 
   if not laurel:
     <<ruler>>
-    <<drawdimensions()>>
     <<outsidewalls>>
-    <<utilitylabels>>
-    <<drawwalls(level=2)>>
   fi;
 
-  if laurel:
-     path p;
-     %p = fullcircle shifted (25ft,25ft) scaled 4ft;
-     %p = (0,0)--(45ft,0)--(45ft,35ft)--(0,35ft)--cycle;
-     p = (0,0)--(20ft,0)--(20ft,35ft)--(0,35ft)--cycle;
-     clip currentpicture to p shifted (26ft,-15ft);
-  fi;
+  %if laurel:
+  %   path p;
+  %   p = (0,0)--(20ft,0)--(20ft,35ft)--(0,35ft)--cycle;
+  %   clip currentpicture to p shifted (26ft,-15ft);
+  %fi;
+  
+  %<<drawdimensions()>>
   
 \stopMPcode
 \stoptext
 #+end_src
-
-
+    <<utilitylabels>>
+    <<drawwalls(level=2)>>
   <<atticchimney>>
   <<drawdoors(level=2)>>
   <<drawwindows(level=2)>> 
+
+
 
 
 ** Inputs for 3D CAD
@@ -628,21 +624,41 @@ endfor;
 
 #+name: grid
 #+begin_src metapost
-  pickup pencircle scaled .1bp;
-  for i=0 upto 45*4:
-    if i mod 4 = 0:
-      draw ((LB,-J)--(LB,AD+K-J+th)) shifted (i*ft/4,0) withcolor .5 white;
-    else:
-      draw ((LB,-J)--(LB,AD+K-J+th)) shifted (i*ft/4,0) withcolor .9 white;
-    fi;
-    for j=0 upto 31*4:
-      if j mod 4 = 0:
-        draw ((LB,-J)--(LB+45ft,-J)) shifted (0,j*ft/4) withcolor .5 white;
+  if false:
+    pickup pencircle scaled .1bp;
+    for i=0 upto 45*4:
+      if i mod 4 = 0:
+        draw ((LB,-J)--(LB,AD+K-J+th)) shifted (i*ft/4,0) withcolor .5 white;
       else:
-        draw ((LB,-J)--(LB+45ft,-J)) shifted (0,j*ft/4) withcolor .9 white;
+        draw ((LB,-J)--(LB,AD+K-J+th)) shifted (i*ft/4,0) withcolor .9 white;
       fi;
+      for j=0 upto 31*4:
+        if j mod 4 = 0:
+          draw ((LB,-J)--(LB+45ft,-J)) shifted (0,j*ft/4) withcolor .5 white;
+        else:
+          draw ((LB,-J)--(LB+45ft,-J)) shifted (0,j*ft/4) withcolor .9 white;
+        fi;
+      endfor;
     endfor;
-  endfor;
+  fi;
+  
+  if true:
+    pickup pencircle scaled .1bp;
+    for i=0 upto 76*4:
+      if i mod 4 = 0:
+        draw ((LB,-J)--(LB,28ft)) shifted (i*ft/4,0) withcolor .5 white;
+      else:
+        draw ((LB,-J)--(LB,28ft)) shifted (i*ft/4,0) withcolor .9 white;
+      fi;
+      for j=0 upto 40*4:
+        if j mod 4 = 0:
+          draw ((LB,-J)--(LB+76ft,-J)) shifted (0,j*ft/4) withcolor .5 white;
+        else:
+          draw ((LB,-J)--(LB+76ft,-J)) shifted (0,j*ft/4) withcolor .9 white;
+        fi;
+      endfor;
+    endfor;
+  fi;
 #+end_src
 
 
@@ -662,3 +678,4 @@ endfor;
 #+begin_src sh :results output
 context house.tex && open house.pdf
 #+end_src
+
