@@ -134,7 +134,7 @@ EstFt = 12bp; % Estimated feet, need to re-measure these dimensions
 TODO = 0bp; % Unknown
 th := 0.445 EstFt; % Interior wall thickness 
 
-% L I V I N G  ---  K I T C H E N  ---   E N T R Y
+% K I T C H E N --- L I V I N G  ---     E N T R Y
 
 A :=  4.090 ft;     AA := 23.070 ft;     BA :=  3.330 ft;    
 B :=  8.095 ft;     AB :=  4.925 ft;     BB := 23.065 ft;
@@ -142,7 +142,7 @@ C := 18.530 ft;     AC := 10.580 ft;     BC := 19.190 ft;
 D := 43.530 ft;     AD := 14.840 ft;     BD :=  2.410 ft;
 E :=  8.550 ft;     AE :=  3.080 ft;     BE := 10.080 ft;
 F :=  5.420 ft;     AF := 17.730 ft;     BF :=  2.415 ft;
-G :=  3.015 ft;     AG := 12.52EstFt;    BG :=  3.115 ft;
+G :=  3.015 ft;     AG := 12.52 EstFt;   BG :=  3.115 ft;
 H :=  1.910 ft;     AH := 14.890 ft;     BH :=  7.690 ft;
 I :=  0.330 ft;     AI :=  5.690 ft;     BI := 15.470 ft;
 J := 12.525 ft;     AJ :=  4.435 ft;     BJ :=  3.365 ft;
@@ -468,9 +468,9 @@ if false:
   label.rt(btex \roomname Bedroom 2 etex, .5[point 0 of blueroom, point 5 of blueroom] shifted (20ft,0));
   label.rt(btex \roomname Bedroom 3 etex, .5[point 0 of southbed, point 3 of southbed] shifted (2ft,0));
   label.rt(btex \roomname Bedroom 4 etex, .5[point 0 of southbed, point 3 of southbed] shifted (-12ft,0));
-  label.rt(btex \roomname Bath 1 etex, .5[point 0 of masterbathsink, point 5 of masterbathsink] shifted (1ft,0));
-  label.rt(btex \roomname Bath 2 etex, .5[point 0 of hallbath, point 5 of hallbath] shifted (4ft,0));
-  label.rt(btex \roomname Bath 3 etex, .5[point 0 of laundrybath, point 5 of laundrybath] shifted (1ft,0));
+  label.rt(btex \roomname Bath 2 etex, .5[point 0 of masterbathsink, point 5 of masterbathsink] shifted (1ft,0));
+  label.rt(btex \roomname Bath 3 etex, .5[point 0 of hallbath, point 5 of hallbath] shifted (4ft,0));
+  label.rt(btex \roomname Bath 1 etex, .5[point 0 of laundrybath, point 5 of laundrybath] shifted (1ft,0));
   label.rt(btex \roomname Living Room etex, .5[point 0 of livingroom, point 6 of livingroom] shifted (12ft,0));
 fi;
 
